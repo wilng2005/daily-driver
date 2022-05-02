@@ -2,7 +2,7 @@ id: 30294
 name: daily-driver
 environments:
     production:
-        memory: 2048
+        memory: 1024
         cli-memory: 512
         runtime: 'php-8.1:al2'
         timeout: 600
