@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+
 class Capture extends Resource
 {
     /**
@@ -81,7 +82,9 @@ class Capture extends Resource
      */
     public function lenses(NovaRequest $request)
     {
-        return [];
+        return [
+            new Lenses\InboxCaptures,
+        ];
     }
 
     /**
