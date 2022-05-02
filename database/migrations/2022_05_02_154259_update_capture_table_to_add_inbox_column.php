@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('captures', function (Blueprint $table) {
-            $table->boolean('inbox');
+            $table->boolean('inbox')->default(true);
         });
     }
 

@@ -48,7 +48,7 @@ class Capture extends Resource
         return [
             Text::make('Title')->sortable()->showOnPreview()->required()->rules('required'),
             Markdown::make('Content')->alwaysShow()->showOnPreview(),
-            Boolean::make('Inbox')->showOnPreview(),
+            Boolean::make('Inbox')->showOnPreview()->hideWhenCreating(),
             DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
             DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
         ];
