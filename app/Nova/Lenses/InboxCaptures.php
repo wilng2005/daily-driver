@@ -2,8 +2,11 @@
 
 namespace App\Nova\Lenses;
 
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Http\Requests\LensRequest;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Lenses\Lens;
@@ -12,7 +15,7 @@ class InboxCaptures extends Lens
 {
 
     public static $showPollingToggle = true;
-    
+
     /**
      * Get the query builder / paginator for the lens.
      *
@@ -36,7 +39,11 @@ class InboxCaptures extends Lens
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make(__('ID'), 'id')->sortable(),
+            Text::make('Title')->sortable()->showOnPreview()->required()->rules('required'),
+            Markdown::make('Content')->alwaysShow()->showOnPreview(),
+            Boolean::make('Inbox')->showOnPreview()->hideWhenCreating(),
+            DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
+            DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
         ];
     }
 
