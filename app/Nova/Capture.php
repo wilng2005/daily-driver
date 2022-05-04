@@ -3,13 +3,15 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Stack;
 use Laravel\Nova\Http\Requests\NovaRequest;
-
 
 class Capture extends Resource
 {
@@ -46,11 +48,19 @@ class Capture extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            Text::make('Title')->sortable()->showOnPreview()->required()->rules('required'),
+            
+            Text::make('Title')->sortable()->showOnPreview()->required()->rules('required')->displayUsing(
+                function($title){
+                    return Str::limit($title, 60);
+                }
+            ),
             Markdown::make('Content')->alwaysShow()->showOnPreview(),
-            Boolean::make('Inbox')->showOnPreview()->hideWhenCreating(),
-            DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
-            DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
+            
+            Boolean::make('Inbox')->showOnPreview()->hideWhenCreating()->sortable(),
+            Stack::make('Create/Updated',[
+                DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
+                DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
+            ]),
         ];
     }
 
