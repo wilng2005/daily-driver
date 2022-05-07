@@ -23,7 +23,7 @@ jobs:
       - name: Install Project Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
       - name: Start Sail       
-        run: vendor/bin/sail up -d
+        run: vendor/bin/sail up -d --env=testing
       - name: Check test coverage
         run: vendor/bin/sail artisan test --coverage --min=25.9 
       - name: Stop Sail       
