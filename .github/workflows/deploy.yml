@@ -23,6 +23,7 @@ jobs:
       - name: Check test coverage
         run: php artisan test --coverage --min=30  
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
