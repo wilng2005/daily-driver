@@ -23,10 +23,12 @@ jobs:
       - name: Install Project Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
       - name: Start Sail       
-        run: vendor/bin/sail up
+        run: vendor/bin/sail up -d
       - name: Check test coverage
         run: php artisan test --coverage --min=25.9 
-  deploy:
+      - name: Stop Sail       
+        run: vendor/bin/sail down
+deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
