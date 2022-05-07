@@ -3,16 +3,6 @@ name: Deploy
 on:
   push:
     branches: [ main ]
-env:
-  APP_NAME: Laravel
-  APP_ENV: testing
-  DB_CONNECTION: mysql
-  DB_HOST: localhost
-  DB_PORT: 3306
-  DB_DATABASE: daily_driver
-  DB_USERNAME: sail
-  DB_PASSWORD: password
-  SAIL_XDEBUG_MODE: develop,debug,coverage
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -31,9 +21,11 @@ jobs:
         run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_LICENSE_KEY }}
       - name: Install Project Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
+      - name: Setup env file
+        run: cp .env.ci .env
       - name: Start Sail       
         run: vendor/bin/sail up -d
-      - name: Sleep for 10s
+      - name: Sleep
         uses: juliangruber/sleep-action@v1
         with:
           time: 60s
