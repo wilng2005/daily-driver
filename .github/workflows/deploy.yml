@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -16,14 +16,29 @@ jobs:
           php-version: 8.0
           tools: composer:v2
           coverage: xdebug
+      - name: Setup nova credentials
+        run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_LICENSE_KEY }}
+      - name: Install Project Dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+      - name: Check test coverage
+        run: php artisan test --coverage --min=30  
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          tools: composer:v2
+          coverage: none
       - name: Require Vapor CLI
         run: composer global require laravel/vapor-cli
       - name: Setup nova credentials
         run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_LICENSE_KEY }}
       - name: Install Project Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
-      - name: Check test coverage
-        run: php artisan test --coverage --min=25.9
       - name: Deploy Environment
         run: vapor deploy production
         env:
