@@ -28,11 +28,11 @@ jobs:
       - name: Sleep
         uses: juliangruber/sleep-action@v1
         with:
-          time: 27s
+          time: 16s
       - name: Run database migrations
         run: vendor/bin/sail artisan migrate --force
       - name: Check test coverage
-        run: vendor/bin/sail artisan test --coverage --min=25.9 
+        run: vendor/bin/sail artisan test --coverage --min=46.9
       - name: Stop Sail       
         run: vendor/bin/sail down
   deploy:
