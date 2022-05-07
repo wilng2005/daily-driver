@@ -25,10 +25,6 @@ jobs:
         run: cp .env.ci .env
       - name: Start Sail       
         run: vendor/bin/sail up -d
-      - name: Sleep
-        uses: juliangruber/sleep-action@v1
-        with:
-          time: 60s
       - name: Run database migrations
         run: vendor/bin/sail artisan migrate --force
       - name: Check test coverage
