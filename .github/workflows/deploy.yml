@@ -18,12 +18,12 @@ jobs:
           coverage: xdebug
       - name: Setup Laravel Sail
         uses: docker://laravelsail/php81-composer:latest
-      - name: Start Sail       
-        run: sail up
       - name: Setup nova credentials
         run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_LICENSE_KEY }}
       - name: Install Project Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
+      - name: Start Sail       
+        run: vendor/bin/sail up
       - name: Check test coverage
         run: php artisan test --coverage --min=25.9 
   deploy:
