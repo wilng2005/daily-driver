@@ -7,6 +7,7 @@ env:
   DB_DATABASE: daily_driver
   DB_USERNAME: sail
   DB_PASSWORD: password
+  SAIL_XDEBUG_MODE: develop,debug,coverage
 jobs:
   test:
     runs-on: ubuntu-latest
