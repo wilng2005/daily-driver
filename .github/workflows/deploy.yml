@@ -33,7 +33,7 @@ jobs:
       - name: Start Sail       
         run: vendor/bin/sail up -d
       - name: Run database migrations
-        run: vendor/bin/sail artisan migrate 
+        run: vendor/bin/sail artisan migrate --force
       - name: Check test coverage
         run: vendor/bin/sail artisan test --coverage --min=25.9 
       - name: Stop Sail       
