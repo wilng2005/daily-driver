@@ -77,7 +77,7 @@ services:
         networks:
             - sail
     selenium:
-        image: 'selenium/standalone-chrome'
+        image: 'seleniarm/standalone-chromium'
         volumes:
             - '/dev/shm:/dev/shm'
         networks:

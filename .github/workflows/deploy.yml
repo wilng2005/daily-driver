@@ -33,6 +33,8 @@ jobs:
         run: vendor/bin/sail artisan migrate --force
       - name: Check test coverage
         run: vendor/bin/sail artisan test --coverage --min=46.9
+      - name: Run browser tests
+        run: sail dusk
       - name: Stop Sail       
         run: vendor/bin/sail down
   deploy:
