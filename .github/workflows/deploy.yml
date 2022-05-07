@@ -28,7 +28,7 @@ jobs:
         run: php artisan test --coverage --min=25.9 
       - name: Stop Sail       
         run: vendor/bin/sail down
-deploy:
+  deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
