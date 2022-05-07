@@ -24,4 +24,13 @@ class CaptureTest extends TestCase
 
         $response->assertSeeText("Captures");
     }
+
+    public function test_create_capture(){
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)
+             ->get('/nova/resources/captures/new');
+
+        $response->assertSeeText("Create Capture");
+    }
 }
