@@ -25,7 +25,7 @@ jobs:
       - name: Start Sail       
         run: vendor/bin/sail up -d
       - name: Check test coverage
-        run: php artisan test --coverage --min=25.9 
+        run: vendor/bin/sail artisan test --coverage --min=25.9 
       - name: Stop Sail       
         run: vendor/bin/sail down
   deploy:
