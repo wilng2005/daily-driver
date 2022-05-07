@@ -7,7 +7,7 @@ env:
   APP_NAME: Laravel
   APP_ENV: testing
   DB_CONNECTION: mysql
-  DB_HOST: mysql
+  DB_HOST: localhost
   DB_PORT: 3306
   DB_DATABASE: daily_driver
   DB_USERNAME: sail
