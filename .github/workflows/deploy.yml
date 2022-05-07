@@ -33,8 +33,12 @@ jobs:
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
       - name: Start Sail       
         run: vendor/bin/sail up -d
+      - name: Sleep for 10s
+        uses: juliangruber/sleep-action@v1
+        with:
+          time: 10s
       - name: Run database migrations
-        run: vendor/bin/sail artisan migrate
+        run: vendor/bin/sail artisan migrate --force
       - name: Check test coverage
         run: vendor/bin/sail artisan test --coverage --min=25.9 
       - name: Stop Sail       
