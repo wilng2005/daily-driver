@@ -32,6 +32,8 @@ jobs:
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
       - name: Start Sail       
         run: vendor/bin/sail up -d
+      - name: Run database migrations
+        run: vendor/bin/sail artisan migrate 
       - name: Check test coverage
         run: vendor/bin/sail artisan test --coverage --min=25.9 
       - name: Stop Sail       
