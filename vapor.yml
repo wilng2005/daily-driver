@@ -7,7 +7,7 @@ environments:
         runtime: 'php-8.1:al2'
         timeout: 600
         domain: greater.than.today
-        database: daily-driver-production-a
+        database: daily-driver-production-b
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
             - 'php artisan event:cache'
