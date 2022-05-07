@@ -15,7 +15,7 @@ jobs:
         with:
           php-version: 8.0
           tools: composer:v2
-          coverage: none
+          coverage: xdebug
       - name: Require Vapor CLI
         run: composer global require laravel/vapor-cli
       - name: Setup nova credentials
