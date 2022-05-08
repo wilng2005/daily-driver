@@ -12,4 +12,20 @@ class Capture extends Model
     use HasFactory;
     use SoftDeletes;
     use Actionable;
+
+    public function prefix_with_title(){
+        return $this->prefix().$this->name;
+    }
+
+    public function prefix(){
+        return $this->capture?$this->capture->prefix_with_title()."/":"";
+    }     
+
+    public function captures(){
+        return $this->hasMany(Capture::class);
+    }
+
+    public function capture(){
+        return $this->belongsTo(Capture::class);
+    }
 }

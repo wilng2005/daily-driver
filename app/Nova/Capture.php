@@ -5,8 +5,10 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
@@ -27,7 +29,7 @@ class Capture extends Resource
      *
      * @var string
      */
-    public static $title = 'title';
+   // public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -35,9 +37,13 @@ class Capture extends Resource
      * @var array
      */
     public static $search = [
-        'title',
+        'name',
         'content',
     ];
+
+    public function title(){
+        return $this->prefix_with_title();
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -48,10 +54,10 @@ class Capture extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            
-            Text::make('Title')->sortable()->showOnPreview()->required()->rules('required')->displayUsing(
-                function($title){
-                    return Str::limit($title, 60);
+            BelongsTo::make('Capture')->nullable(),
+            Text::make('Name')->sortable()->showOnPreview()->required()->rules('required')->displayUsing(
+                function($name){
+                    return Str::limit($name, 60);
                 }
             ),
             Markdown::make('Content')->alwaysShow()->showOnPreview(),
@@ -61,6 +67,8 @@ class Capture extends Resource
                 DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
                 DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
             ]),
+
+            HasMany::make('Captures'),
         ];
     }
 

@@ -17,7 +17,7 @@ class CaptureFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(8),
+            'name' => $this->faker->sentence(8),
             'content' => $this->faker->paragraphs(3,true),
             'inbox'=> $this->faker->boolean(),
         ];
