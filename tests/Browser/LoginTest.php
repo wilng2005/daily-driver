@@ -16,7 +16,7 @@ class LoginTest extends DuskTestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testLoginPageIsAvailable()
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/nova/login')
@@ -24,12 +24,4 @@ class LoginTest extends DuskTestCase
         });
     }
 
-    public function test_capture(){
-        $user = User::factory()->create();
-
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/nova/login')
-                    ->assertSee('Welcome Back!');
-        });
-    }
 }
