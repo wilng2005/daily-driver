@@ -26,7 +26,7 @@ class InboxCaptures extends Lens
     public static function query(LensRequest $request, $query)
     {
         return $request->withOrdering($request->withFilters(
-            $query
+            $query->where('inbox',true)
         ));
     }
 
