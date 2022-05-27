@@ -64,10 +64,10 @@ class Capture extends Resource
             
             Boolean::make('Inbox')->showOnPreview()->hideWhenCreating()->sortable(),
             Boolean::make('Next Action')->showOnPreview()->hideWhenCreating()->sortable(),
-            // Stack::make('Create/Updated',[
-            //     DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
-            //     DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
-            // ]),
+            Stack::make('Create/Updated',[
+                DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
+                DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
+            ]),
 
             HasMany::make('Captures'),
         ];
