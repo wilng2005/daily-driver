@@ -118,7 +118,10 @@ class Capture extends Resource
     public function actions(NovaRequest $request)
     {
         return [
-            new Actions\RemoveFromInbox
+            new Actions\RemoveFromInbox,
+            new Actions\RemoveFromNextAction,
+            new Actions\AddToInbox,
+            new Actions\AddToNextAction,
         ];
     }
 }
