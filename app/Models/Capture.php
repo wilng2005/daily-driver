@@ -28,4 +28,9 @@ class Capture extends Model
     public function capture(){
         return $this->belongsTo(Capture::class);
     }
+
+    public function remove_from_inbox(){
+        $this->inbox = false;
+        $this->save();
+    }
 }
