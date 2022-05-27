@@ -2,7 +2,6 @@
 
 namespace App\Nova\Lenses;
 
-
 use Illuminate\Support\Str;
 
 use Laravel\Nova\Fields\Boolean;
@@ -14,12 +13,8 @@ use Laravel\Nova\Http\Requests\LensRequest;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Lenses\Lens;
 
-
-class InboxCaptures extends Lens
+class NextActionCaptures extends Lens
 {
-
-    public static $showPollingToggle = true;
-
     /**
      * Get the query builder / paginator for the lens.
      *
@@ -30,7 +25,7 @@ class InboxCaptures extends Lens
     public static function query(LensRequest $request, $query)
     {
         return $request->withOrdering($request->withFilters(
-            $query->where('inbox',true)
+            $query->where('next_action',true)
         ));
     }
 
@@ -96,6 +91,6 @@ class InboxCaptures extends Lens
      */
     public function uriKey()
     {
-        return 'inbox-captures';
+        return 'next-action-captures';
     }
 }

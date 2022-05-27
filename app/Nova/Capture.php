@@ -60,13 +60,14 @@ class Capture extends Resource
                     return Str::limit($name, 60);
                 }
             ),
-            Markdown::make('Content')->alwaysShow()->showOnPreview(),
+            Markdown::make('Content')->alwaysShow(),
             
             Boolean::make('Inbox')->showOnPreview()->hideWhenCreating()->sortable(),
-            Stack::make('Create/Updated',[
-                DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
-                DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
-            ]),
+            Boolean::make('Next Action')->showOnPreview()->hideWhenCreating()->sortable(),
+            // Stack::make('Create/Updated',[
+            //     DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
+            //     DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
+            // ]),
 
             HasMany::make('Captures'),
         ];
@@ -104,6 +105,7 @@ class Capture extends Resource
     {
         return [
             new Lenses\InboxCaptures,
+            new Lenses\NextActionCaptures,
         ];
     }
 

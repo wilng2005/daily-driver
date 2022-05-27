@@ -20,6 +20,7 @@ class CaptureFactory extends Factory
             'name' => $this->faker->sentence(8),
             'content' => $this->faker->paragraphs(3,true),
             'inbox'=> $this->faker->boolean(),
+            'next_action'=> $this->faker->boolean(),
         ];
     }
 }
