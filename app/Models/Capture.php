@@ -30,7 +30,7 @@ class Capture extends Model
     public function capture(){
         return $this->belongsTo(Capture::class);
     }
-
+    // @codeCoverageIgnoreStart
     public function remove_from_inbox(){
         $this->inbox = false;
         $this->save();
@@ -51,10 +51,12 @@ class Capture extends Model
         $this->save();
     }
 
+
     public function daily_schedule(){
         $this->add_daily_task_to_inbox();
         $this->add_scheduled_task_to_inbox();
     }
+    // @codeCoverageIgnoreEnd
 
     public function add_daily_task_to_inbox(){
         if(Str::startsWith($this->name,["Daily:","Daily :", "Daily >", "Daily>"])){
@@ -64,10 +66,11 @@ class Capture extends Model
     }
 
     public function add_scheduled_task_to_inbox($now=null){
-
+        // @codeCoverageIgnoreStart
         if(!$now)
             $now=Carbon::now();
-
+        // @codeCoverageIgnoreStart
+        
         $potential_date_str=Str::substr($this->name, 0, 10);
         if(Carbon::canBeCreatedFromFormat($potential_date_str,"Y-m-d")){
             $capture_date=Carbon::createFromFormat("Y-m-d", $potential_date_str, 'Asia/Singapore');

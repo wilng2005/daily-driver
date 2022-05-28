@@ -16,7 +16,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        // @codeCoverageIgnoreStart
         $schedule->command('schedule:daily')->dailyAt("01:00");
+        // @codeCoverageIgnoreEnd
     }
 
     /**

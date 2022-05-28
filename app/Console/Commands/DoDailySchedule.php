@@ -28,11 +28,8 @@ class DoDailySchedule extends Command
      */
     public function handle()
     {
-        Capture::chunk(50, function ($captures) {
-        foreach ($captures as $capture) {
-                $capture->daily_schedule();
-            }
-        });
-        return 0;
+        foreach (Capture::all() as $capture) {
+            $capture->daily_schedule();
+        }
     }
 }

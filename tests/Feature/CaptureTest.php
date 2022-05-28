@@ -5,12 +5,11 @@ namespace Tests\Feature;
 use App\Models\Capture;
 use App\Models\User;
 
-
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Carbon;
+
 use Tests\TestCase;
-
-
 
 class CaptureTest extends TestCase
 {
@@ -79,5 +78,49 @@ class CaptureTest extends TestCase
 
         $this->assertEquals("Project A1", $captures[0]->name);
         $this->assertEquals("Project A1", $capture_c->capture->name);
+    }
+
+    public function test_add_daily_task_to_inbox(){
+        $capture = new Capture;
+
+        $capture->name="Daily: Check work email";
+        $capture->inbox=false;
+
+        $capture->add_daily_task_to_inbox();
+        $this->assertTrue($capture->inbox);
+
+
+        $capture->name="Check work email";
+        $capture->inbox=false;
+
+        $capture->add_daily_task_to_inbox();
+        $this->assertFalse($capture->inbox);
+    }
+
+    public function test_add_scheduled_task_to_inbox(){
+        $capture = new Capture;
+
+        $capture->name="2022-05-30: Check work email";
+        $capture->inbox=false;
+
+        $capture->add_scheduled_task_to_inbox(Carbon::createFromFormat('Y-m-d',"2022-05-30"));
+        $this->assertTrue($capture->inbox);
+
+        $capture = new Capture;
+
+        $capture->name="2022-05-31: Check work email";
+        $capture->inbox=false;
+
+        $capture->add_scheduled_task_to_inbox(Carbon::createFromFormat('Y-m-d',"2022-05-30"));
+        $this->assertFalse($capture->inbox);
+
+        $capture = new Capture;
+
+        $capture->name="2022-05-14: Check work email";
+        $capture->inbox=false;
+
+        $capture->add_scheduled_task_to_inbox(Carbon::createFromFormat('Y-m-d',"2022-05-30"));
+        $this->assertTrue($capture->inbox);
+
     }
 }
