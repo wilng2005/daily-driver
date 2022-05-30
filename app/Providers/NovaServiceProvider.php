@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Http\Request;
+use Laravel\Nova\Menu\Menu;
+use Laravel\Nova\Menu\MenuItem;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
@@ -16,6 +19,32 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+    
+        Nova::userMenu(function (Request $request, Menu $menu) {
+         
+            $menu->prepend(
+                MenuItem::make(
+                    'New Capture',
+                    "/resources/captures/new"
+                )
+            );
+
+            $menu->prepend(
+                MenuItem::make(
+                    'Inbox',
+                    "/resources/captures/lens/inbox-captures"
+                )
+            );
+
+            $menu->prepend(
+                MenuItem::make(
+                    'Next Action',
+                    "/resources/captures/lens/next-action-captures"
+                )
+            );
+
+            return $menu;
+        });
     }
 
     /**

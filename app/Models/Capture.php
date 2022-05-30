@@ -43,10 +43,12 @@ class Capture extends Model
 
     public function add_to_inbox(){
         $this->inbox = true;
+        $this->next_action = false;
         $this->save();
     }
 
     public function add_to_next_action(){
+        $this->next_action = false;
         $this->next_action = true;
         $this->save();
     }
