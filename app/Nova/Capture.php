@@ -62,8 +62,8 @@ class Capture extends Resource
             ),
             Markdown::make('Content')->alwaysShow(),
             
-            Boolean::make('Inbox')->showOnPreview()->hideWhenCreating()->sortable(),
-            Boolean::make('Next Action')->showOnPreview()->hideWhenCreating()->sortable(),
+            Boolean::make('Inbox')->showOnPreview()->sortable()->default(true),
+            Boolean::make('Next Action')->showOnPreview()->sortable()->default(false),
             Stack::make('Create/Updated',[
                 DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
                 DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
