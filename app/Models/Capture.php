@@ -48,7 +48,7 @@ class Capture extends Model
     }
 
     public function add_to_next_action(){
-        $this->next_action = false;
+        $this->inbox = false;
         $this->next_action = true;
         $this->save();
     }
