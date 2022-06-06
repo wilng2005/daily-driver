@@ -57,6 +57,7 @@ class Capture extends Model
     public function daily_schedule(){
         $this->add_daily_task_to_inbox();
         $this->add_scheduled_task_to_inbox();
+        $this->refresh_priority_no();
     }
     // @codeCoverageIgnoreEnd
 
@@ -84,5 +85,11 @@ class Capture extends Model
         }
     }
 
+    //@codeCoverageIgnoreStart
+    public function refresh_priority_no(){
 
+        $this->priority_no = rand(1, 10000);
+        $this->save();
+    }
+    //@codeCoverageIgnoreEnd
 }

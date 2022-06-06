@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Stack;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -54,6 +55,7 @@ class Capture extends Resource
     public function fields(NovaRequest $request)
     {
         return [
+            Number::make("Priority No")->sortable(),
             BelongsTo::make('Capture')->nullable(),
             Text::make('Name')->sortable()->showOnPreview()->required()->rules('required')->displayUsing(
                 function($name){

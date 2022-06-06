@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Http\Requests\LensRequest;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Lenses\Lens;
@@ -43,6 +44,7 @@ class InboxCaptures extends Lens
     public function fields(NovaRequest $request)
     {
         return [
+            Number::make("Priority No")->sortable(),
             Text::make('Name')->sortable()->displayUsing(
                 function($name){
                     return Str::limit($name, 60);
