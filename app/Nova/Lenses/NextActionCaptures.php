@@ -27,6 +27,7 @@ class NextActionCaptures extends Lens
     {
         return $request->withOrdering($request->withFilters(
             $query->where('next_action',true)
+            ->orderBy('priority_no')
         ));
     }
 
