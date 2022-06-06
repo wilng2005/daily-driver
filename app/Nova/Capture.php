@@ -124,6 +124,7 @@ class Capture extends Resource
             new Actions\RemoveFromNextAction,
             new Actions\AddToInbox,
             new Actions\AddToNextAction,
+            new Actions\RefreshPriority
         ];
     }
 }
