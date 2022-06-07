@@ -45,7 +45,7 @@ class InboxCaptures extends Lens
     public function fields(NovaRequest $request)
     {
         return [
-            Number::make("Priority No")->sortable(),
+            
             Text::make('Name')->sortable()->displayUsing(
                 function($name){
                     return Str::limit($name, 60);
@@ -56,6 +56,7 @@ class InboxCaptures extends Lens
                     return Str::limit($content, 30);
                 }
             ),
+            Number::make("Priority No")->sortable(),
         ];
     }
 

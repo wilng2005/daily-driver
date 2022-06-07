@@ -62,7 +62,7 @@ class Capture extends Model
     // @codeCoverageIgnoreEnd
 
     public function add_daily_task_to_inbox(){
-        if(Str::startsWith($this->name,["Daily:","Daily :", "Daily >", "Daily>"])){
+        if(!$this->next_action && Str::startsWith($this->name,["Daily:","Daily :", "Daily >", "Daily>"])){
             $this->inbox = true;
             $this->save();
         }
