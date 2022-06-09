@@ -56,7 +56,7 @@ class Capture extends Resource
     {
         return [
             Number::make("Priority No")->sortable(),
-            BelongsTo::make('Capture')->nullable(),
+            BelongsTo::make('Capture')->nullable()->withoutTrashed()->searchable()->showCreateRelationButton(),
             Text::make('Name')->sortable()->showOnPreview()->required()->rules('required')->displayUsing(
                 function($name){
                     return Str::limit($name, 60);
