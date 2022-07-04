@@ -70,6 +70,12 @@ class Capture extends Resource
                 DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
                 DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
             ]),
+            Text::make('Links', function () {
+                
+                return "<a href='".url("/nova/resources/captures/new")."'>New Capture</a><br/><br/>
+                <a href='".url("/nova/resources/captures/lens/inbox-captures")."'>Inbox</a><br/><br/>
+                <a href='".url("/nova/resources/captures/lens/next-action-captures")."'>Next Action</a>";
+            })->asHtml(),
 
             HasMany::make('Captures'),
         ];
