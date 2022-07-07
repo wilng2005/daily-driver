@@ -92,4 +92,12 @@ class Capture extends Model
         $this->save();
     }
     //@codeCoverageIgnoreEnd
+
+    //@codeCoverageIgnoreStart
+    public function change_priority_no($priority_no){
+
+        $this->priority_no = $priority_no;
+        $this->save();
+    }
+    //@codeCoverageIgnoreEnd
 }
