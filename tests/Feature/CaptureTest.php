@@ -97,6 +97,23 @@ class CaptureTest extends TestCase
         $this->assertFalse($capture->inbox);
     }
 
+    public function test_add_weekday_task_to_inbox(){
+        $capture = new Capture;
+
+        $capture->name="Weekday: Check work email";
+        $capture->inbox=false;
+
+        $capture->add_weekday_task_to_inbox();
+        $this->assertTrue($capture->inbox);
+
+
+        $capture->name="Check work email";
+        $capture->inbox=false;
+
+        $capture->add_weekday_task_to_inbox();
+        $this->assertFalse($capture->inbox);
+    }
+
     public function test_add_scheduled_task_to_inbox(){
         $capture = new Capture;
 

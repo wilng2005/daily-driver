@@ -59,10 +59,21 @@ class Capture extends Model
         $this->add_scheduled_task_to_inbox();
         $this->refresh_priority_no();
     }
+
+    public function weekday_schedule(){
+        $this->add_weekday_task_to_inbox();
+    }
     // @codeCoverageIgnoreEnd
 
     public function add_daily_task_to_inbox(){
-        if(Str::startsWith($this->name,["Daily:","Daily :", "Daily >", "Daily>"])){
+        if(Str::startsWith($this->name,[ "Daily", "Daily:","Daily :", "Daily >", "Daily>"])){
+            $this->inbox = true;
+            $this->save();
+        }
+    }
+
+    public function add_weekday_task_to_inbox(){
+        if(Str::startsWith($this->name,["Weekday", "weekday"])){
             $this->inbox = true;
             $this->save();
         }
