@@ -1,4 +1,4 @@
-name: Deploy
+name: npm-ci-build
 
 on:
   push:
