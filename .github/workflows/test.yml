@@ -2,7 +2,7 @@ name: Test
 
 on:
   push:
-    branches: [ main, staging, 12-multi-user-support ]
+    branches: [ 12-multi-user-support ]
 jobs:
   test:
     runs-on: ubuntu-latest
