@@ -1,0 +1,41 @@
+name: Test
+
+on:
+  push:
+    branches: [ main, staging, 12-multi-user-support ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          tools: composer:v2
+          coverage: xdebug
+      - name: Setup Laravel Sail
+        uses: docker://laravelsail/php81-composer:latest
+      - name: Setup nova credentials
+        run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_LICENSE_KEY }}
+      - name: Install Project Dependencies
+        run: composer update
+      - name: Install Project Dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+      - name: Setup env file
+        run: cp .env.ci .env
+      - name: Start Sail       
+        run: vendor/bin/sail up -d
+      - name: Sleep
+        uses: juliangruber/sleep-action@v1
+        with:
+          time: 20s
+      - name: Run database migrations
+        run: vendor/bin/sail artisan migrate --force
+      - name: Check test coverage
+        run: vendor/bin/sail artisan test --coverage --min=46.9
+      - name: Run browser tests
+        run: vendor/bin/sail dusk
+      - name: Stop Sail       
+        run: vendor/bin/sail down
