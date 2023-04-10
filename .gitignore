@@ -16,3 +16,4 @@ yarn-error.log
 /.vscode
 /tests/Browser/screenshots
 .DS_Store
+/coverage-report

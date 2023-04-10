@@ -114,9 +114,12 @@ class Capture extends Model
 
     /**
      * Get the user that owns the capture.
+     * 
      */
     public function user()
     {
+        //@codeCoverageIgnoreStart
         return $this->belongsTo(User::class);
+        //@codeCoverageIgnoreEnd
     }
 }

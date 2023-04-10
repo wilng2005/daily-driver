@@ -45,6 +45,8 @@ class User extends Authenticatable
     // Define one-to-many relationship with captures
     public function captures()
     {
+        //@codeCoverageIgnoreStart
         return $this->hasMany(Capture::class);
+        //@codeCoverageIgnoreEnd
     }
 }

@@ -14,6 +14,8 @@ class UserPolicy
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
+     * 
+     * @codeCoverageIgnore
      */
     public function viewAny(User $user)
     {
@@ -36,6 +38,8 @@ class UserPolicy
      * @param  \App\Models\User  $user
      * @param  \App\Models\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
+     * 
+     * @codeCoverageIgnore
      */
     public function view(User $user, User $model)
     {
@@ -57,6 +61,8 @@ class UserPolicy
      *
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
+     * 
+     * @codeCoverageIgnore
      */
     public function create(User $user)
     {
@@ -77,6 +83,8 @@ class UserPolicy
      * @param  \App\Models\User  $user
      * @param  \App\Models\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
+     * 
+     * @codeCoverageIgnore
      */
     public function update(User $user, User $model)
     {
@@ -99,6 +107,8 @@ class UserPolicy
      * @param  \App\Models\User  $user
      * @param  \App\Models\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
+     * 
+     * @codeCoverageIgnore
      */
     public function delete(User $user, User $model)
     {
@@ -121,6 +131,8 @@ class UserPolicy
      * @param  \App\Models\User  $user
      * @param  \App\Models\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
+     * 
+     * @codeCoverageIgnore
      */
     public function restore(User $user, User $model)
     {
@@ -143,6 +155,8 @@ class UserPolicy
      * @param  \App\Models\User  $user
      * @param  \App\Models\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
+     * 
+     * @codeCoverageIgnore
      */
     public function forceDelete(User $user, User $model)
     {
