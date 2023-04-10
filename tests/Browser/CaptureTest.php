@@ -20,15 +20,18 @@ class CaptureTest extends DuskTestCase
     {
         //create 3 captures in the database
         $capture_a = Capture::factory()->create([
-            "name"=>"Projects"
+            "name"=>"Projects",
+            "user_id"=>1,
         ]);
 
         $capture_b = Capture::factory()->create([
-            "name"=>"Project A1"
+            "name"=>"Project A1",
+            "user_id"=>1,
         ]);
         
         $capture_c = Capture::factory()->create([
-            "name"=>"Task D"
+            "name"=>"Task D",
+            "user_id"=>1,
         ]);
 
         $capture_a->captures()->save($capture_b);
