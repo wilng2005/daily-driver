@@ -32,7 +32,8 @@ class InboxCaptures extends Lens
     {
         return $request->withOrdering($request->withFilters(
             $query->where('inbox',true)
-             ->orderBy('priority_no')
+                ->where('user_id', $request->user()->id)
+                ->orderBy('priority_no')
         ));
     }
 

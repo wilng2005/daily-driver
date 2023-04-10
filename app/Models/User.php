@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Define one-to-many relationship with captures
+    public function captures()
+    {
+        return $this->hasMany(Capture::class);
+    }
 }

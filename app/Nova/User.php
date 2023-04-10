@@ -5,11 +5,13 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\Gravatar;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+
 
 class User extends Resource
 {
@@ -65,18 +67,18 @@ class User extends Resource
                 ->updateRules('nullable', Rules\Password::defaults()),
 
             Select::make('User Resource Access')->options([
-                'All'=>"All",
-                'Self'=>"Self",
-                'None'=>"None",
+                'All' => "All",
+                'Self' => "Self",
+                'None' => "None",
             ])->rules('required'),
 
             Select::make('Capture Resource Access')->options([
-                'All'=>"All",
-                'Self'=>"Self",
-                'None'=>"None",
+                'All' => "All",
+                'Self' => "Self",
+                'None' => "None",
             ])->rules('required'),
 
-
+            HasMany::make('Captures'),
         ];
     }
 
@@ -122,5 +124,22 @@ class User extends Resource
     public function actions(NovaRequest $request)
     {
         return [];
+    }
+
+
+    /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if ($request->user()->user_resource_access=='All') {
+            return $query;
+        }
+
+        return $query->where('id', $request->user()->id);
     }
 }

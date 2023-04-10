@@ -2,6 +2,10 @@
 
 namespace App\Nova;
 
+use App\Models\User;
+use App\Nova\Resource;
+
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -54,7 +58,7 @@ class Capture extends Resource
      */
     public function fields(NovaRequest $request)
     {
-        return [
+        $fields= [
             Number::make("Priority No")->sortable(),
             BelongsTo::make('Capture')->nullable()->withoutTrashed()->searchable()->showCreateRelationButton(),
             Text::make('Name')->sortable()->showOnPreview()->required()->rules('required')->displayUsing(
@@ -79,6 +83,12 @@ class Capture extends Resource
 
             HasMany::make('Captures'),
         ];
+
+        if($request->user()->capture_resource_access=='All'){
+            $fields[] = BelongsTo::make('User')->withoutTrashed()->searchable();
+        }
+
+        return $fields;
     }
 
     /**
@@ -133,5 +143,29 @@ class Capture extends Resource
             new Actions\RefreshPriority,
             new Actions\ChangePriorityNo
         ];
+    }
+
+    /**
+     * Build an "index" query for the given resource.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        if ($request->user()->capture_resource_access=='All') {
+            return $query;
+        }
+
+        return $query->where('user_id', $request->user()->id);
+    }
+
+    public static function afterCreate(NovaRequest $request, Model $model)
+    {
+        if(!$model->user){
+            $model->user_id = $request->user()->id;
+            $model->save();
+        }
     }
 }
