@@ -12,12 +12,17 @@ class CaptureTest extends DuskTestCase
 {
     use DatabaseMigrations;
     /**
-     * A Dusk test example.
+     * This is a very basic test.
      *
      * @return void
      */
     public function test_capture_column_is_working()
     {
+
+        $user=User::find(1);
+        $user->capture_resource_access="Self";
+        $user->save();
+
         //create 3 captures in the database
         $capture_a = Capture::factory()->create([
             "name"=>"Projects",
@@ -38,8 +43,8 @@ class CaptureTest extends DuskTestCase
         $capture_b->captures()->save($capture_c);
         $capture_c->save();
 
-        $this->browse(function ($browser) {
-            $browser->loginAs(User::find(1))
+        $this->browse(function ($browser) use ($user) {
+            $browser->loginAs($user)
                 ->visit('/nova/resources/captures')
                 ->waitForText('Captures')
                 ->assertSee('Projects/Project A1')
@@ -47,4 +52,40 @@ class CaptureTest extends DuskTestCase
         });
 
     }
+
+    /**
+     * Tests for Capture Access None
+     *  - User cannot see their own captures on index
+     *  - User cannot see other people's captures on index
+     *  - User cannot see their own capture on Next Action
+     *  - User cannot see other people's capture on Next Action
+     *  - User cannot see their own capture on Inbox
+     *  - User cannot see other people's capture on Inbox
+     **/ 
+    
+    /**
+     * Tests for Capture Access Self
+     *  - User should see their own captures on index
+     *  - User cannot see other people's captures on index
+     *  - User should see their own capture on Next Action
+     *  - User cannot see other people's capture on Next Action
+     *  - User should see their own capture on Inbox
+     *  - User cannot see other people's capture on Inbox
+     **/ 
+    
+     /**
+     * Tests for Capture Access all
+     *  - User should see their own captures on index
+     *  - User should see other people's captures on index
+     *  - User should see their own capture on Next Action
+     *  - User cannot see other people's capture on Next Action
+     *  - User should see their own capture on Inbox
+     *  - User cannot see other people's capture on Inbox
+     **/ 
+
+     /**
+      * Tests for Capture Access All with User Access All
+      */
+
+
 }
