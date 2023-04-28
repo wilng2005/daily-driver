@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\HasMany;
@@ -46,7 +47,7 @@ class User extends Resource
      */
     public function fields(NovaRequest $request)
     {
-        return [
+        $fields = [
             ID::make()->sortable(),
 
             Gravatar::make()->maxWidth(50),
@@ -77,9 +78,15 @@ class User extends Resource
                 'Self' => "Self",
                 'None' => "None",
             ])->rules('required'),
-
-            HasMany::make('Captures'),
         ];
+
+        if ($request->user()->capture_resource_access=='All' ||
+            ( $request->user()->capture_resource_access=='Self' && 
+              $request->user()->id==$this->resource->id)) {
+            $fields[] = HasMany::make('Captures');
+        }
+
+        return $fields;
     }
 
     /**
@@ -141,5 +148,24 @@ class User extends Resource
         }
 
         return $query->where('id', $request->user()->id);
+    }
+
+    /**
+     * Hide the resource from the sidebar navigation depending on the access rights of the user.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    public static function hideFromNavigation(Request $request)
+    {
+        // call the user policy to check if the user has access to the resource
+        $user=$request->user();
+        
+        if(!$user)
+            return false;
+        else{
+            $policy=Gate::getPolicyFor($user);
+            return !$policy->viewAny($user);
+        }
     }
 }

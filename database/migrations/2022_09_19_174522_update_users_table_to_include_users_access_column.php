@@ -1,4 +1,5 @@
 <?php
+use App\Models\User;
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,6 +18,12 @@ return new class extends Migration
             $table->string('user_resource_access', 100)->default("None");
             $table->string('capture_resource_access', 100)->default("None");
         });
+
+        $user=User::find(1);
+        $user->user_resource_access="All";
+        $user->capture_resource_access="All";
+        $user->save();
+
     }
 
     /**

@@ -28,6 +28,8 @@ return new class extends Migration
             'name' => 'Administrator',
             'email' => 'admin@than.today',
             'password' => password_hash('password', PASSWORD_DEFAULT),
+            'user_resource_access' => "All",
+            'capture_resource_access' => "All",
         ]);
     }
 

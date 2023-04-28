@@ -28,7 +28,7 @@ class UserPolicy
 
             case "None":
             default:
-                return true;
+                return false;
         }
     }
 
