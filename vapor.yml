@@ -20,7 +20,7 @@ environments:
         runtime: 'php-8.1:al2'
         timeout: 600
         domain: staging-a01.than.today
-        database: daily-driver-staging-a
+        database: daily-driver-production-b
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
             - 'php artisan event:cache'
