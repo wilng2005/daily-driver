@@ -50,6 +50,8 @@ class UserTest extends DuskTestCase
             //assert that the user can access the user resource on the left nav
             $browser->loginAs($user)
                 ->visit('/nova/dashboards/main')
+                ->waitForText('Get Started')
+                ->waitForText('Users')
                 ->assertSee('Get Started')                
                 ->assertSee('Users');
 
@@ -218,6 +220,8 @@ class UserTest extends DuskTestCase
             //assert that the user can access the user resource on the left nav
             $browser->loginAs($user)
                 ->visit('/nova/dashboards/main')
+                ->waitForText('Get Started')
+                ->waitForText('Users')
                 ->assertSee('Get Started')                
                 ->assertSee('Users');
 
@@ -263,6 +267,7 @@ class UserTest extends DuskTestCase
             //assert that the user cannot access the user resource on the left nav
             $browser->loginAs($user)
                 ->visit('/nova/dashboards/main')
+                ->waitForText('Get Started')
                 ->assertSee('Get Started')                
                 ->assertDontSee('Users');
 
@@ -307,6 +312,7 @@ class UserTest extends DuskTestCase
             //assert that the user cannot access the user resource on the left nav
             $browser->loginAs($user)
                 ->visit('/nova/dashboards/main')
+                ->waitForText('Get Started')
                 ->assertSee('Get Started')                
                 ->assertDontSee('Users');
 
