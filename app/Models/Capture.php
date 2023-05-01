@@ -55,9 +55,13 @@ class Capture extends Model
 
 
     public function daily_schedule(){
+        
         $this->add_daily_task_to_inbox();
         $this->add_scheduled_task_to_inbox();
-        $this->refresh_priority_no();
+        
+        if($this->inbox||$this->next_action){
+            $this->refresh_priority_no();
+        }
     }
 
     public function weekday_schedule(){
