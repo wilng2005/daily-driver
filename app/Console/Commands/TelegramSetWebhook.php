@@ -29,7 +29,7 @@ class TelegramSetWebhook extends Command
     public function handle()
     {   
         //@codeCoverageIgnoreStart
-        $url=url(env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook');
+        $url=url('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook');
         $response = Telegram::setWebhook(['url' => $url]);
         
         if(env('APP_ENV')!='production')
