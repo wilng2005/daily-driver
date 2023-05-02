@@ -28,6 +28,7 @@ class TelegramSetWebhook extends Command
      */
     public function handle()
     {   
+        //@codeCoverageIgnoreStart
         $url=url(env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook');
         $response = Telegram::setWebhook(['url' => $url]);
         
@@ -35,9 +36,12 @@ class TelegramSetWebhook extends Command
             info("TELEGRAM_WEBHOOK_URL=".$url);
 
         if($response['ok']==true){
+            info("Setup of Telegram Webhook was successful.");
             return Command::SUCCESS;
         }else{
+            info("Setup of Telegram Webhook was a failure.");
             return Command::FAILURE;
         }
+        //@codeCoverageIgnoreEnd
     }
 }
