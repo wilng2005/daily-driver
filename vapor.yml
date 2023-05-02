@@ -28,4 +28,3 @@ environments:
             - 'npm ci && npm run dev && rm -rf node_modules'
         deploy:
             - 'php artisan migrate'
-            - 'php artisan telegram:setwebhook'

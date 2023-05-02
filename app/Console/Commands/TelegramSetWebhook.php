@@ -35,7 +35,7 @@ class TelegramSetWebhook extends Command
         if(env('APP_ENV')!='production')
             info("TELEGRAM_WEBHOOK_URL=".$url);
 
-        if($response['ok']==true){
+        if($response==true){
             info("Setup of Telegram Webhook was successful.");
             return Command::SUCCESS;
         }else{
