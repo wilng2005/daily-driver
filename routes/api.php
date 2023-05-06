@@ -30,6 +30,7 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
     $result = OpenAI::completions()->create([
         'model' => 'text-davinci-003',
         'prompt' => 'Me:'.$updates->message->text." \nChatGPT:",
+        'max_tokens' => 1024
     ]);
 
     //info($result);
@@ -37,7 +38,6 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
     $response = Telegram::sendMessage([
         'chat_id' => $updates->message->chat->id,
         'text' => $result['choices'][0]['text'],
-        'max_tokens' => 1024
     ]);
 
     info("hello world sent");
