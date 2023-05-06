@@ -32,7 +32,7 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
         'prompt' => 'Me:'.$updates->message->text." \nChatGPT:",
     ]);
 
-    info($result);
+    //info($result);
     
     $response = Telegram::sendMessage([
         'chat_id' => $updates->message->chat->id,
