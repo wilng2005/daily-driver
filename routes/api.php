@@ -26,21 +26,24 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
     
     info("telegram webhook received:");
     info($updates);
-    
-    $result = OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
-        'prompt' => 'Me:'.$updates->message->text." \nChatGPT:",
-        'max_tokens' => 1024
-    ]);
 
-    //info($result);
-    
-    $response = Telegram::sendMessage([
-        'chat_id' => $updates->message->chat->id,
-        'text' => $result['choices'][0]['text'],
-    ]);
+    $message_text=$updates->message->text ?? "";
+    if($message_text){
+        $result = OpenAI::completions()->create([
+            'model' => 'text-davinci-003',
+            'prompt' => 'Me:'.$message_text." \nChatGPT:",
+            'max_tokens' => 1024
+        ]);
 
-    info("hello world sent");
-    info('message_id:'.$response->getMessageId());
+        //info($result);
+        
+        $response = Telegram::sendMessage([
+            'chat_id' => $updates->message->chat->id,
+            'text' => $result['choices'][0]['text'],
+        ]);
+
+        info("hello world sent");
+        info('message_id:'.$response->getMessageId());
+    }
     return 'ok';
 });
