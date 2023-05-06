@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use OpenAI\Laravel\Facades\OpenAI;
 use Telegram\Bot\Laravel\Facades\Telegram;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +27,16 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
     info("telegram webhook received:");
     info($updates);
     
+    $result = OpenAI::completions()->create([
+        'model' => 'text-davinci-003',
+        'prompt' => 'Me:'.$updates->message->text." \nChatGPT:",
+    ]);
+
+    info($result);
+    
     $response = Telegram::sendMessage([
         'chat_id' => $updates->message->chat->id,
-        'text' => 'Hello World'
+        'text' => $result['choices'][0]['text']
     ]);
 
     info("hello world sent");
