@@ -36,7 +36,8 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
     
     $response = Telegram::sendMessage([
         'chat_id' => $updates->message->chat->id,
-        'text' => $result['choices'][0]['text']
+        'text' => $result['choices'][0]['text'],
+        'max_tokens' => 1024
     ]);
 
     info("hello world sent");
