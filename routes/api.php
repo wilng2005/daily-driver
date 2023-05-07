@@ -2,6 +2,7 @@
 
 use App\Models\TelegramUpdate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Telegram\Bot\Laravel\Facades\Telegram;
 use App\Jobs\ProcessTelegramUpdate;
@@ -34,3 +35,19 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
     ProcessTelegramUpdate::dispatch($telegram_update);
     return 'ok';
 });
+
+if(App::isLocal()){
+    Route::get('telegram/local',function(){
+        $updates = Telegram::getUpdates();
+        
+        info("telegram getUpdates received:");
+        info($updates);
+        
+        $telegram_update=TelegramUpdate::create([
+            'data'=> $updates
+        ]);
+        ProcessTelegramUpdate::dispatch($telegram_update);
+        return 'ok';
+    });
+}
+
