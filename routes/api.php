@@ -36,20 +36,24 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
     return 'ok';
 });
 
-/*
-if(env('APP_ENV')=='local'){
-    Route::get('telegram/local',function(){
+
+if(App::isLocal()){
+    Route::get('123123',function(){
         $updates = Telegram::getUpdates();
         
         info("telegram getUpdates received:");
         info($updates);
         
-        $telegram_update=TelegramUpdate::create([
-            'data'=> $updates
-        ]);
-        ProcessTelegramUpdate::dispatch($telegram_update);
+        foreach($updates as $update){
+            $telegram_update=TelegramUpdate::create([
+                'data'=> $update
+            ]);
+            ProcessTelegramUpdate::dispatch($telegram_update);
+        }
+
         return 'ok';
     });
 }
-*/
+
+
 
