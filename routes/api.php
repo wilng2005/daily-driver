@@ -36,7 +36,8 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
     return 'ok';
 });
 
-if(App::isLocal()){
+/*
+if(env('APP_ENV')=='local'){
     Route::get('telegram/local',function(){
         $updates = Telegram::getUpdates();
         
@@ -50,4 +51,5 @@ if(App::isLocal()){
         return 'ok';
     });
 }
+*/
 

@@ -39,7 +39,9 @@ class ProcessTelegramUpdate implements ShouldQueue
     public function handle()
     {
         //@codeCoverageIgnoreStart
+        info("ProcessTelegramUpdate handle commenced.");
         $message_text=$this->telegramUpdate->data->message->text ?? "";
+        info($message_text);
         if($message_text){
             $result = OpenAI::completions()->create([
                 'model' => 'text-davinci-003',
