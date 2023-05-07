@@ -1,9 +1,10 @@
 <?php
 
+use App\Models\TelegramUpdate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use OpenAI\Laravel\Facades\OpenAI;
 use Telegram\Bot\Laravel\Facades\Telegram;
+use App\Jobs\ProcessTelegramUpdate;
 
 
 /*
@@ -26,23 +27,10 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
     
     info("telegram webhook received:");
     info($updates);
-
-    $message_text=$updates->message->text ?? "";
-    if($message_text){
-        $result = OpenAI::completions()->create([
-            'model' => 'text-davinci-003',
-            'prompt' => 'Me:'.$message_text." \nChatGPT:",
-            'max_tokens' => 1024
-        ]);
-
-        //info($result);
-        
-        $response = Telegram::sendMessage([
-            'chat_id' => $updates->message->chat->id,
-            'text' => $result['choices'][0]['text'],
-        ]);
-        
-        info('message_id:'.$response->getMessageId());
-    }
+    
+    $telegram_update=TelegramUpdate::create([
+        'data'=> $updates
+    ]);
+    ProcessTelegramUpdate::dispatch($telegram_update);
     return 'ok';
 });
