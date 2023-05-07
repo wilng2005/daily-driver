@@ -41,8 +41,7 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
             'chat_id' => $updates->message->chat->id,
             'text' => $result['choices'][0]['text'],
         ]);
-
-        info("hello world sent");
+        
         info('message_id:'.$response->getMessageId());
     }
     return 'ok';
