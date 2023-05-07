@@ -9,4 +9,13 @@ class TelegramUpdate extends Model
 {
     use HasFactory;
     protected $fillable = ['data'];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'data' => 'array',
+    ];
 }
