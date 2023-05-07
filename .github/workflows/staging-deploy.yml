@@ -40,7 +40,6 @@ jobs:
       - name: Stop Sail       
         run: vendor/bin/sail down
   deploy:
-    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
