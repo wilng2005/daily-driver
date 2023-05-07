@@ -53,7 +53,7 @@ class ProcessTelegramUpdate implements ShouldQueue
             ]);
 
             $response = Telegram::sendMessage([
-                'chat_id' => $this->telegramUpdate->data->message->chat->id,
+                'chat_id' => $this->telegramUpdate->data['message']['chat']['id'],
                 'text' => $result['choices'][0]['text'],
             ]);
         
