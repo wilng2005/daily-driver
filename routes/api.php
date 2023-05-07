@@ -38,7 +38,8 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
 
 
 if(App::isLocal()){
-    Route::get('123123',function(){
+    //don't forget that the route for this is api/telegram/local not telegram/local!
+    Route::get('telegram/local',function(){
         $updates = Telegram::getUpdates();
         
         info("telegram getUpdates received:");
