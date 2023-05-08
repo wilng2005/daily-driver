@@ -72,10 +72,9 @@ class TelegramUpdate extends Model
         if($message_text){
             $prompt=$this->generate_prompt();
 
-            $result = OpenAI::completions()->create([
+            $result = OpenAI::chat()->create([
                 'model' => 'text-davinci-003',
-                'messages' => $prompt,
-                'max_tokens' => 1024
+                'messages' => $prompt
             ]);
 
             $response = Telegram::sendMessage([
