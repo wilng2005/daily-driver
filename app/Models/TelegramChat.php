@@ -9,7 +9,7 @@ class TelegramChat extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['data'];
+    protected $fillable = ['data','telegram_chat_id'];
 
     /**
      * The attributes that should be cast.
