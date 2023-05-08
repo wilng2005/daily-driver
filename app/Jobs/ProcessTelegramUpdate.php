@@ -40,23 +40,15 @@ class ProcessTelegramUpdate implements ShouldQueue
     {
         //@codeCoverageIgnoreStart
         info("ProcessTelegramUpdate handle commenced.");
-        $message_text=$this->telegramUpdate->data['message']['text'] ?? "";
-        info($message_text);
         
-        if($message_text){
-            $result = OpenAI::completions()->create([
-                'model' => 'text-davinci-003',
-                'prompt' => 'Me:'.$message_text." \nChatGPT:",
-                'max_tokens' => 1024
-            ]);
+        //update chat and message storage in database
+        $this->telegramUpdate->extract_and_store_chat_and_message_details();
 
-            $response = Telegram::sendMessage([
-                'chat_id' => $this->telegramUpdate->data['message']['chat']['id'],
-                'text' => $result['choices'][0]['text'],
-            ]);
+        //execute a telegram response
+        $this->telegramUpdate->execute_response();
+
+
         
-            info('message_id:'.$response->getMessageId());
-        }
         //@codeCoverageIgnoreEnd
     }
 }
