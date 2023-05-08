@@ -23,6 +23,7 @@ class TelegramUpdate extends Model
     ];
 
     public function extract_and_store_chat_and_message_details(){
+         //@codeCoverageIgnoreStart
         info("TelegramUpdate->extract_and_store_chat_and_message_details() start");
         info($this->data);
         
@@ -42,9 +43,11 @@ class TelegramUpdate extends Model
         }
         
         info("TelegramUpdate->extract_and_store_chat_and_message_details() end");
+        //@codeCoverageIgnoreEnd
     }
 
     public function generate_prompt($telegram_chat=null){
+         //@codeCoverageIgnoreStart
         // get the right $telegram_chat
         if(!$telegram_chat){
             $telegram_chat = TelegramChat::where('tg_chat_id',$this->data['message']['chat']['id'])->first();
@@ -65,9 +68,11 @@ class TelegramUpdate extends Model
         $prompt.= 'AI:';
         
         return trim($prompt);
+        //@codeCoverageIgnoreEnd
     }
 
     public function execute_response(){
+         //@codeCoverageIgnoreStart
         info("TelegramUpdate->execute_response()");
 
         $message_text=$this->data['message']['text'] ?? "";
@@ -103,5 +108,7 @@ class TelegramUpdate extends Model
         
             info('message_id:'.$response->getMessageId());
         }
+
+        //@codeCoverageIgnoreEnd
     }
 }

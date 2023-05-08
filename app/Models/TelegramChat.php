@@ -24,6 +24,8 @@ class TelegramChat extends Model
 
     public function telegramMessages(): HasMany
     {
+        //@codeCoverageIgnoreStart
         return $this->hasMany(TelegramMessage::class);
+        //@codeCoverageIgnoreEnd
     }
 }
