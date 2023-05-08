@@ -81,10 +81,11 @@ class TelegramUpdate extends Model
                 'prompt' => $prompt,
                 'max_tokens' => 1024
             ]);
-
+            
+            $result_text=trim($result['choices'][0]['text'] ?? "");
             $response = Telegram::sendMessage([
                 'chat_id' => $this->data['message']['chat']['id'],
-                'text' => $result['choices'][0]['text'],
+                'text' => $result_text,
             ]);
 
             $telegram_chat = TelegramChat::firstOrCreate(
@@ -94,7 +95,7 @@ class TelegramUpdate extends Model
 
             $telegram_chat->telegramMessages()->create([
                 'data'=>$prompt,
-                'text'=>$result['choices'][0]['text'] ?? "",
+                'text'=>$result_text,
                 'is_incoming'=>false,
                 'is_outgoing'=>true,
                 'from_username'=>"",
