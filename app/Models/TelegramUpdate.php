@@ -31,6 +31,14 @@ class TelegramUpdate extends Model
                 ['tg_chat_id'=>$this->data['message']['chat']['id']],
                 ['data'=>$this->data['message']['chat']]
             );
+
+            $telegram_chat->telegramMessages()->create([
+                'data'=>$this->data['message'],
+                'text'=>$this->data['message']['text'] ?? "",
+                'is_incoming'=>true,
+                'is_outgoing'=>false,
+                'from_username'=>$this->data['message']['from']['username'] ?? "",
+            ]);
         }
         
         info("TelegramUpdate->extract_and_store_chat_and_message_details() end");
@@ -43,15 +51,30 @@ class TelegramUpdate extends Model
         info($message_text);
 
         if($message_text){
+            $prompt='Me:'.$message_text." \nChatGPT:";
+            
             $result = OpenAI::completions()->create([
                 'model' => 'text-davinci-003',
-                'prompt' => 'Me:'.$message_text." \nChatGPT:",
+                'prompt' => $prompt,
                 'max_tokens' => 1024
             ]);
 
             $response = Telegram::sendMessage([
                 'chat_id' => $this->data['message']['chat']['id'],
                 'text' => $result['choices'][0]['text'],
+            ]);
+
+            $telegram_chat = TelegramChat::firstOrCreate(
+                ['tg_chat_id'=>$this->data['message']['chat']['id']],
+                ['data'=>$this->data['message']['chat']]
+            );
+
+            $telegram_chat->telegramMessages()->create([
+                'data'=>$prompt,
+                'text'=>$result['choices'][0]['text'] ?? "",
+                'is_incoming'=>false,
+                'is_outgoing'=>true,
+                'from_username'=>"",
             ]);
         
             info('message_id:'.$response->getMessageId());
