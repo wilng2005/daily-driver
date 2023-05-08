@@ -44,6 +44,25 @@ class TelegramUpdate extends Model
         info("TelegramUpdate->extract_and_store_chat_and_message_details() end");
     }
 
+    public function generate_prompt($telegram_chat=null){
+        // get the right $telegram_chat
+        if(!$telegram_chat){
+            $telegram_chat = TelegramChat::where('tg_chat_id',$this->data['message']['chat']['id'])->first();
+        }
+
+        // get messages that have been sent to this chat over the past 15 minutes
+        $messages = $telegram_chat->telegramMessages()->where('created_at','>',now()->subMinutes(15))->get();
+        $prompt[] = ['role' => 'system', 'content' => 'You are ChatGPT.'];
+        foreach($messages as $message){
+            if($message->is_incoming){
+                $prompt[] = ['role' => 'user', 'content' => $message->text];
+            }else{
+                $prompt[] = ['role' => 'system', 'content' => $message->text];
+            }
+        }
+        return $prompt;
+    }
+
     public function execute_response(){
         info("TelegramUpdate->execute_response()");
 
@@ -51,11 +70,11 @@ class TelegramUpdate extends Model
         info($message_text);
 
         if($message_text){
-            $prompt='Me:'.$message_text." \nChatGPT:";
-            
+            $prompt=$this->generate_prompt();
+
             $result = OpenAI::completions()->create([
                 'model' => 'text-davinci-003',
-                'prompt' => $prompt,
+                'messages' => $prompt,
                 'max_tokens' => 1024
             ]);
 
