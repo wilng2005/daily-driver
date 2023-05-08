@@ -9,7 +9,8 @@ class TelegramChat extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['data','telegram_chat_id'];
+    //the tg_chat_id value is used by the  bot api to identify the chat.
+    protected $fillable = ['data','tg_chat_id'];
 
     /**
      * The attributes that should be cast.

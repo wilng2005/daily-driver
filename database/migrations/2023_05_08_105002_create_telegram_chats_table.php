@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('telegram_chats', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('telegram_chat_id')->nullable();
+            $table->integer('tg_chat_id');
             $table->json('data');
         });
     }

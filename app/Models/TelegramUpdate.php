@@ -28,7 +28,7 @@ class TelegramUpdate extends Model
         
         if(isset($this->data['message']['chat'])){
             $telegram_chat = TelegramChat::updateOrCreate(
-                ['telegram_chat_id'=>$this->data['message']['chat']['id']],
+                ['tg_chat_id'=>$this->data['message']['chat']['id']],
                 ['data'=>$this->data['message']['chat']]
             );
         }
