@@ -52,15 +52,16 @@ class TelegramUpdate extends Model
 
         // get messages that have been sent to this chat over the past 15 minutes
         $messages = $telegram_chat->telegramMessages()->where('created_at','>',now()->subMinutes(15))->get();
-        $prompt[] = ['role' => 'system', 'content' => 'You are ChatGPT.'];
+        $prompt = 'Imagine you are ChatGPT.\n\n';
         foreach($messages as $message){
             if($message->is_incoming){
-                $prompt[] = ['role' => 'user', 'content' => $message->text];
+                $prompt.= 'User: '.$message->text."\n";
             }else{
-                $prompt[] = ['role' => 'system', 'content' => $message->text];
+                $prompt.= 'ChatGPT: '.$message->text."\n";
             }
         }
-        return $prompt;
+        
+        return trim($prompt);
     }
 
     public function execute_response(){
@@ -72,9 +73,10 @@ class TelegramUpdate extends Model
         if($message_text){
             $prompt=$this->generate_prompt();
 
-            $result = OpenAI::chat()->create([
+            $result = OpenAI::completions()->create([
                 'model' => 'text-davinci-003',
-                'messages' => $prompt
+                'prompt' => $prompt,
+                'max_tokens' => 1024
             ]);
 
             $response = Telegram::sendMessage([
