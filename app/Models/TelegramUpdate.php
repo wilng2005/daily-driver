@@ -80,11 +80,11 @@ class TelegramUpdate extends Model
 
         if($message_text){
             $prompt=$this->generate_prompt();
-
+        
             $result = OpenAI::completions()->create([
                 'model' => 'text-davinci-003',
                 'prompt' => $prompt,
-                'max_tokens' => 4096
+                'max_tokens' => 2000,
             ]);
             
             $result_text=trim($result['choices'][0]['text'] ?? "");
