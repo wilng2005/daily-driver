@@ -53,13 +53,16 @@ class TelegramUpdate extends Model
         // get messages that have been sent to this chat over the past 15 minutes
         $messages = $telegram_chat->telegramMessages()->where('created_at','>',now()->subMinutes(15))->get();
         $prompt = 'Imagine you are ChatGPT.\n\n';
+
         foreach($messages as $message){
             if($message->is_incoming){
                 $prompt.= 'User: '.$message->text."\n";
             }else{
-                $prompt.= 'ChatGPT: '.$message->text."\n";
+                $prompt.= 'AI: '.$message->text."\n";
             }
         }
+        
+        $prompt.= 'AI:';
         
         return trim($prompt);
     }
