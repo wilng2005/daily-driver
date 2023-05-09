@@ -13,6 +13,10 @@ class TelegramUpdate extends Model
     use HasFactory;
     protected $fillable = ['data'];
 
+    //declare a constant NEW_CONTEXT property
+    const NEW_CONTEXT = "...";
+
+    
     /**
      * The attributes that should be cast.
      *
@@ -55,34 +59,26 @@ class TelegramUpdate extends Model
 
         // get messages that have been sent to this chat over the past 15 minutes
         $messages = $telegram_chat->telegramMessages()->where('created_at','>',now()->subMinutes(15))->get();
-        /*
-        $prompt = 'Imagine you are ChatGPT.\n\n';
-
-        foreach($messages as $message){
-            if($message->is_incoming){
-                $prompt.= 'User: '.$message->text."\n";
-            }else{
-                $prompt.= 'AI: '.$message->text."\n";
-            }
-        }
-        
-        $prompt.= 'AI:';
-        
-        
-        return trim($prompt);
-        */
 
         $prompt = [];
         $prompt[]=['role'=>'system', 'content'=>'Imagine you are ChatGPT.'];
+
+   
+
+        $prompt_messages=[];
         foreach($messages as $message){
             if($message->is_incoming){
-                $prompt[]= ['role'=>'user', 'content'=>$message->text];
+                if($message->text==TelegramUpdate::NEW_CONTEXT){
+                    $prompt_messages=[];
+                }else{
+                    $prompt_messages[]= ['role'=>'user', 'content'=>$message->text];
+                }
             }else{
-                $prompt[]= ['role'=>'system', 'content'=>$message->text];
+                $prompt_messages[]= ['role'=>'assistant', 'content'=>$message->text];
             }
         }
 
-        return $prompt;
+        return array_merge($prompt,$prompt_messages);
         //@codeCoverageIgnoreEnd
     }
 
@@ -97,12 +93,8 @@ class TelegramUpdate extends Model
             $prompt=$this->generate_prompt();
         
             $result = OpenAI::chat()->create([
-                //'model' => 'text-davinci-003',
-                //'prompt' => $prompt,
-                //'max_tokens' => 2000,
                 'model' => 'gpt-3.5-turbo',
                 'messages'=> $prompt,
-                
             ]);
             
             $result_text=trim($result['choices'][0]['message']['content'] ?? "");
