@@ -55,7 +55,6 @@ class TelegramUpdate extends Model
 
         // get messages that have been sent to this chat over the past 15 minutes
         $messages = $telegram_chat->telegramMessages()->where('created_at','>',now()->subMinutes(15))->get();
-        /*
         $prompt = 'Imagine you are ChatGPT.\n\n';
 
         foreach($messages as $message){
@@ -68,21 +67,7 @@ class TelegramUpdate extends Model
         
         $prompt.= 'AI:';
         
-        
         return trim($prompt);
-        */
-
-        $prompt = [];
-        $prompt[]=['role'=>'system', 'content'=>'Imagine you are ChatGPT.'];
-        foreach($messages as $message){
-            if($message->is_incoming){
-                $prompt[]= ['role'=>'user', 'content'=>$message->text];
-            }else{
-                $prompt[]= ['role'=>'system', 'content'=>$message->text];
-            }
-        }
-
-        return $prompt;
         //@codeCoverageIgnoreEnd
     }
 
@@ -96,16 +81,13 @@ class TelegramUpdate extends Model
         if($message_text){
             $prompt=$this->generate_prompt();
         
-            $result = OpenAI::chat()->create([
-                //'model' => 'text-davinci-003',
-                //'prompt' => $prompt,
-                //'max_tokens' => 2000,
-                'model' => 'gpt-3.5-turbo',
-                'messages'=> $prompt,
-                
+            $result = OpenAI::completions()->create([
+                'model' => 'text-davinci-003',
+                'prompt' => $prompt,
+                'max_tokens' => 2000,
             ]);
             
-            $result_text=trim($result['choices'][0]['message']['content'] ?? "");
+            $result_text=trim($result['choices'][0]['text'] ?? "");
             $response = Telegram::sendMessage([
                 'chat_id' => $this->data['message']['chat']['id'],
                 'text' => $result_text,
