@@ -61,9 +61,7 @@ class TelegramUpdate extends Model
         $messages = $telegram_chat->telegramMessages()->where('created_at','>',now()->subMinutes(15))->get();
 
         $prompt = [];
-        $prompt[]=['role'=>'system', 'content'=>'Imagine you are ChatGPT.'];
-
-   
+        $prompt[]=['role'=>'system', 'content'=>"Imagine you function just like ChatGPT, but your name is GreaterThanToday."];
 
         $prompt_messages=[];
         foreach($messages as $message){
