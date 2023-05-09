@@ -31,15 +31,15 @@ class TelegramSetWebhook extends Command
         //@codeCoverageIgnoreStart
         $url=url('api/telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook');
         $response = Telegram::setWebhook(['url' => $url]);
-        
-        if(env('APP_ENV')!='production')
-            info("TELEGRAM_WEBHOOK_URL=".$url);
 
+        $journal_bot_url=url('api/telegram_journal/'.env('TELEGRAM_JOURNAL_WEBHOOK_URL_TOKEN').'/webhook');
+        $response = Telegram::bot('journalbot')->setWebhook(['url' => $journal_bot_url]);
+    
         if($response==true){
-            info("Setup of Telegram Webhook was successful.");
+            info("Setup of Telegram Webhooks was successful.");
             return Command::SUCCESS;
         }else{
-            info("Setup of Telegram Webhook was a failure.");
+            info("Setup of Telegram Webhooks have failed.");
             return Command::FAILURE;
         }
         //@codeCoverageIgnoreEnd

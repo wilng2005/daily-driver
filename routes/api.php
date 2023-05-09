@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\TelegramUpdate;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,14 @@ Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function (
         'data'=> $updates
     ]);
     ProcessTelegramUpdate::dispatch($telegram_update);
+    return 'ok';
+});
+
+Route::post('telegram_journal/'.env('TELEGRAM_JOURNAL_WEBHOOK_URL_TOKEN').'/webhook', function () {
+    $updates = Telegram::bot('journalbot')->getWebhookUpdate();
+    
+    info("telegram journal webhook received:");
+    info($updates);
     return 'ok';
 });
 

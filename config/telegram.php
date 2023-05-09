@@ -31,7 +31,7 @@ return [
     |             ]
     */
     'bots' => [
-        'mybot' => [
+        'gttbot' => [
             'token' => env('TELEGRAM_BOT_TOKEN', 'YOUR-BOT-TOKEN'),
             'certificate_path' => env('TELEGRAM_CERTIFICATE_PATH', 'YOUR-CERTIFICATE-PATH'),
             'webhook_url' => env('TELEGRAM_WEBHOOK_URL', 'YOUR-BOT-WEBHOOK-URL'),
@@ -40,9 +40,10 @@ return [
             ],
         ],
 
-        //        'mySecondBot' => [
-        //            'token' => '123456:abc',
-        //        ],
+        'journalbot' => [
+            'token' => env('TELEGRAM_JOURNAL_BOT_TOKEN', 'YOUR-BOT-TOKEN'),
+            'webhook_url' => env('TELEGRAM_JOURNAL_WEBHOOK_URL_TOKEN', 'YOUR-BOT-WEBHOOK-URL'),
+        ],
     ],
 
     /*
@@ -54,7 +55,7 @@ return [
     | your default bot for regular use.
     |
     */
-    'default' => 'mybot',
+    'default' => 'gttbot',
 
     /*
     |--------------------------------------------------------------------------
