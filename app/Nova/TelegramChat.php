@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Stack;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class TelegramChat extends Resource
@@ -46,6 +47,9 @@ class TelegramChat extends Resource
     {
         return [
             ID::make()->sortable()->readonly(),
+            Text::make('From', function () {
+                return $this->data['type'].' '.$this->data['username'];
+            }),
             Number::make('Telegram Chat ID','tg_chat_id')->readonly(),
             Code::make('Data')->json()->readonly(),
             Stack::make('Create/Updated',[
