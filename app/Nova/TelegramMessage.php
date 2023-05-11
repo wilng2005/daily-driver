@@ -3,22 +3,23 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Stack;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class TelegramChat extends Resource
+class TelegramMessage extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\TelegramChat>
+     * @var class-string<\App\Models\TelegramMessage>
      */
-    public static $model = \App\Models\TelegramChat::class;
+    public static $model = \App\Models\TelegramMessage::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -45,14 +46,16 @@ class TelegramChat extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable()->readonly(),
-            Number::make('Telegram Chat ID','tg_chat_id')->readonly(),
+            ID::make()->sortable(),
+            Text::make('Text')->readonly(),
             Code::make('Data')->json()->readonly(),
+            Boolean::make('Is Incoming')->readonly(),
+            Boolean::make('Is Outgoing')->readonly(),
+            BelongsTo::make('Telegram Chat')->readonly(),
             Stack::make('Create/Updated',[
                 DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
                 DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
             ]),
-            HasMany::make('Telegram Messages'),
         ];
     }
 
