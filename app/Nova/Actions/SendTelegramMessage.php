@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
-use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class SendTelegramMessage extends Action
@@ -25,7 +25,7 @@ class SendTelegramMessage extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach($models as $telegram_chat) {
-            $telegram_chat->send_message($fields->text);
+            $telegram_chat->sendMessage($fields->text);
         }
     }
 
@@ -38,7 +38,7 @@ class SendTelegramMessage extends Action
     public function fields(NovaRequest $request)
     {
         return [
-            Text::make('Text'),
+            Textarea::make('Text'),
         ];
     }
 }

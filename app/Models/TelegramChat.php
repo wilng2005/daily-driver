@@ -30,7 +30,7 @@ class TelegramChat extends Model
         //@codeCoverageIgnoreEnd
     }
 
-    public function send_message($text, $from_username='', $data=[]){
+    public function sendMessage($text, $from_username='', $data=[]){
         //@codeCoverageIgnoreStart
         $telegram_send_package=[
             'chat_id' => $this->tg_chat_id,

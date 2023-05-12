@@ -31,4 +31,19 @@ class TelegramChatPolicy
     {
         return true;
     }
+
+
+    /**
+     * Determine whether the user can run actions on TelegramChat.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\TelegramChat  $telegramChat
+     * @return mixed
+     */
+    public function runAction(User $user, TelegramChat $telegramChat)
+    {
+        return true;
+    }
+
+    
 }
