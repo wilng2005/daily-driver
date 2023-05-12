@@ -47,8 +47,8 @@ class TelegramChat extends Resource
     {
         return [
             ID::make()->sortable()->readonly(),
-            Text::make('From', function () {
-                return $this->data['type'].' '.$this->data['username'];
+            Text::make('Chat Name', function () {
+                return $this->data['username'].' '.$this->data['type'];
             }),
             Number::make('Telegram Chat ID','tg_chat_id')->readonly(),
             Code::make('Data')->json()->readonly(),
