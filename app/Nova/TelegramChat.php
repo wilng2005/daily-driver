@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Stack;
 use Laravel\Nova\Fields\Text;
@@ -50,6 +51,7 @@ class TelegramChat extends Resource
             Text::make('Chat Name', function () {
                 return $this->data['username'].' '.$this->data['type'];
             }),
+            KeyValue::make('Configuration')->rules('json'),
             Number::make('Telegram Chat ID','tg_chat_id')->readonly(),
             Code::make('Data')->json()->readonly(),
             Stack::make('Create/Updated',[

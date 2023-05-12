@@ -12,7 +12,7 @@ class TelegramChat extends Model
     use HasFactory;
 
     //the tg_chat_id value is used by the  bot api to identify the chat.
-    protected $fillable = ['data','tg_chat_id'];
+    protected $fillable = ['data','tg_chat_id','configuration'];
 
     /**
      * The attributes that should be cast.
@@ -21,6 +21,7 @@ class TelegramChat extends Model
      */
     protected $casts = [
         'data' => 'array',
+        'configuration' => 'array',
     ];
 
     public function telegramMessages(): HasMany
@@ -49,6 +50,7 @@ class TelegramChat extends Model
             'is_outgoing'=>true,
             'from_username'=>$from_username,
         ]);
+        
         return $response;
         //@codeCoverageIgnoreEnd
     }
