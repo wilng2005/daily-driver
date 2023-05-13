@@ -62,7 +62,7 @@ class TelegramChat extends Model
         $no_of_historical_messages_to_use=isset($this->configuration['NO_OF_HISTORICAL_MESSAGES_TO_USE']) ? $this->configuration['NO_OF_HISTORICAL_MESSAGES_TO_USE'] : 10;
 
         // get messages that have been sent to this chat, based on $no_of_historical_messages_to_use
-        $messages=$this->telegramMessages()->orderBy('created_at','desc')->limit($no_of_historical_messages_to_use)->get();
+        $messages=$this->telegramMessages()->orderBy('created_at','asc')->take($no_of_historical_messages_to_use)->get();
 
         foreach($messages as $message){
             if(isset($this->configuration['NEW_CONTEXT_PROMPT'])&&$message->text==$this->configuration['NEW_CONTEXT_PROMPT']){
