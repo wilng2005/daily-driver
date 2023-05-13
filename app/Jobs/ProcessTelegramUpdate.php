@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\TelegramChat;
 use App\Models\TelegramUpdate;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -42,13 +43,11 @@ class ProcessTelegramUpdate implements ShouldQueue
         info("ProcessTelegramUpdate handle commenced.");
         
         //update chat and message storage in database
-        $this->telegramUpdate->extract_and_store_chat_and_message_details();
+        $telegram_chat=$this->telegramUpdate->extract_and_store_chat_and_message_details();
 
-        //execute a telegram response
-        $this->telegramUpdate->execute_response();
-
-
-        
+        if($telegram_chat)
+            $telegram_chat->triggerAIresponse();
+            
         //@codeCoverageIgnoreEnd
     }
 }

@@ -32,6 +32,17 @@ class TelegramChatPolicy
         return true;
     }
 
+    /**
+     * Determine whether the user can update TelegramChat.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\TelegramChat  $telegramChat
+     * @return mixed
+     */
+    public function update(User $user, TelegramChat $telegramChat){
+        return true;
+    }
+
 
     /**
      * Determine whether the user can run actions on TelegramChat.

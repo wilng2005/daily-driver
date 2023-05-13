@@ -2,6 +2,7 @@
 
 namespace App\Nova\Actions;
 
+use App\Models\TelegramChat;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -25,7 +26,7 @@ class SendTelegramMessage extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach($models as $telegram_chat) {
-            $telegram_chat->sendMessage($fields->text);
+            $telegram_chat->sendMessage($fields->text, TelegramChat::ANNOUNCEMENT_ROLE);
         }
     }
 

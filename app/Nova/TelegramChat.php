@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Actions\Actionable;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\HasMany;
@@ -15,6 +16,9 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class TelegramChat extends Resource
 {
+
+    use Actionable;
+    
     /**
      * The model the resource corresponds to.
      *
