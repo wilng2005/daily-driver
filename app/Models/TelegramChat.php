@@ -67,15 +67,19 @@ class TelegramChat extends Model
         // reverse the order of the $messages collection
         $messages=$messages->reverse();
 
+        $message_prompts=[];
         foreach($messages as $message){
             if(isset($this->configuration['NEW_CONTEXT_PROMPT'])&&$message->text==$this->configuration['NEW_CONTEXT_PROMPT']){
-                $prompt=[];
+                $message_prompts=[];
             }else if($message->from_username==TelegramChat::USER_ROLE
             ||$message->from_username==TelegramChat::ASSISTANT_ROLE
             ||$message->from_username==TelegramChat::SYSTEM_ROLE){
-                $prompt[]=['role'=>$message->from_username, 'content'=>$message->text];
+                $message_prompts[]=['role'=>$message->from_username, 'content'=>$message->text];
             }
         }
+
+        // merge $prompt and $message_prompts
+        $prompt=array_merge($prompt,$message_prompts);
 
         return $prompt;
     }

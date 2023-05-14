@@ -13,9 +13,6 @@ class TelegramUpdate extends Model
     use HasFactory;
     protected $fillable = ['data'];
 
-    //declare a constant NEW_CONTEXT property
-    const NEW_CONTEXT = "...";
-
     
     /**
      * The attributes that should be cast.
