@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Laravel\Nova\Actions\Actionable;
 use OpenAI\Laravel\Facades\OpenAI;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class TelegramChat extends Model
 {
-    use HasFactory;
+    use Actionable,HasFactory;
 
     const ANNOUNCEMENT_ROLE='announcement';
     const SYSTEM_ROLE='system';
@@ -85,18 +87,42 @@ class TelegramChat extends Model
     }
 
     public function triggerAIResponse(){
-        $data['prompt']=$this->generatePrompt();
+        if(isset($this->configuration['AI_ENABLED'])&&$this->configuration['AI_ENABLED'])
+        {
+            $data['prompt']=$this->generatePrompt();
 
-        $data['result'] = OpenAI::chat()->create([
-            'model' => 'gpt-3.5-turbo',
-            'messages'=> $data['prompt'],
-        ]);
-        
-        $result_text=trim($data['result']['choices'][0]['message']['content'] ?? "");
-        
-        if($result_text){
-            $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
+            $data['result'] = OpenAI::chat()->create([
+                'model' => 'gpt-3.5-turbo',
+                'messages'=> $data['prompt'],
+            ]);
+            
+            $result_text=trim($data['result']['choices'][0]['message']['content'] ?? "");
+            
+            if($result_text){
+                $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
+            }
+        }else{
+            $this->sendMessage("AI is disabled.", TelegramChat::ANNOUNCEMENT_ROLE);
         }
+    }
+
+    public function sendJournalEntry($data=[]){
+        //@codeCoverageIgnoreStart
+        if(isset($this->configuration['ACTIVE_JOURNAL'])&&$this->configuration['ACTIVE_JOURNAL']&&isset($this->configuration['JOURNAL_ENTRY_PROMPT']))
+        {
+            
+            $this->telegramMessages()->create([
+                'data'=>$data,
+                'text'=>$this->configuration['JOURNAL_ENTRY_PROMPT'],
+                'is_incoming'=>false,
+                'is_outgoing'=>false,
+                'from_username'=>TelegramChat::SYSTEM_ROLE,
+            ]);
+
+            $this->triggerAIResponse();
+        }
+        
+        //@codeCoverageIgnoreEnd
     }
 
     public function sendMessage($text, $from_username='', $data=[]){
