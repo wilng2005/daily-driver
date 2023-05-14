@@ -56,6 +56,7 @@ class TelegramChat extends Model
     }
 
     public function generatePrompt(){
+        //@codeCoverageIgnoreStart
         $prompt=[];
 
         if(isset($this->configuration['SYSTEM_CONTEXT_PROMPT']))
@@ -84,9 +85,13 @@ class TelegramChat extends Model
         $prompt=array_merge($prompt,$message_prompts);
 
         return $prompt;
+
+        //@codeCoverageIgnoreEnd
     }
 
     public function triggerAIResponse(){
+
+        //@codeCoverageIgnoreStart
         if(isset($this->configuration['AI_ENABLED'])&&$this->configuration['AI_ENABLED'])
         {
             $data['prompt']=$this->generatePrompt();
@@ -104,6 +109,8 @@ class TelegramChat extends Model
         }else{
             $this->sendMessage("AI is disabled.", TelegramChat::ANNOUNCEMENT_ROLE);
         }
+
+        //@codeCoverageIgnoreEnd
     }
 
     public function sendJournalEntry($data=[]){

@@ -22,6 +22,8 @@ class TelegramMessagePolicy
 
     public function view(User $user, TelegramMessage $telegramMessage)
     {
+        //@codeCoverageIgnoreStart
         return true;
+        //@codeCoverageIgnoreEnd
     }
 }

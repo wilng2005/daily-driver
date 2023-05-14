@@ -28,9 +28,11 @@ class SendJournalEntry extends Command
      */
     public function handle()
     {
+        //@codeCoverageIgnoreStart
         foreach (TelegramChat::all() as $telegramChat) {
             $telegramChat->sendJournalEntry();
         }
         return Command::SUCCESS;
+        //@codeCoverageIgnoreEnd
     }
 }

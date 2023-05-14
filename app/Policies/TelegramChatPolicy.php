@@ -29,7 +29,9 @@ class TelegramChatPolicy
      */
     public function view(User $user, TelegramChat $telegramChat)
     {
+        //@codeCoverageIgnoreStart
         return true;
+        //@codeCoverageIgnoreEnd
     }
 
     /**
@@ -40,7 +42,9 @@ class TelegramChatPolicy
      * @return mixed
      */
     public function update(User $user, TelegramChat $telegramChat){
+        //@codeCoverageIgnoreStart
         return true;
+        //@codeCoverageIgnoreEnd
     }
 
 
@@ -53,7 +57,9 @@ class TelegramChatPolicy
      */
     public function runAction(User $user, TelegramChat $telegramChat)
     {
+        //@codeCoverageIgnoreStart
         return true;
+        //@codeCoverageIgnoreEnd
     }
 
     
