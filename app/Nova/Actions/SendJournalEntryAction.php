@@ -15,6 +15,13 @@ class SendJournalEntryAction extends Action
     use InteractsWithQueue, Queueable;
 
     /**
+     * The displayable name of the action.
+     *
+     * @var string
+     */
+    public $name = 'Send Journal Entry';
+
+    /**
      * Perform the action on the given models.
      *
      * @param  \Laravel\Nova\Fields\ActionFields  $fields
