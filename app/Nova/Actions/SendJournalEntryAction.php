@@ -2,17 +2,15 @@
 
 namespace App\Nova\Actions;
 
-use App\Models\TelegramChat;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class SendTelegramMessage extends Action
+class SendJournalEntryAction extends Action
 {
     use InteractsWithQueue, Queueable;
 
@@ -25,8 +23,9 @@ class SendTelegramMessage extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        foreach($models as $telegram_chat) {
-            $telegram_chat->sendMessage($fields->text, TelegramChat::ANNOUNCEMENT_ROLE);
+        //
+        foreach ($models as $model) {
+            $model->sendJournalEntry();
         }
     }
 
@@ -38,8 +37,6 @@ class SendTelegramMessage extends Action
      */
     public function fields(NovaRequest $request)
     {
-        return [
-            Textarea::make('Text'),
-        ];
+        return [];
     }
 }

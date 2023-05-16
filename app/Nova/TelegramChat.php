@@ -112,7 +112,8 @@ class TelegramChat extends Resource
     public function actions(NovaRequest $request)
     {
         return [
-            new Actions\SendTelegramMessage,
+            new Actions\SendTelegramMessageAction,
+            new Actions\SendJournalEntryAction,
         ];
     }
 }
