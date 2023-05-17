@@ -39,6 +39,28 @@ class TelegramChat extends Model
         //@codeCoverageIgnoreEnd
     }
 
+    // a method that returns the number of messages that have been sent to this chat over the past 7 days
+    public function getNoOfMessagesSentOverPeriod($no_of_days,$now=null){
+        //@codeCoverageIgnoreStart
+        $no_of_messages_sent=0;
+
+        $messages=$this->telegramMessages()->where('is_incoming')->orderBy('created_at','desc')->get();
+        
+        if(!$now)
+            $now=now();
+
+        foreach($messages as $message){
+            if($message->created_at->diffInDays($now)<=$no_of_days){
+                $no_of_messages_sent++;
+            }else{
+                break;
+            }
+        }
+
+        return $no_of_messages_sent;
+        //@codeCoverageIgnoreEnd
+    }
+
     public function executeSystemPrompt($text, $data=[]){
         //@codeCoverageIgnoreStart
 

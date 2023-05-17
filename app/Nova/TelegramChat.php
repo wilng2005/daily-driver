@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\KeyValue;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Stack;
 use Laravel\Nova\Fields\Text;
@@ -59,6 +60,9 @@ class TelegramChat extends Resource
                 $chat_name=trim($chat_name);
                 return $chat_name;
             }),
+            Text::make('Message Count', function () {
+                return $this->getNoOfMessagesSentOverPeriod(1);
+            }),
             KeyValue::make('Configuration')->rules('json'),
             Number::make('Telegram Chat ID','tg_chat_id')->readonly(),
             Code::make('Data')->json()->readonly(),
@@ -67,6 +71,12 @@ class TelegramChat extends Resource
                 DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
             ]),
             HasMany::make('Telegram Messages'),
+            Markdown::make('System Documentation', function(){
+                return "
+**Message Count**  
+Total number of messages sent over the last 1 day.
+";
+            })->hideFromIndex(),
         ];
     }
 
