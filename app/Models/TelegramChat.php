@@ -44,14 +44,15 @@ class TelegramChat extends Model
         //@codeCoverageIgnoreStart
         $no_of_messages_sent=0;
 
-        $messages=$this->telegramMessages()->where('is_incoming')->orderBy('created_at','desc')->get();
+        $messages=$this->telegramMessages()->orderBy('created_at','desc')->get();
         
         if(!$now)
             $now=now();
 
         foreach($messages as $message){
             if($message->created_at->diffInDays($now)<=$no_of_days){
-                $no_of_messages_sent++;
+                if($message->is_incoming)
+                    $no_of_messages_sent++;
             }else{
                 break;
             }
