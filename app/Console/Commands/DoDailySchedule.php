@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Capture;
+use App\Models\DailySnapshot;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 
@@ -29,18 +30,87 @@ class DoDailySchedule extends Command
      */
     public function handle()
     {
+        // @codeCoverageIgnoreStart
+        $productivity_data=$this->captureEndOfDayProductivityNumbers();
+
         foreach (Capture::all() as $capture) {
             $capture->daily_schedule();
         }
 
         $dayOfWeek=Carbon::now()->dayOfWeek;
 
-        // @codeCoverageIgnoreStart
+        
         if(in_array($dayOfWeek, [1,2,3,4,5])){
             foreach (Capture::all() as $capture) {
                 $capture->weekday_schedule();
             }
         }
+        
+        $productivity_data=$this->captureStartOfDayNumbers($productivity_data);
+        $data['productivity']=$productivity_data;
+
+        $dailySnapshot=DailySnapshot::create([
+            'data'=>$data,
+            'date'=>Carbon::now()->format('Y-m-d')
+        ]);
         // @codeCoverageIgnoreEnd
+    }
+
+    public function captureEndOfDayNumbers($data=[]){
+
+        $no_of_inbox_captures=0;
+        $no_of_next_action_captures=0;
+        $no_of_inbox_next_action_captures=0;
+        $total_no_of_captures=0;
+
+        foreach (Capture::all() as $capture) {
+            $total_no_of_captures++;
+            if($capture->inbox||$capture->next_action){
+                $no_of_inbox_next_action_captures++;
+                if($capture->inbox){
+                    $no_of_inbox_captures++;
+                }else{
+                    $no_of_next_action_captures++;
+                }
+            }  
+        }
+
+        $data['end_of_day']=[
+            'no_of_inbox_captures'=>$no_of_inbox_captures,
+            'no_of_next_action_captures'=>$no_of_next_action_captures,
+            'no_of_inbox_next_action_captures'=>$no_of_inbox_next_action_captures,
+            'total_no_of_captures'=>$total_no_of_captures,
+        ];
+
+        return $data;
+    }
+
+    public function captureStartOfDayNumbers($data=[]){
+        
+        $no_of_inbox_captures=0;
+        $no_of_next_action_captures=0;
+        $no_of_inbox_next_action_captures=0;
+        $total_no_of_captures=0;
+
+        foreach (Capture::all() as $capture) {
+            $total_no_of_captures++;
+            if($capture->inbox||$capture->next_action){
+                $no_of_inbox_next_action_captures++;
+                if($capture->inbox){
+                    $no_of_inbox_captures++;
+                }else{
+                    $no_of_next_action_captures++;
+                }
+            }  
+        }
+
+        $data['start_of_day']=[
+            'no_of_inbox_captures'=>$no_of_inbox_captures,
+            'no_of_next_action_captures'=>$no_of_next_action_captures,
+            'no_of_inbox_next_action_captures'=>$no_of_inbox_next_action_captures,
+            'total_no_of_captures'=>$total_no_of_captures,
+        ];
+
+        return $data;   
     }
 }

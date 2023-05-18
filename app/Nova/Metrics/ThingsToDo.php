@@ -5,6 +5,7 @@ namespace App\Nova\Metrics;
 use App\Models\Capture;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
+use Laravel\Nova\Metrics\TrendResult;
 
 class ThingsToDo extends Trend
 {
@@ -16,9 +17,14 @@ class ThingsToDo extends Trend
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->countByDays($request, Capture::where('inbox',true)->orWhere('next_action',true));
+        $request->range();
+        $dailySnapshots = \App\Models\DailySnapshot::where('date','>=',now()->subDays($request->range)->toDateString())->get();
+        $trend = [];
+        foreach($dailySnapshots as $dailySnapshot){
+            $trend[$dailySnapshot->date->format("F j")] = $dailySnapshot->data['start_of_day']['inbox']??0 + $dailySnapshot->data['start_of_day']['next_action']??0;
+        }
+        return (new TrendResult)->trend($trend)->showLatestValue();
     } 
-
     /**
      * Get the ranges available for the metric.
      *
