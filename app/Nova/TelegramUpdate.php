@@ -9,6 +9,13 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class TelegramUpdate extends Resource
 {
     /**
+     * The logical group associated with the resource.
+     *
+     * @var string
+     */
+    public static $group = 'Journaling';
+
+    /**
      * The model the resource corresponds to.
      *
      * @var class-string<\App\Models\TelegramUpdate>

@@ -16,7 +16,12 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class TelegramChat extends Resource
 {
-
+    /**
+     * The logical group associated with the resource.
+     *
+     * @var string
+     */
+    public static $group = 'Journaling';
 
     /**
      * The model the resource corresponds to.
