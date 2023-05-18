@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use App\Models\User;
+use App\Nova\Metrics\ThingsToDo;
 use App\Nova\Resource;
 
 use Illuminate\Database\Eloquent\Model;
@@ -107,7 +108,9 @@ class Capture extends Resource
      */
     public function cards(NovaRequest $request)
     {
-        return [];
+        return [
+            new ThingsToDo,
+        ];
     }
 
     /**
