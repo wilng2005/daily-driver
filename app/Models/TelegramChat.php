@@ -6,13 +6,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Nova\Actions\Actionable;
 use OpenAI\Laravel\Facades\OpenAI;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class TelegramChat extends Model
 {
-    use Actionable,HasFactory;
+    use Actionable,HasFactory,SoftDeletes;
 
     const ANNOUNCEMENT_ROLE='announcement';
     const SYSTEM_ROLE='system';

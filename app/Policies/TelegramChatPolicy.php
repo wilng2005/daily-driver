@@ -47,6 +47,45 @@ class TelegramChatPolicy
         //@codeCoverageIgnoreEnd
     }
 
+    /**
+     * Determine whether the user can delete TelegramChat.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\TelegramChat  $telegramChat
+     * @return mixed
+     */
+    public function delete(User $user, TelegramChat $telegramChat)  {
+        //@codeCoverageIgnoreStart
+        return true;
+        //@codeCoverageIgnoreEnd
+    }
+
+    /**
+     * Determine whether the user can restore TelegramChat.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\TelegramChat  $telegramChat
+     * @return mixed
+     */
+    public function restore(User $user, TelegramChat $telegramChat) {
+        //@codeCoverageIgnoreStart
+        return true;
+        //@codeCoverageIgnoreEnd
+    }
+    
+    /**
+     * Determine whether the user can permanently delete TelegramChat.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\TelegramChat  $telegramChat
+     * @return mixed
+     */
+    public function forceDelete(User $user, TelegramChat $telegramChat) {
+        //@codeCoverageIgnoreStart
+        return true;
+        //@codeCoverageIgnoreEnd
+    }
+
 
     /**
      * Determine whether the user can run actions on TelegramChat.
