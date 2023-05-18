@@ -22,6 +22,14 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Capture extends Resource
 {
+
+    /**
+     * The logical group associated with the resource.
+     *
+     * @var string
+     */
+    public static $group = 'Productivity';
+
     /**
      * The model the resource corresponds to.
      *
