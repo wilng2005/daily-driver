@@ -16,8 +16,8 @@ class ThingsToDo extends Trend
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->countByDays($request, Capture::class);
-    }
+        return $this->countByDays($request, Capture::where('inbox',true)->orWhere('next_action',true));
+    } 
 
     /**
      * Get the ranges available for the metric.
