@@ -20,11 +20,9 @@ class ThingsToDo extends Trend
         $dailySnapshots = \App\Models\DailySnapshot::where('date','>=',now()->subDays($request->range)->toDateString())->get();
         $trend = [];
         foreach($dailySnapshots as $dailySnapshot){
-            $value= isset($dailySnapshot->data['productivity']['start_of_day']['inbox'])?isset($dailySnapshot->data['productivity']['start_of_day']['inbox']):0;
-
-            $value+= isset($dailySnapshot->data['productivity']['start_of_day']['next_action'])?isset($dailySnapshot->data['productivity']['start_of_day']['next_action']):0;
-
-            $trend[$dailySnapshot->date->format("F j")] = $value;
+            $trend[$dailySnapshot->date->format("F j")] = 
+                isset($dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures'])?
+                isset($dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures']):0;
         }
         info($trend);
         return (new TrendResult)->trend($trend)->showLatestValue();
