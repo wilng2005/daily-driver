@@ -31,7 +31,7 @@ class DoDailySchedule extends Command
     public function handle()
     {
         // @codeCoverageIgnoreStart
-        $productivity_data=$this->captureEndOfDayProductivityNumbers();
+        $productivity_data=$this->captureEndOfDayNumbers();
 
         foreach (Capture::all() as $capture) {
             $capture->daily_schedule();
