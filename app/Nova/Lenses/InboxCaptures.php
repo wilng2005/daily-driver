@@ -2,7 +2,7 @@
 
 namespace App\Nova\Lenses;
 
-
+use App\Nova\Metrics\ThingsToDo;
 use Illuminate\Support\Str;
 
 use Laravel\Nova\Fields\Boolean;
@@ -69,7 +69,9 @@ class InboxCaptures extends Lens
      */
     public function cards(NovaRequest $request)
     {
-        return [];
+        return [
+            new ThingsToDo,
+        ];
     }
 
     /**
