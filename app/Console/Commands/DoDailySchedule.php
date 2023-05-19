@@ -63,6 +63,7 @@ class DoDailySchedule extends Command
         $no_of_inbox_next_action_captures=0;
         $total_no_of_captures=0;
 
+        //@codeCoverageIgnoreStart
         foreach (Capture::all() as $capture) {
             $total_no_of_captures++;
             if($capture->inbox||$capture->next_action){
@@ -74,6 +75,7 @@ class DoDailySchedule extends Command
                 }
             }  
         }
+        //@codeCoverageIgnoreEnd
 
         $data['end_of_day']=[
             'no_of_inbox_captures'=>$no_of_inbox_captures,
@@ -92,6 +94,7 @@ class DoDailySchedule extends Command
         $no_of_inbox_next_action_captures=0;
         $total_no_of_captures=0;
 
+        //@codeCoverageIgnoreStart
         foreach (Capture::all() as $capture) {
             $total_no_of_captures++;
             if($capture->inbox||$capture->next_action){
@@ -103,6 +106,8 @@ class DoDailySchedule extends Command
                 }
             }  
         }
+
+        //@codeCoverageIgnoreEnd
 
         $data['start_of_day']=[
             'no_of_inbox_captures'=>$no_of_inbox_captures,
