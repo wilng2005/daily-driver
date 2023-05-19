@@ -27,6 +27,7 @@ class ThingsToDo extends Trend
         info($trend);
         return (new TrendResult)->trend($trend)->showLatestValue();
     } 
+
     /**
      * Get the ranges available for the metric.
      *
@@ -48,8 +49,7 @@ class ThingsToDo extends Trend
      */
     public function cacheFor()
     {
-        //return now()->addHours(12);
-        return now()->addSeconds(1);
+        return now()->addHours(12);
     }
 
     /**
