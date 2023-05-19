@@ -17,12 +17,12 @@ class ThingsToDo extends Trend
      */
     public function calculate(NovaRequest $request)
     {
-        $request->range();
         $dailySnapshots = \App\Models\DailySnapshot::where('date','>=',now()->subDays($request->range)->toDateString())->get();
         $trend = [];
         foreach($dailySnapshots as $dailySnapshot){
-            $trend[$dailySnapshot->date->format("F j")] = $dailySnapshot->data['start_of_day']['inbox']??0 + $dailySnapshot->data['start_of_day']['next_action']??0;
+             $trend[$dailySnapshot->date->format("F j")] = $dailySnapshot->data['start_of_day']['inbox']??0 + $dailySnapshot->data['start_of_day']['next_action']??0;
         }
+        info($trend);
         return (new TrendResult)->trend($trend)->showLatestValue();
     } 
     /**
@@ -46,7 +46,8 @@ class ThingsToDo extends Trend
      */
     public function cacheFor()
     {
-        return now()->addHours(12);
+        //return now()->addHours(12);
+        return now()->addSeconds(1);
     }
 
     /**
