@@ -50,9 +50,9 @@ class UserTest extends DuskTestCase
             //assert that the user can access the user resource on the left nav
             $browser->loginAs($user)
                 ->visit('/nova/dashboards/main')
-                ->waitForText('Get Started')
+                ->waitForText('Things To Do')
                 ->waitForText('Users')
-                ->assertSee('Get Started')                
+                ->assertSee('Things To Do')                
                 ->assertSee('Users');
 
             //try to access the index
@@ -220,9 +220,9 @@ class UserTest extends DuskTestCase
             //assert that the user can access the user resource on the left nav
             $browser->loginAs($user)
                 ->visit('/nova/dashboards/main')
-                ->waitForText('Get Started')
+                ->waitForText('Things To Do')
                 ->waitForText('Users')
-                ->assertSee('Get Started')                
+                ->assertSee('Things To Do')                
                 ->assertSee('Users');
 
             //try to access the index
@@ -267,8 +267,8 @@ class UserTest extends DuskTestCase
             //assert that the user cannot access the user resource on the left nav
             $browser->loginAs($user)
                 ->visit('/nova/dashboards/main')
-                ->waitForText('Get Started')
-                ->assertSee('Get Started')                
+                ->waitForText('Things To Do')
+                ->assertSee('Things To Do')                
                 ->assertDontSee('Users');
 
             //try to access the index
@@ -312,8 +312,8 @@ class UserTest extends DuskTestCase
             //assert that the user cannot access the user resource on the left nav
             $browser->loginAs($user)
                 ->visit('/nova/dashboards/main')
-                ->waitForText('Get Started')
-                ->assertSee('Get Started')                
+                ->waitForText('Things To Do')
+                ->assertSee('Things To Do')                
                 ->assertDontSee('Users');
 
             //try to access the index
