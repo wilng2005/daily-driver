@@ -21,8 +21,7 @@ class ThingsToDo extends Trend
         $trend = [];
         foreach($dailySnapshots as $dailySnapshot){
             $trend[$dailySnapshot->date->format("F j")] = 
-                isset($dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures'])?
-                isset($dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures']):0;
+                isset($dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures'])?isset($dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures']):0;
         }
         info($trend);
         return (new TrendResult)->trend($trend)->showLatestValue();
