@@ -9,4 +9,15 @@ class DailySnapshot extends Model
 {
     use HasFactory;
     protected $fillable = ['data','date'];
+
+    
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'data' => 'array',
+        'date' => 'date',
+    ];
 }
