@@ -65,8 +65,8 @@ class TelegramChat extends Resource
                 $chat_name=trim($chat_name);
                 return $chat_name;
             }),
-            Text::make('Message Count', function () {
-                return $this->getNoOfMessagesSentOverPeriod(1);
+            Text::make('Msg Count', function () {
+                return $this->getNoOfMessagesSentOverPeriod(1).'/'.$this->getNoOfMessagesSentOverPeriod(10000);
             }),
             KeyValue::make('Configuration')->rules('json'),
             Number::make('Telegram Chat ID','tg_chat_id')->readonly(),
@@ -78,8 +78,8 @@ class TelegramChat extends Resource
             HasMany::make('Telegram Messages'),
             Markdown::make('System Documentation', function(){
                 return "
-**Message Count**  
-Total number of messages sent over the last 1 day.
+**Msg Count**  
+Total number of messages sent over the last 1 day / Total number of messages ever sent
 ";
             })->hideFromIndex(),
         ];
