@@ -19,6 +19,7 @@ class TelegramChat extends Model
     const SYSTEM_ROLE='system';
     const ASSISTANT_ROLE='assistant';
     const USER_ROLE='user';
+    const DEFAULT_PROMPT='Ask the user one short but insightful journaling question about increasing self-awareness and mental well-being. Do not say anything else. If the user gives a good response to the journaling question thank the user for the response, and try to expand upon what was described and go deeper with another single simple insightful question.';
 
     //the tg_chat_id value is used by the  bot api to identify the chat.
     protected $fillable = ['data','tg_chat_id','configuration'];
@@ -137,14 +138,26 @@ class TelegramChat extends Model
         //@codeCoverageIgnoreEnd
     }
 
+    public function getJournalEntryPrompt(){
+        
+        if(isset($this->configuration['JOURNAL_ENTRY_PROMPT']))
+        {
+            // explode the string into an array of strings with | as a separator, and pick a random string from the array to return
+            $journal_entry_prompts=explode('|',$this->configuration['JOURNAL_ENTRY_PROMPT']);
+            return $journal_entry_prompts[array_rand($journal_entry_prompts)];
+        }
+        
+        return TelegramChat::DEFAULT_PROMPT;
+    }
+
     public function sendJournalEntry($data=[]){
         //@codeCoverageIgnoreStart
-        if(isset($this->configuration['ACTIVE_JOURNAL'])&&$this->configuration['ACTIVE_JOURNAL']&&isset($this->configuration['JOURNAL_ENTRY_PROMPT']))
+        if(isset($this->configuration['ACTIVE_JOURNAL'])&&$this->configuration['ACTIVE_JOURNAL'])
         {
             
             $this->telegramMessages()->create([
                 'data'=>$data,
-                'text'=>$this->configuration['JOURNAL_ENTRY_PROMPT'],
+                'text'=>$this->getJournalEntryPrompt(),
                 'is_incoming'=>false,
                 'is_outgoing'=>false,
                 'from_username'=>TelegramChat::SYSTEM_ROLE,
