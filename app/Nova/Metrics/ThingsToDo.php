@@ -49,7 +49,7 @@ class ThingsToDo extends Trend
      */
     public function cacheFor()
     {
-        return now()->addHours(12);
+        return now()->addHours(4);
     }
 
     /**
