@@ -23,7 +23,7 @@ class UserSignupsPerMonth extends Trend
             'Mar 2023' => 100,
             'Apr 2023' => 150,
             'May 2023' => 200,
-        ]);
+        ])->showLatestValue();
     }
 
     /**
