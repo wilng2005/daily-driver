@@ -30,7 +30,8 @@ class SendJournalEntry extends Command
     {
         //@codeCoverageIgnoreStart
         foreach (TelegramChat::all() as $telegramChat) {
-            $telegramChat->sendJournalEntry();
+            if($telegramChat->hasReceivedMessageFromUserOverPeriod(2))
+                $telegramChat->sendJournalEntry();
         }
         return Command::SUCCESS;
         //@codeCoverageIgnoreEnd

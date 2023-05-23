@@ -192,4 +192,25 @@ class TelegramChat extends Model
         return $response;
         //@codeCoverageIgnoreEnd
     }
+
+    //write a function that is able to see if we have received any message from the user over the past X number of days, return true if there is a message, false if there is no message
+    public function hasReceivedMessageFromUserOverPeriod($no_of_days=1,$now=null){
+        //@codeCoverageIgnoreStart
+        $messages=$this->telegramMessages()->orderBy('created_at','desc')->get();
+        
+        if(!$now)
+            $now=now();
+
+        foreach($messages as $message){
+            if($message->created_at->diffInDays($now)<=$no_of_days){
+                if($message->is_incoming)
+                    return true;
+            }else{
+                break;
+            }
+        }
+
+        return false;
+        //@codeCoverageIgnoreEnd
+    }
 }
