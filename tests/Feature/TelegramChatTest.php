@@ -81,5 +81,8 @@ class TelegramChatTest extends TestCase
         ]);
 
         $this->assertTrue($telegramChat->hasReceivedMessageFromUserOverPeriod(1));
+    
+        $this->assertFalse($telegramChat->hasReceivedMessageFromUserOverPeriod(1,now()->addDays(3)));
+
     }
 }
