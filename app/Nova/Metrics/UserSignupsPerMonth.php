@@ -2,6 +2,7 @@
 
 namespace App\Nova\Metrics;
 
+use App\Models\TelegramChat;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
 use Laravel\Nova\Metrics\TrendResult;
@@ -16,14 +17,16 @@ class UserSignupsPerMonth extends Trend
      */
     public function calculate(NovaRequest $request)
     {
-        return (new TrendResult)->trend([
-            'Dec 2022' => 100,
-            'Jan 2023' => 150,
-            'Feb 2023' => 200,
-            'Mar 2023' => 100,
-            'Apr 2023' => 150,
-            'May 2023' => 200,
-        ])->showLatestValue();
+        $request->range;
+
+        // produce an array of months for the past x number of months
+        $trend_data = [];
+        for($i=0;$i<$request->range;$i++){
+            $trend_data[now()->subMonths($i)->format('M Y')] = TelegramChat::where('created_at','>=',now()->subMonths($i)->startOfMonth()->toDateString())->where('created_at','<=',now()->subMonths($i)->endOfMonth()->toDateString())->count();
+        }
+        $trend_data = array_reverse($trend_data);
+
+        return (new TrendResult)->trend($trend_data)->showLatestValue();
     }
 
     /**
