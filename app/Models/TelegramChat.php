@@ -133,19 +133,22 @@ class TelegramChat extends Model
 
     public function executeAIResponse(){
         //@codeCoverageIgnoreStart
-        if(isset($this->configuration['AI_ENABLED'])&&$this->configuration['AI_ENABLED'])
-        {
-            $data['prompt']=$this->generatePrompt();
+        if(isset($this->configuration['AI_ENABLED'])&&$this->configuration['AI_ENABLED']){
+            
+            // do a check to ensure we don't spam the user with two outgoing messages in a row. If the last message was outgoing, don't send another outgoing message.
+            if(!$this->wasLastMessageOutgoing()){
+                $data['prompt']=$this->generatePrompt();
 
-            $data['result'] = OpenAI::chat()->create([
-                'model' => 'gpt-3.5-turbo',
-                'messages'=> $data['prompt'],
-            ]);
-            
-            $result_text=trim($data['result']['choices'][0]['message']['content'] ?? "");
-            
-            if($result_text){
-                $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
+                $data['result'] = OpenAI::chat()->create([
+                    'model' => 'gpt-3.5-turbo',
+                    'messages'=> $data['prompt'],
+                ]);
+                
+                $result_text=trim($data['result']['choices'][0]['message']['content'] ?? "");
+                
+                if($result_text){
+                    $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
+                }
             }
         }else{
             $this->sendMessage("AI is disabled.", TelegramChat::ANNOUNCEMENT_ROLE);
