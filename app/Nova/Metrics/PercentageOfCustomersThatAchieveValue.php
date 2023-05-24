@@ -34,7 +34,7 @@ class PercentageOfCustomersThatAchieveValue extends Trend
         for($i=0;$i<12;$i++){
             //if cohort date is in the future
             if($chats->count()==0||$cohort_date->startOfMonth()->isFuture()){
-                $trend_data[$cohort_date->format('M Y')] = null;
+                $trend_data[$cohort_date->format('M Y')] = 0;
             }else{
                 $count=0;
 
@@ -49,7 +49,7 @@ class PercentageOfCustomersThatAchieveValue extends Trend
                 $trend_data[$cohort_date->format('M Y')] = round($count/$chats->count()*100,2);
             }
             //add one month to cohort date
-            $cohort_date->addMonth();
+            $cohort_date->startOfMonth()->addMonth();
         }
         return (new TrendResult)->trend($trend_data)->showLatestValue();
 
