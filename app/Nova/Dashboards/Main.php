@@ -2,8 +2,10 @@
 
 namespace App\Nova\Dashboards;
 
+use App\Nova\Metrics\PercentageOfCustomersThatAchieveValue;
 use App\Nova\Metrics\ThingsToDo;
 use App\Nova\Metrics\TelegramChatsPerMonth;
+
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Dashboards\Main as Dashboard;
 
@@ -16,9 +18,15 @@ class Main extends Dashboard
      */
     public function cards()
     {
-        return [
+        $cards=[
             new ThingsToDo,
             new TelegramChatsPerMonth,
         ];
+
+        for($i=0;$i<12;$i++){
+            $cards[]=(PercentageOfCustomersThatAchieveValue::make(now()->subMonths($i)->format('M Y')))->width('full');
+        }
+
+        return $cards;
     }
 }
