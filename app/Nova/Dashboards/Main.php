@@ -3,7 +3,7 @@
 namespace App\Nova\Dashboards;
 
 use App\Nova\Metrics\ThingsToDo;
-use App\Nova\Metrics\UserSignupsPerMonth;
+use App\Nova\Metrics\TelegramChatsPerMonth;
 use Laravel\Nova\Cards\Help;
 use Laravel\Nova\Dashboards\Main as Dashboard;
 
@@ -18,7 +18,7 @@ class Main extends Dashboard
     {
         return [
             new ThingsToDo,
-            new UserSignupsPerMonth,
+            new TelegramChatsPerMonth,
         ];
     }
 }

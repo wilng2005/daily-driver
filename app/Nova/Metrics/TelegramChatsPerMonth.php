@@ -7,7 +7,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
 use Laravel\Nova\Metrics\TrendResult;
 
-class UserSignupsPerMonth extends Trend
+class TelegramChatsPerMonth extends Trend
 {
     /**
      * Calculate the value of the metric.
@@ -60,6 +60,6 @@ class UserSignupsPerMonth extends Trend
      */
     public function uriKey()
     {
-        return 'user-signups-per-month';
+        return 'telegram-chats-per-month';
     }
 }
