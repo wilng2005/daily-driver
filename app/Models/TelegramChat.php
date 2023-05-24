@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-
+use App\Jobs\ExecuteAIResponseJob;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -115,7 +115,13 @@ class TelegramChat extends Model
     }
 
     public function triggerAIResponse(){
+        // dispatch a job to execute the AI response
+        //@codeCoverageIgnoreStart
+        ExecuteAIResponseJob::dispatch($this);
+        //@codeCoverageIgnoreEnd
+    }
 
+    public function executeAIResponse(){
         //@codeCoverageIgnoreStart
         if(isset($this->configuration['AI_ENABLED'])&&$this->configuration['AI_ENABLED'])
         {
