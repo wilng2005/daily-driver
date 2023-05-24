@@ -32,8 +32,6 @@ class PercentageOfCustomersThatAchieveValue extends Trend
         $chats=TelegramChat::where('created_at','>=',$cohort_date->startOfMonth()->toDateString())->where('created_at','<=',$cohort_date->endOfMonth()->toDateString())->get();
         $trend_data=[];
         for($i=0;$i<12;$i++){
-            //add one month to cohort date
-            $cohort_date->addMonth();
             //if cohort date is in the future
             if($chats->count()==0||$cohort_date->isFuture()){
                 $trend_data[$cohort_date->format('M Y')] = null;
@@ -50,6 +48,8 @@ class PercentageOfCustomersThatAchieveValue extends Trend
         
                 $trend_data[$cohort_date->format('M Y')] = round($count/$chats->count()*100,2);
             }
+            //add one month to cohort date
+            $cohort_date->addMonth();
         }
         return (new TrendResult)->trend($trend_data)->showLatestValue();
 
