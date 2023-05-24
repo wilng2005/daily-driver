@@ -2,6 +2,7 @@
 
 namespace App\Nova\Metrics;
 
+use App\Models\TelegramChat;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
 use Laravel\Nova\Metrics\TrendResult;
@@ -26,20 +27,46 @@ class PercentageOfCustomersThatAchieveValue extends Trend
      */
     public function calculate(NovaRequest $request)
     {
-        return (new TrendResult)->trend([
-            "May 2023"=>30,
-            "Jun 2023"=>40,
-            "Jul 2023"=>44,
-            "Aug 2023"=>60,
-            "Sep 2023"=>66,
-            "Oct 2023"=>67,
-            "Nov 2023"=>69,
-            "Dec 2023"=>70,
-            "Jan 2024"=>80,
-            "Feb 2024"=>90,
-            "Mar 2024"=>100,
-            "Apr 2024"=>100,
-        ])->showLatestValue();
+
+        $cohort_date = \Carbon\Carbon::createFromFormat('M Y', $this->cohort);
+        $chats=TelegramChat::where('created_at','>=',$cohort_date->startOfMonth()->toDateString())->where('created_at','<=',$cohort_date->endOfMonth()->toDateString())->get();
+        $trend_data=[];
+        for($i=0;$i<12;$i++){
+            //add one month to cohort date
+            $cohort_date->addMonth();
+            //if cohort date is in the future
+            if($chats->count()==0||$cohort_date->isFuture()){
+                $trend_data[$cohort_date->format('M Y')] = null;
+            }else{
+                $count=0;
+
+                foreach($chats as $chat){
+                    // count the number of TelegramMessages in this chat that was created before $cohort_date's end of month
+                    $no_of_messages_sent=$chat->getNoOfMessagesSentOverPeriod(365,$cohort_date->endOfMonth());
+                    if($no_of_messages_sent>=10){
+                        $count++;
+                    }
+                }
+        
+                $trend_data[$cohort_date->format('M Y')] = round($count/$chats->count()*100,2);
+            }
+        }
+        return (new TrendResult)->trend($trend_data)->showLatestValue();
+
+        // return (new TrendResult)->trend([
+        //     "May 2023"=>30,
+        //     "Jun 2023"=>40,
+        //     "Jul 2023"=>44,
+        //     "Aug 2023"=>60,
+        //     "Sep 2023"=>null,
+        //     "Oct 2023"=>67,
+        //     "Nov 2023"=>69,
+        //     "Dec 2023"=>70,
+        //     "Jan 2024"=>80,
+        //     "Feb 2024"=>90,
+        //     "Mar 2024"=>100,
+        //     "Apr 2024"=>null,
+        // ])->showLatestValue();
     }
 
     /**
@@ -50,9 +77,6 @@ class PercentageOfCustomersThatAchieveValue extends Trend
     public function ranges()
     {
         return [
-            30 => __('30 Days'),
-            60 => __('60 Days'),
-            90 => __('90 Days'),
         ];
     }
 
