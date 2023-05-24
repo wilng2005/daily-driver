@@ -34,7 +34,10 @@ class PercentageOfCustomersThatAchieveValue extends Trend
         for($i=0;$i<12;$i++){
             //if cohort date is in the future
             if($chats->count()==0||$cohort_date->startOfMonth()->isFuture()){
-                $trend_data[$cohort_date->format('M Y')] = 0;
+                
+                //$trend_data[$cohort_date->format('M Y')] = 0;
+
+                //do nothing so that latest value would be correct
             }else{
                 $count=0;
 
@@ -87,7 +90,7 @@ class PercentageOfCustomersThatAchieveValue extends Trend
      */
     public function cacheFor()
     {
-        // return now()->addMinutes(5);
+        return now()->addDays(1);
     }
 
     /**
@@ -99,6 +102,5 @@ class PercentageOfCustomersThatAchieveValue extends Trend
     {
         $cohort_date = \Carbon\Carbon::createFromFormat('M Y', $this->cohort);
         return 'percentage-of-customers-that-achieve-value-'.$cohort_date->format('M-Y');
-        //return 'percentage-of-customers-that-achieve-value';
     }
 }
