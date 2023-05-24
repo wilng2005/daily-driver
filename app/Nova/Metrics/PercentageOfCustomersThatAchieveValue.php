@@ -97,6 +97,8 @@ class PercentageOfCustomersThatAchieveValue extends Trend
      */
     public function uriKey()
     {
-        return 'percentage-of-customers-that-achieve-value';
+        $cohort_date = \Carbon\Carbon::createFromFormat('M Y', $this->cohort);
+        return 'percentage-of-customers-that-achieve-value-'.$cohort_date->format('M-Y');
+        //return 'percentage-of-customers-that-achieve-value';
     }
 }

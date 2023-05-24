@@ -21,12 +21,12 @@ class Main extends Dashboard
         $cards=[
             new ThingsToDo,
             new TelegramChatsPerMonth,
-            (PercentageOfCustomersThatAchieveValue::make(now()->subMonths(4)->format('M Y')))->width('full')
+            //(PercentageOfCustomersThatAchieveValue::make(now()->subMonths(4)->format('M Y')))->width('full')
         ];
 
-        //for($i=0;$i<12;$i++){
-         //   $cards[]=(PercentageOfCustomersThatAchieveValue::make(now()->subMonths($i)->format('M Y')))->width('full');
-        //}
+        for($i=0;$i<12;$i++){
+           $cards[]=(PercentageOfCustomersThatAchieveValue::make(now()->subMonths($i)->format('M Y')))->width('full');
+        }
 
         return $cards;
     }
