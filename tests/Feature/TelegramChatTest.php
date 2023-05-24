@@ -85,4 +85,42 @@ class TelegramChatTest extends TestCase
         $this->assertFalse($telegramChat->hasReceivedMessageFromUserOverPeriod(1,now()->addDays(3)));
 
     }
+
+    function test_wasLastMessageOutgoing(){
+        $telegramChat = TelegramChat::factory()->create();
+        $telegramChat->configuration=[
+            "AI_ENABLED"=> "TRUE",
+            "ACTIVE_JOURNAL"=> "TRUE",
+            "NEW_CONTEXT_PROMPT"=> "...",
+            "JOURNAL_ENTRY_PROMPT"=> "Prompt 1|Prompt 2",
+            "SYSTEM_CONTEXT_PROMPT"=> "You are an AI assistant similar to ChatGPT, powered by OpenAI.",
+            "NO_OF_HISTORICAL_MESSAGES_TO_USE"=> 10,
+        ];
+
+        $this->assertFalse($telegramChat->wasLastMessageOutgoing());
+
+        $telegramChat->telegramMessages()->create([
+            'data'=>[],
+            'telegram_chat_id'=>$telegramChat->id,
+            'text'=>'Test',
+            'is_incoming'=>false,
+            'is_outgoing'=>true,
+            'from_username'=>TelegramChat::USER_ROLE,
+        ]);
+
+        $this->assertTrue($telegramChat->wasLastMessageOutgoing());
+        
+        sleep(1);
+        
+        $telegramChat->telegramMessages()->create([
+            'data'=>['123'=>'456'],
+            'telegram_chat_id'=>$telegramChat->id,
+            'text'=>'Test2',
+            'is_incoming'=>true,
+            'is_outgoing'=>false,
+            'from_username'=>TelegramChat::USER_ROLE,
+        ]);
+
+        $this->assertFalse($telegramChat->wasLastMessageOutgoing());
+    }
 }

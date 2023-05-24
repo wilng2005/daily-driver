@@ -121,6 +121,16 @@ class TelegramChat extends Model
         //@codeCoverageIgnoreEnd
     }
 
+    // function that checks if last message was outgoing
+    public function wasLastMessageOutgoing(){
+        
+        $last_message=$this->telegramMessages()->orderBy('created_at','desc')->first();
+        if($last_message){
+            return $last_message->is_outgoing?true:false;
+        }
+        return false;
+    }
+
     public function executeAIResponse(){
         //@codeCoverageIgnoreStart
         if(isset($this->configuration['AI_ENABLED'])&&$this->configuration['AI_ENABLED'])
