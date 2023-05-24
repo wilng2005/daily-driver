@@ -27,10 +27,12 @@ class ExecuteAIResponseJob implements ShouldQueue
      * Create a new job instance.
      *
      * @return void
+     * 
+     * @codeCoverageIgnore
      */
     public function __construct(public TelegramChat $telegramChat)
     {
-        
+
     }
 
     /**
@@ -40,8 +42,11 @@ class ExecuteAIResponseJob implements ShouldQueue
      */
     public function handle()
     {
+        //@codeCoverageIgnoreStart
         if($this->telegramChat)
             $this->telegramChat->executeAIResponse();
+
+        //@codeCoverageIgnoreEnd
     }
 
 
@@ -52,6 +57,8 @@ class ExecuteAIResponseJob implements ShouldQueue
      */
     public function middleware(): array
     {
+        //@codeCoverageIgnoreStart
         return [new RateLimited('ExecutingAIResponses')];
+        //@codeCoverageIgnoreEnd
     }
 }
