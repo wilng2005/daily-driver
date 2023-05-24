@@ -44,7 +44,7 @@ class PercentageOfCustomersThatAchieveValue extends Trend
                 foreach($chats as $chat){
                     // count the number of TelegramMessages in this chat that was created before $cohort_date's end of month
                     $no_of_messages_sent=$chat->getNoOfMessagesSentOverPeriod(365,$cohort_date->endOfMonth());
-                    if($no_of_messages_sent>=10){
+                    if($no_of_messages_sent>=100){
                         $count++;
                     }
                 }
