@@ -21,7 +21,7 @@ class ExecuteAIResponseJob implements ShouldQueue
      *
      * @var int
      */
-    public $tries = 2;
+    public $tries = 5;
  
     /**
      * Create a new job instance.
