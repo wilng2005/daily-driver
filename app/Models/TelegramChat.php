@@ -111,7 +111,7 @@ class TelegramChat extends Model
         
         if(isset($this->configuration['SYSTEM_CONTEXT_FINAL_PROMPT'])){
             $final_prompts=explode('|',$this->configuration['SYSTEM_CONTEXT_FINAL_PROMPT']);
-            $prompt[]=['role'=>TelegramChat::SYSTEM_ROLE, 'content'=>array_rand($final_prompts)];
+            $prompt[]=['role'=>TelegramChat::SYSTEM_ROLE, 'content'=>$final_prompts[array_rand($final_prompts)]];
         }
             
         return $prompt;
