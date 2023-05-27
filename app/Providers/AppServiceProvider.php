@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         RateLimiter::for('ExecutingAIResponses', function (object $job) {
-            return Limit::perMinute(1)->by($job->telegramChat->tg_chat_id);
+            return Limit::perMinute(3)->by($job->telegramChat->tg_chat_id);
         });
     }
 }
