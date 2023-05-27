@@ -108,7 +108,10 @@ class TelegramChat extends Model
 
         // merge $prompt and $message_prompts
         $prompt=array_merge($prompt,$message_prompts);
-
+        
+        if(isset($this->configuration['SYSTEM_CONTEXT_FINAL_PROMPT']))
+            $prompt[]=['role'=>TelegramChat::SYSTEM_ROLE, 'content'=>$this->configuration['SYSTEM_CONTEXT_FINAL_PROMPT']];
+        
         return $prompt;
 
         //@codeCoverageIgnoreEnd

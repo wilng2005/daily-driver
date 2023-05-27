@@ -18,7 +18,7 @@ class PercentageOfCustomersThatAchieveValue extends Trend
         }
         $this->name = "% of ".$this->cohort." chats that achieve value";
     }
-
+    
     /**
      * Calculate the value of the metric.
      *
