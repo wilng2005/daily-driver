@@ -122,7 +122,7 @@ class TelegramChat extends Model
     public function triggerAIResponse(){
         // dispatch a job to execute the AI response
         //@codeCoverageIgnoreStart
-        ExecuteAIResponseJob::dispatch($this)->delay(now()->addSeconds(5));
+        ExecuteAIResponseJob::dispatch($this)->delay(now()->addSeconds(3));
         //@codeCoverageIgnoreEnd
     }
 
