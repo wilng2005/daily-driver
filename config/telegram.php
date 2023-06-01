@@ -180,14 +180,14 @@ return [
             ],
         */
 
-        /* // Group Type: 4
-           'myBot' => [
-                'admin', // Command Group Name.
-                'subscription', // Command Group Name.
-                'status', // Shared Command Name.
-                'Acme\Project\Commands\BotCommand' // Full Path to Command Class.
-           ],
-        */
+       
+        'myBot' => [
+            // 'admin', // Command Group Name.
+            // 'subscription', // Command Group Name.
+            // 'status', // Shared Command Name.
+            'App\Telegram\Commands\StartCommand' // Full Path to Command Class.
+        ],
+        
     ],
 
     /*
