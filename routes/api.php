@@ -50,7 +50,21 @@ if(App::isLocal()){
             $telegram_update=TelegramUpdate::create([
                 'data'=> $update
             ]);
-            ProcessTelegramUpdate::dispatch($telegram_update);
+
+            //check if the message is a command
+            $is_bot_command=false;
+
+            if(isset($telegram_update->data['message']['entities'])){
+                foreach($telegram_update->data['message']['entities'] as $entity){
+                    if($entity['type']=='bot_command'){
+                        $is_bot_command=true;
+                        break;
+                    }
+                }
+            }
+            
+            if(!$is_bot_command)
+                ProcessTelegramUpdate::dispatch($telegram_update);
         }
 
         return 'ok';
