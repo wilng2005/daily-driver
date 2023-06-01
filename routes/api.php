@@ -23,9 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('telegram/'.env('TELEGRAM_WEBHOOK_URL_TOKEN').'/webhook', function () {
-    $updates = Telegram::getWebhookUpdate();
-    
+Route::post('telegram/dsYeN7rvWz3sGk88X9X4LbQt/webhook', function () {
+    //$updates = Telegram::getWebhookUpdate();
+    $updates = Telegram::commandsHandler(true);
+
     info("telegram webhook received:");
     info($updates);
     
