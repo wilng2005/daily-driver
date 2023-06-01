@@ -33,43 +33,21 @@ Route::post('telegram/dsYeN7rvWz3sGk88X9X4LbQt/webhook', function () {
     $telegram_update=TelegramUpdate::create([
         'data'=> $updates
     ]);
-    ProcessTelegramUpdate::dispatch($telegram_update);
+
+    //check if the message is a command
+    $is_bot_command=false;
+
+    if(isset($telegram_update->data['message']['entities'])){
+        foreach($telegram_update->data['message']['entities'] as $entity){
+            if($entity['type']=='bot_command'){
+                $is_bot_command=true;
+                break;
+            }
+        }
+    }
+    
+    if(!$is_bot_command)
+        ProcessTelegramUpdate::dispatch($telegram_update);
+
     return 'ok';
 });
-
-
-if(App::isLocal()){
-    //don't forget that the route for this is api/telegram/local not telegram/local!
-    Route::get('telegram/local',function(){
-        $updates = Telegram::getUpdates();
-        
-        info("telegram getUpdates received:");
-        info($updates);
-        
-        foreach($updates as $update){
-            $telegram_update=TelegramUpdate::create([
-                'data'=> $update
-            ]);
-
-            //check if the message is a command
-            $is_bot_command=false;
-
-            if(isset($telegram_update->data['message']['entities'])){
-                foreach($telegram_update->data['message']['entities'] as $entity){
-                    if($entity['type']=='bot_command'){
-                        $is_bot_command=true;
-                        break;
-                    }
-                }
-            }
-            
-            if(!$is_bot_command)
-                ProcessTelegramUpdate::dispatch($telegram_update);
-        }
-
-        return 'ok';
-    });
-}
-
-
-
