@@ -23,7 +23,7 @@ class StartCommand extends Command
             'text' => '
 This is an AI-powered journaling bot that is currently available for trial usage.
 
-To participate in the trial, please fill up the onboarding form https://forms.gle/LabqthSPNLVTfiv8A
+To participate in the trial, please fill up the registration form https://forms.gle/LabqthSPNLVTfiv8A
 
 Once I’ve gotten your details, I’ll configure your trial usage to begin.
 
