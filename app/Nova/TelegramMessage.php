@@ -60,7 +60,7 @@ class TelegramMessage extends Resource
                     //if message is incoming limit to 5 chars
                     if($this->is_incoming){
                         //length of text
-                        return Str::limit($text, 5, '...'.strlen($text));
+                        return Str::limit($text, 10, '...'.strlen($text));
                     }else{
                         return $text;
                     }
