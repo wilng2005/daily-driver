@@ -12,14 +12,17 @@ class StartCommand extends Command
     public function handle()
     {
         $this->replyWithMessage([
-            'text' => 'This is an AI-powered journaling bot that is currently available for trial usage.
+            'text' => '
+This is an AI-powered journaling bot that is currently available for trial usage.
 
-            To participate in the trial, please review the trial briefing slides at  
-            https://drive.google.com/file/d/1PiEpiL-TO39kDX51P_-7ify7jMj--Rwt/view?usp=share_link
-            
-            Then, fill up the onboarding form https://forms.gle/LabqthSPNLVTfiv8A
+To participate in the trial, please fill up the onboarding form https://forms.gle/LabqthSPNLVTfiv8A
+
+Once I’ve gotten your details, I’ll configure your trial usage to begin.
+
+To find out more about the trial, please check out the trial briefing slides at  
+https://drive.google.com/file/d/1PiEpiL-TO39kDX51P_-7ify7jMj--Rwt/view?usp=share_link
              
-            Once I’ve gotten your details, I’ll configure your trial usage to begin. Please contact me on telegram @wilng2005 if you encounter any issues, or have any further clarifications.',
+Please contact me on telegram @wilng2005 if you encounter any issues, or have any further clarifications.',
         ]);
     }
 }
