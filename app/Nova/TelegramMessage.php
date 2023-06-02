@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
@@ -54,7 +55,11 @@ class TelegramMessage extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Text')->readonly(),
+            Text::make('Text')->readonly()->displayUsing(
+                function($test){
+                    return Str::limit($text, 5);
+                }
+            ),
             Code::make('Data')->json()->readonly(),
             Boolean::make('Is Incoming')->readonly(),
             Boolean::make('Is Outgoing')->readonly(),
