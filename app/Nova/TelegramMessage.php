@@ -56,8 +56,13 @@ class TelegramMessage extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Text')->readonly()->displayUsing(
-                function($test){
-                    return Str::limit($text, 5);
+                function($text){
+                    //if message is incoming limit to 5 chars
+                    if($this->is_incoming){
+                        return Str::limit($text, 5, '...');
+                    }else{
+                        return $text;
+                    }
                 }
             ),
             Code::make('Data')->json()->readonly(),
