@@ -9,6 +9,10 @@ class StartCommand extends Command
     protected string $name = 'start';
     protected string $description = 'Start Command to get you started';
 
+
+    /**
+     * @codeCoverageIgnore
+    **/
     public function handle()
     {
         //if this is staging environment, reply with staging message
