@@ -250,6 +250,8 @@ class TelegramChat extends Model
             
             $result = OpenAI::completions()->create($data);
             
+            $data['result']=$result;
+            
             $result_text=trim($result['choices'][0]['text'] ?? "");
             
             if($result_text){
