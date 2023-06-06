@@ -269,7 +269,16 @@ class TelegramChat extends Model
             }
 
             $data['prompt'].="\n\n
-            Identify a maximum of 5 key issues. For each issue, headline it in bold, and write a short summary of the issue key points discussed. Use a maximum of 10 words for each issue.\n\n
+            Identify and extract a maximum of 5 key issues that are suitable for discussion relevant for a coaching context. For each issue, headline it, and write a short summary of the issue key points discussed. Use a maximum of 10 words for each issue. A sample format is as follows\n\n
+
+            \n\nExample below:\"\"\"
+            \n\n[SUMMARY]
+            \n1. Stress at work - You spoke about feeling stress from managing the stakeholders of project A.
+            \n2. Family relationships - You asked for suggestions on how to improve your relationship with your father. 
+            \n3. Career - You spoke about your desire to change your career.
+            \n4. Mental health - You spoke about feeling depressed.
+            \n5. Physical health - You spoke about feeling tired and lethargic.\"\"\"
+
             \n\n[SUMMARY]";
             
             $result = OpenAI::completions()->create($data);
