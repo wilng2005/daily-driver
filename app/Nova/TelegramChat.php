@@ -129,6 +129,7 @@ Total number of messages sent over the last 1 day / Total number of messages eve
         return [
             new Actions\SendTelegramMessageAction,
             new Actions\SendJournalEntryAction,
+            new Actions\GenerateSummaryForTelegramChat,
         ];
     }
 }
