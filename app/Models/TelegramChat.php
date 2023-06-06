@@ -237,7 +237,7 @@ class TelegramChat extends Model
         return false;
     }
 
-    public function generateSummary($no_days_of_historical_messages_to_use=7){
+    public function generateSummary($no_days_of_historical_messages_to_use=7,$max_messages=100){
         //@codeCoverageIgnoreStart
         if(isset($this->configuration['AI_ENABLED'])&&$this->configuration['AI_ENABLED']){
     
@@ -249,11 +249,23 @@ class TelegramChat extends Model
                 'max_tokens'=>2000,
             ];
 
-            //get the incoming messages from the past 14 days
-            $messages=$this->telegramMessages()->where('is_incoming',true)->where('created_at','>=',now()->subDays($no_days_of_historical_messages_to_use))->orderBy('created_at','asc')->get();
+            
+            $messages=$this->telegramMessages()->where('is_incoming',true)->where('created_at','>=',now()->subDays($no_days_of_historical_messages_to_use))->orderBy('created_at','desc')->limit($max_messages)->get();
 
+            //reverse the messages so that the most recent message is last
+            $messages=$messages->reverse();
+            $message_prompts=[];
             foreach($messages as $message){
-                $data['prompt'].=$message->text."\n";
+                if(isset($this->configuration['NEW_CONTEXT_PROMPT'])&&$message->text==$this->configuration['NEW_CONTEXT_PROMPT']){
+                    $message_prompts=[];
+                }else{
+                    $message_prompts[]=$message->text;
+                }
+            }
+
+            for($i=0;$i<sizeof($message_prompts);$i++){
+                $data['prompt'].=($i+1).'. '.$message_prompts[$i]."\n";
+                
             }
 
             $data['prompt'].="\n\n
