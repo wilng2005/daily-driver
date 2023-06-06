@@ -245,13 +245,14 @@ class TelegramChat extends Model
             
             $data=[
                 'model' => 'text-davinci-003',
-                'prompt'=>"PHP is "
+                'prompt'=>"PHP is ",
+                'max_tokens'=>2000,
             ];
             
             $result = OpenAI::completions()->create($data);
             
             $data['result']=$result;
-            
+
             $result_text=trim($result['choices'][0]['text'] ?? "");
             
             if($result_text){
