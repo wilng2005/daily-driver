@@ -236,4 +236,30 @@ class TelegramChat extends Model
 
         return false;
     }
+
+    public function generateSummary(){
+        //@codeCoverageIgnoreStart
+        if(isset($this->configuration['AI_ENABLED'])&&$this->configuration['AI_ENABLED']){
+    
+            // do a check to ensure we don't spam the user with two outgoing messages in a row. If the last message was outgoing, don't send another outgoing message.
+            
+            $data=[
+                'model' => 'text-davinci-003',
+                'prompt'=>"PHP is "
+            ];
+            
+            $result = OpenAI::completions()->create($data);
+            
+            $result_text=trim($result['choices'][0]['text'] ?? "");
+            
+            if($result_text){
+                $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
+            }
+            
+        }else{
+            $this->sendMessage("AI is disabled.", TelegramChat::ANNOUNCEMENT_ROLE);
+        }
+
+        //@codeCoverageIgnoreEnd
+    }
 }

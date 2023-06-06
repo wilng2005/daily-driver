@@ -128,7 +128,7 @@ return [
     'commands' => [
         HelpCommand::class,
         App\Telegram\Commands\StartCommand::class,
-        App\Telegram\Commands\Summary7Command::class,
+        App\Telegram\Commands\SummaryCommand::class,
     ],
 
     /*
