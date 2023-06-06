@@ -269,7 +269,7 @@ class TelegramChat extends Model
             }
 
             $data['prompt'].="\n\n
-            Identify and extract a maximum of 5 key issues that are suitable for discussion relevant for a coaching context. For each issue, headline it, and write a short summary of the issue key points discussed. Use a maximum of 10 words for each issue. A sample format is as follows\n\n
+            Identify and extract a maximum of 5 key issues that are suitable for discussion relevant for a coaching context. For each issue, headline it, and write a short summary of the issue key points discussed. This meanUse a maximum of 10 words for each issue. Issues should be ranked and ordered according to the number of messages touching on each issue. This means that the most talked about issue should be item 1, second most talked about issue should be item 2, etc. A sample format is as follows\n\n
 
             \n\nExample below:\"\"\"
             \n\n[SUMMARY]
