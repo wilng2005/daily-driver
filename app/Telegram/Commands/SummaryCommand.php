@@ -22,6 +22,6 @@ class SummaryCommand extends Command
         ]);
 
         $telegram_chat=$telegram_update->extract_and_store_chat_and_message_details();
-        $telegram_chat->generate_summary();
+        $telegram_chat->generateSummary();
     }
 }
