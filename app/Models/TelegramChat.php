@@ -245,7 +245,10 @@ class TelegramChat extends Model
             
             $data=[
                 'model' => 'text-davinci-003',
-                'prompt'=>"Summarise and extract the key issues discussed from the following messages that can be discussed with a coaching context:\n",
+                'prompt'=>"[INSTRUCTION] Identify and extract a maximum of 5 key issues that are suitable for discussion relevant for a coaching context. For each issue, headline it, and write a short summary of the issue key points discussed. Use a maximum of 10 words for each issue. Issues should be ranked and ordered according to the number of messages touching on each issue. This means that the most talked about issue should be item 1, second most talked about issue should be item 2, etc. If there is insufficient information from the messages, indicate that there is insufficient information for a summary to be executed. Do not use the issues in the sample format if the issues do not arise in the messages. \n
+                
+                The messages are as follows: \n
+                [MESSAGES] \n",
                 'max_tokens'=>2000,
             ];
 
@@ -269,10 +272,10 @@ class TelegramChat extends Model
             }
 
             $data['prompt'].="\n\n
-            Identify and extract a maximum of 5 key issues that are suitable for discussion relevant for a coaching context. For each issue, headline it, and write a short summary of the issue key points discussed. This meanUse a maximum of 10 words for each issue. Issues should be ranked and ordered according to the number of messages touching on each issue. This means that the most talked about issue should be item 1, second most talked about issue should be item 2, etc. A sample format is as follows\n\n
+            [INSTRUCTION] A sample format is as follows:\n\n
 
             \n\nExample below:\"\"\"
-            \n\n[SUMMARY]
+            \n\n[SAMPLE FORMAT OF SUMMARY]
             \n1. Stress at work - You spoke about feeling stress from managing the stakeholders of project A.
             \n2. Family relationships - You asked for suggestions on how to improve your relationship with your father. 
             \n3. Career - You spoke about your desire to change your career.
