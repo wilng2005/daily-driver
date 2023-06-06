@@ -237,7 +237,7 @@ class TelegramChat extends Model
         return false;
     }
 
-    public function generateSummary(){
+    public function generateSummary($no_days_of_historical_messages_to_use=14){
         //@codeCoverageIgnoreStart
         if(isset($this->configuration['AI_ENABLED'])&&$this->configuration['AI_ENABLED']){
     
@@ -245,9 +245,20 @@ class TelegramChat extends Model
             
             $data=[
                 'model' => 'text-davinci-003',
-                'prompt'=>"PHP is ",
+                'prompt'=>"Summarise and extract the key issues discussed from the following messages that can be discussed with a coaching context:\n",
                 'max_tokens'=>2000,
             ];
+
+            //get the incoming messages from the past 14 days
+            $messages=$this->telegramMessages()->where('is_incoming',true)->where('created_at','>=',now()->subDays($no_days_of_historical_messages_to_use))->orderBy('created_at','asc')->get();
+
+            foreach($messages as $message){
+                $data['prompt'].=$message->text."\n";
+            }
+
+            $data['prompt'].="\n\n
+            Identify a maximum of 5 key issues. For each issue, headline it in bold, and write a short summary of the issue key points discussed. Use a maximum of 10 words for each issue.\n\n
+            \n\n[SUMMARY]";
             
             $result = OpenAI::completions()->create($data);
             
