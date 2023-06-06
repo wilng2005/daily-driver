@@ -237,7 +237,7 @@ class TelegramChat extends Model
         return false;
     }
 
-    public function generateSummary($no_days_of_historical_messages_to_use=14){
+    public function generateSummary($no_days_of_historical_messages_to_use=7){
         //@codeCoverageIgnoreStart
         if(isset($this->configuration['AI_ENABLED'])&&$this->configuration['AI_ENABLED']){
     
