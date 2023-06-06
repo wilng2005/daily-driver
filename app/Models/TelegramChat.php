@@ -276,11 +276,11 @@ class TelegramChat extends Model
 
             \n\nExample below:\"\"\"
             \n\n[SAMPLE FORMAT OF SUMMARY]
-            \n1. Stress at work - You spoke about feeling stress from managing the stakeholders of project A.
-            \n2. Family relationships - You asked for suggestions on how to improve your relationship with your father. 
-            \n3. Career - You spoke about your desire to change your career.
-            \n4. Mental health - You spoke about feeling depressed.
-            \n5. Physical health - You spoke about feeling tired and lethargic.\"\"\"
+            \n1. <b>Stress at work</b> - You spoke about feeling stress from managing the stakeholders of project A.
+            \n2. <b>Family relationships</b> - You asked for suggestions on how to improve your relationship with your father. 
+            \n3. <b>Career</b> - You spoke about your desire to change your career.
+            \n4. <b>Mental health</b> - You spoke about feeling depressed.
+            \n5. <b>Physical health</b> - You spoke about feeling tired and lethargic.\"\"\"
 
             \n\n[SUMMARY]";
             
