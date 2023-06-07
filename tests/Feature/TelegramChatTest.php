@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\TelegramChat;
-
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -122,5 +122,57 @@ class TelegramChatTest extends TestCase
         ]);
 
         $this->assertFalse($telegramChat->wasLastMessageOutgoing());
+    }
+
+    function test_getNoOfMessagesSentOverPeriod(){
+        //test that the method returns the correct number of messages sent over a period
+
+        $telegramChat = TelegramChat::factory()->create();
+        
+        //test that the method returns 0 when no messages have been sent
+        $this->assertEquals(0, $telegramChat->getNoOfMessagesSentOverPeriod(1));
+
+        //test that the method returns 1 when 1 message has been sent
+        $message=$telegramChat->telegramMessages()->create([
+            'data'=>[],
+            'telegram_chat_id'=>$telegramChat->id,
+            'text'=>'Test',
+            'is_incoming'=>true,
+            'is_outgoing'=>false,
+            'from_username'=>TelegramChat::USER_ROLE,
+        ]);
+        //change the created_at date to 1 day ago
+        $message->created_at=Carbon::create(2021, 1, 23, 0, 0, 0);
+        $message->save();
+
+        $message=$telegramChat->telegramMessages()->create([
+            'data'=>[],
+            'telegram_chat_id'=>$telegramChat->id,
+            'text'=>'Test',
+            'is_incoming'=>true,
+            'is_outgoing'=>false,
+            'from_username'=>TelegramChat::USER_ROLE,
+        ]);
+
+        $message->created_at=Carbon::create(2021, 2, 23, 0, 0, 0);
+        $message->save();
+
+        $message=$telegramChat->telegramMessages()->create([
+            'data'=>[],
+            'telegram_chat_id'=>$telegramChat->id,
+            'text'=>'Test',
+            'is_incoming'=>true,
+            'is_outgoing'=>false,
+            'from_username'=>TelegramChat::USER_ROLE,
+        ]);
+        $message->created_at=Carbon::create(2021, 3, 23, 0, 0, 0);
+        $message->save();
+
+        $this->assertEquals(0, $telegramChat->getNoOfMessagesSentOverPeriod(365, Carbon::create(2020, 12, 22, 0, 0, 0)));
+        $this->assertEquals(0, $telegramChat->getNoOfMessagesSentOverPeriod(365, Carbon::create(2021, 01, 22, 0, 0, 0)));
+        $this->assertEquals(1, $telegramChat->getNoOfMessagesSentOverPeriod(365, Carbon::create(2021, 01, 25, 0, 0, 0)));
+        $this->assertEquals(2, $telegramChat->getNoOfMessagesSentOverPeriod(365, Carbon::create(2021, 02, 25, 0, 0, 0)));
+        $this->assertEquals(3, $telegramChat->getNoOfMessagesSentOverPeriod(365, Carbon::create(2021, 03, 25, 0, 0, 0)));
+        $this->assertEquals(0, $telegramChat->getNoOfMessagesSentOverPeriod(365, Carbon::create(2023, 03, 25, 0, 0, 0)));
     }
 }
