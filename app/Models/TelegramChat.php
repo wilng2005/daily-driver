@@ -138,8 +138,9 @@ class TelegramChat extends Model
 
     public function executeAIResponse(){
         //@codeCoverageIgnoreStart
-        if(isset($this->configuration['AI_ENABLED'])&&$this->configuration['AI_ENABLED']){
-            
+        if(isset($this->configuration['AI_DISABLED'])&&$this->configuration['AI_DISABLED']){
+            $this->sendMessage("AI is disabled.", TelegramChat::ANNOUNCEMENT_ROLE);
+        }else{
             // do a check to ensure we don't spam the user with two outgoing messages in a row. If the last message was outgoing, don't send another outgoing message.
             if(!$this->wasLastMessageOutgoing()){
                 $data['prompt']=$this->generatePrompt();
@@ -155,10 +156,8 @@ class TelegramChat extends Model
                     $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
                 }
             }
-        }else{
-            $this->sendMessage("AI is disabled.", TelegramChat::ANNOUNCEMENT_ROLE);
-        }
-
+            
+        } 
         //@codeCoverageIgnoreEnd
     }
 
