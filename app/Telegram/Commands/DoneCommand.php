@@ -5,10 +5,10 @@ namespace App\Telegram\Commands;
 use App\Models\TelegramUpdate;
 use Telegram\Bot\Commands\Command;
 
-class SummaryCommand extends Command
+class DoneCommand extends Command
 {
-    protected string $name = 'summary';
-    protected string $description = 'Generate a summary of your journaling activity.';
+    protected string $name = 'done';
+    protected string $description = 'End the conversation and generate a summary.';
 
 
     /**

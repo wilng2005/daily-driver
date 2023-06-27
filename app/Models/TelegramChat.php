@@ -288,7 +288,13 @@ class TelegramChat extends Model
             
             $data['result']=$result;
 
-            $result_text="Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['text'] ?? "");
+            $result_text="Thanks for the conversation! I hope you found it useful.
+            
+Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['text'] ?? "");
+
+            $result_text.="
+            
+            On a scale of 1 to 10, how would you rate the conversation? 1 being the worst, 10 being the best."
             
             if($result_text){
                 $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
