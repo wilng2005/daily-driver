@@ -8,7 +8,7 @@ use Telegram\Bot\Commands\Command;
 class DoneCommand extends Command
 {
     protected string $name = 'done';
-    protected string $description = 'End the conversation and generate a summary.';
+    protected string $description = 'End the conversation and get a summary.';
 
 
     /**
