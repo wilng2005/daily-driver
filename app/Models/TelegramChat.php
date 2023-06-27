@@ -245,7 +245,7 @@ class TelegramChat extends Model
             
             $data=[
                 'model' => 'text-davinci-003',
-                'prompt'=>"[INSTRUCTION] Identify and extract a maximum of 5 key issues that are suitable for discussion relevant for a coaching context. For each issue, headline it, and write a short summary of the issue key points discussed. Use a maximum of 10 words for each issue. Issues should be ranked and ordered according to the number of messages touching on each issue. This means that the most talked about issue should be item 1, second most talked about issue should be item 2, etc. If there is insufficient information from the messages, indicate that there is insufficient information for a summary to be executed. Do not use the issues in the sample format if the issues do not arise in the messages. \n
+                'prompt'=>"[INSTRUCTION] Identify and extract a maximum of 3 key issues that are suitable for discussion relevant for a coaching context. For each issue, headline it, and write a short summary of the issue key points discussed. Use a maximum of 10 words for each issue. Issues should be ranked and ordered according to the number of messages touching on each issue. This means that the most talked about issue should be item 1, second most talked about issue should be item 2, etc. If there is insufficient information from the messages, indicate that there is insufficient information for a summary to be executed. Do not use the issues in the sample format if the issues do not arise in the messages. \n
                 
                 The messages are as follows: \n
                 [MESSAGES] \n",
@@ -279,8 +279,6 @@ class TelegramChat extends Model
             \n1. Stress at work - You spoke about feeling stress from managing the stakeholders of project A.
             \n2. Family relationships - You asked for suggestions on how to improve your relationship with your father. 
             \n3. Career - You spoke about your desire to change your career.
-            \n4. Mental health - You spoke about feeling depressed.
-            \n5. Physical health - You spoke about feeling tired and lethargic.\"\"\"
 
             \n\n[SUMMARY]";
             
@@ -294,7 +292,7 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
 
             $result_text.="
             
-            On a scale of 1 to 10, how would you rate the conversation? 1 being the worst, 10 being the best.";
+On a scale of 1 to 10, how would you rate the conversation? 1 being the worst, 10 being the best.";
             
             if($result_text){
                 $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
