@@ -290,9 +290,14 @@ class TelegramChat extends Model
             
             $data['result']=$result;
 
-            $result_text="Thanks for the conversation! I hope you found it useful.
+            $result_text="Thanks for the conversation! I hope you found it useful.";
             
+            // check to see if $result['choices'][0]['text'] contains the words "Insufficient information", being case insensitive.
+            if(!str_contains(strtolower($result['choices'][0]['text'] ?? ""),"insufficient information")){
+                 $result_text.="
+
 Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['text'] ?? "");
+            }
 
             $result_text.="
 
