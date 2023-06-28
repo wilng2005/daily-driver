@@ -16,7 +16,7 @@ class StartCommand extends Command
     public function handle()
     {
         $this->replyWithMessage([
-            'text' => 'Hi! This is a GPT-powered chat bot that asks helpful questions to help you reflect your problems and emotions. Simply get started by typing /new and respond to the question prompts like you would with any normal conversation.
+            'text' => 'Hi! This is a chat bot that asks helpful questions to help you reflect on difficult problems and emotions. Simply get started by typing /new and respond to the question prompts like you would with any normal conversation.
             
 Try to be as reflective and specific as possible, as this would help you to establish clarity about your own thoughts and feelings.
             
