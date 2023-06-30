@@ -20,6 +20,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('schedule:daily')->dailyAt("01:00");
 
         $schedule->command('journal_entry:send')->dailyAt("07:00");
+
+        $schedule->command('reacquisition:send')->cron("0 12 * * 2-4");
         // @codeCoverageIgnoreEnd
     }
 

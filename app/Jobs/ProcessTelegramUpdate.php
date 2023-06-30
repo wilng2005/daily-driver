@@ -45,8 +45,16 @@ class ProcessTelegramUpdate implements ShouldQueue
         //update chat and message storage in database
         $telegram_chat=$this->telegramUpdate->extract_and_store_chat_and_message_details();
 
-        if($telegram_chat)
+        if($telegram_chat){
+            // remove the backoff flag
+            // remove BACKOFF_PERIOD_IN_DAYS from configuration
+            unset($telegram_chat->configuration['BACKOFF_PERIOD_IN_DAYS']);
+            $telegram_chat->save();
+
+            //trigger AI response
             $telegram_chat->triggerAIresponse();
+        }
+            
             
         //@codeCoverageIgnoreEnd
     }
