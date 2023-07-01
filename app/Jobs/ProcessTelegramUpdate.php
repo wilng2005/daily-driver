@@ -48,8 +48,7 @@ class ProcessTelegramUpdate implements ShouldQueue
         if($telegram_chat){
             // remove the backoff flag
             // remove BACKOFF_PERIOD_IN_DAYS from configuration
-            unset($telegram_chat->configuration['BACKOFF_PERIOD_IN_DAYS']);
-            $telegram_chat->save();
+            $telegram_chat->resetBackoffPeriod();
 
             //trigger AI response
             $telegram_chat->triggerAIresponse();

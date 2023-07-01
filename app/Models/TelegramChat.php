@@ -64,6 +64,17 @@ class TelegramChat extends Model
         return $no_of_messages_sent;
     }
 
+    public function resetBackoffPeriod(){
+        //@codeCoverageIgnoreStart
+        // remove the backoff flag
+        // remove BACKOFF_PERIOD_IN_DAYS from configuration
+        $configuration = $this->getAttribute('configuration');
+        unset($configuration['BACKOFF_PERIOD_IN_DAYS']);
+        $this->setAttribute('configuration', $configuration);
+        $this->save();
+        //@codeCoverageIgnoreEnd
+    }
+
     public function executeSystemPrompt($text, $data=[]){
         //@codeCoverageIgnoreStart
 
@@ -301,7 +312,16 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
 
             $result_text.="
 
-On a scale of 1 to 10, how would you rate the conversation? 1 being the worst, 10 being the best.";
+";
+
+            $feedback_messages=[];
+            $feedback_messages[]="On a scale of 1 to 10, how would you rate the conversation? 1 being the worst, 10 being the best.";
+            $feedback_messages[]="Please rate the conversation on a scale of 1 to 10, 1 being the worst, 10 being the best.";
+            $feedback_messages[]="Did you find the conversation useful?";
+            $feedback_messages[]="If you have any feedback for me, please let me know!";
+            $feedback_messages[]="Do you have any suggestions on how I could improve?";
+            
+            $result_text.=$feedback_messages[array_rand($feedback_messages)];
             
             if($result_text){
                 $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
@@ -310,5 +330,51 @@ On a scale of 1 to 10, how would you rate the conversation? 1 being the worst, 1
         }
 
         //@codeCoverageIgnoreEnd
+    }
+
+    public function getLastActivity(){
+        $lastMessage=$this->telegramMessages()->orderBy('created_at','desc')->first();
+        if($lastMessage){
+            return $lastMessage->created_at;
+        }else{
+            return $this->created_at;
+        }
+    }
+
+    public function performReacquistion($now=null,$test_mode=false){
+        if(!$now)
+            $now = now();
+
+        //get the backoff period
+        $backoffPeriodInDays = isset($this->configuration['BACKOFF_PERIOD_IN_DAYS'])?$this->configuration['BACKOFF_PERIOD_IN_DAYS']:2;
+
+        if($this->getLastActivity()->diffInDays($now) >= $backoffPeriodInDays){
+            //send a message to the user
+            if(!$test_mode)
+                $this->sendMessage($this->getRandomReacquisitionMessage());
+            //multiply the backoff period by 2
+            $backoffPeriodInDays = $backoffPeriodInDays * 2;
+            
+            //update the record
+    $this->setAttribute('configuration', array_merge($this->configuration, ['BACKOFF_PERIOD_IN_DAYS' => $backoffPeriodInDays]));
+    $this->save();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function getRandomReacquisitionMessage(){
+        $possible_messages=[
+            "Hi! Is there something you would like to talk about?",
+            "Hello! What's on your mind?",
+            "Hey! How's life been treating you?",
+            "Hi! How are you doing?",
+            "Hey! How's it going?",
+        ];
+
+        return $possible_messages[array_rand($possible_messages)];
+
     }
 }

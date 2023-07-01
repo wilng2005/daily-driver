@@ -44,46 +44,9 @@ class SendReacquisitionMessages extends Command
     public function handle()
     {
         foreach (TelegramChat::all() as $telegramChat) {
-            $this->handleTelegramChat($telegramChat);
+            $telegramChat->performReacquistion();
         }
 
         return Command::SUCCESS;
-    }
-
-    public function handleTelegramChat(TelegramChat $telegramChat,$now=null){
-
-        if(!$now)
-            $now = now();
-
-        //get the last message sent to this chat
-        $lastMessageSent = $telegramChat->telegramMessages()->orderBy('created_at', 'desc')->first();
-
-        //get the backoff period
-        $backoffPeriodInDays = isset($telegramChat->configuration['BACKOFF_PERIOD_IN_DAYS'])?$telegramChat->configuration['BACKOFF_PERIOD_IN_DAYS']:2;
-
-        if($lastMessageSent && $lastMessageSent->created_at->diffInDays($now) >= $backoffPeriodInDays){
-            //send a message to the user
-            $telegramChat->sendMessage($this->getRandomReacquisitionMessage());
-            //multiply the backoff period by 2
-            $backoffPeriodInDays = $backoffPeriodInDays * 2;
-            //update the record
-            $telegramChat->configuration['BACKOFF_PERIOD_IN_DAYS'] = $backoffPeriodInDays;
-            $telegramChat->save();
-        }
-    }
-
-    public function getRandomReacquisitionMessage(){
-        $possible_messages=[
-            "Hi! Is there something you would like to chat about?",
-            "Hello! What are you focusing on today?",
-            "What would you like to talk about today?",
-            "What are you experiencing at the moment?",
-            "What are you feeling at the moment?",
-            "What are you thinking about at the moment?",
-            "What's one thing that you'll like to change about your life?",
-        ];
-
-        return $possible_messages[array_rand($possible_messages)];
-
     }
 }

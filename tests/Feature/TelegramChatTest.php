@@ -175,4 +175,84 @@ class TelegramChatTest extends TestCase
         $this->assertEquals(3, $telegramChat->getNoOfMessagesSentOverPeriod(365, Carbon::create(2021, 03, 25, 0, 0, 0)));
         $this->assertEquals(0, $telegramChat->getNoOfMessagesSentOverPeriod(365, Carbon::create(2023, 03, 25, 0, 0, 0)));
     }
+
+
+    function test_performReacquistion(){
+        //case 0: the chat has been active, last message is one day before now
+        //verify that reacquistion is not performed
+        $telegramChat = TelegramChat::factory()->create();
+        //change the created_at date to 1 day ago
+        $telegramChat->created_at=Carbon::create(2021, 1, 21, 0, 0, 0);
+        $telegramChat->save();
+
+        $message=$telegramChat->telegramMessages()->create([
+            'data'=>[],
+            'telegram_chat_id'=>$telegramChat->id,
+            'text'=>'Test',
+            'is_incoming'=>true,
+            'is_outgoing'=>false,
+            'from_username'=>TelegramChat::USER_ROLE,
+        ]);
+
+        //change the created_at date to 1 day ago
+        $message->created_at=Carbon::create(2021, 1, 22, 0, 0, 0);
+        $message->save();
+
+        $message=$telegramChat->telegramMessages()->create([
+            'data'=>[],
+            'telegram_chat_id'=>$telegramChat->id,
+            'text'=>'Test2',
+            'is_incoming'=>true,
+            'is_outgoing'=>false,
+            'from_username'=>TelegramChat::USER_ROLE,
+        ]);
+
+        //change the created_at date to 1 day ago
+        $message->created_at=Carbon::create(2021, 1, 23, 0, 0, 0);
+        $message->save();
+
+        $result=$telegramChat->performReacquistion(Carbon::create(2021, 1, 24, 0, 0, 0),true);
+        $this->assertFalse($result);
+
+        //case 1: the chat has not been active for 3 days
+        //verify that reacquistion is performed
+
+        $result=$telegramChat->performReacquistion(Carbon::create(2021, 1, 24, 23, 0, 0),true);
+        $this->assertFalse($result);
+
+        $result=$telegramChat->performReacquistion(Carbon::create(2021, 1, 25, 0, 0, 0),true);
+        $this->assertTrue($result);
+        
+        // refresh the $telegramChat object with the latest values from db
+        $telegramChat->refresh();
+
+        //check that the backoff period has been set to 4 days
+        $this->assertEquals(4, $telegramChat->configuration['BACKOFF_PERIOD_IN_DAYS']);
+
+        $result=$telegramChat->performReacquistion(Carbon::create(2021, 1, 24, 23, 0, 0),true);
+        $this->assertFalse($result);
+
+        $result=$telegramChat->performReacquistion(Carbon::create(2021, 1, 25, 0, 0, 0),true);
+        $this->assertFalse($result);
+
+        $result=$telegramChat->performReacquistion(Carbon::create(2021, 1, 26, 0, 0, 0),true);
+        $this->assertFalse($result);
+
+        $result=$telegramChat->performReacquistion(Carbon::create(2021, 1, 27, 0, 0, 0),true);
+        $this->assertTrue($result);
+
+        // refresh the $telegramChat object with the latest values from db
+        $telegramChat->refresh();
+
+        //check that the backoff period has been set to 4 days
+        $this->assertEquals(8, $telegramChat->configuration['BACKOFF_PERIOD_IN_DAYS']);
+
+        //user sends a message back to the bot, verify that the backoff is reset
+        $telegramChat->resetBackoffPeriod();
+        
+        $telegramChat->refresh();
+
+        //check that the backoff period has been set to 4 days
+        $this->assertFalse(isset($telegramChat->configuration['BACKOFF_PERIOD_IN_DAYS']));
+    }
 }
