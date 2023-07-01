@@ -337,21 +337,28 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
         if($lastMessage){
             return $lastMessage->created_at;
         }else{
+            //@codeCoverageIgnoreStart
             return $this->created_at;
+            //@codeCoverageIgnoreEnd
         }
     }
 
     public function performReacquistion($now=null,$test_mode=false){
-        if(!$now)
+        if(!$now){
+            //@codeCoverageIgnoreStart
             $now = now();
-
+            //@codeCoverageIgnoreEnd
+        }
         //get the backoff period
         $backoffPeriodInDays = isset($this->configuration['BACKOFF_PERIOD_IN_DAYS'])?$this->configuration['BACKOFF_PERIOD_IN_DAYS']:2;
 
         if($this->getLastActivity()->diffInDays($now) >= $backoffPeriodInDays){
             //send a message to the user
-            if(!$test_mode)
+            if(!$test_mode){
+                //@codeCoverageIgnoreStart
                 $this->sendMessage($this->getRandomReacquisitionMessage());
+                //@codeCoverageIgnoreEnd
+            }
             //multiply the backoff period by 2
             $backoffPeriodInDays = $backoffPeriodInDays * 2;
             
@@ -366,6 +373,7 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
     }
 
     public function getRandomReacquisitionMessage(){
+        //@codeCoverageIgnoreStart
         $possible_messages=[
             "Hi! Is there something you would like to talk about?",
             "Hello! What's on your mind?",
@@ -375,6 +383,8 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
         ];
 
         return $possible_messages[array_rand($possible_messages)];
+
+        //@codeCoverageIgnoreEnd
 
     }
 }

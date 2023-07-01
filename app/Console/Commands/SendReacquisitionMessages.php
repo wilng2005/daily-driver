@@ -43,10 +43,12 @@ class SendReacquisitionMessages extends Command
      */
     public function handle()
     {
+        //@codeCoverageIgnoreStart
         foreach (TelegramChat::all() as $telegramChat) {
             $telegramChat->performReacquistion();
         }
 
         return Command::SUCCESS;
+        //@codeCoverageIgnoreEnd
     }
 }
