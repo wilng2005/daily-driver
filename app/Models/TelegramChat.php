@@ -363,8 +363,8 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
             $backoffPeriodInDays = $backoffPeriodInDays * 2;
             
             //update the record
-    $this->setAttribute('configuration', array_merge($this->configuration, ['BACKOFF_PERIOD_IN_DAYS' => $backoffPeriodInDays]));
-    $this->save();
+            $this->setAttribute('configuration', array_merge(is_array($this->configuration)?$this->configuration:[], ['BACKOFF_PERIOD_IN_DAYS' => $backoffPeriodInDays]));
+            $this->save();
 
             return true;
         }

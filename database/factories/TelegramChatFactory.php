@@ -19,7 +19,7 @@ class TelegramChatFactory extends Factory
         return [
             'data'=> [],
             'tg_chat_id'=> $this->faker->randomNumber(5, true),
-            'configuration'=> [],
+            'configuration'=> null,
         ];
     }
 }
