@@ -254,5 +254,49 @@ class TelegramChatTest extends TestCase
 
         //check that the backoff period has been set to 4 days
         $this->assertFalse(isset($telegramChat->configuration['BACKOFF_PERIOD_IN_DAYS']));
+
+    }
+
+    function test_isActiveJournal(){
+        //test if configuration is null
+        $telegramChat = TelegramChat::factory()->create();
+        $this->assertFalse($telegramChat->isActiveJournal());
+
+        //test if configuration is array but ACTIVE_JOURNAL is not set
+        $telegramChat = TelegramChat::factory()->create([
+            'configuration'=>[]
+        ]);
+        $this->assertFalse($telegramChat->isActiveJournal());
+        //test if configuration is array and ACTIVE_JOURNAL is set to TRUE
+        $telegramChat = TelegramChat::factory()->create([
+            'configuration'=>[
+                'ACTIVE_JOURNAL'=>true
+            ]
+        ]);
+        $this->assertTrue($telegramChat->isActiveJournal());
+        //test if configuration is array and ACTIVE_JOURNAL is set to FALSE
+        $telegramChat = TelegramChat::factory()->create([
+            'configuration'=>[
+                'ACTIVE_JOURNAL'=>false
+            ]
+        ]);
+        $this->assertFalse($telegramChat->isActiveJournal());
+
+        //test if configuration is array and ACTIVE_JOURNAL is set to TRUE
+        $telegramChat = TelegramChat::factory()->create([
+            'configuration'=>[
+                'ACTIVE_JOURNAL'=>'TRUE'
+            ]
+        ]);
+        $this->assertTrue($telegramChat->isActiveJournal());
+
+        //test if configuration is array and ACTIVE_JOURNAL is set to TRUE
+        $telegramChat = TelegramChat::factory()->create([
+            'configuration'=>[
+                'ACTIVE_JOURNAL'=>'FALSE'
+            ]
+        ]);
+        $this->assertFalse($telegramChat->isActiveJournal());
+
     }
 }

@@ -387,4 +387,12 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
         //@codeCoverageIgnoreEnd
 
     }
+
+    public function isActiveJournal(){
+        if(isset($this->configuration['ACTIVE_JOURNAL'])&&($this->configuration['ACTIVE_JOURNAL']===true||strcasecmp($this->configuration['ACTIVE_JOURNAL'],'true')===0)){
+            return true;
+        }
+
+        return false;
+    }
 }
