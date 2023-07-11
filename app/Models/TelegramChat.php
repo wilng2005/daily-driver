@@ -424,4 +424,24 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
 
         return false;
     }
+
+    public function encourageUser(){
+        $encouraging_messages=[
+            "Thanks for talking to me!",
+            "Beep boop! I am thankful that you're still talking to me.",
+            "Thanks for keeping the conversation going!",
+            "I'm glad you're here!",
+        ];
+
+        $encouraging_stickers=[
+            "CAACAgUAAxkDAAIFUGSs6OIcfz4cDod1F4K_IRrC0HUTAAK_DAACVqJpVdVKr86ZiliYLwQ",
+            "CAACAgUAAxkBAAIFQmSs2KkbdCjvQbIUAvIFym5-C6ouAALADAACVqJpVfHaU0ShsINhLwQ",
+            "CAACAgUAAxkBAAIFSGSs2MmH5hhF8L4pVAQNTX8Fgm26AALEDAACVqJpVdgNCKL8GSRMLwQ",
+            "CAACAgUAAxkBAAIFSWSs2NGCkIUfHX9KdCAxyW9V1AWYAALFDAACVqJpVbg9IGMbJUiGLwQ"
+        ];
+
+        $this->sendMessage($encouraging_messages[array_rand($encouraging_messages)],TelegramChat::ASSISTANT_ROLE,[]);
+        $this->sendSticker($encouraging_stickers[array_rand($encouraging_stickers)],TelegramChat::ASSISTANT_ROLE,[]);
+
+    }
 }

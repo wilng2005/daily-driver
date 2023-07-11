@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Jobs\EncourageUserJob;
 use App\Models\TelegramChat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -45,6 +46,8 @@ class TelegramUpdate extends Model
             ]);
         }
         
+        EncourageUserJob::dispatch($telegram_chat)->delay(now()->addMinutes(30));;
+
         info("TelegramUpdate->extract_and_store_chat_and_message_details() end");
 
         return $telegram_chat;
