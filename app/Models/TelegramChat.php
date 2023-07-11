@@ -165,7 +165,7 @@ class TelegramChat extends Model
                 $data['prompt']=$this->generatePrompt();
 
                 $data['result'] = OpenAI::chat()->create([
-                    'model' => 'gpt-4',
+                    'model' => 'gpt-3.5-turbo',
                     'messages'=> $data['prompt'],
                 ]);
                 
