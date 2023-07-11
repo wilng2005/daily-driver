@@ -230,6 +230,30 @@ class TelegramChat extends Model
         //@codeCoverageIgnoreEnd
     }
 
+    public function sendSticker($sticker_file_id='CAACAgIAAxkBAAEBVKj3ZYB-JpIbw2t0YgK8Y_W7-YLwAAJgQ', $from_username='', $data=[]){
+        //@codeCoverageIgnoreStart
+        $telegram_send_package=[
+            'chat_id' => $this->tg_chat_id,
+            'sticker' => $sticker_file_id,
+        ];
+
+        $response = Telegram::sendSticker($telegram_send_package);
+
+        $data['telegram_send_package']=$telegram_send_package;
+        $data['telegram_response']=$response;
+
+        $this->telegramMessages()->create([
+            'data'=>$data,
+            'sticker'=>$sticker_file_id,
+            'is_incoming'=>false,
+            'is_outgoing'=>true,
+            'from_username'=>$from_username,
+        ]);
+
+        return $response;
+        //@codeCoverageIgnoreEnd
+    }
+
     //write a function that is able to see if we have received any message from the user over the past X number of days, return true if there is a message, false if there is no message
     public function hasReceivedMessageFromUserOverPeriod($no_of_days=1,$now=null){
        
