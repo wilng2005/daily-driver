@@ -244,7 +244,7 @@ class TelegramChat extends Model
 
         $this->telegramMessages()->create([
             'data'=>$data,
-            'sticker'=>$sticker_file_id,
+            'text'=>"sticker: ".$sticker_file_id,
             'is_incoming'=>false,
             'is_outgoing'=>true,
             'from_username'=>$from_username,
