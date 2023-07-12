@@ -431,6 +431,16 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
             "Beep boop! I am thankful that you're still talking to me.",
             "Thanks for keeping the conversation going!",
             "I'm glad you're here!",
+            "Did you know that journaling improves mental well-being? According to a study published in Advances in Psychiatric Treatment, journaling has been shown to reduce symptoms of depression, anxiety, and stress.",
+            "Did you know that self-reflection enhances self-awareness? Research conducted by the Journal of Personality and Social Psychology suggests that engaging in self-reflection can improve individuals' understanding of their own emotions, thoughts, and behaviors.",
+            "Did you know that journaling boosts creativity? A study published in the journal Psychological Science found that expressive writing, such as journaling, can enhance individuals' creativity by helping them generate and explore new ideas.",
+            "Did you know that self-reflection improves decision-making? According to a study published in the journal Organizational Behavior and Human Decision Processes, engaging in self-reflection can lead to better decision-making through increased awareness of one's values, goals, and motivations.",
+            "Did you know that journaling enhances problem-solving skills? Research conducted by the journal Behavior Modification suggests that regular journaling can improve individuals' ability to identify problems, develop potential solutions, and evaluate their effectiveness.",
+            "Did you know that self-reflection promotes personal growth? A study published in the journal Personality and Social Psychology Bulletin found that engaging in self-reflection can facilitate personal growth by enhancing individuals' acceptance of their mistakes, fostering learning and self-improvement.",
+            "Did you know that journaling reduces rumination? According to a study published in the Journal of Experimental Psychology, expressive writing, like journaling, has been shown to reduce repetitive negative thinking and rumination, promoting psychological well-being.",
+            "Did you know that self-reflection enhances empathy? Research conducted by the journal Personality and Social Psychology Bulletin suggests that engaging in self-reflection can increase individuals' empathy towards others by developing a better understanding of their own emotions and perspectives.",
+            "Did you know that journaling improves sleep quality? A study published in the journal Behavior Therapy found that individuals who journaled before going to bed experienced improved sleep quality, falling asleep faster and enjoying a more restful sleep.",
+            "Did you know that self-reflection reduces burnout? According to research published in the Journal of Occupational Health Psychology, regular self-reflection activities have been associated with decreased burnout in employees, improving overall well-being."
         ];
 
         $encouraging_stickers=[
