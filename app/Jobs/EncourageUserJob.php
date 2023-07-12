@@ -46,7 +46,7 @@ class EncourageUserJob implements ShouldQueue
         if($this->telegramChat){
             //$this->telegramChat->executeAIResponse();
             // 1/5 times randomly send a message
-            if(rand(1,5) == 1){
+            if(rand(1,2) == 1){
                 $this->telegramChat->encourageUser();
             }
         }
