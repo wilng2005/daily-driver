@@ -427,9 +427,9 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
 
     public function encourageUser(){
         $encouraging_messages=[
-            "Thanks for talking to me!",
-            "Beep boop! I am thankful that you're still talking to me.",
-            "Thanks for keeping the conversation going!",
+            "Thanks for the chat!",
+            "I hope you found the questions useful!",
+            "I hope you have a nice day!",
             "I'm glad you're here!",
             "Did you know that journaling improves mental well-being? According to a study published in Advances in Psychiatric Treatment, journaling has been shown to reduce symptoms of depression, anxiety, and stress.",
             "Did you know that self-reflection enhances self-awareness? Research conducted by the Journal of Personality and Social Psychology suggests that engaging in self-reflection can improve individuals' understanding of their own emotions, thoughts, and behaviors.",
@@ -449,9 +449,9 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
             "CAACAgUAAxkBAAIFSGSs2MmH5hhF8L4pVAQNTX8Fgm26AALEDAACVqJpVdgNCKL8GSRMLwQ",
             "CAACAgUAAxkBAAIFSWSs2NGCkIUfHX9KdCAxyW9V1AWYAALFDAACVqJpVbg9IGMbJUiGLwQ"
         ];
-
-        $this->sendMessage($encouraging_messages[array_rand($encouraging_messages)],TelegramChat::ASSISTANT_ROLE,[]);
+        
         $this->sendSticker($encouraging_stickers[array_rand($encouraging_stickers)],TelegramChat::ASSISTANT_ROLE,[]);
+        $this->sendMessage($encouraging_messages[array_rand($encouraging_messages)],TelegramChat::ASSISTANT_ROLE,[]);
 
     }
 }
