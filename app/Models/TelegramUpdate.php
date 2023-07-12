@@ -46,7 +46,7 @@ class TelegramUpdate extends Model
             ]);
         }
         
-        EncourageUserJob::dispatch($telegram_chat)->delay(now()->addMinutes(30));;
+        EncourageUserJob::dispatch($telegram_chat)->delay(now()->addMinutes(15));;
 
         info("TelegramUpdate->extract_and_store_chat_and_message_details() end");
 
