@@ -440,14 +440,23 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
             "Did you know that journaling reduces rumination? According to a study published in the Journal of Experimental Psychology, expressive writing, like journaling, has been shown to reduce repetitive negative thinking and rumination, promoting psychological well-being.",
             "Did you know that self-reflection enhances empathy? Research conducted by the journal Personality and Social Psychology Bulletin suggests that engaging in self-reflection can increase individuals' empathy towards others by developing a better understanding of their own emotions and perspectives.",
             "Did you know that journaling improves sleep quality? A study published in the journal Behavior Therapy found that individuals who journaled before going to bed experienced improved sleep quality, falling asleep faster and enjoying a more restful sleep.",
-            "Did you know that self-reflection reduces burnout? According to research published in the Journal of Occupational Health Psychology, regular self-reflection activities have been associated with decreased burnout in employees, improving overall well-being."
+            "Did you know that self-reflection reduces burnout? According to research published in the Journal of Occupational Health Psychology, regular self-reflection activities have been associated with decreased burnout in employees, improving overall well-being.",
         ];
 
         $encouraging_stickers=[
             "CAACAgUAAxkDAAIFUGSs6OIcfz4cDod1F4K_IRrC0HUTAAK_DAACVqJpVdVKr86ZiliYLwQ",
             "CAACAgUAAxkBAAIFQmSs2KkbdCjvQbIUAvIFym5-C6ouAALADAACVqJpVfHaU0ShsINhLwQ",
             "CAACAgUAAxkBAAIFSGSs2MmH5hhF8L4pVAQNTX8Fgm26AALEDAACVqJpVdgNCKL8GSRMLwQ",
-            "CAACAgUAAxkBAAIFSWSs2NGCkIUfHX9KdCAxyW9V1AWYAALFDAACVqJpVbg9IGMbJUiGLwQ"
+            "CAACAgUAAxkBAAIFSWSs2NGCkIUfHX9KdCAxyW9V1AWYAALFDAACVqJpVbg9IGMbJUiGLwQ",
+            "CAACAgIAAxkBAAIFgGSubl94KUkfkiVfLlmw207nx2obAAJtAAPb234AAXUe7IXy-0SlLwQ",
+            "CAACAgIAAxkBAAIFf2Subkqr6vNZEZMqrpYGBeeFVp4XAAJqAAPb234AAfGPst81YhbfLwQ",
+            "CAACAgIAAxkBAAIFfmSubj44cUwte6qinSfueYlW6uGsAAJmAAPb234AAZPMw9ANLY9sLwQ",
+            "CAACAgIAAxkBAAIFfWSubjdYu2_wqwPx_QiZKNQXEy3IAAJhAAPb234AAff3D5s36tTkLwQ",
+            "CAACAgIAAxkBAAIFfGSubjHoVeNPhiF7gwsPB3ETswGYAAJgAAPb234AAYYpTM5Q4efhLwQ",
+            "CAACAgIAAxkBAAIFemSubitD13QAAdbWS0JbmMudeqG5DgACXwAD29t-AAGEsFSbEa7K4y8E",
+            "CAACAgIAAxkBAAIFd2SubiWU5NNSDYXOeFpmfvQ3Y-0KAAJvAAPb234AAZlbUKh7k4B0LwQ",
+            "CAACAgIAAxkBAAIFdmSubiG4hwecSjo3Z8LhIpx7TN5_AAI_AAPb234AAfTmnDgB5KppLwQ",
+            "CAACAgIAAxkBAAIFdWSubhxh7eDrjNbIZ3VH_Zt1q1JSAAJlAAPb234AAe30AAHIGxkm9S8E",
         ];
         
         $this->sendSticker($encouraging_stickers[array_rand($encouraging_stickers)],TelegramChat::ASSISTANT_ROLE,[]);
