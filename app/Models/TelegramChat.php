@@ -438,7 +438,8 @@ class TelegramChat extends Model
         $this->sendMessage($thank_you_messages[array_rand($thank_you_messages)],TelegramChat::ASSISTANT_ROLE,[]);
 
         // give a summary of the conversation
-        $this->sendMessage($this->generateSummary(),TelegramChat::ASSISTANT_ROLE,[]);
+        if($summary=$this->generateSummary())
+            $this->sendMessage($summary,TelegramChat::ASSISTANT_ROLE,[]);
 
         // either give a fun-fact or ask for feedback.
         //50% of the time send a fun fact, 50% of the time ask for feedback.
