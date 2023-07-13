@@ -430,7 +430,6 @@ class TelegramChat extends Model
             "Thanks for the chat!",
             "I hope you found the questions useful!",
             "I hope you have a nice day!",
-            "I'm glad you're here!",
             "Thanks for the conversation! I hope you found it useful.",
         ];
 
@@ -466,6 +465,7 @@ class TelegramChat extends Model
             $feedback_messages[]="Did you find the conversation useful?";
             $feedback_messages[]="If you have any feedback for me, please let me know!";
             $feedback_messages[]="Do you have any suggestions on how I could improve?";
+            $feedback_messages[]="Feel free to let me know if there's anything I can improve on.";
 
             $this->sendMessage($feedback_messages[array_rand($feedback_messages)],TelegramChat::ASSISTANT_ROLE,[]);
         }
@@ -486,7 +486,7 @@ class TelegramChat extends Model
         //check if done has already been executed. In the last hour. If so, don't encourage again.
 
         if(!$this->isDone()){
-            //return $this->endConversation();
+            return $this->endConversation();
         }else{
             info("Conversation is done. No encouragement needed.");
         }
