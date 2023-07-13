@@ -420,7 +420,6 @@ class TelegramChat extends Model
             "CAACAgIAAxkBAAIFemSubitD13QAAdbWS0JbmMudeqG5DgACXwAD29t-AAGEsFSbEa7K4y8E",
             "CAACAgIAAxkBAAIFd2SubiWU5NNSDYXOeFpmfvQ3Y-0KAAJvAAPb234AAZlbUKh7k4B0LwQ",
             "CAACAgIAAxkBAAIFdmSubiG4hwecSjo3Z8LhIpx7TN5_AAI_AAPb234AAfTmnDgB5KppLwQ",
-            "CAACAgIAAxkBAAIFdWSubhxh7eDrjNbIZ3VH_Zt1q1JSAAJlAAPb234AAe30AAHIGxkm9S8E",
         ];
         
         $this->sendSticker($encouraging_stickers[array_rand($encouraging_stickers)],TelegramChat::ASSISTANT_ROLE,[]);
