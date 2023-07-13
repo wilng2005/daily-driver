@@ -22,6 +22,6 @@ class DoneCommand extends Command
         ]);
 
         $telegram_chat=$telegram_update->extract_and_store_chat_and_message_details();
-        $telegram_chat->generateSummary();
+        $telegram_chat->endConversation();
     }
 }

@@ -279,84 +279,63 @@ class TelegramChat extends Model
         return false;
     }
 
-    public function generateSummary($no_days_of_historical_messages_to_use=7,$max_messages=100){
-        //@codeCoverageIgnoreStart
-        if(isset($this->configuration['AI_DISABLED'])&&$this->configuration['AI_DISABLED']){
-            $this->sendMessage("AI is disabled.", TelegramChat::ANNOUNCEMENT_ROLE);
-        }else{
-    
-            // do a check to ensure we don't spam the user with two outgoing messages in a row. If the last message was outgoing, don't send another outgoing message.
+    public function generateSummary($since=null,$max_messages=100){    
+        if(!$since){
+            $since=now()->subHours(1);
+        }   
+        $data=[
+            'model' => 'text-davinci-003',
+            'prompt'=>"[INSTRUCTION] Identify and extract a maximum of 3 key issues that are suitable for discussion relevant for a coaching context. For each issue, headline it, and write a short summary of the issue key points discussed. Use a maximum of 10 words for each issue. Issues should be ranked and ordered according to the number of messages touching on each issue. This means that the most talked about issue should be item 1, second most talked about issue should be item 2, etc. If there is insufficient information from the messages, indicate that there is insufficient information for a summary to be executed. Do not use the issues in the sample format if the issues do not arise in the messages. \n
             
-            $data=[
-                'model' => 'text-davinci-003',
-                'prompt'=>"[INSTRUCTION] Identify and extract a maximum of 3 key issues that are suitable for discussion relevant for a coaching context. For each issue, headline it, and write a short summary of the issue key points discussed. Use a maximum of 10 words for each issue. Issues should be ranked and ordered according to the number of messages touching on each issue. This means that the most talked about issue should be item 1, second most talked about issue should be item 2, etc. If there is insufficient information from the messages, indicate that there is insufficient information for a summary to be executed. Do not use the issues in the sample format if the issues do not arise in the messages. \n
-                
-                The messages are as follows: \n
-                [MESSAGES] \n",
-                'max_tokens'=>2000,
-            ];
+            The messages are as follows: \n
+            [MESSAGES] \n",
+            'max_tokens'=>2000,
+        ];
 
             
-            $messages=$this->telegramMessages()->where('is_incoming',true)->where('created_at','>=',now()->subDays($no_days_of_historical_messages_to_use))->orderBy('created_at','desc')->limit($max_messages)->get();
+        $messages=$this->telegramMessages()->where('is_incoming',true)->where('created_at','>=',$since)->orderBy('created_at','desc')->limit($max_messages)->get();
 
-            //reverse the messages so that the most recent message is last
-            $messages=$messages->reverse();
-            $message_prompts=[];
-            foreach($messages as $message){
-                if(isset($this->configuration['NEW_CONTEXT_PROMPT'])&&$message->text==$this->configuration['NEW_CONTEXT_PROMPT']){
-                    $message_prompts=[];
-                }else{
-                    $message_prompts[]=$message->text;
-                }
+        //reverse the messages so that the most recent message is last
+        $messages=$messages->reverse();
+        $message_prompts=[];
+        foreach($messages as $message){
+            if(isset($this->configuration['NEW_CONTEXT_PROMPT'])&&$message->text==$this->configuration['NEW_CONTEXT_PROMPT']){
+                $message_prompts=[];
+            }else{
+                $message_prompts[]=$message->text;
             }
+        }
 
-            for($i=0;$i<sizeof($message_prompts);$i++){
-                $data['prompt'].=($i+1).'. '.$message_prompts[$i]."\n";
-                
-            }
-
-            $data['prompt'].="\n\n
-            [INSTRUCTION] A sample format is as follows:\n\n
-
-            \n\nExample below:\"\"\"
-            \n\n[SAMPLE FORMAT OF SUMMARY]
-            \n1. Stress at work - You spoke about feeling stress from managing the stakeholders of project A.
-            \n2. Family relationships - You asked for suggestions on how to improve your relationship with your father. 
-            \n3. Career - You spoke about your desire to change your career.
-
-            \n\n[SUMMARY]";
-            
-            $result = OpenAI::completions()->create($data);
-            
-            $data['result']=$result;
-
-            $result_text="Thanks for the conversation! I hope you found it useful.";
-            
-            // check to see if $result['choices'][0]['text'] contains the words "Insufficient information", being case insensitive.
-            if(!str_contains(strtolower($result['choices'][0]['text'] ?? ""),"insufficient information")){
-                 $result_text.="
-
-Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['text'] ?? "");
-            }
-
-            $result_text.="
-
-";
-
-            $feedback_messages=[];
-            $feedback_messages[]="On a scale of 1 to 10, how would you rate the conversation? 1 being the worst, 10 being the best.";
-            $feedback_messages[]="Please rate the conversation on a scale of 1 to 10, 1 being the worst, 10 being the best.";
-            $feedback_messages[]="Did you find the conversation useful?";
-            $feedback_messages[]="If you have any feedback for me, please let me know!";
-            $feedback_messages[]="Do you have any suggestions on how I could improve?";
-            
-            $result_text.=$feedback_messages[array_rand($feedback_messages)];
-            
-            if($result_text){
-                $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
-            }
+        for($i=0;$i<sizeof($message_prompts);$i++){
+            $data['prompt'].=($i+1).'. '.$message_prompts[$i]."\n";
             
         }
+
+        $data['prompt'].="\n\n
+        [INSTRUCTION] A sample format is as follows:\n\n
+
+        \n\nExample below:\"\"\"
+        \n\n[SAMPLE FORMAT OF SUMMARY]
+        \n1. Stress at work - You spoke about feeling stress from managing the stakeholders of project A.
+        \n2. Family relationships - You asked for suggestions on how to improve your relationship with your father. 
+        \n3. Career - You spoke about your desire to change your career.
+
+        \n\n[SUMMARY]";
+            
+        $result = OpenAI::completions()->create($data);
+            
+        $data['result']=$result;
+
+        $result_text="Thanks for the conversation! I hope you found it useful.";
+            
+            
+        if(str_contains(strtolower($result['choices'][0]['text'] ?? ""),"insufficient information")){
+            return null;
+        }
+
+        $result_text.="Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['text'] ?? "");
+
+        return $result_text;
 
         //@codeCoverageIgnoreEnd
     }
@@ -409,6 +388,7 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
             "Hey! How's life been treating you?",
             "Hi! How are you doing?",
             "Hey! How's it going?",
+            "Is there anything you would like greater mental clarity on?"
         ];
 
         return $possible_messages[array_rand($possible_messages)];
@@ -425,24 +405,8 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
         return false;
     }
 
-    public function encourageUser(){
-        $encouraging_messages=[
-            "Thanks for the chat!",
-            "I hope you found the questions useful!",
-            "I hope you have a nice day!",
-            "I'm glad you're here!",
-            "Did you know that journaling improves mental well-being? According to a study published in Advances in Psychiatric Treatment, journaling has been shown to reduce symptoms of depression, anxiety, and stress.",
-            "Did you know that self-reflection enhances self-awareness? Research conducted by the Journal of Personality and Social Psychology suggests that engaging in self-reflection can improve individuals' understanding of their own emotions, thoughts, and behaviors.",
-            "Did you know that journaling boosts creativity? A study published in the journal Psychological Science found that expressive writing, such as journaling, can enhance individuals' creativity by helping them generate and explore new ideas.",
-            "Did you know that self-reflection improves decision-making? According to a study published in the journal Organizational Behavior and Human Decision Processes, engaging in self-reflection can lead to better decision-making through increased awareness of one's values, goals, and motivations.",
-            "Did you know that journaling enhances problem-solving skills? Research conducted by the journal Behavior Modification suggests that regular journaling can improve individuals' ability to identify problems, develop potential solutions, and evaluate their effectiveness.",
-            "Did you know that self-reflection promotes personal growth? A study published in the journal Personality and Social Psychology Bulletin found that engaging in self-reflection can facilitate personal growth by enhancing individuals' acceptance of their mistakes, fostering learning and self-improvement.",
-            "Did you know that journaling reduces rumination? According to a study published in the Journal of Experimental Psychology, expressive writing, like journaling, has been shown to reduce repetitive negative thinking and rumination, promoting psychological well-being.",
-            "Did you know that self-reflection enhances empathy? Research conducted by the journal Personality and Social Psychology Bulletin suggests that engaging in self-reflection can increase individuals' empathy towards others by developing a better understanding of their own emotions and perspectives.",
-            "Did you know that journaling improves sleep quality? A study published in the journal Behavior Therapy found that individuals who journaled before going to bed experienced improved sleep quality, falling asleep faster and enjoying a more restful sleep.",
-            "Did you know that self-reflection reduces burnout? According to research published in the Journal of Occupational Health Psychology, regular self-reflection activities have been associated with decreased burnout in employees, improving overall well-being.",
-        ];
-
+    public function endConversation(){
+        // send a sticker
         $encouraging_stickers=[
             "CAACAgUAAxkDAAIFUGSs6OIcfz4cDod1F4K_IRrC0HUTAAK_DAACVqJpVdVKr86ZiliYLwQ",
             "CAACAgUAAxkBAAIFQmSs2KkbdCjvQbIUAvIFym5-C6ouAALADAACVqJpVfHaU0ShsINhLwQ",
@@ -460,7 +424,74 @@ Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['t
         ];
         
         $this->sendSticker($encouraging_stickers[array_rand($encouraging_stickers)],TelegramChat::ASSISTANT_ROLE,[]);
-        $this->sendMessage($encouraging_messages[array_rand($encouraging_messages)],TelegramChat::ASSISTANT_ROLE,[]);
+        // thank the user
 
+        $thank_you_messages=[
+            "Thanks for the chat!",
+            "I hope you found the questions useful!",
+            "I hope you have a nice day!",
+            "I'm glad you're here!",
+            "Thanks for the conversation! I hope you found it useful.",
+        ];
+
+
+        $this->sendMessage($thank_you_messages[array_rand($thank_you_messages)],TelegramChat::ASSISTANT_ROLE,[]);
+
+        // give a summary of the conversation
+        $this->sendMessage($this->generateSummary(),TelegramChat::ASSISTANT_ROLE,[]);
+
+        // either give a fun-fact or ask for feedback.
+        //50% of the time send a fun fact, 50% of the time ask for feedback.
+        if(rand(0,1)){
+            //send fun fact
+            $fun_facts=[
+                "Did you know that journaling improves mental well-being? According to a study published in Advances in Psychiatric Treatment, journaling has been shown to reduce symptoms of depression, anxiety, and stress.",
+                "Did you know that self-reflection enhances self-awareness? Research conducted by the Journal of Personality and Social Psychology suggests that engaging in self-reflection can improve individuals' understanding of their own emotions, thoughts, and behaviors.",
+                "Did you know that journaling boosts creativity? A study published in the journal Psychological Science found that expressive writing, such as journaling, can enhance individuals' creativity by helping them generate and explore new ideas.",
+                "Did you know that self-reflection improves decision-making? According to a study published in the journal Organizational Behavior and Human Decision Processes, engaging in self-reflection can lead to better decision-making through increased awareness of one's values, goals, and motivations.",
+                "Did you know that journaling enhances problem-solving skills? Research conducted by the journal Behavior Modification suggests that regular journaling can improve individuals' ability to identify problems, develop potential solutions, and evaluate their effectiveness.",
+                "Did you know that self-reflection promotes personal growth? A study published in the journal Personality and Social Psychology Bulletin found that engaging in self-reflection can facilitate personal growth by enhancing individuals' acceptance of their mistakes, fostering learning and self-improvement.",
+                "Did you know that journaling reduces rumination? According to a study published in the Journal of Experimental Psychology, expressive writing, like journaling, has been shown to reduce repetitive negative thinking and rumination, promoting psychological well-being.",
+                "Did you know that self-reflection enhances empathy? Research conducted by the journal Personality and Social Psychology Bulletin suggests that engaging in self-reflection can increase individuals' empathy towards others by developing a better understanding of their own emotions and perspectives.",
+                "Did you know that journaling improves sleep quality? A study published in the journal Behavior Therapy found that individuals who journaled before going to bed experienced improved sleep quality, falling asleep faster and enjoying a more restful sleep.",
+                "Did you know that self-reflection reduces burnout? According to research published in the Journal of Occupational Health Psychology, regular self-reflection activities have been associated with decreased burnout in employees, improving overall well-being.",
+            ];
+            $this->sendMessage($fun_facts[array_rand($fun_facts)],TelegramChat::ASSISTANT_ROLE,[]);
+            
+        }else{
+            $feedback_messages=[];
+            $feedback_messages[]="On a scale of 1 to 10, how would you rate the conversation? 1 being the worst, 10 being the best.";
+            $feedback_messages[]="Please rate the conversation on a scale of 1 to 10, 1 being the worst, 10 being the best.";
+            $feedback_messages[]="Did you find the conversation useful?";
+            $feedback_messages[]="If you have any feedback for me, please let me know!";
+            $feedback_messages[]="Do you have any suggestions on how I could improve?";
+
+            $this->sendMessage($feedback_messages[array_rand($feedback_messages)],TelegramChat::ASSISTANT_ROLE,[]);
+        }
+    }
+
+
+    public function isDone($since=null){
+
+        if(!$since){
+            $since=now()->subHours(1);
+        }
+
+        $messages=$this->telegramMessages()->where('is_incoming',true)->where('created_at','>=',$since)->where('text',"\/done")->orderBy('created_at','desc')->get();
+        
+        return $messages->count()>0;
+    }
+
+    public function encourageUser(){
+        //check if done has already been executed. In the last hour. If so, don't encourage again.
+
+        if(!$this->isDone()){
+            return $this->endConversation();
+        }else{
+            info("Conversation is done. No encouragement needed.");
+        }
+
+        //if done hasn't already been executed
+        // execute endConversation.
     }
 }
