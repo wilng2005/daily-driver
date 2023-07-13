@@ -473,7 +473,6 @@ class TelegramChat extends Model
 
 
     public function isDone($since=null){
-
         if(!$since){
             $since=now()->subHours(1);
         }
@@ -487,7 +486,7 @@ class TelegramChat extends Model
         //check if done has already been executed. In the last hour. If so, don't encourage again.
 
         if(!$this->isDone()){
-            return $this->endConversation();
+            //return $this->endConversation();
         }else{
             info("Conversation is done. No encouragement needed.");
         }
