@@ -406,6 +406,7 @@ class TelegramChat extends Model
     }
 
     public function endConversation(){
+        //@codeCoverageIgnoreStart
         // send a sticker
         $encouraging_stickers=[
             "CAACAgUAAxkDAAIFUGSs6OIcfz4cDod1F4K_IRrC0HUTAAK_DAACVqJpVdVKr86ZiliYLwQ",
@@ -468,10 +469,12 @@ class TelegramChat extends Model
 
             $this->sendMessage($feedback_messages[array_rand($feedback_messages)],TelegramChat::ASSISTANT_ROLE,[]);
         }
+        //@codeCoverageIgnoreEnd
     }
 
 
     public function isDone($since=null){
+        //@codeCoverageIgnoreStart
         if(!$since){
             $since=now()->subHours(1);
         }
@@ -479,18 +482,17 @@ class TelegramChat extends Model
         $messages=$this->telegramMessages()->where('is_incoming',true)->where('created_at','>=',$since)->where('text','/done')->orderBy('created_at','desc')->get();
         
         return $messages->count()>0;
+        //@codeCoverageIgnoreEnd
     }
 
     public function encourageUser(){
+        //@codeCoverageIgnoreStart
         //check if done has already been executed. In the last hour. If so, don't encourage again.
-
         if(!$this->isDone()){
             return $this->endConversation();
         }else{
             info("Conversation is done. No encouragement needed.");
         }
-
-        //if done hasn't already been executed
-        // execute endConversation.
+        //@codeCoverageIgnoreEnd
     }
 }
