@@ -476,7 +476,7 @@ class TelegramChat extends Model
             $since=now()->subHours(1);
         }
 
-        $messages=$this->telegramMessages()->where('is_incoming',true)->where('created_at','>=',$since)->where('text',"\/done")->orderBy('created_at','desc')->get();
+        $messages=$this->telegramMessages()->where('is_incoming',true)->where('created_at','>=',$since)->where('text','/done')->orderBy('created_at','desc')->get();
         
         return $messages->count()>0;
     }
