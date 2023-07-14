@@ -285,7 +285,7 @@ class TelegramChat extends Model
         }   
         $data=[
             'model' => 'text-davinci-003',
-            'prompt'=>"[INSTRUCTION] Identify and extract a maximum of 3 key issues that are suitable for discussion relevant for a coaching context. For each issue, headline it, and write a short summary of the issue key points discussed. Use a maximum of 10 words for each issue. Issues should be ranked and ordered according to the number of messages touching on each issue. This means that the most talked about issue should be item 1, second most talked about issue should be item 2, etc. If there is insufficient information from the messages, indicate that there is insufficient information for a summary to be executed. Do not use the issues in the sample format if the issues do not arise in the messages. \n
+            'prompt'=>"[INSTRUCTION] Identify and extract any key takeaways that the user might want to focus on. For each takeaway, headline it, and write a short summary of the takeaway key point discussed. Use a maximum of 10 words for each takeaway. Takeaways should be ranked and ordered according to the number of messages touching on each takeaway. This means that the most talked about takeaway should be item 1, second most talked about takeaway should be item 2, etc. If there is insufficient information from the messages, indicate that there is insufficient information for a summary to be executed. Do not use the takeaways in the sample format if the takeaways do not arise in the messages. \n
             
             The messages are as follows: \n
             [MESSAGES] \n",
@@ -333,7 +333,7 @@ class TelegramChat extends Model
             return null;
         }
 
-        $result_text.="Here's a quick summary of the topics covered:\n\n".trim($result['choices'][0]['text'] ?? "");
+        $result_text.="Here are the key takeaways of what we spoke about:\n\n".trim($result['choices'][0]['text'] ?? "");
 
         return $result_text;
 
