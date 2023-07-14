@@ -326,7 +326,7 @@ class TelegramChat extends Model
             
         $data['result']=$result;
 
-        $result_text="Thanks for the conversation! I hope you found it useful.";
+        $result_text="";
             
             
         if(str_contains(strtolower($result['choices'][0]['text'] ?? ""),"insufficient information")){
