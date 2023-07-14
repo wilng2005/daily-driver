@@ -21,7 +21,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('journal_entry:send')->dailyAt("07:00");
 
-        $schedule->command('reacquisition:send')->cron("0 12 * * 2-4");
+        $schedule->command('reacquisition:send')->cron("0 12 * * 2-6");
         // @codeCoverageIgnoreEnd
     }
 
