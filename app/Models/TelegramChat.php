@@ -385,7 +385,7 @@ class TelegramChat extends Model
         $possible_messages=[
             "Hi! Is there something you would like to talk about?",
             "Hello! What's on your mind?",
-            "Hey! How's life been treating you?",
+            "Hey! How has life been for you?",
             "Hi! How are you doing?",
             "Hey! How's it going?",
             "Is there anything you would like greater mental clarity on?"
