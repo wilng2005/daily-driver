@@ -235,12 +235,15 @@ class TelegramChat extends Model
         //@codeCoverageIgnoreEnd
     }
 
-    public function sendSticker($sticker_file_id='CAACAgIAAxkBAAEBVKj3ZYB-JpIbw2t0YgK8Y_W7-YLwAAJgQ', $from_username='', $data=[]){
+    public function sendSticker($sticker_file_id='CAACAgUAAxkDAAIFUGSs6OIcfz4cDod1F4K_IRrC0HUTAAK_DAACVqJpVdVKr86ZiliYLwQ', $from_username='', $data=[]){
         //@codeCoverageIgnoreStart
         $telegram_send_package=[
             'chat_id' => $this->tg_chat_id,
             'sticker' => $sticker_file_id,
         ];
+        
+        info("Sending sticker");
+        info($telegram_send_package);
 
         $response = Telegram::sendSticker($telegram_send_package);
 
@@ -414,7 +417,6 @@ class TelegramChat extends Model
             "CAACAgUAAxkBAAIFSGSs2MmH5hhF8L4pVAQNTX8Fgm26AALEDAACVqJpVdgNCKL8GSRMLwQ",
             "CAACAgUAAxkBAAIFSWSs2NGCkIUfHX9KdCAxyW9V1AWYAALFDAACVqJpVbg9IGMbJUiGLwQ",
             "CAACAgIAAxkBAAIFgGSubl94KUkfkiVfLlmw207nx2obAAJtAAPb234AAXUe7IXy-0SlLwQ",
-            "CAACAgIAAxkBAAIFf2Subkqr6vNZEZMqrpYGBeeFVp4XAAJqAAPb234AAfGPst81YhbfLwQ",
             "CAACAgIAAxkBAAIFfmSubj44cUwte6qinSfueYlW6uGsAAJmAAPb234AAZPMw9ANLY9sLwQ",
             "CAACAgIAAxkBAAIFfWSubjdYu2_wqwPx_QiZKNQXEy3IAAJhAAPb234AAff3D5s36tTkLwQ",
             "CAACAgIAAxkBAAIFfGSubjHoVeNPhiF7gwsPB3ETswGYAAJgAAPb234AAYYpTM5Q4efhLwQ",
@@ -489,6 +491,7 @@ class TelegramChat extends Model
         //@codeCoverageIgnoreStart
         //check if done has already been executed. In the last hour. If so, don't encourage again.
         if(!$this->isDone()){
+            info("Conversation is not done. Encouraging user.");
             return $this->endConversation();
         }else{
             info("Conversation is done. No encouragement needed.");
