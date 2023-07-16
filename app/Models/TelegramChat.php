@@ -245,7 +245,13 @@ class TelegramChat extends Model
         info("Sending sticker");
         info($telegram_send_package);
 
-        $response = Telegram::sendSticker($telegram_send_package);
+        $response = [];
+        try{
+            $response = Telegram::sendSticker($telegram_send_package);
+        }catch(\Exception $e){
+            $response['exception']=$e;
+            info($e);
+        }
 
         $data['telegram_send_package']=$telegram_send_package;
         $data['telegram_response']=$response;
