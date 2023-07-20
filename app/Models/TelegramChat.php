@@ -105,10 +105,11 @@ class TelegramChat extends Model
         
         $prompt[]=['role'=>TelegramChat::SYSTEM_ROLE, 'content'=>$system_context_prompt];
 
-        $no_of_historical_messages_to_use=isset($this->configuration['NO_OF_HISTORICAL_MESSAGES_TO_USE']) ? $this->configuration['NO_OF_HISTORICAL_MESSAGES_TO_USE'] : 10;
+        //$no_of_historical_messages_to_use=isset($this->configuration['NO_OF_HISTORICAL_MESSAGES_TO_USE']) ? $this->configuration['NO_OF_HISTORICAL_MESSAGES_TO_USE'] : 10;
+        $no_of_historical_messages_to_use=50;
 
         // get messages that have been sent to this chat, based on $no_of_historical_messages_to_use
-        $messages=$this->telegramMessages()->orderBy('created_at','desc')->limit($no_of_historical_messages_to_use)->get();
+        $messages=$this->telegramMessages()->where('created_at','>=',now()->subDays(1))->orderBy('created_at','desc')->limit($no_of_historical_messages_to_use)->get();
 
         // reverse the order of the $messages collection
         $messages=$messages->reverse();
