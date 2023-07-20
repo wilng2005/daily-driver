@@ -109,7 +109,7 @@ class TelegramChat extends Model
         $no_of_historical_messages_to_use=50;
 
         // get messages that have been sent to this chat, based on $no_of_historical_messages_to_use
-        $messages=$this->telegramMessages()->where('created_at','>=',now()->subDays(1))->orderBy('created_at','desc')->limit($no_of_historical_messages_to_use)->get();
+        $messages=$this->telegramMessages()->where('created_at','>=',now()->subHours(12))->orderBy('created_at','desc')->limit($no_of_historical_messages_to_use)->get();
 
         // reverse the order of the $messages collection
         $messages=$messages->reverse();
