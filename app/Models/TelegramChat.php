@@ -257,7 +257,7 @@ class TelegramChat extends Model
         try{
             $response = Telegram::sendSticker($telegram_send_package);
         }catch(\Exception $e){
-            $response['exception']=$e;
+            $response['exception']=$e->getMessage();
             info($e);
         }
 
