@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Jobs\ExecuteAIResponseJob;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -218,8 +219,14 @@ class TelegramChat extends Model
             'chat_id' => $this->tg_chat_id,
             'text' => $text
         ];
-
-        $response = Telegram::sendMessage($telegram_send_package);
+        
+        $response=[];
+        
+        try{
+            $response = Telegram::sendMessage($telegram_send_package);
+        }catch(Exception $e){
+            $response['exception']=$e;
+        }
 
         $data['telegram_send_package']=$telegram_send_package;
         $data['telegram_response']=$response;
