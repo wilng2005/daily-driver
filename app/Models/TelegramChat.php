@@ -226,6 +226,7 @@ class TelegramChat extends Model
             $response = Telegram::sendMessage($telegram_send_package);
         }catch(Exception $e){
             $response['exception']=$e->getMessage();
+            info($e);
         }
 
         $data['telegram_send_package']=$telegram_send_package;
