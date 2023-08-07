@@ -56,20 +56,20 @@ class TelegramChat extends Resource
     {
         return [
             ID::make()->sortable()->readonly(),
-            Text::make('Chat Name', function () {
+            // Text::make('Chat Name', function () {
 
-                $chat_name=isset($this->data['username'])?$this->data['username']:'';
-                $chat_name.=isset($this->data['first_name'])?' '.$this->data['first_name']:'';
-                $chat_name.=isset($this->data['last_name'])?' '.$this->data['last_name']:'';
-                $chat_name.=isset($this->data['type'])?' '.$this->data['type']:'';
-                $chat_name=trim($chat_name);
-                return $chat_name;
-            }),
+            //     $chat_name=isset($this->data['username'])?$this->data['username']:'';
+            //     $chat_name.=isset($this->data['first_name'])?' '.$this->data['first_name']:'';
+            //     $chat_name.=isset($this->data['last_name'])?' '.$this->data['last_name']:'';
+            //     $chat_name.=isset($this->data['type'])?' '.$this->data['type']:'';
+            //     $chat_name=trim($chat_name);
+            //     return $chat_name;
+            // }),
+            Number::make('Telegram Chat ID','tg_chat_id')->readonly(),
             Text::make('Msg Count', function () {
                 return $this->getNoOfMessagesSentOverPeriod(1).'/'.$this->getNoOfMessagesSentOverPeriod(10000);
             }),
             KeyValue::make('Configuration')->rules('json'),
-            Number::make('Telegram Chat ID','tg_chat_id')->readonly(),
             Code::make('Data')->json()->readonly(),
             Stack::make('Create/Updated',[
                 DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
