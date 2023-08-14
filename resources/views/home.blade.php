@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.115.4">
-    <title>Blog Template · Bootstrap v5.3</title>
+    <title>Greater Than Today</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -183,34 +183,24 @@
   <header class="border-bottom lh-1 py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
-        <a class="link-secondary" href="#">Subscribe</a>
+        
       </div>
       <div class="col-4 text-center">
         <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">Greater Than Today</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="link-secondary" href="#" aria-label="Search">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
-        </a>
-        <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
       </div>
     </div>
   </header>
 
   <div class="nav-scroller py-1 mb-3 border-bottom">
     <nav class="nav nav-underline justify-content-between">
-      <a class="nav-item nav-link link-body-emphasis active" href="#">World</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Technology</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Design</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Culture</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Business</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Politics</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Opinion</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Science</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Health</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Style</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+      <a class="nav-item nav-link link-body-emphasis" href="#">About</a>
+      <a class="nav-item nav-link link-body-emphasis active" href="#">Articles</a>
+      <a class="nav-item nav-link link-body-emphasis" href="#">Services</a>
+      <a class="nav-item nav-link link-body-emphasis" href="#">Pricing</a>
+      <a class="nav-item nav-link link-body-emphasis" href="#">Clarity Bot</a>
+      <a class="nav-item nav-link link-body-emphasis" href="#">Contact us</a>
     </nav>
   </div>
 </div>
