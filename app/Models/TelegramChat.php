@@ -376,7 +376,7 @@ class TelegramChat extends Model
             //@codeCoverageIgnoreEnd
         }
         //get the backoff period
-        $backoffPeriodInDays = isset($this->configuration['BACKOFF_PERIOD_IN_DAYS'])?$this->configuration['BACKOFF_PERIOD_IN_DAYS']:2;
+        $backoffPeriodInDays = isset($this->configuration['BACKOFF_PERIOD_IN_DAYS'])?$this->configuration['BACKOFF_PERIOD_IN_DAYS']:7;
 
         if($this->getLastActivity()->diffInDays($now) >= $backoffPeriodInDays){
             //send a message to the user
