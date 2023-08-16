@@ -44,10 +44,13 @@ class EncourageUserJob implements ShouldQueue
     {
         //@codeCoverageIgnoreStart
         if($this->telegramChat){
-            //$this->telegramChat->executeAIResponse();
             
-            $this->telegramChat->encourageUser();
-            
+            //check to see if the user had any activity in the last 10 minutes
+            if($this->telegramChat->getLastActivity()->diffInMinutes(now()) < 10){
+                EncourageUserJob::dispatch($this->telegramChat)->delay(now()->addMinutes(15));
+            }else{
+                $this->telegramChat->encourageUser();
+            }
         }
             
 
