@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         RateLimiter::for('EncourageUser', function (object $job) {
-            return Limit::perHour(1)->by($job->telegramChat->tg_chat_id);
+            return Limit::perHour(100)->by($job->telegramChat->tg_chat_id);
         });
     }
 }
