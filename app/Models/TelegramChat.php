@@ -425,7 +425,20 @@ class TelegramChat extends Model
 
     public function endConversation(){
         //@codeCoverageIgnoreStart
+
+        //adding this ensures that the next time isDone() is called, it will be be abled to detect whether the conversation has ended.
+        if(!$this->isDone()){
+            $this->telegramMessages()->create([
+                'data'=>['message'=>'System auto done mechanism.'],
+                'text'=>'/done',
+                'is_incoming'=>false,
+                'is_outgoing'=>false,
+                'from_username'=>$this->SYSTEM_ROLE,
+            ]);
+        }
+        
         // send a sticker
+        
         $encouraging_stickers=[
             "CAACAgUAAxkDAAIFUGSs6OIcfz4cDod1F4K_IRrC0HUTAAK_DAACVqJpVdVKr86ZiliYLwQ",
             "CAACAgUAAxkBAAIFQmSs2KkbdCjvQbIUAvIFym5-C6ouAALADAACVqJpVfHaU0ShsINhLwQ",
@@ -496,7 +509,7 @@ class TelegramChat extends Model
             $since=now()->subHours(1);
         }
 
-        $messages=$this->telegramMessages()->where('is_incoming',true)->where('created_at','>=',$since)->where('text','/done')->orderBy('created_at','desc')->get();
+        $messages=$this->telegramMessages()->where('created_at','>=',$since)->where('text','/done')->orderBy('created_at','desc')->get();
         
         return $messages->count()>0;
         //@codeCoverageIgnoreEnd
