@@ -436,7 +436,7 @@ class TelegramChat extends Model
                 'text'=>'/done',
                 'is_incoming'=>false,
                 'is_outgoing'=>false,
-                'from_username'=>$this->SYSTEM_ROLE,
+                'from_username'=>TelegramChat::SYSTEM_ROLE,
             ]);
             info('System auto-done message sent for '.$this->id);
         }
