@@ -426,8 +426,11 @@ class TelegramChat extends Model
     public function endConversation(){
         //@codeCoverageIgnoreStart
 
-        //adding this ensures that the next time isDone() is called, it will be be abled to detect whether the conversation has ended.
+        //adding this ensures that the next time isDone() is called, it will be be able to detect whether the conversation has ended.
+
+        info('Ending conversation for '.$this->id);
         if(!$this->isDone()){
+            info('Ending conversation for '.$this->id.' - not done');
             $this->telegramMessages()->create([
                 'data'=>['message'=>'System auto done mechanism.'],
                 'text'=>'/done',
@@ -435,6 +438,7 @@ class TelegramChat extends Model
                 'is_outgoing'=>false,
                 'from_username'=>$this->SYSTEM_ROLE,
             ]);
+            info('System auto-done message sent for '.$this->id);
         }
         
         // send a sticker
