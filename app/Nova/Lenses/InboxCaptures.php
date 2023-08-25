@@ -3,6 +3,7 @@
 namespace App\Nova\Lenses;
 
 use App\Nova\Metrics\ThingsToDo;
+use App\Nova\Metrics\IncomingTelegramChatsPerDay;
 use Illuminate\Support\Str;
 
 use Laravel\Nova\Fields\Boolean;
@@ -71,6 +72,7 @@ class InboxCaptures extends Lens
     {
         return [
             new ThingsToDo,
+            new IncomingTelegramChatsPerDay,
         ];
     }
 
