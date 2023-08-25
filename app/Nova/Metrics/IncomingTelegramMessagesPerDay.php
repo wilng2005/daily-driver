@@ -7,7 +7,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
 use Laravel\Nova\Metrics\TrendResult;
 
-class IncomingTelegramChatsPerDay extends Trend
+class IncomingTelegramMessagesPerDay extends Trend
 {
     /**
      * Calculate the value of the metric.

@@ -3,7 +3,7 @@
 namespace App\Nova\Dashboards;
 
 use App\Nova\Metrics\PercentageOfCustomersThatAchieveValue;
-use App\Nova\Metrics\IncomingTelegramChatsPerDay;
+use App\Nova\Metrics\IncomingTelegramMessagesPerDay;
 use App\Nova\Metrics\ThingsToDo;
 use App\Nova\Metrics\TelegramChatsPerMonth;
 
@@ -22,7 +22,7 @@ class Main extends Dashboard
         $cards=[
             new ThingsToDo,
             new TelegramChatsPerMonth,
-            new IncomingTelegramChatsPerDay,
+            new IncomingTelegramMessagesPerDay,
             //(PercentageOfCustomersThatAchieveValue::make(now()->subMonths(4)->format('M Y')))->width('full')
         ];
 
