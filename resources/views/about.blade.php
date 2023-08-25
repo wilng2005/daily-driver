@@ -195,8 +195,8 @@
 
   <div class="nav-scroller py-1 mb-3 border-bottom">
     <nav class="nav nav-underline justify-content-between">
-      <a class="nav-item nav-link link-body-emphasis" href="/about">About</a>
-      <a class="nav-item nav-link link-body-emphasis active" href="#">Articles</a>
+      <a class="nav-item nav-link link-body-emphasis active" href="#">About</a>
+      <a class="nav-item nav-link link-body-emphasis" href="/">Articles</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">Services</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">Pricing</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">Clarity Bot</a>
