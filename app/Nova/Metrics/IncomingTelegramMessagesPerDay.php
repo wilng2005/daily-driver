@@ -21,7 +21,7 @@ class IncomingTelegramMessagesPerDay extends Trend
 
         $trend_data = [];
         for($i=0;$i<$request->range;$i++){
-            $trend_data[now()->subDays($i)->format('d M Y')] = TelegramMessage::where('created_at','>=',now()->subDays($i)->startOfDay()->toDateString())->where('created_at','<=',now()->subDays($i)->endOfDay()->toDateString())->where('is_incoming',true)->count();
+            $trend_data[now()->subDays($i)->format('d M Y')] = TelegramMessage::where('created_at',now()->subDays($i)->startOfDay()->toDateString())->where('is_incoming',true)->count();
         }
         $trend_data = array_reverse($trend_data);
 
@@ -50,7 +50,8 @@ class IncomingTelegramMessagesPerDay extends Trend
      */
     public function cacheFor()
     {
-        return now()->addHours(12);
+        //return now()->addHours(12);
+        return now()->addMinutes(1);
     }
 
     /**
