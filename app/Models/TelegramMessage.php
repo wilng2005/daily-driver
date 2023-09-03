@@ -29,4 +29,11 @@ class TelegramMessage extends Model
         //@codeCoverageIgnoreEnd
     }
     
+    public static function incomingDailyMessageCount($date=null){
+        if(!$date){
+            $date=now();
+        }
+        
+        return TelegramMessage::whereDate('created_at',$date->startOfDay()->toDateString())->where('is_incoming',true)->count();
+    }
 }
