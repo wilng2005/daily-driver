@@ -376,7 +376,7 @@ class TelegramChat extends Model
             //@codeCoverageIgnoreEnd
         }
         //get the backoff period
-        $backoffPeriodInDays = isset($this->configuration['BACKOFF_PERIOD_IN_DAYS'])?$this->configuration['BACKOFF_PERIOD_IN_DAYS']:7;
+        $backoffPeriodInDays = isset($this->configuration['BACKOFF_PERIOD_IN_DAYS'])?$this->configuration['BACKOFF_PERIOD_IN_DAYS']:5;
 
         if($this->getLastActivity()->diffInDays($now) >= $backoffPeriodInDays){
             //send a message to the user
@@ -406,7 +406,47 @@ class TelegramChat extends Model
             "Hey! How has life been for you?",
             "Hi! How are you doing?",
             "Hey! How's it going?",
-            "Is there anything you would like greater mental clarity on?"
+            "Is there anything you would like greater mental clarity on?",
+            "Hi! What are your biggest dreams and goals when it comes to your career?",
+            "Hello! Can you share any challenges or obstacles you're currently facing?",
+            "Hi! Have you tried any strategies or approaches to overcome these challenges? If so, how did they work out for you?",
+            "Hello! How do you usually manage your time and prioritize your tasks?",
+            "Hi there! What do you feel are your biggest strengths and talents?",
+            "Hello! Is there anything you feel you can improve upon or would like to develop further?",
+            "Hi! How do you typically handle stressful situations or pressure at work?",
+            "Hello! Are there any specific projects or tasks that truly excite you and ignite your passion?",
+            "Hi there! How would you describe your communication style? Any areas you feel could use some growth?",
+            "Hello! What's your usual approach to problem-solving? Do you follow a specific process?",
+            "Hi! Do you have any personal or professional values that guide your decision-making?",
+            "Hello! How do you usually seek feedback from others, and do you find it helpful in your growth?",
+            "Hi! Are you setting and achieving specific goals for yourself at the moment?",
+            "Hello there! On a scale of 1 to 10, how satisfied are you with your current job? Why?",
+            "Hi! How do you balance your work life with personal life? Any particular strategies you use?",
+            "Hello! Any concerns or questions about your career or professional growth that you'd like to discuss?",
+            "Hi! How do you manage conflicts or disagreements with colleagues or team members?",
+            "Hello! Do you have any go-to strategies or techniques to stay motivated and productive?",
+            "Hi there! How do you handle setbacks or failures? What important lessons have you learned from them?",
+            "Hello! Are there any particular skills or areas of knowledge you'd like to develop in the near future?",
+            "Hi! How would you describe the current dynamic within your family?",
+            "Hello! What are some things you appreciate about your loved ones or close friends?",
+            "Hi there! Can you share a recent positive experience or memory you've had with your family?",
+            "Hello! How do you usually handle misunderstandings or disagreements within your relationships?",
+            "Hi! Are there any shared hobbies or activities you enjoy doing with your family or loved ones?",
+            "Hello! What are some ways you show love and support to your family members or close friends?",
+            "Hi! Can you think of a time when you effectively resolved a conflict with someone important to you?",
+            "Hello! How do you nurture and maintain strong connections with your loved ones?",
+            "Hi there! Are there any specific goals or aspirations you have for improving your relationships?",
+            "Hello! How do you balance your personal needs with the needs of your family or loved ones?",
+            "Hi! Are there any unresolved issues or past experiences that still impact your relationships?",
+            "Hello! What are some effective communication strategies you use in your relationships?",
+            "Hi! How do you openly express appreciation and gratitude to your family or close friends?",
+            "Hello! What role does forgiveness play in your relationships, and how do you practice it?",
+            "Hi! Can you think of a recent moment where your actions positively influenced a relationship?",
+            "Hello! How do you ensure everyone gets quality time and attention within your family or relationships?",
+            "Hi! Can you identify any patterns or habits within your relationships that you want to improve?",
+            "Hello! How do you support the personal growth and development of your loved ones?",
+            "Hi! Are there any specific values or principles you prioritize within your family or relationships?",
+            "Hello! How do you effectively communicate your needs and boundaries to your loved ones?",
         ];
 
         return $possible_messages[array_rand($possible_messages)];
