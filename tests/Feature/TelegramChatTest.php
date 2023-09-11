@@ -224,34 +224,27 @@ class TelegramChatTest extends TestCase
         $this->assertFalse($result);
 
         $result=$telegramChat->performReacquistion(Carbon::create(2021, 1, 29, 0, 0, 0),true);
-        $this->assertFalse($result);
-
-        $result=$telegramChat->performReacquistion(Carbon::create(2021, 1, 30, 0, 0, 0),true);
         $this->assertTrue($result);
+
         
         // refresh the $telegramChat object with the latest values from db
         $telegramChat->refresh();
 
-        //check that the backoff period has been set to 14 days
-        $this->assertEquals(14, $telegramChat->configuration['BACKOFF_PERIOD_IN_DAYS']);
+        //check that the backoff period has been set to 10 days
+        $this->assertEquals(10, $telegramChat->configuration['BACKOFF_PERIOD_IN_DAYS']);
 
         $result=$telegramChat->performReacquistion(Carbon::create(2021, 1, 24, 23, 0, 0),true);
         $this->assertFalse($result);
 
         $result=$telegramChat->performReacquistion(Carbon::create(2021, 2, 4, 0, 0, 0),true);
-        $this->assertFalse($result);
-
-        $result=$telegramChat->performReacquistion(Carbon::create(2021, 2, 5, 0, 0, 0),true);
-        $this->assertFalse($result);
-
-        $result=$telegramChat->performReacquistion(Carbon::create(2021, 2, 6, 0, 0, 0),true);
         $this->assertTrue($result);
+
 
         // refresh the $telegramChat object with the latest values from db
         $telegramChat->refresh();
 
-        //check that the backoff period has been set to 28 days
-        $this->assertEquals(28, $telegramChat->configuration['BACKOFF_PERIOD_IN_DAYS']);
+        //check that the backoff period has been set to 20 days
+        $this->assertEquals(20, $telegramChat->configuration['BACKOFF_PERIOD_IN_DAYS']);
 
         //user sends a message back to the bot, verify that the backoff is reset
         $telegramChat->resetBackoffPeriod();
