@@ -9,6 +9,9 @@
     <meta name="generator" content="Hugo 0.115.4">
     <title>Greater than Today</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@600&family=Alex+Brush&family=Barlow&display=swap" rel="stylesheet">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -99,7 +102,7 @@
       /* stylelint-disable stylistic/selector-list-comma-newline-after */
 
       .blog-header-logo {
-        font-family: "Albert Sans", sans-serif;
+        font-family: 'Alex Brush', cursive;
         font-size: 2.25rem;
       }
 
@@ -186,7 +189,7 @@
         
       </div>
       <div class="col-4 text-center">
-        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">Greater than Today</a>
+        <a class="blog-header-logo text-decoration-none" style="color:#555555"href="#">Greater than Today</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
       </div>
@@ -195,11 +198,11 @@
 
   <div class="nav-scroller py-1 mb-3 border-bottom">
     <nav class="nav nav-underline justify-content-between">
-      <a class="nav-item nav-link link-body-emphasis" href="/about">About</a>
+      <!-- <a class="nav-item nav-link link-body-emphasis" href="/about">About</a> -->
       <a class="nav-item nav-link link-body-emphasis active" href="#">Articles</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Services</a>
+      <!-- <a class="nav-item nav-link link-body-emphasis" href="#">Services</a>
       <a class="nav-item nav-link link-body-emphasis" href="#">Clarity Bot</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Contact us</a>
+      <a class="nav-item nav-link link-body-emphasis" href="#">Contact us</a> -->
     </nav>
   </div>
 </div>
@@ -299,44 +302,38 @@
     <div class="col-md-4">
       <div class="position-sticky" style="top: 2rem;">
         <div class="p-4 mb-3 bg-body-tertiary rounded">
-          <h4 class="fst-italic">About</h4>
-          <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+          <h4 class="fst-italic">Feeling stuck?</h4>
+          <p class="mb-0">Instead of trying to make big changes, it's better to focus on making small and consistent progress. These small improvements, even if they seem insignificant, add up and make a significant difference over time. They help us develop good habits and build a solid foundation for success.</p><br/> <p>When we make small improvements, we also learn from our mistakes and get better at what we're doing. It takes patience and effort, but consistently taking small steps can lead to significant achievements.</p>
         </div>
 
         <div>
-          <h4 class="fst-italic">Recent posts</h4>
+          <h4 class="fst-italic">Resources</h4>
           <ul class="list-unstyled">
             <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-                <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://youtu.be/oHDq1PcYkT4?si=sSJpajL9q1XvSUap" target="_blank">
+              <div class="bd-placeholder-img" style="width: 100%; height: 96px; background-image: url('images/atulgawande.png'); background-size: cover; background-position: center;"></div>
+               
                 <div class="col-lg-8">
-                  <h6 class="mb-0">Example blog post title</h6>
-                  <small class="text-body-secondary">January 15, 2023</small>
+                  <h6 class="mb-0">Wanna get great at something? Get a coach</h6>
+                  <small class="text-body-secondary">TED Talk by Atul Gawande</small>
                 </div>
               </a>
             </li>
             <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-                <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://youtu.be/y2zZISLiIB4?si=YLf8RCdu75o8kQHK" target="_blank">
+              <div class="bd-placeholder-img" style="width: 100%; height: 96px; background-image: url('images/simonsinek.png'); background-size: cover; background-position: center;"></div>
+               
                 <div class="col-lg-8">
-                  <h6 class="mb-0">This is another blog post title</h6>
-                  <small class="text-body-secondary">January 14, 2023</small>
+                  <h6 class="mb-0">Great Leaders inspire others to do great things</h6>
+                  <small class="text-body-secondary">Simon Sinek</small>
                 </div>
               </a>
             </li>
-            <li>
-              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-                <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-                <div class="col-lg-8">
-                  <h6 class="mb-0">Longer blog post title: This one has multiple lines!</h6>
-                  <small class="text-body-secondary">January 13, 2023</small>
-                </div>
-              </a>
-            </li>
+           
           </ul>
         </div>
 
-        <div class="p-4">
+        <!-- <div class="p-4">
           <h4 class="fst-italic">Archives</h4>
           <ol class="list-unstyled mb-0">
             <li><a href="#">March 2021</a></li>
@@ -352,16 +349,16 @@
             <li><a href="#">May 2020</a></li>
             <li><a href="#">April 2020</a></li>
           </ol>
-        </div>
+        </div> -->
 
-        <div class="p-4">
+        <!-- <div class="p-4">
           <h4 class="fst-italic">Elsewhere</h4>
           <ol class="list-unstyled">
             <li><a href="#">GitHub</a></li>
             <li><a href="#">Twitter</a></li>
             <li><a href="#">Facebook</a></li>
           </ol>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -369,7 +366,7 @@
 </main>
 
 <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
-  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+  <p>Let's make tomorrow greater than today.</p>
   <p class="mb-0">
     <a href="#">Back to top</a>
   </p>
