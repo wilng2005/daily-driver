@@ -118,6 +118,10 @@
         font-family: "Barlow", sans-serif;
       }
 
+      a {
+        color: grey;
+      }
+
       .flex-auto {
         flex: 0 0 auto;
       }
@@ -199,10 +203,10 @@
   <div class="nav-scroller py-1 mb-3 border-bottom">
     <nav class="nav nav-underline justify-content-between">
       <!-- <a class="nav-item nav-link link-body-emphasis" href="/about">About</a> -->
-      <a class="nav-item nav-link link-body-emphasis active" href="#">Articles</a>
-      <!-- <a class="nav-item nav-link link-body-emphasis" href="#">Services</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Clarity Bot</a>
-      <a class="nav-item nav-link link-body-emphasis" href="#">Contact us</a> -->
+      <a class="nav-item nav-link link-body-emphasis active" href="#">Coaching</a>
+       <!-- <a class="nav-item nav-link link-body-emphasis" href="/services">Services</a> -->
+      <!-- <a class="nav-item nav-link link-body-emphasis" href="/clarity">Build Clarity </a> -->
+      <!-- <a class="nav-item nav-link link-body-emphasis" href="/start">Get Started</a>  -->
     </nav>
   </div>
 </div>
@@ -269,7 +273,7 @@
         </figure>
         
         <h2 class="display-5 link-body-emphasis mb-1">What is Coaching?</h2>
-        <p class="blog-post-meta">September 11, 2023 by Wil</p>
+        <!-- <p class="blog-post-meta">September 11, 2023 by Wil</p> -->
         <p>Coaching has emerged as a powerful tool for personal and professional growth, gaining immense popularity in recent years. Whether it be in sports, business, or life, coaching has become a go-to resource for individuals seeking guidance, support, and transformation in various aspects of their lives.</p>
 
 
