@@ -366,7 +366,7 @@
 </main>
 
 <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
-  <p>Let's make tomorrow greater than today.</p>
+  <p>Make tomorrow greater than today!</p>
   <p class="mb-0">
     <a href="#">Back to top</a>
   </p>
