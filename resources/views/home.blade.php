@@ -311,7 +311,7 @@
           <ul class="list-unstyled">
             <li>
               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://youtu.be/oHDq1PcYkT4?si=sSJpajL9q1XvSUap" target="_blank">
-              <div class="bd-placeholder-img" style="width: 100%; height: 96px; background-image: url('images/atulgawande.png'); background-size: cover; background-position: center;"></div>
+              <div class="bd-placeholder-img" style="width: 100%; height: 96px; background-image: url({{ asset('images/atulgawande.png') }}); background-size: cover; background-position: center;"></div>
                
                 <div class="col-lg-8">
                   <h6 class="mb-0">Wanna get great at something? Get a coach</h6>
@@ -321,7 +321,7 @@
             </li>
             <li>
               <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://youtu.be/y2zZISLiIB4?si=YLf8RCdu75o8kQHK" target="_blank">
-              <div class="bd-placeholder-img" style="width: 100%; height: 96px; background-image: url('images/simonsinek.png'); background-size: cover; background-position: center;"></div>
+              <div class="bd-placeholder-img" style="width: 100%; height: 96px; background-image: url({{ asset('images/simonsinek.png') }});  background-size: cover; background-position: center;"></div>
                
                 <div class="col-lg-8">
                   <h6 class="mb-0">Great Leaders inspire others to do great things</h6>
