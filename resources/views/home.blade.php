@@ -328,7 +328,7 @@
               <div class="bd-placeholder-img" style="width: 100%; height: 96px; background-image: url({{ asset('images/simonsinek.png') }});  background-size: cover; background-position: center;"></div>
                
                 <div class="col-lg-8">
-                  <h6 class="mb-0">Great Leaders inspire others to do great things</h6>
+                  <h6 class="mb-0">Great leaders inspire others to do great things</h6>
                   <small class="text-body-secondary">Simon Sinek</small>
                 </div>
               </a>
