@@ -333,6 +333,16 @@
                 </div>
               </a>
             </li>
+            <li>
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="https://youtu.be/q7a5TIzOmeQ?si=FshCU1FG7nMooUOS" target="_blank">
+              <div class="bd-placeholder-img" style="width: 100%; height: 96px; background-image: url({{ asset('images/brettledbetter.png') }});  background-size: cover; background-position: center;"></div>
+               
+                <div class="col-lg-8">
+                  <h6 class="mb-0">Building your inner coach</h6>
+                  <small class="text-body-secondary">TEDx Talk by Brett Ledbetter</small>
+                </div>
+              </a>
+            </li>
            
           </ul>
         </div>
@@ -370,10 +380,13 @@
 </main>
 
 <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+ 
+  <p>Ready for a breakthrough? <a href="https://t.me/wilng2005" target="_blank" style="color:#2979FF">Start your coaching conversation right now.</a></p>
+
   <p>Make tomorrow greater than today!</p>
-  <p class="mb-0">
+  <!-- <p class="mb-0">
     <a href="#">Back to top</a>
-  </p>
+  </p> -->
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     </body>
