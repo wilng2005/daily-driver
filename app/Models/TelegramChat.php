@@ -126,7 +126,7 @@ class TelegramChat extends Model
             }else if($message->from_username==TelegramChat::USER_ROLE
             ||$message->from_username==TelegramChat::ASSISTANT_ROLE
             ||$message->from_username==TelegramChat::SYSTEM_ROLE){
-                if($message->text){
+                if(isset($message->text) && $message->text !== null){
                     $message_prompts[]=['role'=>$message->from_username, 'content'=>$message->text];
                 }
             }
