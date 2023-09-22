@@ -171,7 +171,7 @@ class TelegramChat extends Model
             // do a check to ensure we don't spam the user with two outgoing messages in a row. If the last message was outgoing, don't send another outgoing message.
             if(!$this->wasLastMessageOutgoing()){
                 $data['prompt']=$this->generatePrompt();
-
+                info("Line 174");
                 $data['result'] = OpenAI::chat()->create([
                     'model' => 'gpt-3.5-turbo',
                     'messages' => $data['prompt'],
@@ -195,7 +195,7 @@ class TelegramChat extends Model
                         ]
                     ]
                 ]);
-
+                info("Line 198");
                 info($data);
 
                 if(isset($data['result']['choices'][0]['message']['function_call'])&&$data['result']['choices'][0]['message']['function_call']['name']=='create_referral_to_human_coach_counsellor'){
