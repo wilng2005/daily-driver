@@ -126,7 +126,9 @@ class TelegramChat extends Model
             }else if($message->from_username==TelegramChat::USER_ROLE
             ||$message->from_username==TelegramChat::ASSISTANT_ROLE
             ||$message->from_username==TelegramChat::SYSTEM_ROLE){
-                $message_prompts[]=['role'=>$message->from_username, 'content'=>$message->text];
+                if($message->text){
+                    $message_prompts[]=['role'=>$message->from_username, 'content'=>$message->text];
+                }
             }
         }
 
@@ -195,7 +197,7 @@ class TelegramChat extends Model
                 ]);
 
                 info($data);
-                
+
                 if(isset($data['result']['choices'][0]['message']['function_call'])&&$data['result']['choices'][0]['message']['function_call']['name']=='create_referral_to_human_coach_counsellor'){
                     $this->sendMessage("Thank you for confirming. I have created a referral to a human coach or counsellor, who will contact you over the next week.", TelegramChat::ASSISTANT_ROLE, $data);
                 }else{
