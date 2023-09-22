@@ -194,6 +194,8 @@ class TelegramChat extends Model
                     ]
                 ]);
 
+                info($data);
+                
                 if(isset($data['result']['choices'][0]['message']['function_call'])&&$data['result']['choices'][0]['message']['function_call']['name']=='create_referral_to_human_coach_counsellor'){
                     $this->sendMessage("Thank you for confirming. I have created a referral to a human coach or counsellor, who will contact you over the next week.", TelegramChat::ASSISTANT_ROLE, $data);
                 }else{
