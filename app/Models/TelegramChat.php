@@ -179,17 +179,7 @@ class TelegramChat extends Model
                             'description' => 'This function creates a referral ticket that will be followed up by a human coach or counsellor that is trained and certified in coaching and therapy. Before calling this function, please get consent from the user for the referral. Use this function when requested by the user, or when dealing with users that are stuck or presents suicide risk.',
                             'parameters' => [
                                 'type' => 'object',
-                                'properties' => [
-                                    'property1' => [
-                                        'type' => 'string',
-                                        'description' => 'Description of property 1',
-                                    ],
-                                    'property2' => [
-                                        'type' => 'integer',
-                                        'description' => 'Description of property 2',
-                                    ],
-                                    // Add more properties if needed
-                                ],
+                                'properties' => [],
                             ],
                         ]
                     ]
