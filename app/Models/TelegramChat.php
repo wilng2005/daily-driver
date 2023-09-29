@@ -172,7 +172,6 @@ class TelegramChat extends Model
             if(!$this->wasLastMessageOutgoing()){
                 $data['prompt']=$this->generatePrompt();
                 info("Line 174");
-                info($data);
                 $data['result'] = OpenAI::chat()->create([
                     'model' => 'gpt-3.5-turbo',
                     'messages' => $data['prompt'],
