@@ -200,7 +200,7 @@ class TelegramChat extends Model
                 info($data);
 
                 if(isset($data['result']['choices'][0]['message']['function_call'])&&$data['result']['choices'][0]['message']['function_call']['name']=='create_referral_to_human_coach_counsellor'){
-                    $this->sendMessage("I have created a referral ticket for you. You will be contacted by a trained human coach or counsellor over the next seven days.", TelegramChat::ASSISTANT_ROLE, $data);
+                    $this->sendMessage("Would you like for a human to reach out to you? I can make a request for a human coach or counsellor to follow-up with you over the next few days.", TelegramChat::ASSISTANT_ROLE, $data);
                 }else{
                     $result_text=trim($data['result']['choices'][0]['message']['content'] ?? "");
                 
