@@ -104,6 +104,8 @@ class TelegramChat extends Model
         
         If the user shares a strong emotion, be sure express empathy and acceptance for how the user is feeling.
 
+        --- 
+
         If the user seems to be stuck or in deep distress, and needs a human coach or counsellor, ask the user for permission to be contacted by a human. If the user consents, inform the user that the human will be contacting them over the next week. If the user refuses to consent, advise the user to seek professional help. 
         ";
 
@@ -172,27 +174,13 @@ class TelegramChat extends Model
 
                 $data['result'] = OpenAI::chat()->create([
                     'model' => 'gpt-3.5-turbo',
-                    'messages' => $data['prompt'],
-                    'functions'=> [
-                        [
-                            'name' => 'create_referral_to_human_coach_counsellor',
-                            'description' => 'This function creates a referral ticket that will be followed up by a human coach or counsellor that is trained and certified in coaching and therapy. Before calling this function, please get consent from the user for the referral. Use this function when requested by the user, or when dealing with users that are stuck or presents suicide risk.',
-                            'parameters' => [
-                                'type' => 'object',
-                                'properties' => [],
-                            ],
-                        ]
-                    ]
+                    'messages'=> $data['prompt'],
                 ]);
-
-                if(isset($data['result']['choices'][0]['message']['function_call'])&&$data['result']['choices'][0]['message']['function_call']=='create_referral_to_human_coach_counsellor'){
-                    $this->sendMessage("Thank you for confirming. I have created a referral to a human coach or counsellor, who will contact you over the next week.", TelegramChat::ASSISTANT_ROLE, $data);
-                }else{
-                    $result_text=trim($data['result']['choices'][0]['message']['content'] ?? "");
                 
-                    if($result_text){
-                        $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
-                    }
+                $result_text=trim($data['result']['choices'][0]['message']['content'] ?? "");
+                
+                if($result_text){
+                    $this->sendMessage($result_text, TelegramChat::ASSISTANT_ROLE, $data);
                 }
             }
             
