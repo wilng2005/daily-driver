@@ -24,7 +24,7 @@ class ThingsToDo extends Trend
                 isset($dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures'])?
                 $dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures']:0;
         }
-        info($trend);
+
         return (new TrendResult)->trend($trend)->showLatestValue();
     } 
 

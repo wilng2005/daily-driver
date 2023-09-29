@@ -26,9 +26,7 @@ class TelegramUpdate extends Model
 
     public function extract_and_store_chat_and_message_details(){
          //@codeCoverageIgnoreStart
-        info("TelegramUpdate->extract_and_store_chat_and_message_details() start");
-        info($this->data);
-        
+
         $telegram_chat=null;
 
         if(isset($this->data['message']['chat'])){
@@ -48,7 +46,6 @@ class TelegramUpdate extends Model
         
         EncourageUserJob::dispatch($telegram_chat)->delay(now()->addMinutes(15));
 
-        info("TelegramUpdate->extract_and_store_chat_and_message_details() end");
 
         return $telegram_chat;
         //@codeCoverageIgnoreEnd

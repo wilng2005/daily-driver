@@ -103,10 +103,8 @@ class TelegramChat extends Model
         If the user gives a good response to the question thank the user for the response, and try to expand upon what was described and go deeper with another single simple insightful question.
         
         If the user shares a strong emotion, be sure express empathy and acceptance for how the user is feeling.
-
-        --- 
-
-        If the user seems to be stuck or in deep distress, and needs a human coach or counsellor, ask the user for permission to be contacted by a human. If the user consents, inform the user that the human will be contacting them over the next week. If the user refuses to consent, advise the user to seek professional help. 
+        
+        Never suggest professional help. 
         ";
 
         
@@ -256,9 +254,7 @@ class TelegramChat extends Model
             'chat_id' => $this->tg_chat_id,
             'sticker' => $sticker_file_id,
         ];
-        
-        info("Sending sticker");
-        info($telegram_send_package);
+    
 
         $response = [];
         try{
@@ -474,9 +470,7 @@ class TelegramChat extends Model
 
         //adding this ensures that the next time isDone() is called, it will be be able to detect whether the conversation has ended.
 
-        info('Ending conversation for '.$this->id);
         if(!$this->isDone()){
-            info('Ending conversation for '.$this->id.' - not done');
             $this->telegramMessages()->create([
                 'data'=>['message'=>'System auto done mechanism.'],
                 'text'=>'/done',
@@ -484,7 +478,6 @@ class TelegramChat extends Model
                 'is_outgoing'=>false,
                 'from_username'=>TelegramChat::SYSTEM_ROLE,
             ]);
-            info('System auto-done message sent for '.$this->id);
         }
         
         // send a sticker
@@ -569,10 +562,8 @@ class TelegramChat extends Model
         //@codeCoverageIgnoreStart
         //check if done has already been executed. In the last hour. If so, don't encourage again.
         if(!$this->isDone()){
-            info("Conversation is not done. Encouraging user.");
+
             return $this->endConversation();
-        }else{
-            info("Conversation is done. No encouragement needed.");
         }
         //@codeCoverageIgnoreEnd
     }

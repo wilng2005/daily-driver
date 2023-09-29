@@ -40,7 +40,7 @@ class ProcessTelegramUpdate implements ShouldQueue
     public function handle()
     {
         //@codeCoverageIgnoreStart
-        info("ProcessTelegramUpdate handle commenced.");
+
         
         //update chat and message storage in database
         $telegram_chat=$this->telegramUpdate->extract_and_store_chat_and_message_details();
