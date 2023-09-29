@@ -8,6 +8,7 @@ use App\Nova\Resource;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
 use Laravel\Nova\Fields\BelongsTo;
@@ -70,13 +71,20 @@ class Capture extends Resource
         $fields= [
             Number::make("Priority No")->sortable(),
             BelongsTo::make('Capture')->nullable()->withoutTrashed()->searchable()->showCreateRelationButton(),
+
             Text::make('Name')->sortable()->showOnPreview()->required()->rules('required')->displayUsing(
                 function($name){
                     return Str::limit($name, 60);
                 }
+            )->suggestions(
+                [
+                    $this->generateDelayedNamePrefix($this->name,"1 week"),
+                    $this->generateDelayedNamePrefix($this->name,"2 weeks"),
+                    $this->generateDelayedNamePrefix($this->name,"1 month"),
+                    $this->generateDelayedNamePrefix($this->name,"3 months"),
+                ]   
             ),
             Markdown::make('Content')->alwaysShow(),
-            
             Boolean::make('Inbox')->showOnPreview()->sortable()->default(true),
             Boolean::make('Next Action')->showOnPreview()->sortable()->default(false),
             Stack::make('Create/Updated',[
@@ -98,6 +106,22 @@ class Capture extends Resource
         }
 
         return $fields;
+    }
+
+    public function generateDelayedNamePrefix($name,$duration){
+        //check to see if name already has prefix
+        $dt=now();
+        $dt->add($duration);
+        $dateStr=$dt->format("Y-m-d");
+
+        if($name){
+            $potential_date_str=Str::substr($name, 0, 10);
+            if(Carbon::canBeCreatedFromFormat($potential_date_str,"Y-m-d")){
+                $name=Str::substr($name, 10);
+            }
+            return $dateStr." ".$name;
+        }
+        return $dateStr;       
     }
 
     /**
