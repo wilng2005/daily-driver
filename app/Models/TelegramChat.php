@@ -180,14 +180,15 @@ class TelegramChat extends Model
                             'parameters' => [
                                 'type' => 'object',
                                 'properties' => [
-                                    'contact_info' => [
+                                    'property1' => [
                                         'type' => 'string',
-                                        'description' => 'Contact information of the user',
+                                        'description' => 'Description of property 1',
                                     ],
-                                    'reason' => [
-                                        'type' => 'string',
-                                        'description' => 'Reason for referral',
+                                    'property2' => [
+                                        'type' => 'integer',
+                                        'description' => 'Description of property 2',
                                     ],
+                                    // Add more properties if needed
                                 ],
                             ],
                         ]
