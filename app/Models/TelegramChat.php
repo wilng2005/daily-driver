@@ -104,7 +104,7 @@ class TelegramChat extends Model
         
         If the user shares a strong emotion, be sure express empathy and acceptance for how the user is feeling.
 
-        DO NOT say that you cannot provide help. If the user needs help, seems stuck, or is in deep distress, ask the user for permission to be contacted by a human. If the user consents, inform the user that the human will be contacting them over the next week. If the user refuses to consent, advise the user to seek professional help. 
+        If the user seems to be stuck or in deep distress, and needs a human coach or counsellor, ask the user for permission to be contacted by a human. If the user consents, inform the user that the human will be contacting them over the next week. If the user refuses to consent, advise the user to seek professional help. 
         ";
 
         
@@ -200,7 +200,7 @@ class TelegramChat extends Model
                 info($data);
 
                 if(isset($data['result']['choices'][0]['message']['function_call'])&&$data['result']['choices'][0]['message']['function_call']['name']=='create_referral_to_human_coach_counsellor'){
-                    $this->sendMessage("Would you like for a human to reach out to you? I can make a request for a human coach or counsellor to follow-up with you over the next few days.", TelegramChat::ASSISTANT_ROLE, $data);
+                    $this->sendMessage("Thank you for confirming. I have created a referral to a human coach or counsellor, who will contact you over the next week.", TelegramChat::ASSISTANT_ROLE, $data);
                 }else{
                     $result_text=trim($data['result']['choices'][0]['message']['content'] ?? "");
                 
@@ -372,11 +372,8 @@ class TelegramChat extends Model
 
         \n\n[SUMMARY]";
             
-        info("line 375");
-        info($data);
         $result = OpenAI::completions()->create($data);
-        info("line 378");
-
+            
         $data['result']=$result;
 
         $result_text="";
