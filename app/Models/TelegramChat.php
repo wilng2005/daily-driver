@@ -175,7 +175,6 @@ class TelegramChat extends Model
                     'messages' => $data['prompt'],
                     'functions'=> [
                         [
-                            'type' => 'object',
                             'name' => 'create_referral_to_human_coach_counsellor',
                             'description' => 'This function creates a referral ticket that will be followed up by a human coach or counsellor that is trained and certified in coaching and therapy. Before calling this function, please get consent from the user for the referral. Use this function when requested by the user, or when dealing with users that are stuck or presents suicide risk.',
                             'parameters' => [
