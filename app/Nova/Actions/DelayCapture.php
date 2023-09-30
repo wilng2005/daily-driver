@@ -26,7 +26,8 @@ class DelayCapture extends Action
     {
         //
         foreach($models as $model){
-            $model->name=$model::generate_delayed_name_prefix($model->name,$fields->duration);
+            if($fields->duration)
+                $model->name=$model::generate_delayed_name_prefix($model->name,$fields->duration);
             $model->inbox = false;
             $model->next_action = false;
             $model->save();
@@ -43,13 +44,14 @@ class DelayCapture extends Action
     {
         return [
             Select::make('Duration')->options([
+                'Not today' => 'Not today',
                 '3 days' => '3 days',
                 '1 week' => '1 week',
                 '2 weeks' => '2 weeks',
                 '1 month' => '1 month',
                 '3 months' => '3 months',
                 '1 year' => '1 year',
-            ])->required()  ,
+            ]),
         ];
     }
 }
