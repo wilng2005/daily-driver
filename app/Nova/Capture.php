@@ -119,7 +119,7 @@ class Capture extends Resource
             if(Carbon::canBeCreatedFromFormat($potential_date_str,"Y-m-d")){
                 $name=Str::substr($name, 10);
             }
-            return $dateStr." ".$name;
+            return $dateStr." ".trim($name);
         }
         return $dateStr;       
     }
@@ -171,6 +171,7 @@ class Capture extends Resource
     public function actions(NovaRequest $request)
     {
         return [
+            new Actions\DelayCapture,
             new Actions\RemoveFromInbox,
             new Actions\RemoveFromNextAction,
             new Actions\AddToInbox,
