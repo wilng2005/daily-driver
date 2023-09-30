@@ -126,4 +126,20 @@ class Capture extends Model
         return $this->belongsTo(User::class);
         //@codeCoverageIgnoreEnd
     }
+
+    public static function generateDelayedNamePrefix($name,$duration){
+        //check to see if name already has prefix
+        $dt=now();
+        $dt->add($duration);
+        $dateStr=$dt->format("Y-m-d");
+
+        if($name){
+            $potential_date_str=Str::substr($name, 0, 10);
+            if(Carbon::canBeCreatedFromFormat($potential_date_str,"Y-m-d")){
+                $name=Str::substr($name, 10);
+            }
+            return $dateStr." ".trim($name);
+        }
+        return $dateStr;       
+    }
 }

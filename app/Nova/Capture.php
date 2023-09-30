@@ -78,10 +78,10 @@ class Capture extends Resource
                 }
             )->suggestions(
                 [
-                    $this->generateDelayedNamePrefix($this->name,"1 week"),
-                    $this->generateDelayedNamePrefix($this->name,"2 weeks"),
-                    $this->generateDelayedNamePrefix($this->name,"1 month"),
-                    $this->generateDelayedNamePrefix($this->name,"3 months"),
+                    $this->model::generateDelayedNamePrefix($this->name,"1 week"),
+                    $this->model::generateDelayedNamePrefix($this->name,"2 weeks"),
+                    $this->model::generateDelayedNamePrefix($this->name,"1 month"),
+                    $this->model::generateDelayedNamePrefix($this->name,"3 months"),
                 ]   
             ),
             Markdown::make('Content')->alwaysShow(),
@@ -108,21 +108,7 @@ class Capture extends Resource
         return $fields;
     }
 
-    public function generateDelayedNamePrefix($name,$duration){
-        //check to see if name already has prefix
-        $dt=now();
-        $dt->add($duration);
-        $dateStr=$dt->format("Y-m-d");
 
-        if($name){
-            $potential_date_str=Str::substr($name, 0, 10);
-            if(Carbon::canBeCreatedFromFormat($potential_date_str,"Y-m-d")){
-                $name=Str::substr($name, 10);
-            }
-            return $dateStr." ".trim($name);
-        }
-        return $dateStr;       
-    }
 
     /**
      * Get the cards available for the request.
