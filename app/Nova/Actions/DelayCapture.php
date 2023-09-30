@@ -43,6 +43,7 @@ class DelayCapture extends Action
     {
         return [
             Select::make('Duration')->options([
+                '3 days' => '3 days',
                 '1 week' => '1 week',
                 '2 weeks' => '2 weeks',
                 '1 month' => '1 month',
