@@ -78,10 +78,10 @@ class Capture extends Resource
                 }
             )->suggestions(
                 [
-                    $this->model::generateDelayedNamePrefix($this->name,"1 week"),
-                    $this->model::generateDelayedNamePrefix($this->name,"2 weeks"),
-                    $this->model::generateDelayedNamePrefix($this->name,"1 month"),
-                    $this->model::generateDelayedNamePrefix($this->name,"3 months"),
+                    $this->model::generate_delayed_name_prefix($this->name,"1 week"),
+                    $this->model::generate_delayed_name_prefix($this->name,"2 weeks"),
+                    $this->model::generate_delayed_name_prefix($this->name,"1 month"),
+                    $this->model::generate_delayed_name_prefix($this->name,"3 months"),
                 ]   
             ),
             Markdown::make('Content')->alwaysShow(),

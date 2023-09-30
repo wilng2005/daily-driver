@@ -140,4 +140,14 @@ class CaptureTest extends TestCase
         $this->assertTrue($capture->inbox);
 
     }
+
+    public function test_generate_delayed_name_prefix(){
+        //make a static method call to generate_delayed_name_prefix of capture model
+        $str=Capture::generate_delayed_name_prefix("2023-10-30 Hello Worlda",'1 week',Carbon::create(2023, 10, 30, 12));
+        $this->assertEquals("2023-11-07 Hello Worlda",$str);
+        $str=Capture::generate_delayed_name_prefix("2023-10-30 Hello World",'2 weeks',Carbon::create(2023, 10, 30, 12));
+        $this->assertEquals("2023-11-14 Hello World",$str);
+        $str=Capture::generate_delayed_name_prefix(null,'1 month',Carbon::create(2023, 10, 30, 12));
+        $this->assertEquals("2023-12-01",$str);
+    }
 }

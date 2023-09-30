@@ -127,11 +127,18 @@ class Capture extends Model
         //@codeCoverageIgnoreEnd
     }
 
-    public static function generateDelayedNamePrefix($name,$duration){
+    public static function generate_delayed_name_prefix($name,$duration,$now=null){
         //check to see if name already has prefix
-        $dt=now();
-        $dt->add($duration);
-        $dateStr=$dt->format("Y-m-d");
+        if(!$now){
+            //@codeCoverageIgnoreStart
+            $now=now();
+            //@codeCoverageIgnoreEnd
+        }
+            
+        
+        $now->add($duration);
+        $now->add('1 day');
+        $dateStr=$now->format("Y-m-d");
 
         if($name){
             $potential_date_str=Str::substr($name, 0, 10);

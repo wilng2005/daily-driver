@@ -26,7 +26,7 @@ class DelayCapture extends Action
     {
         //
         foreach($models as $model){
-            $model->name=$model::generateDelayedNamePrefix($model->name,$fields->duration);
+            $model->name=$model::generate_delayed_name_prefix($model->name,$fields->duration);
             $model->save();
         }
     }
