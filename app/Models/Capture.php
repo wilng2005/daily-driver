@@ -137,7 +137,6 @@ class Capture extends Model
             
         
         $now->add($duration);
-        $now->add('1 day');
         $dateStr=$now->format("Y-m-d");
 
         if($name){

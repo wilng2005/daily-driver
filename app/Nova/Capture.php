@@ -78,6 +78,7 @@ class Capture extends Resource
                 }
             )->suggestions(
                 [
+                    \App\Models\Capture::generate_delayed_name_prefix($this->name,"3 days"),
                     \App\Models\Capture::generate_delayed_name_prefix($this->name,"1 week"),
                     \App\Models\Capture::generate_delayed_name_prefix($this->name,"2 weeks"),
                     \App\Models\Capture::generate_delayed_name_prefix($this->name,"1 month"),
