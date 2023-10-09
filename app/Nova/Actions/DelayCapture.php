@@ -49,6 +49,7 @@ class DelayCapture extends Action
                 '2 weeks' => '2 weeks',
                 '1 month' => '1 month',
                 '3 months' => '3 months',
+                '6 months' => '6 months',
                 '1 year' => '1 year',
             ]),
         ];
