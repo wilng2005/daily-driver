@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Post;
+use App\Models\Tag;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    return view('home');
+
+    $tag=Tag::where('slug','home')
+            ->where('published_at','<=',now())
+            ->orderBy('published_at','desc')
+            ->firstOrFail();
+
+    return view('home',[
+        'tag'=>$tag,
+    ]);
+});
+
+Route::get('/tag/{slug}',function(string $slug){
+    $tag=Tag::where('slug', $slug)
+        ->where('published_at','<=',now())
+        ->orderBy('published_at','desc')
+        ->firstOrFail();
+
+    return view('tag',[
+        'tag'=>$tag,
+    ]);
+});
+
+Route::get('/post/{slug}',function(string $slug){
+    $post=Post::where('slug', $slug)
+        ->where('published_at','<=',now())
+        ->orderBy('published_at','desc')
+        ->firstOrFail();
+
+    return view('post',[
+        'post'=>$post,
+    ]);
 });
 
 Route::get('/about', function () {
