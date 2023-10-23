@@ -16,6 +16,12 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class Tag extends Resource
 {
     /**
+     * The logical group associated with the resource.
+     *
+     * @var string
+     */
+    public static $group = 'Blog';
+    /**
      * The model the resource corresponds to.
      *
      * @var class-string<\App\Models\Tag>
@@ -52,6 +58,7 @@ class Tag extends Resource
             Trix::make('Content')->withFiles('s3'),
             Slug::make('Slug')->from('Name'),
             VaporImage::make('Image File'),
+            Trix::make('Image Credit'),
             Text::make('Sequence Code'),
             DateTime::make('Published At'),
             Stack::make('Create/Updated',[
