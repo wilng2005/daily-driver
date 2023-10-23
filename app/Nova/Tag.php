@@ -50,7 +50,7 @@ class Tag extends Resource
             ID::make()->sortable(),
             Text::make('Name')->required(),
             Trix::make('Content')->withFiles('s3'),
-            Slug::make('Slug')->from('Title'),
+            Slug::make('Slug')->from('Name'),
             VaporImage::make('Image File'),
             Text::make('Sequence Code'),
             DateTime::make('Published At'),
