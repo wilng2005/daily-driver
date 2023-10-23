@@ -12,7 +12,7 @@
             'nav-item',
             'nav-link', 
             'link-body-emphasis',
-            'active' => $tag->slug==$nav->slug,
+            'active' => isset($tag)?$tag->slug==$nav->slug:false,
         ]) href="/tag/{{$nav->slug}}">{{$nav->name}}</a>
       @endforeach
       <!-- <a class="nav-item nav-link link-body-emphasis" href="/about">About</a> -->
