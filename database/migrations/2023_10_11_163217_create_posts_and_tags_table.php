@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('title')->nullable();
             $table->text('content')->nullable();
             $table->text('slug')->nullable();
-            $table->string('image_file', 100);
+            $table->string('image_file', 200)->nullable();
             $table->string('sequence_code')->nullable();
             $table->dateTime('published_at')->nullable();
             $table->timestamps();
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->text('name')->nullable();
             $table->text('content')->nullable();
             $table->text('slug')->nullable();
-            $table->string('image_file', 100);
+            $table->string('image_file', 200)->nullable();
             $table->string('sequence_code')->nullable();
             $table->dateTime('published_at')->nullable();
             $table->timestamps();
