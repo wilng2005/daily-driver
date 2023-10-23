@@ -48,7 +48,7 @@ class Tag extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Title')->required(),
+            Text::make('Name')->required(),
             Trix::make('Content')->withFiles('s3'),
             Slug::make('Slug')->from('Title'),
             VaporImage::make('Image File'),
