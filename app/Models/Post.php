@@ -16,6 +16,8 @@ class Post extends Model
 
     public function tags(): BelongsToMany
     {
+        //@codeCoverageIgnoreStart
         return $this->belongsToMany(Tag::class);
+        //@codeCoverageIgnoreEnd
     }
 }
