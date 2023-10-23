@@ -14,6 +14,10 @@ class Tag extends Model
     use SoftDeletes;
     use Actionable;
 
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
     public function posts(): BelongsToMany
     {
         //@codeCoverageIgnoreStart
