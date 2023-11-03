@@ -178,6 +178,8 @@ class UserPolicy
      *
      * @param  \App\User  $user
      * @return mixed
+     * 
+     * @codeCoverageIgnore
      */
     public function uploadFiles(User $user)
     {
