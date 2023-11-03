@@ -172,5 +172,18 @@ class UserPolicy
                 return false;
         }
     }
+
+    /**
+     * Determine whether the user can upload files.
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     * 
+     * @codeCoverageIgnore
+     */
+    public function uploadFiles(User $user)
+    {
+        return true;
+    }
     
 }
