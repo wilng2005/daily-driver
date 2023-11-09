@@ -56,6 +56,13 @@ class Capture extends Resource
         'content',
     ];
 
+    /**
+     * The pagination per-page options configured for this resource.
+     *
+     * @return array
+     */
+    public static $perPageOptions = [30, 60, 120];
+
     public function title(){
         return $this->prefix_with_title();
     }
