@@ -221,12 +221,6 @@
             @endunless
             </figure>
         @endunless
-
-        <figure class="figure">
-          <img src="{{ asset('images/hands.jpg') }}" class="img-fluid rounded" alt="Responsive image" style="width: 100%; height: auto;">
-          <figcaption class="figure-caption">Photo by <a href="https://unsplash.com/@chrisliverani?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Chris Liverani</a> on <a href="https://unsplash.com/photos/9cd8qOgeNIY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-          </figcaption>
-        </figure>
         @unless(empty($tag->content))
             {!! $tag->content !!}
         @endunless
