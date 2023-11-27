@@ -213,7 +213,7 @@
 
         @unless(empty($tag->image_file))
             <figure class="figure">
-            <img src="{{ asset('images/' . $tag->image_file) }}" class="img-fluid rounded" alt="Responsive image" style="width: 100%; height: auto;">
+            <img src="{{Storage::temporaryUrl($tag->image_file, now()->addMinutes(5)) }}" class="img-fluid rounded" alt="Responsive image" style="width: 100%; height: auto;">
             @unless(empty($tag->image_credit))
                 <figcaption class="figure-caption">
                 {!! $tag->image_credit !!}
