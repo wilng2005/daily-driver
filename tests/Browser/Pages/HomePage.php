@@ -9,7 +9,7 @@ class HomePage extends Page
     /**
      * Get the URL for the page.
      */
-    public function url(): string
+    public function url()
     {
         return '/';
     }
@@ -17,7 +17,7 @@ class HomePage extends Page
     /**
      * Assert that the browser is on the page.
      */
-    public function assert(Browser $browser): void
+    public function assert(Browser $browser)
     {
         //
     }
@@ -25,7 +25,7 @@ class HomePage extends Page
     /**
      * Get the element shortcuts for the page.
      */
-    public function elements(): array
+    public function elements()
     {
         return [
             '@element' => '#selector',

@@ -29,7 +29,7 @@ class GenerateSummaryForTelegramChat extends Action
     /**
      * Get the fields available on the action.
      */
-    public function fields(NovaRequest $request): array
+    public function fields(NovaRequest $request)
     {
         return [];
     }

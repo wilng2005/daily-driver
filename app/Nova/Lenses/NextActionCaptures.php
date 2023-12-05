@@ -2,7 +2,6 @@
 
 namespace App\Nova\Lenses;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
@@ -17,7 +16,7 @@ class NextActionCaptures extends Lens
      *
      * @return mixed
      */
-    public static function query(LensRequest $request, Builder $query)
+    public static function query(LensRequest $request, $query)
     {
         return $request->withOrdering($request->withFilters(
             $query->where('next_action', true)
@@ -29,7 +28,7 @@ class NextActionCaptures extends Lens
     /**
      * Get the fields available to the lens.
      */
-    public function fields(NovaRequest $request): array
+    public function fields(NovaRequest $request)
     {
         return [
             Text::make('Name')->sortable()->displayUsing(
@@ -49,7 +48,7 @@ class NextActionCaptures extends Lens
     /**
      * Get the cards available on the lens.
      */
-    public function cards(NovaRequest $request): array
+    public function cards(NovaRequest $request)
     {
         return [];
     }
@@ -57,7 +56,7 @@ class NextActionCaptures extends Lens
     /**
      * Get the filters available for the lens.
      */
-    public function filters(NovaRequest $request): array
+    public function filters(NovaRequest $request)
     {
         return [];
     }
@@ -65,7 +64,7 @@ class NextActionCaptures extends Lens
     /**
      * Get the actions available on the lens.
      */
-    public function actions(NovaRequest $request): array
+    public function actions(NovaRequest $request)
     {
         return parent::actions($request);
     }
@@ -73,7 +72,7 @@ class NextActionCaptures extends Lens
     /**
      * Get the URI key for the lens.
      */
-    public function uriKey(): string
+    public function uriKey()
     {
         return 'next-action-captures';
     }

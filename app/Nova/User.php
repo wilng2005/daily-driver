@@ -2,7 +2,6 @@
 
 namespace App\Nova;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rules;
@@ -49,7 +48,7 @@ class User extends Resource
     /**
      * Get the fields displayed by the resource.
      */
-    public function fields(NovaRequest $request): array
+    public function fields(NovaRequest $request)
     {
         $fields = [
             ID::make()->sortable(),
@@ -96,7 +95,7 @@ class User extends Resource
     /**
      * Get the cards available for the request.
      */
-    public function cards(NovaRequest $request): array
+    public function cards(NovaRequest $request)
     {
         return [];
     }
@@ -104,7 +103,7 @@ class User extends Resource
     /**
      * Get the filters available for the resource.
      */
-    public function filters(NovaRequest $request): array
+    public function filters(NovaRequest $request)
     {
         return [];
     }
@@ -112,7 +111,7 @@ class User extends Resource
     /**
      * Get the lenses available for the resource.
      */
-    public function lenses(NovaRequest $request): array
+    public function lenses(NovaRequest $request)
     {
         return [];
     }
@@ -120,7 +119,7 @@ class User extends Resource
     /**
      * Get the actions available for the resource.
      */
-    public function actions(NovaRequest $request): array
+    public function actions(NovaRequest $request)
     {
         return [];
     }
@@ -128,7 +127,7 @@ class User extends Resource
     /**
      * Build an "index" query for the given resource.
      */
-    public static function indexQuery(NovaRequest $request, Builder $query): Builder
+    public static function indexQuery(NovaRequest $request, $query)
     {
         if ($request->user()->user_resource_access == 'All') {
             return $query;
@@ -140,7 +139,7 @@ class User extends Resource
     /**
      * Hide the resource from the sidebar navigation depending on the access rights of the user.
      */
-    public static function hideFromNavigation(Request $request): bool
+    public static function hideFromNavigation(Request $request)
     {
         // call the user policy to check if the user has access to the resource
         $user = $request->user();

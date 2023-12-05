@@ -21,7 +21,7 @@ class InboxCaptures extends Lens
      *
      * @return mixed
      */
-    public static function query(LensRequest $request, Builder $query)
+    public static function query(LensRequest $request, $query)
     {
         return $request->withOrdering($request->withFilters(
             $query->where('inbox', true)
@@ -33,7 +33,7 @@ class InboxCaptures extends Lens
     /**
      * Get the fields available to the lens.
      */
-    public function fields(NovaRequest $request): array
+    public function fields(NovaRequest $request)
     {
         return [
 
@@ -54,7 +54,7 @@ class InboxCaptures extends Lens
     /**
      * Get the cards available on the lens.
      */
-    public function cards(NovaRequest $request): array
+    public function cards(NovaRequest $request)
     {
         return [
             new ThingsToDo,
@@ -65,7 +65,7 @@ class InboxCaptures extends Lens
     /**
      * Get the filters available for the lens.
      */
-    public function filters(NovaRequest $request): array
+    public function filters(NovaRequest $request)
     {
         return [];
     }
@@ -73,7 +73,7 @@ class InboxCaptures extends Lens
     /**
      * Get the actions available on the lens.
      */
-    public function actions(NovaRequest $request): array
+    public function actions(NovaRequest $request)
     {
         return parent::actions($request);
     }
@@ -81,7 +81,7 @@ class InboxCaptures extends Lens
     /**
      * Get the URI key for the lens.
      */
-    public function uriKey(): string
+    public function uriKey()
     {
         return 'inbox-captures';
     }

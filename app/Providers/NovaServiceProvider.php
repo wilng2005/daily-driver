@@ -48,7 +48,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     /**
      * Register the Nova routes.
      */
-    protected function routes(): void
+    protected function routes()
     {
         Nova::routes()
             ->withAuthenticationRoutes()
@@ -61,7 +61,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      *
      * This gate determines who can access Nova in non-local environments.
      */
-    protected function gate(): void
+    protected function gate()
     {
         Gate::define('viewNova', function ($user) {
             return true;
@@ -71,7 +71,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     /**
      * Get the dashboards that should be listed in the Nova sidebar.
      */
-    protected function dashboards(): array
+    protected function dashboards()
     {
         return [
             new \App\Nova\Dashboards\Main,
@@ -81,7 +81,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     /**
      * Get the tools that should be listed in the Nova sidebar.
      */
-    public function tools(): array
+    public function tools()
     {
         return [];
     }

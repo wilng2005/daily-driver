@@ -20,7 +20,7 @@ class VaporUiServiceProvider extends ServiceProvider
      *
      * This gate determines who can access Vapor UI in non-local environments.
      */
-    protected function gate(): void
+    protected function gate()
     {
         Gate::define('viewVaporUI', function ($user = null) {
             return true;

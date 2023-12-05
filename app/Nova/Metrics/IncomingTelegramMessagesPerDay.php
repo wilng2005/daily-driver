@@ -31,7 +31,7 @@ class IncomingTelegramMessagesPerDay extends Trend
     /**
      * Get the ranges available for the metric.
      */
-    public function ranges(): array
+    public function ranges()
     {
         return [
             7 => __('7 Days'),
@@ -55,7 +55,7 @@ class IncomingTelegramMessagesPerDay extends Trend
     /**
      * Get the URI key for the metric.
      */
-    public function uriKey(): string
+    public function uriKey()
     {
         return 'incoming-telegram-messages-per-day';
     }

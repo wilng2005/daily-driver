@@ -13,7 +13,7 @@ class Main extends Dashboard
     /**
      * Get the cards for the dashboard.
      */
-    public function cards(): array
+    public function cards()
     {
         $cards = [
             new ThingsToDo,
