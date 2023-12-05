@@ -2,8 +2,8 @@
 
 namespace App\Nova;
 
-use Illuminate\Database\Eloquent\Builder;
 use App\Nova\Metrics\ThingsToDo;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;

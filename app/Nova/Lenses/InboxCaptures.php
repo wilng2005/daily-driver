@@ -2,9 +2,9 @@
 
 namespace App\Nova\Lenses;
 
-use Illuminate\Database\Eloquent\Builder;
 use App\Nova\Metrics\IncomingTelegramMessagesPerDay;
 use App\Nova\Metrics\ThingsToDo;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
