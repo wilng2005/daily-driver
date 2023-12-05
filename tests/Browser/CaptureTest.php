@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\DuskTestCase;
 
-class CaptureTest extends DuskTestCase
+final class CaptureTest extends DuskTestCase
 {
     use DatabaseMigrations;
 

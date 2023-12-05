@@ -7,7 +7,7 @@ use App\Models\TelegramMessage;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class TelegramMessageTest extends TestCase
+final class TelegramMessageTest extends TestCase
 {
     use RefreshDatabase;
 

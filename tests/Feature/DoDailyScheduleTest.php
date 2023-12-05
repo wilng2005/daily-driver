@@ -6,7 +6,7 @@ use App\Models\Capture;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class DoDailyScheduleTest extends TestCase
+final class DoDailyScheduleTest extends TestCase
 {
     use RefreshDatabase;
 
