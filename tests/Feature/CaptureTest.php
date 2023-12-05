@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Carbon;
 use Tests\TestCase;
 
-class CaptureTest extends TestCase
+final class CaptureTest extends TestCase
 {
     use RefreshDatabase;
 

@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class TelegramChatTest extends TestCase
+final class TelegramChatTest extends TestCase
 {
     use RefreshDatabase;
 
