@@ -50,6 +50,8 @@ class DoDailySchedule extends Command
             'data' => $data,
             'date' => Carbon::now()->format('Y-m-d'),
         ]);
+        
+        return 0;
         // @codeCoverageIgnoreEnd
     }
 
