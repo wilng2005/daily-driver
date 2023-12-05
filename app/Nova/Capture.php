@@ -2,29 +2,23 @@
 
 namespace App\Nova;
 
-use App\Models\User;
 use App\Nova\Metrics\ThingsToDo;
-use App\Nova\Resource;
-
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
-
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Stack;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Capture extends Resource
 {
-
     /**
      * The logical group associated with the resource.
      *
@@ -44,7 +38,7 @@ class Capture extends Resource
      *
      * @var string
      */
-   // public static $title = 'title';
+    // public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -63,58 +57,51 @@ class Capture extends Resource
      */
     public static $perPageOptions = [30, 60, 120];
 
-    public function title(){
+    public function title()
+    {
         return $this->prefix_with_title();
     }
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
      */
     public function fields(NovaRequest $request)
     {
-        $fields= [
-            Number::make("Priority No")->sortable(),
+        $fields = [
+            Number::make('Priority No')->sortable(),
             BelongsTo::make('Capture')->nullable()->withoutTrashed()->searchable()->showCreateRelationButton(),
 
             Text::make('Name')->sortable()->showOnPreview()->required()->rules('required')->displayUsing(
-                function($name){
+                function ($name) {
                     return Str::limit($name, 60);
                 }
             ),
             Markdown::make('Content')->alwaysShow(),
             Boolean::make('Inbox')->showOnPreview()->sortable()->default(true),
             Boolean::make('Next Action')->showOnPreview()->sortable()->default(false),
-            Stack::make('Create/Updated',[
+            Stack::make('Create/Updated', [
                 DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
                 DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
             ]),
             Text::make('Links', function () {
-                
-                return "<a href='".url("/nova/resources/captures/new")."'>New Capture</a><br/><br/>
-                <a href='".url("/nova/resources/captures/lens/inbox-captures")."'>Inbox</a><br/><br/>
-                <a href='".url("/nova/resources/captures/lens/next-action-captures")."'>Next Action</a>";
+
+                return "<a href='".url('/nova/resources/captures/new')."'>New Capture</a><br/><br/>
+                <a href='".url('/nova/resources/captures/lens/inbox-captures')."'>Inbox</a><br/><br/>
+                <a href='".url('/nova/resources/captures/lens/next-action-captures')."'>Next Action</a>";
             })->asHtml(),
 
             HasMany::make('Captures'),
         ];
 
-        if($request->user()->capture_resource_access=='All'){
+        if ($request->user()->capture_resource_access == 'All') {
             $fields[] = BelongsTo::make('User')->withoutTrashed()->searchable();
         }
 
         return $fields;
     }
 
-
-
     /**
      * Get the cards available for the request.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
      */
     public function cards(NovaRequest $request)
     {
@@ -125,9 +112,6 @@ class Capture extends Resource
 
     /**
      * Get the filters available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
      */
     public function filters(NovaRequest $request)
     {
@@ -136,9 +120,6 @@ class Capture extends Resource
 
     /**
      * Get the lenses available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
      */
     public function lenses(NovaRequest $request)
     {
@@ -150,9 +131,6 @@ class Capture extends Resource
 
     /**
      * Get the actions available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
      */
     public function actions(NovaRequest $request)
     {
@@ -163,20 +141,16 @@ class Capture extends Resource
             new Actions\AddToInbox,
             new Actions\AddToNextAction,
             new Actions\RefreshPriority,
-            new Actions\ChangePriorityNo
+            new Actions\ChangePriorityNo,
         ];
     }
 
     /**
      * Build an "index" query for the given resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
      */
     public static function indexQuery(NovaRequest $request, $query)
     {
-        if ($request->user()->capture_resource_access=='All') {
+        if ($request->user()->capture_resource_access == 'All') {
             return $query;
         }
 
@@ -185,7 +159,7 @@ class Capture extends Resource
 
     public static function afterCreate(NovaRequest $request, Model $model)
     {
-        if(!$model->user){
+        if (! $model->user) {
             $model->user_id = $request->user()->id;
             $model->save();
         }

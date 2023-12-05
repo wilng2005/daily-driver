@@ -7,13 +7,13 @@ use Telegram\Bot\Commands\Command;
 class NewCommand extends Command
 {
     protected string $name = 'new';
-    protected string $description = 'Start a new conversation.';
 
+    protected string $description = 'Start a new conversation.';
 
     /**
      * @codeCoverageIgnore
-    **/
-    public function handle()
+     **/
+    public function handle(): void
     {
         $this->replyWithMessage([
             'text' => 'Hi! What would you like to talk about today?',

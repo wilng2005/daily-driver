@@ -19,15 +19,11 @@ class TelegramChatPolicy
     {
         //
     }
-    
+
     /**
      * Determine whether the user can view the post.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\TelegramChat  $telegramChat
-     * @return mixed
      */
-    public function view(User $user, TelegramChat $telegramChat)
+    public function view(User $user, TelegramChat $telegramChat): bool
     {
         //@codeCoverageIgnoreStart
         return true;
@@ -36,12 +32,9 @@ class TelegramChatPolicy
 
     /**
      * Determine whether the user can update TelegramChat.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\TelegramChat  $telegramChat
-     * @return mixed
      */
-    public function update(User $user, TelegramChat $telegramChat){
+    public function update(User $user, TelegramChat $telegramChat): bool
+    {
         //@codeCoverageIgnoreStart
         return true;
         //@codeCoverageIgnoreEnd
@@ -49,12 +42,9 @@ class TelegramChatPolicy
 
     /**
      * Determine whether the user can delete TelegramChat.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\TelegramChat  $telegramChat
-     * @return mixed
      */
-    public function delete(User $user, TelegramChat $telegramChat)  {
+    public function delete(User $user, TelegramChat $telegramChat): bool
+    {
         //@codeCoverageIgnoreStart
         return true;
         //@codeCoverageIgnoreEnd
@@ -62,36 +52,27 @@ class TelegramChatPolicy
 
     /**
      * Determine whether the user can restore TelegramChat.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\TelegramChat  $telegramChat
-     * @return mixed
      */
-    public function restore(User $user, TelegramChat $telegramChat) {
-        //@codeCoverageIgnoreStart
-        return true;
-        //@codeCoverageIgnoreEnd
-    }
-    
-    /**
-     * Determine whether the user can permanently delete TelegramChat.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\TelegramChat  $telegramChat
-     * @return mixed
-     */
-    public function forceDelete(User $user, TelegramChat $telegramChat) {
+    public function restore(User $user, TelegramChat $telegramChat): bool
+    {
         //@codeCoverageIgnoreStart
         return true;
         //@codeCoverageIgnoreEnd
     }
 
+    /**
+     * Determine whether the user can permanently delete TelegramChat.
+     */
+    public function forceDelete(User $user, TelegramChat $telegramChat): bool
+    {
+        //@codeCoverageIgnoreStart
+        return true;
+        //@codeCoverageIgnoreEnd
+    }
 
     /**
      * Determine whether the user can run actions on TelegramChat.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\TelegramChat  $telegramChat
      * @return mixed
      */
     public function runAction(User $user, TelegramChat $telegramChat)
@@ -100,6 +81,4 @@ class TelegramChatPolicy
         return true;
         //@codeCoverageIgnoreEnd
     }
-
-    
 }

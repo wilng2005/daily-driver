@@ -13,7 +13,6 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-
 class User extends Resource
 {
     /**
@@ -48,9 +47,6 @@ class User extends Resource
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
      */
     public function fields(NovaRequest $request)
     {
@@ -75,21 +71,21 @@ class User extends Resource
                 ->updateRules('nullable', Rules\Password::defaults()),
 
             Select::make('User Resource Access')->options([
-                'All' => "All",
-                'Self' => "Self",
-                'None' => "None",
+                'All' => 'All',
+                'Self' => 'Self',
+                'None' => 'None',
             ])->rules('required'),
 
             Select::make('Capture Resource Access')->options([
-                'All' => "All",
-                'Self' => "Self",
-                'None' => "None",
+                'All' => 'All',
+                'Self' => 'Self',
+                'None' => 'None',
             ])->rules('required'),
         ];
 
-        if ($request->user()->capture_resource_access=='All' ||
-            ( $request->user()->capture_resource_access=='Self' && 
-              $request->user()->id==$this->resource->id)) {
+        if ($request->user()->capture_resource_access == 'All' ||
+            ($request->user()->capture_resource_access == 'Self' &&
+              $request->user()->id == $this->resource->id)) {
             $fields[] = HasMany::make('Captures');
         }
 
@@ -98,9 +94,6 @@ class User extends Resource
 
     /**
      * Get the cards available for the request.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
      */
     public function cards(NovaRequest $request)
     {
@@ -109,9 +102,6 @@ class User extends Resource
 
     /**
      * Get the filters available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
      */
     public function filters(NovaRequest $request)
     {
@@ -120,9 +110,6 @@ class User extends Resource
 
     /**
      * Get the lenses available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
      */
     public function lenses(NovaRequest $request)
     {
@@ -131,26 +118,18 @@ class User extends Resource
 
     /**
      * Get the actions available for the resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @return array
      */
     public function actions(NovaRequest $request)
     {
         return [];
     }
 
-
     /**
      * Build an "index" query for the given resource.
-     *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
      */
     public static function indexQuery(NovaRequest $request, $query)
     {
-        if ($request->user()->user_resource_access=='All') {
+        if ($request->user()->user_resource_access == 'All') {
             return $query;
         }
 
@@ -159,20 +138,18 @@ class User extends Resource
 
     /**
      * Hide the resource from the sidebar navigation depending on the access rights of the user.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool
      */
     public static function hideFromNavigation(Request $request)
     {
         // call the user policy to check if the user has access to the resource
-        $user=$request->user();
-        
-        if(!$user)
+        $user = $request->user();
+
+        if (! $user) {
             return false;
-        else{
-            $policy=Gate::getPolicyFor($user);
-            return !$policy->viewAny($user);
+        } else {
+            $policy = Gate::getPolicyFor($user);
+
+            return ! $policy->viewAny($user);
         }
     }
 }

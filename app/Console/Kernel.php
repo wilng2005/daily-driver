@@ -10,18 +10,15 @@ class Kernel extends ConsoleKernel
 {
     /**
      * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
      */
-    protected function schedule(Schedule $schedule)
+    protected function schedule(Schedule $schedule): void
     {
         // @codeCoverageIgnoreStart
-        $schedule->command('schedule:daily')->dailyAt("01:00");
+        $schedule->command('schedule:daily')->dailyAt('01:00');
 
-        $schedule->command('journal_entry:send')->dailyAt("07:00");
+        $schedule->command('journal_entry:send')->dailyAt('07:00');
 
-        $schedule->command('reacquisition:send')->cron("0 12 * * 2-6");
+        $schedule->command('reacquisition:send')->cron('0 12 * * 2-6');
 
         $schedule->call(new PruneStaleAttachments)->daily();
         // @codeCoverageIgnoreEnd
@@ -29,10 +26,8 @@ class Kernel extends ConsoleKernel
 
     /**
      * Register the commands for the application.
-     *
-     * @return void
      */
-    protected function commands()
+    protected function commands(): void
     {
         $this->load(__DIR__.'/Commands');
 

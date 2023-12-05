@@ -20,7 +20,7 @@ class TelegramMessagePolicy
         //
     }
 
-    public function view(User $user, TelegramMessage $telegramMessage)
+    public function view(User $user, TelegramMessage $telegramMessage): bool
     {
         //@codeCoverageIgnoreStart
         return true;

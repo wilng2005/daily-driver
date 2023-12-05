@@ -163,7 +163,7 @@ return [
     */
 
     // 'brand' => [
-    //     'logo' => realpath(__DIR__.'/../public/img/example-logo.svg'),
+    //     'logo' => resource_path('/img/example-logo.svg'),
 
     //     'colors' => [
     //         "400" => "24, 182, 155, 0.5",
@@ -186,4 +186,21 @@ return [
     'actions' => [
         'resource' => ActionResource::class,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Nova Impersonation Redirection URLs
+    |--------------------------------------------------------------------------
+    |
+    | This configuration option allows you to specify a URL where Nova should
+    | redirect an administrator after impersonating another user and a URL
+    | to redirect the administrator after stopping impersonating a user.
+    |
+    */
+
+    'impersonation' => [
+        'started' => '/',
+        'stopped' => '/',
+    ],
+
 ];
