@@ -16,7 +16,7 @@ class CaptureTest extends DuskTestCase
      *
      * @return void
      */
-    public function test_capture_column_is_working()
+    public function test_capture_column_is_working(): void
     {
 
         $user = User::find(1);
@@ -62,7 +62,7 @@ class CaptureTest extends DuskTestCase
      *  - User cannot see their own capture on Inbox
      *  - User cannot see other people's capture on Inbox
      **/
-    public function test_capture_access_none()
+    public function test_capture_access_none(): void
     {
         $user = User::find(1);
         $user->capture_resource_access = 'None';
@@ -165,7 +165,7 @@ class CaptureTest extends DuskTestCase
      *  - User should see their own capture on Inbox
      *  - User cannot see other people's capture on Inbox
      **/
-    public function test_capture_access_self()
+    public function test_capture_access_self(): void
     {
         $user = User::find(1);
         $user->capture_resource_access = 'Self';
@@ -274,7 +274,7 @@ class CaptureTest extends DuskTestCase
      *  - User should see their own capture on Inbox
      *  - User cannot see other people's capture on Inbox
      **/
-    public function test_capture_access_all()
+    public function test_capture_access_all(): void
     {
         $user = User::find(1);
         $user->capture_resource_access = 'All';

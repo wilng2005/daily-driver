@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         //
     }
@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         RateLimiter::for('ExecutingAIResponses', function (object $job) {
             return Limit::perMinute(3)->by($job->telegramChat->tg_chat_id);

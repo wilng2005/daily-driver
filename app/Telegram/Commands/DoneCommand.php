@@ -14,7 +14,7 @@ class DoneCommand extends Command
     /**
      * @codeCoverageIgnore
      **/
-    public function handle()
+    public function handle(): void
     {
         $update = $this->getUpdate();
         $telegram_update = TelegramUpdate::create([

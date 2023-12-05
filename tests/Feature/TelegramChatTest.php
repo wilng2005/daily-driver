@@ -16,14 +16,14 @@ class TelegramChatTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_example(): void
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
     }
 
-    public function test_getJournalEntryPrompt()
+    public function test_getJournalEntryPrompt(): void
     {
         $telegramChat = TelegramChat::factory()->create();
         $telegramChat->configuration = [
@@ -59,7 +59,7 @@ class TelegramChatTest extends TestCase
         $this->assertContains($telegramChat->getJournalEntryPrompt(), ['Prompt 1', 'Prompt 2']);
     }
 
-    public function test_hasReceivedMessageFromUserOverPeriod()
+    public function test_hasReceivedMessageFromUserOverPeriod(): void
     {
         $telegramChat = TelegramChat::factory()->create();
         $telegramChat->configuration = [
@@ -88,7 +88,7 @@ class TelegramChatTest extends TestCase
 
     }
 
-    public function test_wasLastMessageOutgoing()
+    public function test_wasLastMessageOutgoing(): void
     {
         $telegramChat = TelegramChat::factory()->create();
         $telegramChat->configuration = [
@@ -127,7 +127,7 @@ class TelegramChatTest extends TestCase
         $this->assertFalse($telegramChat->wasLastMessageOutgoing());
     }
 
-    public function test_getNoOfMessagesSentOverPeriod()
+    public function test_getNoOfMessagesSentOverPeriod(): void
     {
         //test that the method returns the correct number of messages sent over a period
 
@@ -180,7 +180,7 @@ class TelegramChatTest extends TestCase
         $this->assertEquals(0, $telegramChat->getNoOfMessagesSentOverPeriod(365, Carbon::create(2023, 03, 25, 0, 0, 0)));
     }
 
-    public function test_performReacquistion()
+    public function test_performReacquistion(): void
     {
         //case 0: the chat has been active, last message is one day before now
         //verify that reacquistion is not performed
@@ -258,7 +258,7 @@ class TelegramChatTest extends TestCase
 
     }
 
-    public function test_isActiveJournal()
+    public function test_isActiveJournal(): void
     {
         //test if configuration is null
         $telegramChat = TelegramChat::factory()->create();

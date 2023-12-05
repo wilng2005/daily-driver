@@ -16,7 +16,7 @@ class UserPolicy
      *
      * @codeCoverageIgnore
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
         switch ($user->user_resource_access) {
             case 'All':
@@ -38,7 +38,7 @@ class UserPolicy
      *
      * @codeCoverageIgnore
      */
-    public function view(User $user, User $model)
+    public function view(User $user, User $model): bool
     {
         switch ($user->user_resource_access) {
             case 'All':
@@ -60,7 +60,7 @@ class UserPolicy
      *
      * @codeCoverageIgnore
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         switch ($user->user_resource_access) {
             case 'All':
@@ -80,7 +80,7 @@ class UserPolicy
      *
      * @codeCoverageIgnore
      */
-    public function update(User $user, User $model)
+    public function update(User $user, User $model): bool
     {
         switch ($user->user_resource_access) {
             case 'All':
@@ -102,7 +102,7 @@ class UserPolicy
      *
      * @codeCoverageIgnore
      */
-    public function delete(User $user, User $model)
+    public function delete(User $user, User $model): bool
     {
         switch ($user->user_resource_access) {
             case 'All':
@@ -124,7 +124,7 @@ class UserPolicy
      *
      * @codeCoverageIgnore
      */
-    public function restore(User $user, User $model)
+    public function restore(User $user, User $model): bool
     {
         switch ($user->user_resource_access) {
             case 'All':
@@ -146,7 +146,7 @@ class UserPolicy
      *
      * @codeCoverageIgnore
      */
-    public function forceDelete(User $user, User $model)
+    public function forceDelete(User $user, User $model): bool
     {
         switch ($user->user_resource_access) {
             case 'All':

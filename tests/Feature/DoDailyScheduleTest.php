@@ -15,7 +15,7 @@ class DoDailyScheduleTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_example(): void
     {
         $capture_a = new Capture;
 

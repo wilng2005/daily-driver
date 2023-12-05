@@ -12,7 +12,7 @@ class CaptureSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         Capture::factory()
             ->count(30)

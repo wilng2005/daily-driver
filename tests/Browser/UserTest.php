@@ -16,7 +16,7 @@ class UserTest extends DuskTestCase
      *
      * @return void
      */
-    public function testLoginPageIsAvailable()
+    public function testLoginPageIsAvailable(): void
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/nova/login')
@@ -29,7 +29,7 @@ class UserTest extends DuskTestCase
      *  - User should see their own user object on index
      *  - User should see other other people's user object on index
      **/
-    public function test_user_access_all()
+    public function test_user_access_all(): void
     {
         //create a user with access none
 
@@ -80,7 +80,7 @@ class UserTest extends DuskTestCase
      *  - User should see other other people's captures when viewing the user object
      *  - If capture access is self/none, then the user should see the user object without the captures below it.
      */
-    public function test_user_access_all_with_capture_access_all()
+    public function test_user_access_all_with_capture_access_all(): void
     {
         //create a user with access none
 
@@ -113,7 +113,7 @@ class UserTest extends DuskTestCase
     /**
      * Tests for User Access All with Capture Access self
      */
-    public function test_user_access_all_with_capture_access_self()
+    public function test_user_access_all_with_capture_access_self(): void
     {
         //create a user with access none
 
@@ -154,7 +154,7 @@ class UserTest extends DuskTestCase
     /**
      * Tests for User Access All with Capture Access None
      */
-    public function test_user_access_all_with_capture_access_none()
+    public function test_user_access_all_with_capture_access_none(): void
     {
         $user = User::factory()->create([
             'user_resource_access' => 'All',
@@ -196,7 +196,7 @@ class UserTest extends DuskTestCase
      *  - User should see their own user object on index
      *  - User should not see or be able to access other other people's user object on index
      **/
-    public function test_user_access_self()
+    public function test_user_access_self(): void
     {
         //create a user with access none
 
@@ -244,7 +244,7 @@ class UserTest extends DuskTestCase
      * Tests for User Access None
      *  - User should not be able to access the index
      **/
-    public function test_user_access_none()
+    public function test_user_access_none(): void
     {
         //create a user with access none
 
@@ -288,7 +288,7 @@ class UserTest extends DuskTestCase
      * Tests for User Access blank
      *  - User should not be able to access the index
      **/
-    public function test_user_access_blank()
+    public function test_user_access_blank(): void
     {
         //create a user with access blank
 

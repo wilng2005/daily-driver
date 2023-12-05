@@ -17,7 +17,7 @@ class CaptureTest extends TestCase
      *
      * @return void
      */
-    public function test_captures_available_in_nav_bar()
+    public function test_captures_available_in_nav_bar(): void
     {
         $user = User::factory()->create();
 
@@ -27,7 +27,7 @@ class CaptureTest extends TestCase
         $response->assertSeeText('Captures');
     }
 
-    public function test_create_capture()
+    public function test_create_capture(): void
     {
         $user = User::factory()->create();
 
@@ -37,7 +37,7 @@ class CaptureTest extends TestCase
         $response->assertSeeText('Create Capture');
     }
 
-    public function test_capture_prefix_with_title()
+    public function test_capture_prefix_with_title(): void
     {
         $capture_a = new Capture;
         $capture_a->name = 'Projects';
@@ -55,7 +55,7 @@ class CaptureTest extends TestCase
         $this->assertEquals('Projects/Project A1/Task C', $capture_c->prefix_with_title());
     }
 
-    public function test_capture_self_references()
+    public function test_capture_self_references(): void
     {
         $capture_a = new Capture;
         $capture_a->name = 'Projects';
@@ -77,7 +77,7 @@ class CaptureTest extends TestCase
         $this->assertEquals('Project A1', $capture_c->capture->name);
     }
 
-    public function test_add_daily_task_to_inbox()
+    public function test_add_daily_task_to_inbox(): void
     {
         $capture = new Capture;
 
@@ -94,7 +94,7 @@ class CaptureTest extends TestCase
         $this->assertFalse($capture->inbox);
     }
 
-    public function test_add_weekday_task_to_inbox()
+    public function test_add_weekday_task_to_inbox(): void
     {
         $capture = new Capture;
 
@@ -111,7 +111,7 @@ class CaptureTest extends TestCase
         $this->assertFalse($capture->inbox);
     }
 
-    public function test_add_scheduled_task_to_inbox()
+    public function test_add_scheduled_task_to_inbox(): void
     {
         $capture = new Capture;
 
@@ -139,7 +139,7 @@ class CaptureTest extends TestCase
 
     }
 
-    public function test_generate_delayed_name_prefix()
+    public function test_generate_delayed_name_prefix(): void
     {
         //make a static method call to generate_delayed_name_prefix of capture model
         $str = Capture::generate_delayed_name_prefix('2023-10-30 Hello Worlda', '1 week', Carbon::create(2023, 10, 30, 12));

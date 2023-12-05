@@ -26,7 +26,7 @@ class TelegramSetWebhook extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         //@codeCoverageIgnoreStart
         $url = url('api/telegram/dsYeN7rvWz3sGk88X9X4LbQt/webhook');

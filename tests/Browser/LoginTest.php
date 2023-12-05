@@ -12,7 +12,7 @@ class LoginTest extends DuskTestCase
      *
      * @return void
      */
-    public function testLoginPageIsAvailable()
+    public function testLoginPageIsAvailable(): void
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/nova/login')

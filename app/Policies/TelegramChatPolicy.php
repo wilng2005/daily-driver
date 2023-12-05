@@ -25,7 +25,7 @@ class TelegramChatPolicy
      *
      * @return mixed
      */
-    public function view(User $user, TelegramChat $telegramChat)
+    public function view(User $user, TelegramChat $telegramChat): bool
     {
         //@codeCoverageIgnoreStart
         return true;
@@ -37,7 +37,7 @@ class TelegramChatPolicy
      *
      * @return mixed
      */
-    public function update(User $user, TelegramChat $telegramChat)
+    public function update(User $user, TelegramChat $telegramChat): bool
     {
         //@codeCoverageIgnoreStart
         return true;
@@ -49,7 +49,7 @@ class TelegramChatPolicy
      *
      * @return mixed
      */
-    public function delete(User $user, TelegramChat $telegramChat)
+    public function delete(User $user, TelegramChat $telegramChat): bool
     {
         //@codeCoverageIgnoreStart
         return true;
@@ -61,7 +61,7 @@ class TelegramChatPolicy
      *
      * @return mixed
      */
-    public function restore(User $user, TelegramChat $telegramChat)
+    public function restore(User $user, TelegramChat $telegramChat): bool
     {
         //@codeCoverageIgnoreStart
         return true;
@@ -73,7 +73,7 @@ class TelegramChatPolicy
      *
      * @return mixed
      */
-    public function forceDelete(User $user, TelegramChat $telegramChat)
+    public function forceDelete(User $user, TelegramChat $telegramChat): bool
     {
         //@codeCoverageIgnoreStart
         return true;

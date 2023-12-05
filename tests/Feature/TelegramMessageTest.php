@@ -16,14 +16,14 @@ class TelegramMessageTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_example(): void
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
     }
 
-    public function test_incoming_daily_message_count($date = null)
+    public function test_incoming_daily_message_count($date = null): void
     {
         // create a case where there are 3 messages created today
         $telegramChat = TelegramChat::factory()->create();

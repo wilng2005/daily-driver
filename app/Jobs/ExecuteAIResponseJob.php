@@ -38,7 +38,7 @@ class ExecuteAIResponseJob implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         //@codeCoverageIgnoreStart
         if ($this->telegramChat) {

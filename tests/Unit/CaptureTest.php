@@ -11,7 +11,7 @@ class CaptureTest extends TestCase
      *
      * @return void
      */
-    public function test_title()
+    public function test_title(): void
     {
         $this->assertTrue(true);
     }

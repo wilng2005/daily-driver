@@ -15,7 +15,7 @@ class CapturePolicy
      *
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(User $user)
+    public function viewAny(User $user): bool
     {
 
         // All of these need to return true for the user to be able to view the resource index in Nova
@@ -45,7 +45,7 @@ class CapturePolicy
      *
      * @codeCoverageIgnore
      */
-    public function view(User $user, Capture $capture)
+    public function view(User $user, Capture $capture): bool
     {
         switch ($user->capture_resource_access) {
             case 'All':
@@ -67,7 +67,7 @@ class CapturePolicy
      *
      * @codeCoverageIgnore
      */
-    public function create(User $user)
+    public function create(User $user): bool
     {
         switch ($user->capture_resource_access) {
             case 'All':
@@ -89,7 +89,7 @@ class CapturePolicy
      *
      * @codeCoverageIgnore
      */
-    public function update(User $user, Capture $capture)
+    public function update(User $user, Capture $capture): bool
     {
         switch ($user->capture_resource_access) {
             case 'All':
@@ -111,7 +111,7 @@ class CapturePolicy
      *
      * @codeCoverageIgnore
      */
-    public function delete(User $user, Capture $capture)
+    public function delete(User $user, Capture $capture): bool
     {
         switch ($user->capture_resource_access) {
             case 'All':
@@ -133,7 +133,7 @@ class CapturePolicy
      *
      * @codeCoverageIgnore
      */
-    public function restore(User $user, Capture $capture)
+    public function restore(User $user, Capture $capture): bool
     {
         switch ($user->capture_resource_access) {
             case 'All':
@@ -155,7 +155,7 @@ class CapturePolicy
      *
      * @codeCoverageIgnore
      */
-    public function forceDelete(User $user, Capture $capture)
+    public function forceDelete(User $user, Capture $capture): bool
     {
         switch ($user->capture_resource_access) {
             case 'All':

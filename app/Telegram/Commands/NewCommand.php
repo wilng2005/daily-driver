@@ -13,7 +13,7 @@ class NewCommand extends Command
     /**
      * @codeCoverageIgnore
      **/
-    public function handle()
+    public function handle(): void
     {
         $this->replyWithMessage([
             'text' => 'Hi! What would you like to talk about today?',
