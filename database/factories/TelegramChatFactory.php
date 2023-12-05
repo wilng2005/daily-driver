@@ -14,12 +14,12 @@ class TelegramChatFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            'data'=> [],
-            'tg_chat_id'=> $this->faker->randomNumber(5, true),
-            'configuration'=> null,
+            'data' => [],
+            'tg_chat_id' => $this->faker->randomNumber(5, true),
+            'configuration' => null,
         ];
     }
 }

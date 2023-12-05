@@ -14,13 +14,13 @@ class CaptureFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => $this->faker->sentence(8),
-            'content' => $this->faker->paragraphs(3,true),
-            'inbox'=> $this->faker->boolean(),
-            'next_action'=> $this->faker->boolean(),
+            'content' => $this->faker->paragraphs(3, true),
+            'inbox' => $this->faker->boolean(),
+            'next_action' => $this->faker->boolean(),
         ];
     }
 }

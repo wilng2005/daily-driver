@@ -12,7 +12,6 @@ class IncomingTelegramMessagesPerDay extends Trend
     /**
      * Calculate the value of the metric.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return mixed
      */
     public function calculate(NovaRequest $request)
@@ -20,8 +19,8 @@ class IncomingTelegramMessagesPerDay extends Trend
         $request->range;
 
         $trend_data = [];
-        for($i=0;$i<$request->range;$i++){
-            $temp_date=now()->subDays($i);
+        for ($i = 0; $i < $request->range; $i++) {
+            $temp_date = now()->subDays($i);
             $trend_data[$temp_date->format('d M Y')] = TelegramMessage::incomingDailyMessageCount($temp_date);
         }
         $trend_data = array_reverse($trend_data);
@@ -31,8 +30,6 @@ class IncomingTelegramMessagesPerDay extends Trend
 
     /**
      * Get the ranges available for the metric.
-     *
-     * @return array
      */
     public function ranges()
     {
@@ -40,7 +37,7 @@ class IncomingTelegramMessagesPerDay extends Trend
             7 => __('7 Days'),
             30 => __('30 days'),
             60 => __('60 Days'),
-            90 => __('90 Days'), 
+            90 => __('90 Days'),
         ];
     }
 
@@ -57,8 +54,6 @@ class IncomingTelegramMessagesPerDay extends Trend
 
     /**
      * Get the URI key for the metric.
-     *
-     * @return string
      */
     public function uriKey()
     {

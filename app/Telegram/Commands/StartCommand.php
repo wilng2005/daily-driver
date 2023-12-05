@@ -7,13 +7,13 @@ use Telegram\Bot\Commands\Command;
 class StartCommand extends Command
 {
     protected string $name = 'start';
-    protected string $description = 'How to use this bot.';
 
+    protected string $description = 'How to use this bot.';
 
     /**
      * @codeCoverageIgnore
-    **/
-    public function handle()
+     **/
+    public function handle(): void
     {
         $this->replyWithMessage([
             'text' => 'Hi! This is a chat bot that asks helpful questions to help you reflect on difficult problems and emotions. Simply get started by typing /new and respond to the question prompts like you would with any normal conversation.
