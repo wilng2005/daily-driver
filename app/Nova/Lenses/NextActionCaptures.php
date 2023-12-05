@@ -15,7 +15,6 @@ class NextActionCaptures extends Lens
     /**
      * Get the query builder / paginator for the lens.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return mixed
      */
     public static function query(LensRequest $request, Builder $query)
@@ -29,8 +28,6 @@ class NextActionCaptures extends Lens
 
     /**
      * Get the fields available to the lens.
-     *
-     * @return array
      */
     public function fields(NovaRequest $request): array
     {
@@ -51,8 +48,6 @@ class NextActionCaptures extends Lens
 
     /**
      * Get the cards available on the lens.
-     *
-     * @return array
      */
     public function cards(NovaRequest $request): array
     {
@@ -61,8 +56,6 @@ class NextActionCaptures extends Lens
 
     /**
      * Get the filters available for the lens.
-     *
-     * @return array
      */
     public function filters(NovaRequest $request): array
     {
@@ -71,8 +64,6 @@ class NextActionCaptures extends Lens
 
     /**
      * Get the actions available on the lens.
-     *
-     * @return array
      */
     public function actions(NovaRequest $request): array
     {
@@ -81,8 +72,6 @@ class NextActionCaptures extends Lens
 
     /**
      * Get the URI key for the lens.
-     *
-     * @return string
      */
     public function uriKey(): string
     {

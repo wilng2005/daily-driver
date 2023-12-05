@@ -14,8 +14,6 @@ class CaptureTest extends TestCase
 
     /**
      * A basic feature test example.
-     *
-     * @return void
      */
     public function test_captures_available_in_nav_bar(): void
     {

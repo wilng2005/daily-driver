@@ -29,8 +29,6 @@ class SendTelegramStickerAction extends Action
 
     /**
      * Get the fields available on the action.
-     *
-     * @return array
      */
     public function fields(NovaRequest $request): array
     {

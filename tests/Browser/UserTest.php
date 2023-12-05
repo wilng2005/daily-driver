@@ -13,8 +13,6 @@ class UserTest extends DuskTestCase
 
     /**
      * A Dusk test example.
-     *
-     * @return void
      */
     public function testLoginPageIsAvailable(): void
     {

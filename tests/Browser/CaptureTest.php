@@ -13,8 +13,6 @@ class CaptureTest extends DuskTestCase
 
     /**
      * This is a very basic test.
-     *
-     * @return void
      */
     public function test_capture_column_is_working(): void
     {

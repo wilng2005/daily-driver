@@ -22,8 +22,6 @@ class TelegramChatPolicy
 
     /**
      * Determine whether the user can view the post.
-     *
-     * @return mixed
      */
     public function view(User $user, TelegramChat $telegramChat): bool
     {
@@ -34,8 +32,6 @@ class TelegramChatPolicy
 
     /**
      * Determine whether the user can update TelegramChat.
-     *
-     * @return mixed
      */
     public function update(User $user, TelegramChat $telegramChat): bool
     {
@@ -46,8 +42,6 @@ class TelegramChatPolicy
 
     /**
      * Determine whether the user can delete TelegramChat.
-     *
-     * @return mixed
      */
     public function delete(User $user, TelegramChat $telegramChat): bool
     {
@@ -58,8 +52,6 @@ class TelegramChatPolicy
 
     /**
      * Determine whether the user can restore TelegramChat.
-     *
-     * @return mixed
      */
     public function restore(User $user, TelegramChat $telegramChat): bool
     {
@@ -70,8 +62,6 @@ class TelegramChatPolicy
 
     /**
      * Determine whether the user can permanently delete TelegramChat.
-     *
-     * @return mixed
      */
     public function forceDelete(User $user, TelegramChat $telegramChat): bool
     {
