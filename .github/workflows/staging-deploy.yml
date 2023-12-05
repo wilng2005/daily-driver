@@ -59,7 +59,7 @@ jobs:
       - name: Install Node Modules
         run: npm install
       - name: Build Frontend Assets
-        run: npm run prod
+        run: npm run build
       - name: Deploy Environment
         run: vapor deploy
         env:
