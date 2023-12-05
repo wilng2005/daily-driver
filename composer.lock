@@ -2085,7 +2085,7 @@
                     "@php vendor/bin/testbench-dusk nova:publish --force --ansi"
                 ],
                 "dusk:assets": [
-                    "TAILWIND_MODE=build npm run build",
+                    "TAILWIND_MODE=build npm run prod",
                     "@php vendor/bin/testbench-dusk nova:publish --force --ansi"
                 ],
                 "dusk:test": [
