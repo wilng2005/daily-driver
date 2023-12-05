@@ -30,7 +30,7 @@ class RefreshPriority extends Action
      *
      * @return array
      */
-    public function fields(NovaRequest $request)
+    public function fields(NovaRequest $request): array
     {
         return [];
     }

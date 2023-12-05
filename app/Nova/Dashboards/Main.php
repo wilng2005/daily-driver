@@ -15,7 +15,7 @@ class Main extends Dashboard
      *
      * @return array
      */
-    public function cards()
+    public function cards(): array
     {
         $cards = [
             new ThingsToDo,

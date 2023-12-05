@@ -33,7 +33,7 @@ class TelegramChatsPerMonth extends Trend
      *
      * @return array
      */
-    public function ranges()
+    public function ranges(): array
     {
         return [
             6 => __('6 Months'),
@@ -57,7 +57,7 @@ class TelegramChatsPerMonth extends Trend
      *
      * @return string
      */
-    public function uriKey()
+    public function uriKey(): string
     {
         return 'telegram-chats-per-month';
     }

@@ -32,7 +32,7 @@ class SendTelegramMessageAction extends Action
      *
      * @return array
      */
-    public function fields(NovaRequest $request)
+    public function fields(NovaRequest $request): array
     {
         return [
             Textarea::make('Text'),

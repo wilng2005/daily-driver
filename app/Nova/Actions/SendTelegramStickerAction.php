@@ -32,7 +32,7 @@ class SendTelegramStickerAction extends Action
      *
      * @return array
      */
-    public function fields(NovaRequest $request)
+    public function fields(NovaRequest $request): array
     {
         return [
             Textarea::make('Sticker File Id'),

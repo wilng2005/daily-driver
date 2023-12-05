@@ -2,6 +2,7 @@
 
 namespace App\Nova\Lenses;
 
+use Illuminate\Database\Eloquent\Builder;
 use App\Nova\Metrics\IncomingTelegramMessagesPerDay;
 use App\Nova\Metrics\ThingsToDo;
 use Illuminate\Support\Str;
@@ -21,7 +22,7 @@ class InboxCaptures extends Lens
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return mixed
      */
-    public static function query(LensRequest $request, $query)
+    public static function query(LensRequest $request, Builder $query)
     {
         return $request->withOrdering($request->withFilters(
             $query->where('inbox', true)
@@ -35,7 +36,7 @@ class InboxCaptures extends Lens
      *
      * @return array
      */
-    public function fields(NovaRequest $request)
+    public function fields(NovaRequest $request): array
     {
         return [
 
@@ -58,7 +59,7 @@ class InboxCaptures extends Lens
      *
      * @return array
      */
-    public function cards(NovaRequest $request)
+    public function cards(NovaRequest $request): array
     {
         return [
             new ThingsToDo,
@@ -71,7 +72,7 @@ class InboxCaptures extends Lens
      *
      * @return array
      */
-    public function filters(NovaRequest $request)
+    public function filters(NovaRequest $request): array
     {
         return [];
     }
@@ -81,7 +82,7 @@ class InboxCaptures extends Lens
      *
      * @return array
      */
-    public function actions(NovaRequest $request)
+    public function actions(NovaRequest $request): array
     {
         return parent::actions($request);
     }
@@ -91,7 +92,7 @@ class InboxCaptures extends Lens
      *
      * @return string
      */
-    public function uriKey()
+    public function uriKey(): string
     {
         return 'inbox-captures';
     }

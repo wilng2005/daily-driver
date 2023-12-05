@@ -78,7 +78,7 @@ class PercentageOfCustomersThatAchieveValue extends Trend
      *
      * @return array
      */
-    public function ranges()
+    public function ranges(): array
     {
         return [
         ];
@@ -99,7 +99,7 @@ class PercentageOfCustomersThatAchieveValue extends Trend
      *
      * @return string
      */
-    public function uriKey()
+    public function uriKey(): string
     {
         $cohort_date = \Carbon\Carbon::createFromFormat('M Y', $this->cohort);
 

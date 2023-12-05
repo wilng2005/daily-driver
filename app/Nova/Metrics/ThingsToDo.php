@@ -31,7 +31,7 @@ class ThingsToDo extends Trend
      *
      * @return array
      */
-    public function ranges()
+    public function ranges(): array
     {
         return [
             30 => __('30 Days'),
@@ -55,7 +55,7 @@ class ThingsToDo extends Trend
      *
      * @return string
      */
-    public function uriKey()
+    public function uriKey(): string
     {
         return 'things-to-do';
     }

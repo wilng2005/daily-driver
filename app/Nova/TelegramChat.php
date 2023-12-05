@@ -51,7 +51,7 @@ class TelegramChat extends Resource
      *
      * @return array
      */
-    public function fields(NovaRequest $request)
+    public function fields(NovaRequest $request): array
     {
         return [
             ID::make()->sortable()->readonly(),
@@ -89,7 +89,7 @@ Total number of messages sent over the last 1 day / Total number of messages eve
      *
      * @return array
      */
-    public function cards(NovaRequest $request)
+    public function cards(NovaRequest $request): array
     {
         return [];
     }
@@ -99,7 +99,7 @@ Total number of messages sent over the last 1 day / Total number of messages eve
      *
      * @return array
      */
-    public function filters(NovaRequest $request)
+    public function filters(NovaRequest $request): array
     {
         return [];
     }
@@ -109,7 +109,7 @@ Total number of messages sent over the last 1 day / Total number of messages eve
      *
      * @return array
      */
-    public function lenses(NovaRequest $request)
+    public function lenses(NovaRequest $request): array
     {
         return [];
     }
@@ -119,7 +119,7 @@ Total number of messages sent over the last 1 day / Total number of messages eve
      *
      * @return array
      */
-    public function actions(NovaRequest $request)
+    public function actions(NovaRequest $request): array
     {
         return [
             new Actions\SendTelegramMessageAction,
