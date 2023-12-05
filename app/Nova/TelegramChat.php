@@ -49,7 +49,6 @@ class TelegramChat extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)
@@ -65,22 +64,22 @@ class TelegramChat extends Resource
             //     $chat_name=trim($chat_name);
             //     return $chat_name;
             // }),
-            Number::make('Telegram Chat ID','tg_chat_id')->readonly(),
+            Number::make('Telegram Chat ID', 'tg_chat_id')->readonly(),
             Text::make('Msg Count', function () {
                 return $this->getNoOfMessagesSentOverPeriod(1).'/'.$this->getNoOfMessagesSentOverPeriod(10000);
             }),
             KeyValue::make('Configuration')->rules('json'),
             Code::make('Data')->json()->readonly(),
-            Stack::make('Create/Updated',[
+            Stack::make('Create/Updated', [
                 DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
                 DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
             ]),
             HasMany::make('Telegram Messages'),
-            Markdown::make('System Documentation', function(){
-                return "
+            Markdown::make('System Documentation', function () {
+                return '
 **Msg Count**  
 Total number of messages sent over the last 1 day / Total number of messages ever sent
-";
+';
             })->hideFromIndex(),
         ];
     }
@@ -88,7 +87,6 @@ Total number of messages sent over the last 1 day / Total number of messages eve
     /**
      * Get the cards available for the request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function cards(NovaRequest $request)
@@ -99,7 +97,6 @@ Total number of messages sent over the last 1 day / Total number of messages eve
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function filters(NovaRequest $request)
@@ -110,7 +107,6 @@ Total number of messages sent over the last 1 day / Total number of messages eve
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function lenses(NovaRequest $request)
@@ -121,7 +117,6 @@ Total number of messages sent over the last 1 day / Total number of messages eve
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function actions(NovaRequest $request)

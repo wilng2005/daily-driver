@@ -2,12 +2,10 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-
     public function test_the_nova_login_page_is_available()
     {
         $response = $this->get('/nova/login');

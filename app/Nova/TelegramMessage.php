@@ -48,7 +48,6 @@ class TelegramMessage extends Resource
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function fields(NovaRequest $request)
@@ -56,12 +55,12 @@ class TelegramMessage extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Text')->readonly()->displayUsing(
-                function($text){
+                function ($text) {
                     //if message is incoming limit to 5 chars
-                    if($this->is_incoming){
+                    if ($this->is_incoming) {
                         //length of text
                         return Str::limit($text, 10, '...'.strlen($text));
-                    }else{
+                    } else {
                         return $text;
                     }
                 }
@@ -70,7 +69,7 @@ class TelegramMessage extends Resource
             Boolean::make('Is Incoming')->readonly(),
             Boolean::make('Is Outgoing')->readonly(),
             BelongsTo::make('Telegram Chat')->readonly(),
-            Stack::make('Create/Updated',[
+            Stack::make('Create/Updated', [
                 DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
                 DateTime::make('Updated At')->readonly()->sortable()->exceptOnForms(),
             ]),
@@ -80,7 +79,6 @@ class TelegramMessage extends Resource
     /**
      * Get the cards available for the request.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function cards(NovaRequest $request)
@@ -91,7 +89,6 @@ class TelegramMessage extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function filters(NovaRequest $request)
@@ -102,7 +99,6 @@ class TelegramMessage extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function lenses(NovaRequest $request)
@@ -113,7 +109,6 @@ class TelegramMessage extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
     public function actions(NovaRequest $request)

@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-use App\Models\Capture;
 use PHPUnit\Framework\TestCase;
 
 class CaptureTest extends TestCase
@@ -16,8 +15,4 @@ class CaptureTest extends TestCase
     {
         $this->assertTrue(true);
     }
-
-
-
-
 }

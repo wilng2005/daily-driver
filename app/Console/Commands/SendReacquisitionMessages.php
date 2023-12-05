@@ -28,7 +28,7 @@ class SendReacquisitionMessages extends Command
 
     // if we receive any message from the user, clear the backoff mode.
 
-    /* 
+    /*
         The logic:
             first get the user's last message sent.
             check to see if the last message is more than back-off period (min 2 days).

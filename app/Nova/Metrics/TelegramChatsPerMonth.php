@@ -12,7 +12,6 @@ class TelegramChatsPerMonth extends Trend
     /**
      * Calculate the value of the metric.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return mixed
      */
     public function calculate(NovaRequest $request)
@@ -21,8 +20,8 @@ class TelegramChatsPerMonth extends Trend
 
         // produce an array of months for the past x number of months
         $trend_data = [];
-        for($i=0;$i<$request->range;$i++){
-            $trend_data[now()->subMonths($i)->format('M Y')] = TelegramChat::where('created_at','>=',now()->subMonths($i)->startOfMonth()->toDateString())->where('created_at','<=',now()->subMonths($i)->endOfMonth()->toDateString())->count();
+        for ($i = 0; $i < $request->range; $i++) {
+            $trend_data[now()->subMonths($i)->format('M Y')] = TelegramChat::where('created_at', '>=', now()->subMonths($i)->startOfMonth()->toDateString())->where('created_at', '<=', now()->subMonths($i)->endOfMonth()->toDateString())->count();
         }
         $trend_data = array_reverse($trend_data);
 

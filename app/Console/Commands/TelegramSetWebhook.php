@@ -27,19 +27,22 @@ class TelegramSetWebhook extends Command
      * @return int
      */
     public function handle()
-    {   
+    {
         //@codeCoverageIgnoreStart
-        $url=url('api/telegram/dsYeN7rvWz3sGk88X9X4LbQt/webhook');
+        $url = url('api/telegram/dsYeN7rvWz3sGk88X9X4LbQt/webhook');
         $response = Telegram::setWebhook(['url' => $url]);
-        
-        if(env('APP_ENV')!='production')
-            info("TELEGRAM_WEBHOOK_URL=".$url);
 
-        if($response==true){
-            info("Setup of Telegram Webhook was successful.");
+        if (env('APP_ENV') != 'production') {
+            info('TELEGRAM_WEBHOOK_URL='.$url);
+        }
+
+        if ($response == true) {
+            info('Setup of Telegram Webhook was successful.');
+
             return Command::SUCCESS;
-        }else{
-            info("Setup of Telegram Webhook was a failure.");
+        } else {
+            info('Setup of Telegram Webhook was a failure.');
+
             return Command::FAILURE;
         }
         //@codeCoverageIgnoreEnd

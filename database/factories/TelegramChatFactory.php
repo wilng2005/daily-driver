@@ -17,9 +17,9 @@ class TelegramChatFactory extends Factory
     public function definition()
     {
         return [
-            'data'=> [],
-            'tg_chat_id'=> $this->faker->randomNumber(5, true),
-            'configuration'=> null,
+            'data' => [],
+            'tg_chat_id' => $this->faker->randomNumber(5, true),
+            'configuration' => null,
         ];
     }
 }

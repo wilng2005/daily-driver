@@ -1,6 +1,6 @@
 <?php
-use App\Models\User;
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -28,8 +28,8 @@ return new class extends Migration
             'name' => 'Administrator',
             'email' => 'admin@than.today',
             'password' => password_hash('password', PASSWORD_DEFAULT),
-            'user_resource_access' => "All",
-            'capture_resource_access' => "All",
+            'user_resource_access' => 'All',
+            'capture_resource_access' => 'All',
         ]);
     }
 

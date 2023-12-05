@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Capture;
-
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CaptureSeeder extends Seeder

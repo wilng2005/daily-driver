@@ -2,7 +2,6 @@
 
 namespace App\Nova\Metrics;
 
-use App\Models\Capture;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
 use Laravel\Nova\Metrics\TrendResult;
@@ -12,21 +11,20 @@ class ThingsToDo extends Trend
     /**
      * Calculate the value of the metric.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return mixed
      */
     public function calculate(NovaRequest $request)
     {
-        $dailySnapshots = \App\Models\DailySnapshot::where('date','>=',now()->subDays($request->range)->toDateString())->get();
+        $dailySnapshots = \App\Models\DailySnapshot::where('date', '>=', now()->subDays($request->range)->toDateString())->get();
         $trend = [];
-        foreach($dailySnapshots as $dailySnapshot){
-            $trend[$dailySnapshot->date->format("F j")] = 
-                isset($dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures'])?
-                $dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures']:0;
+        foreach ($dailySnapshots as $dailySnapshot) {
+            $trend[$dailySnapshot->date->format('F j')] =
+                isset($dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures']) ?
+                $dailySnapshot->data['productivity']['start_of_day']['no_of_inbox_next_action_captures'] : 0;
         }
 
         return (new TrendResult)->trend($trend)->showLatestValue();
-    } 
+    }
 
     /**
      * Get the ranges available for the metric.
