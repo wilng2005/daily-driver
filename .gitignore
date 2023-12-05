@@ -20,3 +20,4 @@ yarn-error.log
 Datadump.csv
 .phpunit.cache
 .phpunit.cache/test-results
+/docker
