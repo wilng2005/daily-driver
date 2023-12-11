@@ -323,7 +323,7 @@ class TelegramChat extends Model
             $since = now()->subHours(1);
         }
         $data = [
-            'model' => 'text-davinci-003',
+            'model' => 'gpt-3.5-turbo',
             'prompt' => "[INSTRUCTION] Identify and extract any key takeaways that the user might want to focus on. For each takeaway, headline it, and write a short summary of the takeaway key point discussed. Use a maximum of 10 words for each takeaway. Takeaways should be ranked and ordered according to the number of messages touching on each takeaway. This means that the most talked about takeaway should be item 1, second most talked about takeaway should be item 2, etc. If there is insufficient information from the messages, indicate that there is insufficient information for a summary to be executed. Do not use the takeaways in the sample format if the takeaways do not arise in the messages. \n
             
             The messages are as follows: \n
