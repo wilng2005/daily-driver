@@ -500,69 +500,70 @@ class TelegramChat extends Model
                 'is_outgoing' => false,
                 'from_username' => TelegramChat::SYSTEM_ROLE,
             ]);
-        }
+        
 
-        // send a sticker
+            // send a sticker
 
-        $encouraging_stickers = [
-            'CAACAgUAAxkDAAIFUGSs6OIcfz4cDod1F4K_IRrC0HUTAAK_DAACVqJpVdVKr86ZiliYLwQ',
-            'CAACAgUAAxkBAAIFQmSs2KkbdCjvQbIUAvIFym5-C6ouAALADAACVqJpVfHaU0ShsINhLwQ',
-            'CAACAgUAAxkBAAIFSGSs2MmH5hhF8L4pVAQNTX8Fgm26AALEDAACVqJpVdgNCKL8GSRMLwQ',
-            'CAACAgUAAxkBAAIFSWSs2NGCkIUfHX9KdCAxyW9V1AWYAALFDAACVqJpVbg9IGMbJUiGLwQ',
-            'CAACAgIAAxkBAAIFgGSubl94KUkfkiVfLlmw207nx2obAAJtAAPb234AAXUe7IXy-0SlLwQ',
-            'CAACAgIAAxkBAAIFfmSubj44cUwte6qinSfueYlW6uGsAAJmAAPb234AAZPMw9ANLY9sLwQ',
-            'CAACAgIAAxkBAAIFfWSubjdYu2_wqwPx_QiZKNQXEy3IAAJhAAPb234AAff3D5s36tTkLwQ',
-            'CAACAgIAAxkBAAIFfGSubjHoVeNPhiF7gwsPB3ETswGYAAJgAAPb234AAYYpTM5Q4efhLwQ',
-            'CAACAgIAAxkBAAIFemSubitD13QAAdbWS0JbmMudeqG5DgACXwAD29t-AAGEsFSbEa7K4y8E',
-            'CAACAgIAAxkBAAIFd2SubiWU5NNSDYXOeFpmfvQ3Y-0KAAJvAAPb234AAZlbUKh7k4B0LwQ',
-            'CAACAgIAAxkBAAIFdmSubiG4hwecSjo3Z8LhIpx7TN5_AAI_AAPb234AAfTmnDgB5KppLwQ',
-        ];
-
-        $this->sendSticker($encouraging_stickers[array_rand($encouraging_stickers)], TelegramChat::ASSISTANT_ROLE, []);
-        // thank the user
-
-        $thank_you_messages = [
-            'Thanks for the chat!',
-            'I hope you found the questions useful!',
-            'I hope you have a nice day!',
-            'Thanks for the conversation! I hope you found it useful.',
-        ];
-
-        $this->sendMessage($thank_you_messages[array_rand($thank_you_messages)], TelegramChat::ASSISTANT_ROLE, []);
-
-        // give a summary of the conversation
-        if ($summary = $this->generateSummary()) {
-            $this->sendMessage($summary, TelegramChat::ASSISTANT_ROLE, []);
-        }
-
-        // either give a fun-fact or ask for feedback.
-        //50% of the time send a fun fact, 50% of the time ask for feedback.
-        if (rand(0, 1)) {
-            //send fun fact
-            $fun_facts = [
-                'Did you know that journaling improves mental well-being? According to a study published in Advances in Psychiatric Treatment, journaling has been shown to reduce symptoms of depression, anxiety, and stress.',
-                "Did you know that self-reflection enhances self-awareness? Research conducted by the Journal of Personality and Social Psychology suggests that engaging in self-reflection can improve individuals' understanding of their own emotions, thoughts, and behaviors.",
-                "Did you know that journaling boosts creativity? A study published in the journal Psychological Science found that expressive writing, such as journaling, can enhance individuals' creativity by helping them generate and explore new ideas.",
-                "Did you know that self-reflection improves decision-making? According to a study published in the journal Organizational Behavior and Human Decision Processes, engaging in self-reflection can lead to better decision-making through increased awareness of one's values, goals, and motivations.",
-                "Did you know that journaling enhances problem-solving skills? Research conducted by the journal Behavior Modification suggests that regular journaling can improve individuals' ability to identify problems, develop potential solutions, and evaluate their effectiveness.",
-                "Did you know that self-reflection promotes personal growth? A study published in the journal Personality and Social Psychology Bulletin found that engaging in self-reflection can facilitate personal growth by enhancing individuals' acceptance of their mistakes, fostering learning and self-improvement.",
-                'Did you know that journaling reduces rumination? According to a study published in the Journal of Experimental Psychology, expressive writing, like journaling, has been shown to reduce repetitive negative thinking and rumination, promoting psychological well-being.',
-                "Did you know that self-reflection enhances empathy? Research conducted by the journal Personality and Social Psychology Bulletin suggests that engaging in self-reflection can increase individuals' empathy towards others by developing a better understanding of their own emotions and perspectives.",
-                'Did you know that journaling improves sleep quality? A study published in the journal Behavior Therapy found that individuals who journaled before going to bed experienced improved sleep quality, falling asleep faster and enjoying a more restful sleep.',
-                'Did you know that self-reflection reduces burnout? According to research published in the Journal of Occupational Health Psychology, regular self-reflection activities have been associated with decreased burnout in employees, improving overall well-being.',
+            $encouraging_stickers = [
+                'CAACAgUAAxkDAAIFUGSs6OIcfz4cDod1F4K_IRrC0HUTAAK_DAACVqJpVdVKr86ZiliYLwQ',
+                'CAACAgUAAxkBAAIFQmSs2KkbdCjvQbIUAvIFym5-C6ouAALADAACVqJpVfHaU0ShsINhLwQ',
+                'CAACAgUAAxkBAAIFSGSs2MmH5hhF8L4pVAQNTX8Fgm26AALEDAACVqJpVdgNCKL8GSRMLwQ',
+                'CAACAgUAAxkBAAIFSWSs2NGCkIUfHX9KdCAxyW9V1AWYAALFDAACVqJpVbg9IGMbJUiGLwQ',
+                'CAACAgIAAxkBAAIFgGSubl94KUkfkiVfLlmw207nx2obAAJtAAPb234AAXUe7IXy-0SlLwQ',
+                'CAACAgIAAxkBAAIFfmSubj44cUwte6qinSfueYlW6uGsAAJmAAPb234AAZPMw9ANLY9sLwQ',
+                'CAACAgIAAxkBAAIFfWSubjdYu2_wqwPx_QiZKNQXEy3IAAJhAAPb234AAff3D5s36tTkLwQ',
+                'CAACAgIAAxkBAAIFfGSubjHoVeNPhiF7gwsPB3ETswGYAAJgAAPb234AAYYpTM5Q4efhLwQ',
+                'CAACAgIAAxkBAAIFemSubitD13QAAdbWS0JbmMudeqG5DgACXwAD29t-AAGEsFSbEa7K4y8E',
+                'CAACAgIAAxkBAAIFd2SubiWU5NNSDYXOeFpmfvQ3Y-0KAAJvAAPb234AAZlbUKh7k4B0LwQ',
+                'CAACAgIAAxkBAAIFdmSubiG4hwecSjo3Z8LhIpx7TN5_AAI_AAPb234AAfTmnDgB5KppLwQ',
             ];
-            $this->sendMessage($fun_facts[array_rand($fun_facts)], TelegramChat::ASSISTANT_ROLE, []);
 
-        } else {
-            $feedback_messages = [];
-            $feedback_messages[] = 'On a scale of 1 to 10, how would you rate the conversation? 1 being the worst, 10 being the best.';
-            $feedback_messages[] = 'Please rate the conversation on a scale of 1 to 10, 1 being the worst, 10 being the best.';
-            $feedback_messages[] = 'Did you find the conversation useful?';
-            $feedback_messages[] = 'If you have any feedback for me, please let me know!';
-            $feedback_messages[] = 'Do you have any suggestions on how I could improve?';
-            $feedback_messages[] = "Feel free to let me know if there's anything I can improve on.";
+            $this->sendSticker($encouraging_stickers[array_rand($encouraging_stickers)], TelegramChat::ASSISTANT_ROLE, []);
+            // thank the user
 
-            $this->sendMessage($feedback_messages[array_rand($feedback_messages)], TelegramChat::ASSISTANT_ROLE, []);
+            $thank_you_messages = [
+                'Thanks for the chat!',
+                'I hope you found the questions useful!',
+                'I hope you have a nice day!',
+                'Thanks for the conversation! I hope you found it useful.',
+            ];
+
+            $this->sendMessage($thank_you_messages[array_rand($thank_you_messages)], TelegramChat::ASSISTANT_ROLE, []);
+
+            // give a summary of the conversation
+            if ($summary = $this->generateSummary()) {
+                $this->sendMessage($summary, TelegramChat::ASSISTANT_ROLE, []);
+            }
+
+            // either give a fun-fact or ask for feedback.
+            //50% of the time send a fun fact, 50% of the time ask for feedback.
+            if (rand(0, 1)) {
+                //send fun fact
+                $fun_facts = [
+                    'Did you know that journaling improves mental well-being? According to a study published in Advances in Psychiatric Treatment, journaling has been shown to reduce symptoms of depression, anxiety, and stress.',
+                    "Did you know that self-reflection enhances self-awareness? Research conducted by the Journal of Personality and Social Psychology suggests that engaging in self-reflection can improve individuals' understanding of their own emotions, thoughts, and behaviors.",
+                    "Did you know that journaling boosts creativity? A study published in the journal Psychological Science found that expressive writing, such as journaling, can enhance individuals' creativity by helping them generate and explore new ideas.",
+                    "Did you know that self-reflection improves decision-making? According to a study published in the journal Organizational Behavior and Human Decision Processes, engaging in self-reflection can lead to better decision-making through increased awareness of one's values, goals, and motivations.",
+                    "Did you know that journaling enhances problem-solving skills? Research conducted by the journal Behavior Modification suggests that regular journaling can improve individuals' ability to identify problems, develop potential solutions, and evaluate their effectiveness.",
+                    "Did you know that self-reflection promotes personal growth? A study published in the journal Personality and Social Psychology Bulletin found that engaging in self-reflection can facilitate personal growth by enhancing individuals' acceptance of their mistakes, fostering learning and self-improvement.",
+                    'Did you know that journaling reduces rumination? According to a study published in the Journal of Experimental Psychology, expressive writing, like journaling, has been shown to reduce repetitive negative thinking and rumination, promoting psychological well-being.',
+                    "Did you know that self-reflection enhances empathy? Research conducted by the journal Personality and Social Psychology Bulletin suggests that engaging in self-reflection can increase individuals' empathy towards others by developing a better understanding of their own emotions and perspectives.",
+                    'Did you know that journaling improves sleep quality? A study published in the journal Behavior Therapy found that individuals who journaled before going to bed experienced improved sleep quality, falling asleep faster and enjoying a more restful sleep.',
+                    'Did you know that self-reflection reduces burnout? According to research published in the Journal of Occupational Health Psychology, regular self-reflection activities have been associated with decreased burnout in employees, improving overall well-being.',
+                ];
+                $this->sendMessage($fun_facts[array_rand($fun_facts)], TelegramChat::ASSISTANT_ROLE, []);
+
+            } else {
+                $feedback_messages = [];
+                $feedback_messages[] = 'On a scale of 1 to 10, how would you rate the conversation? 1 being the worst, 10 being the best.';
+                $feedback_messages[] = 'Please rate the conversation on a scale of 1 to 10, 1 being the worst, 10 being the best.';
+                $feedback_messages[] = 'Did you find the conversation useful?';
+                $feedback_messages[] = 'If you have any feedback for me, please let me know!';
+                $feedback_messages[] = 'Do you have any suggestions on how I could improve?';
+                $feedback_messages[] = "Feel free to let me know if there's anything I can improve on.";
+
+                $this->sendMessage($feedback_messages[array_rand($feedback_messages)], TelegramChat::ASSISTANT_ROLE, []);
+            }
         }
         //@codeCoverageIgnoreEnd
     }
