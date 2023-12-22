@@ -21,7 +21,7 @@ Route::get('/', function () {
         ->orderBy('published_at', 'desc')
         ->first();
 
-    return view('home', [
+    return view('tag', [
         'tag' => $tag,
     ]);
 
@@ -32,6 +32,10 @@ Route::get('/tag/{slug}', function (string $slug) {
         ->where('published_at', '<=', now())
         ->orderBy('published_at', 'desc')
         ->first();
+
+    if (!$tag) {
+        abort(404, 'Page not found');
+    }
 
     return view('tag', [
         'tag' => $tag,
