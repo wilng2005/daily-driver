@@ -33,6 +33,10 @@ Route::get('/tag/{slug}', function (string $slug) {
         ->orderBy('published_at', 'desc')
         ->first();
 
+    if (!$tag) {
+        abort(404, 'Page not found');
+    }
+
     return view('tag', [
         'tag' => $tag,
     ]);
