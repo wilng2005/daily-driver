@@ -21,7 +21,7 @@ Route::get('/', function () {
         ->orderBy('published_at', 'desc')
         ->first();
 
-    return view('home', [
+    return view('tag', [
         'tag' => $tag,
     ]);
 
