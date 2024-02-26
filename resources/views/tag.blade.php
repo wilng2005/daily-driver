@@ -214,7 +214,7 @@
             <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
             <h3 class="mb-0">{{ $post->title }}</h3>
             <div class="mb-1 text-body-secondary">Nov 12</div>
-            <p class="card-text mb-auto"> {{ Str::words($post->content, 10, "...") }}</p>
+            <p class="card-text mb-auto"> {!! Str::words($post->content, 10, "...") !!}</p>
             <a href="/post/{{ $post->slug }}" class="icon-link gap-1 icon-link-hover stretched-link">
               Continue reading
               <svg class="bi"><use xlink:href="#chevron-right"/></svg>
