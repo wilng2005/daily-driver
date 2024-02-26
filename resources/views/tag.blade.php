@@ -205,7 +205,7 @@
 
 
 <main class="container">
-  @if($tag->posts && $tag->posts->count() > 0)
+  @if($tag && $tag->posts && $tag->posts->count() > 0)
   <div class="row mb-2">
     @foreach($tag->posts as $post)
       <div class="col-md-6">
