@@ -221,7 +221,7 @@
             </a>
           </div>
           <div class="col-auto d-none d-lg-block">
-            <img src="{{Storage::temporaryUrl($tag->image_file, now()->addMinutes(5)) }}" class="bd-placeholder-img img-fluid rounded" alt="Responsive image" style="width: 200px; height: 250px; object-fit: cover;">
+            <img src="{{Storage::temporaryUrl($tag->image_file, now()->addMinutes(5)) }}" alt="Thumbnail" width="200" height="250" class="bd-placeholder-img" role="img" aria-label="placeholder thumbnail image">
           </div>
         </div>
       </div>
