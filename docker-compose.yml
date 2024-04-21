@@ -1,4 +1,3 @@
-version: '3'
 services:
     laravel.test:
         build:
@@ -82,6 +81,7 @@ services:
             timeout: 5s
     mailhog:
         image: 'mailhog/mailhog:latest'
+        platform: linux/amd64
         ports:
             - '${FORWARD_MAILHOG_PORT:-1025}:1025'
             - '${FORWARD_MAILHOG_DASHBOARD_PORT:-8025}:8025'
@@ -89,6 +89,8 @@ services:
             - sail
     selenium:
         image: seleniarm/standalone-chromium
+        ports:
+            - "4444:4444"
         volumes:
             - '/dev/shm:/dev/shm'
         networks:
