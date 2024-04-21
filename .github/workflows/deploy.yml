@@ -28,7 +28,7 @@ jobs:
       - name: Start Sail       
         run: vendor/bin/sail up -d
       - name: Sleep
-        uses: juliangruber/sleep-action@v1
+        uses: juliangruber/sleep-action@v2.0.0
         with:
           time: 20s
       - name: Run database migrations
