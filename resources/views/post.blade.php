@@ -146,14 +146,6 @@
         margin-bottom: 1.25rem;
         color: #727272;
       }
-
-      .bd-placeholder-img {
-          width: 200px;        /* Adjust the width as needed */
-          height: 250px;       /* Adjust the height as needed */
-          background-position: center; /* Center the image */
-          background-size: cover; /* Cover the area without stretching */
-          background-repeat: no-repeat; /* Do not repeat the image */
-      }
     </style>
 
     
@@ -213,24 +205,28 @@
 
 
 <main class="container">
-  @if($tag && $tag->posts && $tag->posts->count() > 0)
+  @if($post && $post->posts && $post->posts->count() > 0)
   <div class="row mb-2">
-    @foreach($tag->posts as $post)
+    @foreach($post->posts as $post)
       <div class="col-md-6">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <!-- <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong> -->
+            <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
             <h3 class="mb-0">{{ $post->title }}</h3>
-            <!-- <div class="mb-1 text-body-secondary">Nov 12</div> -->
+            <div class="mb-1 text-body-secondary">Nov 12</div>
             <p class="card-text mb-auto">{{ Str::words(strip_tags($post->content), 10, "...") }}</p>
             <a href="/post/{{ $post->slug }}" class="icon-link gap-1 icon-link-hover stretched-link">
               Continue reading
               <svg class="bi"><use xlink:href="#chevron-right"/></svg>
             </a>
           </div>
+          
           <div class="col-auto d-none d-lg-block">
-            <div class="bd-placeholder-img" style="background-image: url('{{Storage::temporaryUrl($post->image_file, now()->addMinutes(5))}}');"></div>
+            @if(!App::environment('local'))
+            <img src="{{Storage::temporaryUrl($post->image_file, now()->addMinutes(5)) }}" alt="Thumbnail" width="200" height="250" class="bd-placeholder-img" role="img" aria-label="placeholder thumbnail image">
+            @endif
           </div>
+          
         </div>
       </div>
     @endforeach
@@ -242,18 +238,20 @@
 
       <article class="blog-post">
 
-        @unless(empty($tag->image_file))
+        @unless(empty($post->image_file))
             <figure class="figure">
-            <img src="{{Storage::temporaryUrl($tag->image_file, now()->addMinutes(5)) }}" class="img-fluid rounded" alt="Responsive image" style="width: 100%; height: auto;">
-            @unless(empty($tag->image_credit))
+            @if(!App::environment('local'))  
+            <img src="{{Storage::temporaryUrl($post->image_file, now()->addMinutes(5)) }}" class="img-fluid rounded" alt="Responsive image" style="width: 100%; height: auto;">
+            @endif
+            @unless(empty($post->image_credit))
                 <figcaption class="figure-caption">
-                {!! $tag->image_credit !!}
+                {!! $post->image_credit !!}
                 </figcaption>
             @endunless
             </figure>
         @endunless
-        @unless(empty($tag->content))
-            {!! $tag->content !!}
+        @unless(empty($post->content))
+            {!! $post->content !!}
         @endunless
       </article>
 
