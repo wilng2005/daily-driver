@@ -146,6 +146,14 @@
         margin-bottom: 1.25rem;
         color: #727272;
       }
+
+      .bd-placeholder-img {
+          width: 200px;        /* Adjust the width as needed */
+          height: 250px;       /* Adjust the height as needed */
+          background-position: center; /* Center the image */
+          background-size: cover; /* Cover the area without stretching */
+          background-repeat: no-repeat; /* Do not repeat the image */
+      }
     </style>
 
     
@@ -211,9 +219,9 @@
       <div class="col-md-6">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
+            <!-- <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong> -->
             <h3 class="mb-0">{{ $post->title }}</h3>
-            <div class="mb-1 text-body-secondary">Nov 12</div>
+            <!-- <div class="mb-1 text-body-secondary">Nov 12</div> -->
             <p class="card-text mb-auto">{{ Str::words(strip_tags($post->content), 10, "...") }}</p>
             <a href="/post/{{ $post->slug }}" class="icon-link gap-1 icon-link-hover stretched-link">
               Continue reading
@@ -221,7 +229,7 @@
             </a>
           </div>
           <div class="col-auto d-none d-lg-block">
-            <img src="{{Storage::temporaryUrl($tag->image_file, now()->addMinutes(5)) }}" alt="Thumbnail" width="200" height="250" class="bd-placeholder-img" role="img" aria-label="placeholder thumbnail image">
+            <div class="bd-placeholder-img" style="background-image: url('{{Storage::temporaryUrl($post->image_file, now()->addMinutes(5))}}');"></div>
           </div>
         </div>
       </div>
