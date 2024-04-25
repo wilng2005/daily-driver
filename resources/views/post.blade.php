@@ -205,7 +205,6 @@
 
 
 <main class="container">
-    @dd($post)
   @if($post && $post->posts && $post->posts->count() > 0)
   <div class="row mb-2">
     @foreach($post->posts as $post)
