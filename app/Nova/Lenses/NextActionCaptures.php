@@ -76,26 +76,4 @@ class NextActionCaptures extends Lens
     {
         return 'next-action-captures';
     }
-
-    /**
-     * Get the displayable options for the resource pagination.
-     *
-     * @param  \Laravel\Nova\Http\Requests\LensRequest  $request
-     * @return array
-     */
-    public static function perPageOptions(LensRequest $request)
-    {
-        return [5, 10, 25, 50, 100];
-    }
-
-    /**
-     * Get the default number of resources to show per page.
-     *
-     * @param  \Laravel\Nova\Http\Requests\LensRequest  $request
-     * @return int
-     */
-    public static function defaultPerPage(LensRequest $request)
-    {
-        return 5;
-    }
 }
