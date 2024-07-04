@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Nova\Actions\Actionable;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
     use HasFactory;
     use SoftDeletes;
     use Actionable;
+    use Searchable;
 
     /**
      * The attributes that should be cast.
