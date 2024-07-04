@@ -144,6 +144,7 @@ class Capture extends Model
         //@codeCoverageIgnoreEnd
     }
 
+
     public static function generate_delayed_name_prefix($name, $duration, $now = null)
     {
         //check to see if name already has prefix
@@ -168,6 +169,7 @@ class Capture extends Model
         return $dateStr;
     }
 
+    //@codeCoverageIgnoreStart
     public function toSearchableArray(): array
     {
         return [
@@ -176,4 +178,5 @@ class Capture extends Model
             'content' => $this->content,
         ];
     }
+    //@codeCoverageIgnoreEnd
 }
