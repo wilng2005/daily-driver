@@ -167,4 +167,13 @@ class Capture extends Model
 
         return $dateStr;
     }
+
+    public function toSearchableArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'content' => $this->content,
+        ];
+    }
 }
