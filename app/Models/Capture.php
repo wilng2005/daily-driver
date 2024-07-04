@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Laravel\Nova\Actions\Actionable;
+use Laravel\Scout\Searchable;
 
 class Capture extends Model
 {
     use HasFactory;
     use SoftDeletes;
     use Actionable;
+    use Searchable;
 
     public function prefix_with_title()
     {
@@ -164,5 +166,14 @@ class Capture extends Model
         }
 
         return $dateStr;
+    }
+
+    public function toSearchableArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'content' => $this->content,
+        ];
     }
 }
