@@ -36,4 +36,14 @@ class TelegramMessage extends Model
 
         return TelegramMessage::whereDate('created_at', $date->startOfDay()->toDateString())->where('is_incoming', true)->count();
     }
+
+    //@codeCoverageIgnoreStart
+    public function toSearchableArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'text' => $this->text,
+        ];
+    }
+    //@codeCoverageIgnoreEnd
 }

@@ -29,4 +29,15 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
         //@codeCoverageIgnoreEnd
     }
+
+    //@codeCoverageIgnoreStart
+    public function toSearchableArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'content' => $this->content,
+        ];
+    }
+    //@codeCoverageIgnoreEnd
 }
