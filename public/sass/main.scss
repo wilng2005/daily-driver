@@ -1,0 +1,229 @@
+//  *************
+//  COLOURS
+//  *************
+$yellow: #FFC524;
+$orange: #FF8E4F;
+$blue: #82E6E6;
+$green: #63D9A0;
+
+$black: #000;
+$white: #fff;
+
+//  *************
+//  FONTS
+//  *************
+h1 {
+    font-size: 44px;
+    font-weight: 700;
+}
+
+p {
+    font-family: 'Domine', serif;
+}
+
+.quote {
+    font-size: 70px;
+    margin-bottom: -20px;
+}
+
+
+//  *************
+//  GLOBAL
+//  *************
+body {
+    background: white;
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: 400;
+}
+
+section {
+    padding: 80px 0;
+
+    @media (min-width: 768px) {
+        padding: 140px 0;
+    }
+}
+
+.background--black {
+    background: $black;
+    color: $white;
+}
+
+.background--white {
+    background: $white;
+    color: $black;
+}
+
+.background--green {
+    background: $green;
+}
+
+.background--orange {
+    background: $orange;
+}
+
+.background--yellow {
+    background: $yellow;
+}
+
+.background--blue {
+    background: $blue;
+}
+
+.background--w-image {
+    background: $yellow;
+    position: relative;
+    height: 100%;
+    margin-left: 60px;
+
+    .bg-image {
+        position: absolute;
+        top: 10%;
+        left: -55px;
+        width: 270px;
+        height: auto;
+    }
+}
+
+
+//  *************
+//  NAVBAR
+//  *************
+.navbar-brand {
+line-height: 19px;
+text-align: center;
+}
+
+.navbar-collapse {
+    flex-grow: inherit;
+}
+
+.navbar-nav {
+    font-weight: 600;
+}
+
+.nav-link {
+    color: $black;
+    position: relative;
+    padding: 12px 0 !important;
+    margin: 0 10px;
+    display: inline-block;
+    cursor: pointer;
+
+    span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: #000;
+        transition: all 0.6s;
+    }
+
+    &:hover span{
+        width: 100%;
+    }
+
+    &:hover {
+        color: $black;
+    }
+
+    @media (min-width: 992px) {
+        padding: 8px 0 !important;
+    }
+}
+
+.nav-button {
+    background: black;
+    border-radius: 20px;
+    color: white;
+    font-weight: 400;
+    padding: 8px 15px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 12px;
+
+    @media (min-width: 992px) {
+        margin: 0 0 0 10px;
+    }
+}
+
+
+//  *************
+//  BUTTONS
+//  *************
+.button {
+    background: $black;
+    border-radius: 20px;
+    color: $white;
+    padding: 10px 20px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    border: 3px solid transparent;
+
+    &:hover {
+        background: $white;
+        color: $black;
+        border: 3px solid $black;
+        transition: all 0.6s;
+    }
+}
+
+
+//  *************
+//  SECTION HEADER CON
+//  *************
+.section-header-con {
+    max-width: 650px;
+}
+
+
+//  *************
+//  ICONS
+//  *************
+.icon-image {
+    width: 70%;
+    height: auto;
+    display: block;
+
+    &.full {
+        width: 100%;
+    }
+}
+
+//  *************
+//  IMAGES
+//  *************
+
+
+//  *************
+//  ----
+//  *************
+
+
+//  *************
+//  ---
+//  *************
+
+
+//  *************
+//  ---
+//  *************
+
+
+
+
+
+//  *************
+//  FOOTER
+//  *************
+footer {
+    padding: 30px 0;
+    font-size: 12px;
+}
+
+.footer-header {
+    font-weight: 600;
+}
