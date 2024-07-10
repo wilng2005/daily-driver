@@ -167,7 +167,7 @@
                         </h1>
                         <img src="{{asset('images/asset-3.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
-                    <div class="col-12 col-md-4 col-lg-3 py-5">
+                    <div class="col-12 col-md-4 col-lg-3 py-md-5">
                         <div class="button px-5">Get Started</div>
                     </div>
                 </div>
@@ -198,8 +198,8 @@
         <section class="background--blue">
             <div class="container">
                 <div class="d-flex align-items-center row">
-                    <div class="p-4 col-12 col-md-7">
-                        <h2 class="mb-5"><b>
+                    <div class="px-4 col-12 col-md-7">
+                        <h2 class="mb-4 mb-lg-5"><b>
                                 <div class="quote">“</div>
                                 Thanks to Wil's guidance, I've felt more prepared to handle the
                                 uncertainties that lie
@@ -207,7 +207,7 @@
                             </b></h2>
                         <p> — Tony Tong, CTO of The Mind Reader</p>
                     </div>
-                    <div class="p-4 col-12 col-md-5">
+                    <div class="px-4 col-12 col-md-5">
                         <img src="{{asset('images/asset-4.png')}}" class="icon-image full" alt="">
                     </div>
                 </div>
@@ -221,7 +221,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-4 mb-md-0">
                             <h4 class="mb-3">Mental Fitness Program</h4>
                             <p>
                                 Establishes an operating system for mental fitness.
@@ -255,10 +255,9 @@
         <section class="background--black">
             <div class="container text-center px-4">
                 <h2>
-                    “Success is the sum of small efforts, repeated day-in and day out.” <br>
-                    <i>- Robert Collier</i>
-
+                    “Success is the sum of small efforts, repeated day-in and day out.”
                 </h2>
+                <h2 class="mt-3"><i>- Robert Collier</i></h2>
             </div>
         </section>
         <footer>

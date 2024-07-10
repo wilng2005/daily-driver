@@ -13,7 +13,7 @@ $white: #fff;
 //  FONTS
 //  *************
 h1 {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 700;
 
     @media (min-width: 768px) {
@@ -21,16 +21,25 @@ h1 {
     }
 
     @media (min-width: 992px) {
-        font-size: 56px;
+        font-size: 52px;
     }
 }
 
 h2 {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
 
     @media (min-width: 768px) {
         font-size: 38px;
+    }
+}
+
+h4 {
+    font-size: 19px;
+    font-weight: 600;
+
+    @media (min-width: 768px) {
+        font-size: 22px;
     }
 }
 
@@ -105,8 +114,9 @@ section {
 }
 
 .background--half {
-
+    padding: 80px 0;
     background: linear-gradient(180deg, $white 65%, $yellow 35%);
+
     @media (min-width: 768px) {
         background: linear-gradient(90deg, $white 65%, $yellow 35%);
     }
