@@ -14,19 +14,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('slick/slick.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('slick/slick-theme.css')}}" />
 
     <link rel="stylesheet" href="{{asset('sass/main.css')}}">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light pb-3">
+    <nav class="navbar navbar-expand-lg navbar-light nav-shadow-bottom bg-white pb-3">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <div><b>G</b>reater</div>
-                <div><b>T</b>han</div>
-                <div><b>T</b>oday</div>
+                <img src="https://via.placeholder.com/80x50" class="image" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,8 +51,8 @@
                             <span></span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/tech-leads">
                             For Tech Leads
                             <span></span>
                         </a>
@@ -70,7 +68,8 @@
         <section class="background--white">
             <div class="col-12 container">
                 <div class="section-header-con">
-                    <h1>We help software engineers become exceptional leaders.
+                    <h1>
+                        We help software engineers become exceptional leaders.
                     </h1>
                     <div class="mt-5 text-end">
                         <a href="" class="button">Get Started</a>
@@ -82,82 +81,79 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h1 class="mb-4">Being an engineering leader is hard…
-                        </h1>
+                        <h2 class="mb-4">Being an engineering leader is hard…
+                            </h1>
                     </div>
                     <div class="section-slider">
-                        <div class="row">
-                            <div class="col-4">
-                                <h4 class="mb-3">Balancing Technical and Managerial Tasks</h4>
-                                <p>
-                                    This is often the most immediate and pressing challenge as it affects daily
-                                    operations and the leader's ability to fulfill both roles effectively.
-                                </p>
-                            </div>
-                            <div class="col-4">
-                                <h4 class="mb-3">Leadership skills</h4>
-                                <p>
-                                    Essential for long-term success, developing skills like communication, conflict
-                                    resolution, and motivation is critical.
-                                </p>
-                                <img src="{{asset('images/asset-2.png')}}" class="icon-image mb-3 ms-auto" alt="">
-                            </div>
-                            <div class="col-4">
-                                <h4 class="mb-3">Managing Team Dynamics</h4>
-                                <p>
-                                    Effectively managing team relationships and dynamics is vital for maintaining a
-                                    productive and harmonious work environment.
-                                </p>
-                            </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Balancing Technical and Managerial Tasks</h4>
+                            <p>
+                                This is often the most immediate and pressing challenge as it affects daily
+                                operations and the leader's ability to fulfill both roles effectively.
+                            </p>
                         </div>
-                        <div class="row">
-                            <div class="col-4">
-                                <h4 class="mb-3">Handling Pressure and Accountability</h4>
-                                <p>
-                                    The increased responsibility and pressure can be significant, impacting
-                                    decision-making and overall team performance.
-                                </p>
-                            </div>
-                            <div class="col-4">
-                                <h4 class="mb-3">Performance Management</h4>
-                                <p>
-                                    Providing constructive feedback and managing performance can directly impact team
-                                    growth and productivity.
-                                </p>
-                                <img src="{{asset('images/asset-1.png')}}" class="icon-image mb-3 ms-auto" alt="">
-                            </div>
-                            <div class="col-4">
-                                <h4 class="mb-3">Building Trust and Respect</h4>
-                                <p>
-                                    Critical for team cohesion but typically develops over time with consistent
-                                    leadership behavior.
-                                </p>
-                            </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Leadership skills</h4>
+                            <p>
+                                Essential for long-term success, developing skills like communication, conflict
+                                resolution, and motivation is critical.
+                            </p>
+                            <img src="{{asset('images/asset-2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                         </div>
-                        <div class="row">
-                            <div class="col-4">
-                                <h4 class="mb-3">Maintaining Technical Skills</h4>
-                                <p>
-                                    While important for personal growth and credibility, it is often deprioritized
-                                    compared to immediate leadership responsibilities.
-                                </p>
-                            </div>
-                            <div class="col-4">
-                                <h4 class="mb-3">Time Management</h4>
-                                <p>
-                                    Essential for balancing multiple responsibilities, but can be improved with
-                                    experience and tools.
-                                </p>
-                                <img src="{{asset('images/asset.png')}}" class="icon-image mb-3 ms-auto" alt="">
-                            </div>
-                            <div class="col-4">
-                                <h4 class="mb-3">Communicating Vision</h4>
-                                <p>
-                                    Establishing a clear direction and ensuring the team understands and aligns with it
-                                    is fundamental for achieving strategic goals.
-                                </p>
-                            </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Managing Team Dynamics</h4>
+                            <p>
+                                Effectively managing team relationships and dynamics is vital for maintaining a
+                                productive and harmonious work environment.
+                            </p>
                         </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Handling Pressure and Accountability</h4>
+                            <p>
+                                The increased responsibility and pressure can be significant, impacting
+                                decision-making and overall team performance.
+                            </p>
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Performance Management</h4>
+                            <p>
+                                Providing constructive feedback and managing performance can directly impact
+                                team
+                                growth and productivity.
+                            </p>
+                            <img src="{{asset('images/asset-1.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Building Trust and Respect</h4>
+                            <p>
+                                Critical for team cohesion but typically develops over time with consistent
+                                leadership behavior.
+                            </p>
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Maintaining Technical Skills</h4>
+                            <p>
+                                While important for personal growth and credibility, it is often deprioritized
+                                compared to immediate leadership responsibilities.
+                            </p>
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Time Management</h4>
+                            <p>
+                                Essential for balancing multiple responsibilities, but can be improved with
+                                experience and tools.
+                            </p>
+                            <img src="{{asset('images/asset.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Communicating Vision</h4>
+                            <p>
+                                Establishing a clear direction and ensuring the team understands and aligns with
+                                it
+                                is fundamental for achieving strategic goals.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -165,24 +161,24 @@
         <section class="background--white">
             <div class="container">
                 <div class="d-flex align-items-end row">
-                    <div class="col-12 col-md-8">
+                    <div class="col-12 col-md-8 col-lg-9">
                         <h1>
                             From tech leads to CTOs, we empower you to achieve happiness and impact.
                         </h1>
-                        <img src="{{asset('images/asset-3.png')}}" class="icon-image ms-auto" alt="">
+                        <img src="{{asset('images/asset-3.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
-                    <div class="col-12 col-md-4 py-5">
+                    <div class="col-12 col-md-4 col-lg-3 py-5">
                         <div class="button px-5">Get Started</div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="background--white">
+        <section class="background--half">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-5">
-                        <h6 class="mb-5">Meet Your Coach</h6>
-                        <h1>Wil Ng</h1>
+                <div class="d-flex align-items-center row">
+                    <div class="col-md-7 pe-5">
+                        <div class="font-p mb-5">Meet Your Coach</div>
+                        <h2 class="mb-3">Wil Ng</h2>
                         <div>
                             <p>Head of Engineering at a FinTech start-up and Co-founder of a software development firm.
                             </p>
@@ -192,10 +188,8 @@
                                 Management University.</p>
                         </div>
                     </div>
-                    <div class="col-md-7">
-                        <div class="background--w-image">
-                            <img src="{{asset('images/asset.jpg')}}" class="bg-image" alt="">
-                        </div>
+                    <div class="col-md-5">
+                        <img src="{{asset('images/asset.jpg')}}" class="icon-image full" alt="">
                     </div>
                 </div>
             </div>
@@ -223,11 +217,11 @@
             <div class="container">
                 <div class="d-flex align-items-center row">
                     <div class="col-12">
-                        <h1 class="mb-5">7 weeks of intensive training.</h1>
+                        <h2 class="mb-5">7 weeks of intensive training.</h2>
                     </div>
 
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-md-4">
                             <h4 class="mb-3">Mental Fitness Program</h4>
                             <p>
                                 Establishes an operating system for mental fitness.
@@ -237,7 +231,7 @@
                                 improving relationships.
                             </p>
                         </div>
-                        <div class="col-5">
+                        <div class="col-md-5">
                             <h4 class="mb-3">1-on-1 Coaching Sessions</h4>
                             <p>
                                 Weekly 1-hour coaching sessions focus on tailored goal setting to address your specific
@@ -248,7 +242,7 @@
                                 emotional intelligence, personal wellness, and coaching others.
                             </p>
                         </div>
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <img src="{{asset('images/asset-5.png')}}" class="icon-image full" alt="">
                             <div class="text-center">
                                 <div class="button">Get Started</div>
@@ -260,11 +254,11 @@
         </section>
         <section class="background--black">
             <div class="container text-center px-4">
-                <h1>
+                <h2>
                     “Success is the sum of small efforts, repeated day-in and day out.” <br>
                     <i>- Robert Collier</i>
 
-                </h1>
+                </h2>
             </div>
         </section>
         <footer>
@@ -306,16 +300,30 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript" src="{{asset('slick/slick.min.js')}}"></script>
 
 
     <script type="text/javascript">
-    $(document).ready(function() {
-        $('.section-slider').slick({
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
-        });
+    $('.section-slider').slick({
+        arrows: false,
+        dots: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        adaptiveHeight: true,
+        responsive: [{
+            breakpoint: 992,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+            }
+        }, {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            }
+        }, ]
     });
     </script>
 

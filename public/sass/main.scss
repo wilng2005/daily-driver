@@ -13,12 +13,46 @@ $white: #fff;
 //  FONTS
 //  *************
 h1 {
-    font-size: 44px;
+    font-size: 35px;
     font-weight: 700;
+
+    @media (min-width: 768px) {
+        font-size: 44px;
+    }
+
+    @media (min-width: 992px) {
+        font-size: 56px;
+    }
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+
+    @media (min-width: 768px) {
+        font-size: 38px;
+    }
 }
 
 p {
     font-family: 'Domine', serif;
+    font-size: 16px;
+
+    @media (min-width: 768px) {
+        font-size: 17px;
+    }
+
+    @media (min-width: 992px) {
+        font-size: 19px;
+    }
+}
+
+.font-p {
+    font-size: 17px;
+
+    @media (min-width: 768px) {
+        font-size: 19px;
+    }
 }
 
 .quote {
@@ -70,18 +104,11 @@ section {
     background: $blue;
 }
 
-.background--w-image {
-    background: $yellow;
-    position: relative;
-    height: 100%;
-    margin-left: 60px;
+.background--half {
 
-    .bg-image {
-        position: absolute;
-        top: 10%;
-        left: -55px;
-        width: 270px;
-        height: auto;
+    background: linear-gradient(180deg, $white 65%, $yellow 35%);
+    @media (min-width: 768px) {
+        background: linear-gradient(90deg, $white 65%, $yellow 35%);
     }
 }
 
@@ -100,6 +127,19 @@ text-align: center;
 
 .navbar-nav {
     font-weight: 600;
+}
+
+.nav-item .active {
+
+    span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: #000;
+        transition: all 0.6s;
+    }
 }
 
 .nav-link {
@@ -149,6 +189,10 @@ text-align: center;
     }
 }
 
+.nav-shadow-bottom {
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Bottom shadow */
+}
+
 
 //  *************
 //  BUTTONS
@@ -161,12 +205,9 @@ text-align: center;
     display: inline-block;
     cursor: pointer;
     text-decoration: none;
-    border: 3px solid transparent;
 
     &:hover {
-        background: $white;
-        color: $black;
-        border: 3px solid $black;
+        background: lighten($color: #000000, $amount: 15%);
         transition: all 0.6s;
     }
 }
@@ -176,7 +217,11 @@ text-align: center;
 //  SECTION HEADER CON
 //  *************
 .section-header-con {
-    max-width: 650px;
+    max-width: 850px;
+}
+
+.details-each {
+    padding-right: 25px;
 }
 
 
@@ -187,6 +232,10 @@ text-align: center;
     width: 70%;
     height: auto;
     display: block;
+
+    &.small {
+        width: 30%;
+    }
 
     &.full {
         width: 100%;
@@ -199,8 +248,11 @@ text-align: center;
 
 
 //  *************
-//  ----
+//  SLICK
 //  *************
+.slick-dots {
+    margin: 0 0 0 -12px;
+}
 
 
 //  *************
@@ -222,6 +274,10 @@ text-align: center;
 footer {
     padding: 30px 0;
     font-size: 12px;
+
+    p {
+        font-size: 12px;
+    }
 }
 
 .footer-header {
