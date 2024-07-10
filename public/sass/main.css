@@ -1,5 +1,5 @@
 h1 {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 700;
 }
 @media (min-width: 768px) {
@@ -9,17 +9,27 @@ h1 {
 }
 @media (min-width: 992px) {
   h1 {
-    font-size: 56px;
+    font-size: 52px;
   }
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
 }
 @media (min-width: 768px) {
   h2 {
     font-size: 38px;
+  }
+}
+
+h4 {
+  font-size: 19px;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  h4 {
+    font-size: 22px;
   }
 }
 
@@ -94,6 +104,7 @@ section {
 }
 
 .background--half {
+  padding: 80px 0;
   background: linear-gradient(180deg, #fff 65%, #FFC524 35%);
 }
 @media (min-width: 768px) {
