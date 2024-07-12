@@ -33,37 +33,39 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="#7weeks">
                             Program
                             <span></span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#meetyourcoach">
                             Meet your Coach
                             <span></span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/churches-and-charities">
                             For Charities and Churches
                             <span></span>
                         </a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/tech-leads">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/tech-leads">
                             For Tech Leads
                             <span></span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-button" href="#">Get Started</a>
+                        <a class="nav-button" href="https://cal.com/wilng/tech-lead-coaching" target=”_blank”>Get
+                            Started</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <main>
         <section class="background--white">
             <div class="col-12 container">
@@ -72,11 +74,13 @@
                         We help software engineers become exceptional leaders.
                     </h1>
                     <div class="mt-5 text-end">
-                        <a href="" class="button">Get Started</a>
+                        <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
+                            Started</a>
                     </div>
                 </div>
             </div>
         </section>
+
         <section class="background--yellow">
             <div class="container">
                 <div class="row">
@@ -168,12 +172,13 @@
                         <img src="{{asset('images/asset-3.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
                     <div class="col-12 col-md-4 col-lg-3 py-md-5">
-                        <div class="button px-5">Get Started</div>
+                        <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button px-5">Get
+                            Started</a>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="background--half">
+        <section id="meetyourcoach" class="background--half">
             <div class="container">
                 <div class="d-flex align-items-center row">
                     <div class="col-md-7 pe-5">
@@ -245,7 +250,8 @@
                         <div class="col-md-3">
                             <img src="{{asset('images/asset-5.png')}}" class="icon-image full" alt="">
                             <div class="text-center">
-                                <div class="button">Get Started</div>
+                                <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
+                                    Started</a>
                             </div>
                         </div>
                     </div>
@@ -323,6 +329,13 @@
                 slidesToScroll: 1,
             }
         }, ]
+    });
+
+    $(document).ready(function() {
+        $('.navbar-nav .nav-link').click(function(event) {
+            $('.navbar-nav .nav-link').removeClass('active');
+            $(this).addClass('active');
+        });
     });
     </script>
 
