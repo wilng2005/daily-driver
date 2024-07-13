@@ -183,7 +183,7 @@ section {
   background: #000;
   border-radius: 20px;
   color: #fff;
-  padding: 10px 20px;
+  padding: 8px 15px;
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
@@ -227,4 +227,6 @@ footer p {
 
 .footer-header {
   font-weight: 600;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */

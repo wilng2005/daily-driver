@@ -15,15 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    //return view('home');
-    $tag = Tag::where('slug', 'home')
-        ->where('published_at', '<=', now())
-        ->orderBy('published_at', 'desc')
-        ->first();
 
-    return view('tag', [
-        'tag' => $tag,
-    ]);
+    return view('tech-leads');
+    //return view('home');
+    // $tag = Tag::where('slug', 'home')
+    //     ->where('published_at', '<=', now())
+    //     ->orderBy('published_at', 'desc')
+    //     ->first();
+
+    // return view('tag', [
+    //     'tag' => $tag,
+    // ]);
 
 });
 

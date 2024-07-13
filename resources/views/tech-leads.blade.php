@@ -21,10 +21,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light nav-shadow-bottom bg-white pb-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white pb-3">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://via.placeholder.com/80x50" class="image" alt="">
+                <img src="{{asset('images/logo.png')}}" class="image" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,12 +45,12 @@
                             <span></span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="/churches-and-charities">
                             For Charities and Churches
                             <span></span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link active" href="/tech-leads">
                             For Tech Leads
@@ -74,8 +74,8 @@
                         We help software engineers become exceptional leaders.
                     </h1>
                     <div class="mt-5 text-end">
-                        <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
-                            Started</a>
+                        <!-- <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
+                            Started</a> -->
                     </div>
                 </div>
             </div>
@@ -172,7 +172,7 @@
                         <img src="{{asset('images/asset-3.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
                     <div class="col-12 col-md-4 col-lg-3 py-md-5">
-                        <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button px-5">Get
+                        <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button px-4">Get
                             Started</a>
                     </div>
                 </div>
@@ -270,7 +270,7 @@
             <div class="container">
                 <div class="legal-disclaimer py-5">
                     <div class="footer-header">Legal Notice & Disclaimers</div>
-                    <p>&copy; 2023 Positive Intelligence, LLC</p>
+                    <p>&copy; 2024 Positive Intelligence, LLC</p>
                     <p>The coach identified herein is an independent member of the PQ Coach program and not an
                         employee,
                         agent,
@@ -284,7 +284,7 @@
                         FOR PROFESSIONAL CARE, DIAGNOSIS, OR TREATMENT OF ANY MEDICAL OR MENTAL HEALTH CONDITION.
                     </p>
                     <div class="footer-header">DISCLAIMERS:</div>
-                    <p>&copy; 2023 Positive Intelligence, LLC. All rights reserved. POSITIVE INTELLIGENCE&reg;,
+                    <p>&copy; 2024 Positive Intelligence, LLC. All rights reserved. POSITIVE INTELLIGENCE&reg;,
                         PQ&reg;,
                         CERTIFIED PQ COACH&trade;, PQ COACH&trade; and P+ logo&trade; are trademarks of Positive
                         Intelligence,
