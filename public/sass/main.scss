@@ -1,0 +1,286 @@
+//  *************
+//  COLOURS
+//  *************
+$yellow: #FFC524;
+$orange: #FF8E4F;
+$blue: #82E6E6;
+$green: #63D9A0;
+
+$black: #000;
+$white: #fff;
+
+//  *************
+//  FONTS
+//  *************
+h1 {
+    font-size: 30px;
+    font-weight: 700;
+
+    @media (min-width: 768px) {
+        font-size: 44px;
+    }
+
+    @media (min-width: 992px) {
+        font-size: 52px;
+    }
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 700;
+
+    @media (min-width: 768px) {
+        font-size: 38px;
+    }
+}
+
+h4 {
+    font-size: 19px;
+    font-weight: 600;
+
+    @media (min-width: 768px) {
+        font-size: 22px;
+    }
+}
+
+p {
+    font-family: 'Domine', serif;
+    font-size: 16px;
+
+    @media (min-width: 768px) {
+        font-size: 17px;
+    }
+
+    @media (min-width: 992px) {
+        font-size: 19px;
+    }
+}
+
+.font-p {
+    font-size: 17px;
+
+    @media (min-width: 768px) {
+        font-size: 19px;
+    }
+}
+
+.quote {
+    font-size: 70px;
+    margin-bottom: -20px;
+}
+
+
+//  *************
+//  GLOBAL
+//  *************
+body {
+    background: white;
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: 400;
+}
+
+section {
+    padding: 80px 0;
+
+    @media (min-width: 768px) {
+        padding: 140px 0;
+    }
+}
+
+.background--black {
+    background: $black;
+    color: $white;
+}
+
+.background--white {
+    background: $white;
+    color: $black;
+}
+
+.background--green {
+    background: $green;
+}
+
+.background--orange {
+    background: $orange;
+}
+
+.background--yellow {
+    background: $yellow;
+}
+
+.background--blue {
+    background: $blue;
+}
+
+.background--half {
+    padding: 80px 0;
+    background: linear-gradient(180deg, $white 65%, $yellow 35%);
+
+    @media (min-width: 768px) {
+        background: linear-gradient(90deg, $white 65%, $yellow 35%);
+    }
+}
+
+
+//  *************
+//  NAVBAR
+//  *************
+.navbar-brand {
+line-height: 19px;
+text-align: center;
+}
+
+.navbar-collapse {
+    flex-grow: inherit;
+}
+
+.navbar-nav {
+    font-weight: 600;
+}
+
+.nav-link {
+    color: $black;
+    position: relative;
+    padding: 12px 0 !important;
+    margin: 0 10px;
+    display: inline-block;
+    cursor: pointer;
+
+    span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: #000;
+        transition: all 0.6s;
+    }
+
+    &:hover span{
+        width: 100%;
+    }
+
+    &:hover {
+        color: $black;
+    }
+
+    &.active span{
+        width: 100%;
+    }
+
+    @media (min-width: 992px) {
+        padding: 8px 0 !important;
+    }
+}
+
+.nav-button {
+    background: black;
+    border-radius: 20px;
+    color: white;
+    font-weight: 400;
+    padding: 8px 15px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 12px;
+
+    @media (min-width: 992px) {
+        margin: 0 0 0 10px;
+    }
+}
+
+.nav-shadow-bottom {
+       box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Bottom shadow */
+}
+
+
+//  *************
+//  BUTTONS
+//  *************
+.button {
+    background: $black;
+    border-radius: 20px;
+    color: $white;
+    padding: 8px 15px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        background: lighten($color: #000000, $amount: 15%);
+        transition: all 0.6s;
+    }
+}
+
+
+//  *************
+//  SECTION HEADER CON
+//  *************
+.section-header-con {
+    max-width: 850px;
+}
+
+.details-each {
+    padding-right: 25px;
+}
+
+
+//  *************
+//  ICONS
+//  *************
+.icon-image {
+    width: 70%;
+    height: auto;
+    display: block;
+
+    &.small {
+        width: 30%;
+    }
+
+    &.full {
+        width: 100%;
+    }
+}
+
+//  *************
+//  IMAGES
+//  *************
+
+
+//  *************
+//  SLICK
+//  *************
+.slick-dots {
+    margin: 0 0 0 -12px;
+}
+
+
+//  *************
+//  ---
+//  *************
+
+
+//  *************
+//  ---
+//  *************
+
+
+
+
+
+//  *************
+//  FOOTER
+//  *************
+footer {
+    padding: 30px 0;
+    font-size: 12px;
+
+    p {
+        font-size: 12px;
+    }
+}
+
+.footer-header {
+    font-weight: 600;
+}

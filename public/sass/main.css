@@ -1,0 +1,232 @@
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 44px;
+  }
+}
+@media (min-width: 992px) {
+  h1 {
+    font-size: 52px;
+  }
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 38px;
+  }
+}
+
+h4 {
+  font-size: 19px;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  h4 {
+    font-size: 22px;
+  }
+}
+
+p {
+  font-family: "Domine", serif;
+  font-size: 16px;
+}
+@media (min-width: 768px) {
+  p {
+    font-size: 17px;
+  }
+}
+@media (min-width: 992px) {
+  p {
+    font-size: 19px;
+  }
+}
+
+.font-p {
+  font-size: 17px;
+}
+@media (min-width: 768px) {
+  .font-p {
+    font-size: 19px;
+  }
+}
+
+.quote {
+  font-size: 70px;
+  margin-bottom: -20px;
+}
+
+body {
+  background: white;
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+}
+
+section {
+  padding: 80px 0;
+}
+@media (min-width: 768px) {
+  section {
+    padding: 140px 0;
+  }
+}
+
+.background--black {
+  background: #000;
+  color: #fff;
+}
+
+.background--white {
+  background: #fff;
+  color: #000;
+}
+
+.background--green {
+  background: #63D9A0;
+}
+
+.background--orange {
+  background: #FF8E4F;
+}
+
+.background--yellow {
+  background: #FFC524;
+}
+
+.background--blue {
+  background: #82E6E6;
+}
+
+.background--half {
+  padding: 80px 0;
+  background: linear-gradient(180deg, #fff 65%, #FFC524 35%);
+}
+@media (min-width: 768px) {
+  .background--half {
+    background: linear-gradient(90deg, #fff 65%, #FFC524 35%);
+  }
+}
+
+.navbar-brand {
+  line-height: 19px;
+  text-align: center;
+}
+
+.navbar-collapse {
+  flex-grow: inherit;
+}
+
+.navbar-nav {
+  font-weight: 600;
+}
+
+.nav-link {
+  color: #000;
+  position: relative;
+  padding: 12px 0 !important;
+  margin: 0 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+.nav-link span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #000;
+  transition: all 0.6s;
+}
+.nav-link:hover span {
+  width: 100%;
+}
+.nav-link:hover {
+  color: #000;
+}
+.nav-link.active span {
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .nav-link {
+    padding: 8px 0 !important;
+  }
+}
+
+.nav-button {
+  background: black;
+  border-radius: 20px;
+  color: white;
+  font-weight: 400;
+  padding: 8px 15px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 12px;
+}
+@media (min-width: 992px) {
+  .nav-button {
+    margin: 0 0 0 10px;
+  }
+}
+
+.nav-shadow-bottom {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Bottom shadow */
+}
+
+.button {
+  background: #000;
+  border-radius: 20px;
+  color: #fff;
+  padding: 8px 15px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
+.button:hover {
+  background: #262626;
+  transition: all 0.6s;
+}
+
+.section-header-con {
+  max-width: 850px;
+}
+
+.details-each {
+  padding-right: 25px;
+}
+
+.icon-image {
+  width: 70%;
+  height: auto;
+  display: block;
+}
+.icon-image.small {
+  width: 30%;
+}
+.icon-image.full {
+  width: 100%;
+}
+
+.slick-dots {
+  margin: 0 0 0 -12px;
+}
+
+footer {
+  padding: 30px 0;
+  font-size: 12px;
+}
+footer p {
+  font-size: 12px;
+}
+
+.footer-header {
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=main.css.map */

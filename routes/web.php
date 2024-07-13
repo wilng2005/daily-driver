@@ -14,25 +14,27 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+
+    return view('tech-leads');
+    //return view('home');
+    // $tag = Tag::where('slug', 'home')
+    //     ->where('published_at', '<=', now())
+    //     ->orderBy('published_at', 'desc')
+    //     ->first();
+
+    // return view('tag', [
+    //     'tag' => $tag,
+    // ]);
+
+});
+
 Route::get('/tech-leads', function () {
     return view('tech-leads');
 });
 
 Route::get('/churches-and-charities', function () {
     return view('churches-and-charities');
-});
-
-Route::get('/', function () {
-    //return view('home');
-    $tag = Tag::where('slug', 'home')
-        ->where('published_at', '<=', now())
-        ->orderBy('published_at', 'desc')
-        ->first();
-
-    return view('tag', [
-        'tag' => $tag,
-    ]);
-
 });
 
 Route::get('/tag/{slug}', function (string $slug) {
