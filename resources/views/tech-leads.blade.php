@@ -2,10 +2,38 @@
 <html lang="en">
 
 <head>
+
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Leadership Coaching - Wil Ng</title>
+    <meta name="description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
+
+    <!-- Open Graph Meta Tags for social media sharing -->
+    <meta property="og:title" content="Tech Leadership Coaching - Wil Ng">
+    <meta property="og:description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://greater.than.today">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tech Leadership Coaching - Wil Ng">
+    <meta name="twitter:description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="tech leadership, software engineering coaching, tech leads, CTO coaching, engineering leadership, mental fitness, Agile SCRUM, conflict management, productivity, emotional intelligence, personal wellness">
+
+    <!-- Author -->
+    <meta name="author" content="Wil Ng">
+
+    <!-- Additional Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Leads</title>
+    <title>Greater than Today</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@300;400;600;700&display=swap"
         rel="stylesheet">
