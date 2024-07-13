@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 @if (App::environment('production'))
     <!-- HTML for production environment -->
     <!-- Basic Meta Tags -->
@@ -50,8 +51,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Greater than Today</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
