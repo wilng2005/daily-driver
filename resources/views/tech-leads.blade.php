@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+@if (App::environment('production'))
+    <!-- HTML for production environment -->
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +30,20 @@
     <!-- Additional Meta Tags -->
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
+    
+@else
+    <!-- HTML for non-production environments -->
+     <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staging - Tech Leadership Coaching</title>
+    <meta name="description" content="Staging environment for Tech Leadership Coaching. This site is for testing purposes only.">
+
+    <!-- Robots Meta Tag to prevent indexing -->
+    <meta name="robots" content="noindex, nofollow">
+
+@endif
+    
     
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
