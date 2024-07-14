@@ -228,7 +228,7 @@
             <div class="container">
                 <div class="d-flex align-items-center row">
                     <div class="col-md-7 pe-5">
-                        <div class="font-p mb-5">Meet Your Coach</div>
+                        <div class="font-p mb-5"><strong>Meet Your Coach</strong></div>
                         <h2 class="mb-3">Wil Ng</h2>
                         <div>
                             <p>Head of Engineering at a FinTech start-up and Co-founder of a software development firm.
