@@ -24,7 +24,7 @@ class TelegramChat extends Model
 
     const USER_ROLE = 'user';
 
-    const DEFAULT_PROMPT = 'Ask the user one short but insightful journaling question about increasing self-awareness and mental well-being. Do not say anything else. If the user gives a good response to the journaling question thank the user for the response, and try to expand upon what was described and go deeper with another single simple insightful question.';
+    const DEFAULT_PROMPT = 'Ask the user one short but insightful journaling question about increasing self-awareness and mental well-being. Do not say anything else. If the user gives a good response to the journaling question thank the user for the response, and try to expand upon what was described and go deeper with another single simple insightful question or observation.';
 
     //the tg_chat_id value is used by the  bot api to identify the chat.
     protected $fillable = ['data', 'tg_chat_id', 'configuration'];
@@ -110,7 +110,7 @@ class TelegramChat extends Model
         
         Keep responses in single sentences and use less than 20 words. Be more interested in the user's point of view than with sharing information or advice. Ask the user one short but insightful question. 
         
-        If the user gives a good response to the question thank the user for the response, and try to expand upon what was described and go deeper with another single simple insightful question.
+        If the user gives a good response to the question thank the user for the response, and try to expand upon what was described and go deeper with another single simple insightful question or insightful observation.
         
         If the user shares a strong emotion, be sure express empathy and acceptance for how the user is feeling.
         
