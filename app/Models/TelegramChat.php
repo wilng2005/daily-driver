@@ -148,10 +148,11 @@ class TelegramChat extends Model
         $prompt = array_merge($prompt, $message_prompts);
 
         $final_prompt_text = isset($this->configuration['SYSTEM_CONTEXT_FINAL_PROMPT']) ? $this->configuration['SYSTEM_CONTEXT_FINAL_PROMPT'] : 'Be as helpful as possible.|Limit your response to 50 words.|Limit your response to roughly the same length as previous user responses.';
+        
 
         $final_prompts = explode('|', $final_prompt_text);
 
-        $prompt[] = ['role' => TelegramChat::SYSTEM_ROLE, 'content' => $final_prompts[array_rand($final_prompts)]];
+        //$prompt[] = ['role' => TelegramChat::SYSTEM_ROLE, 'content' => $final_prompts[array_rand($final_prompts)]];
 
         return $prompt;
 
