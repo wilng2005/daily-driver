@@ -133,6 +133,7 @@ final class UserTest extends DuskTestCase
             //assert that the separate user object can be accessed
             $browser->loginAs($user)
                 ->visit('/nova/resources/users/'.$user_a->id)
+                ->waitForText('User Details:')  
                 ->assertDontSee('403')
                 ->assertSee('User Details:')
                 ->assertDontSee('Create Capture');
