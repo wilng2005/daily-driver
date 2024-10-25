@@ -24,10 +24,8 @@ class CleanupMarkdownContent extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        $changes = [];
-
+        // for each model, get the content of the markdown field
         foreach ($models as $model) {
-            $originalContent = $model->content;
             $data['prompt'] = $this->generatePrompt($model->content);
 
             $data['result'] = OpenAI::chat()->create([
@@ -37,20 +35,12 @@ class CleanupMarkdownContent extends Action
 
             $result_text = trim($data['result']['choices'][0]['message']['content'] ?? '');
 
-            if ($result_text && $result_text !== $originalContent) {
+            if ($result_text) {
+                //update model's content with result_text
                 $model->content = $result_text;
                 $model->save();
-
-                $changes[] = [
-                    'model_id' => $model->id,
-                    'original' => substr($originalContent, 0, 100) . '...',
-                    'updated' => substr($result_text, 0, 100) . '...',
-                ];
             }
         }
-
-        return Action::message('Cleanup completed. ' . count($changes) . ' models updated.')
-            ->withDetails($changes);
     }
 
     public function generatePrompt($markdown_content)
