@@ -55,7 +55,7 @@ Route::get('open-ai/schema', function () {
           ]
         ],
         "components" => [
-          "schemas" => []
+          "schemas" => (object) []
         ]
     ]);
 });
