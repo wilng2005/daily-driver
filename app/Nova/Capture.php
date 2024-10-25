@@ -142,6 +142,7 @@ class Capture extends Resource
             new Actions\AddToNextAction,
             new Actions\RefreshPriority,
             new Actions\ChangePriorityNo,
+            new Actions\CleanupMarkdownContent,
         ];
     }
 
