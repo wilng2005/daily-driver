@@ -47,7 +47,7 @@ class CleanupMarkdownContent extends Action
     {
         return [
             ['role' => 'system', 'content' => 'You are a helpful assistant that helps to clean up and format content into markdown. ONLY RETURN THE MARKDOWN CONTENT, DO NOT INCLUDE ANY OTHER TEXT.'],
-            ['role' => 'user', 'content' => 'Here is the markdown content: ' . $this->markdown_content],
+            ['role' => 'user', 'content' => 'Here is the markdown content: ' . $markdown_content],
         ];
     }
 
