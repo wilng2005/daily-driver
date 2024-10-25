@@ -140,9 +140,9 @@ class Capture extends Resource
             new Actions\RemoveFromNextAction,
             new Actions\AddToInbox,
             new Actions\AddToNextAction,
+            new Actions\CleanupMarkdownContent,
             new Actions\RefreshPriority,
             new Actions\ChangePriorityNo,
-            new Actions\CleanupMarkdownContent,
         ];
     }
 
