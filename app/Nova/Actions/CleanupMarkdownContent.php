@@ -46,7 +46,7 @@ class CleanupMarkdownContent extends Action
     public function generatePrompt($markdown_content)
     {
         return [
-            ['role' => 'system', 'content' => 'You are a helpful assistant that helps to clean up and format content into markdown. ONLY RETURN THE MARKDOWN CONTENT, DO NOT INCLUDE ANY OTHER TEXT.'],
+            ['role' => 'system', 'content' => 'You are a helpful assistant that helps to clean up and format content into markdown. ONLY RETURN THE MARKDOWN CONTENT, DO NOT INCLUDE ANY OTHER TEXT. DO NOT INCLUDE ```MARKDOWN or the ``` at the beginning or end of your response as it will be included manually.'],
             ['role' => 'user', 'content' => 'Here is the markdown content: ' . $markdown_content],
         ];
     }
