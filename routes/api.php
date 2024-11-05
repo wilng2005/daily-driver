@@ -60,6 +60,13 @@ Route::get('open-ai/schema', function () {
             ]
         ],
         "components" => [
+            "securitySchemes" => [
+                "ApiTokenAuth" => [
+                    "type" => "apiKey",
+                    "in" => "header",
+                    "name" => "X-API-Token"
+                ]
+            ],
             "schemas" => [
                 "Todo" => [
                     "type" => "object",
@@ -91,6 +98,9 @@ Route::get('open-ai/schema', function () {
                     ]
                 ]
             ]
+        ],
+        "security" => [
+            ["ApiTokenAuth" => []]
         ]
     ]);
 });
