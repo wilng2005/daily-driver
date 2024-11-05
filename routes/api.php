@@ -2,6 +2,7 @@
 
 use App\Jobs\ProcessTelegramUpdate;
 use App\Models\TelegramUpdate;
+use App\Models\Capture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Telegram\Bot\Laravel\Facades\Telegram;
@@ -94,6 +95,16 @@ Route::get('open-ai/schema', function () {
     ]);
 });
 
+Route::get('todos', function () {
+    return Capture::select(
+        'id',
+        'name',
+        'content',
+        'inbox',
+        'next_action',
+        'priority_no'
+    )->get();
+});
 
 Route::post('telegram/dsYeN7rvWz3sGk88X9X4LbQt/webhook', function () {
     //$updates = Telegram::getWebhookUpdate();
