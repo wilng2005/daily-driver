@@ -99,11 +99,14 @@ Route::get('todos', function () {
     return Capture::select(
         'id',
         'name',
-        'content',
+        \DB::raw('SUBSTRING(content, 1, 500) as content'),
         'inbox',
         'next_action',
         'priority_no'
-    )->get();
+    )
+    ->orderBy('created_at', 'desc')
+    ->limit(10)
+    ->get();
 });
 
 Route::post('telegram/dsYeN7rvWz3sGk88X9X4LbQt/webhook', function () {
