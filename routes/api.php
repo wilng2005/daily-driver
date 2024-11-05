@@ -25,37 +25,71 @@ Route::get('open-ai/schema', function () {
     return response()->json([
         "openapi" => "3.1.0",
         "info" => [
-          "title" => "Get weather data",
-          "description" => "Retrieves current weather data for a location.",
-          "version" => "v1.0.0"
+            "title" => "Todo List API",
+            "description" => "API for retrieving todo items and tasks",
+            "version" => "v1.0.0"
         ],
         "servers" => [
-          [
-            "url" => "https://weather2.example.com"
-          ]
+            [
+                "url" => config('app.url') // This will use your Laravel app URL
+            ]
         ],
         "paths" => [
-          "/location" => [
-            "get" => [
-              "description" => "Get temperature for a specific location",
-              "operationId" => "GetCurrentWeather",
-              "parameters" => [
-                [
-                  "name" => "location",
-                  "in" => "query",
-                  "description" => "The city and state to retrieve the weather for",
-                  "required" => true,
-                  "schema" => [
-                    "type" => "string"
-                  ]
+            "/api/todos" => [
+                "get" => [
+                    "description" => "Get a list of all todo items",
+                    "operationId" => "listTodos",
+                    "parameters" => [],
+                    "responses" => [
+                        "200" => [
+                            "description" => "List of todo items",
+                            "content" => [
+                                "application/json" => [
+                                    "schema" => [
+                                        "type" => "array",
+                                        "items" => [
+                                            '$ref' => '#/components/schemas/Todo'
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
                 ]
-              ],
-              "deprecated" => false
             ]
-          ]
         ],
         "components" => [
-          "schemas" => (object) []
+            "schemas" => [
+                "Todo" => [
+                    "type" => "object",
+                    "properties" => [
+                        "id" => [
+                            "type" => "integer",
+                            "description" => "Unique identifier for the todo item"
+                        ],
+                        "name" => [
+                            "type" => "string",
+                            "description" => "Title or brief description of the todo item"
+                        ],
+                        "content" => [
+                            "type" => "string",
+                            "description" => "Detailed notes or additional information about the todo item. Content is typically markdown formatted."
+                        ],
+                        "inbox" => [
+                            "type" => "boolean",
+                            "description" => "Indicates if the item is in the inbox (GTD methodology's collection phase)"
+                        ],
+                        "next_action" => [
+                            "type" => "boolean",
+                            "description" => "Indicates if this is the next actionable item (GTD methodology's next actions list)"
+                        ],
+                        "priority_no" => [
+                            "type" => "integer",
+                            "description" => "Priority level of the todo item (lower numbers indicate higher priority)"
+                        ]
+                    ]
+                ]
+            ]
         ]
     ]);
 });
