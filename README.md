@@ -1,3 +1,9 @@
+
+[![Staging Deployment](https://github.com/wilng2005/daily-driver/actions/workflows/staging-deploy.yml/badge.svg)](https://github.com/wilng2005/daily-driver/actions/workflows/staging-deploy.yml)
+
+[![Production Deployment](https://github.com/wilng2005/daily-driver/actions/workflows/deploy.yml/badge.svg)](https://github.com/wilng2005/daily-driver/actions/workflows/deploy.yml)
+
+
 ## Parking notes
 - I feel like I've done the multi-user support issue but missing
     - Integration testing (probably should plan out the dusk test cases then run them)
