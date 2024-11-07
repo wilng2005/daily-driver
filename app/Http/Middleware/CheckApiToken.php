@@ -9,9 +9,15 @@ class CheckApiToken
 {
     public function handle(Request $request, Closure $next)
     {
+        $configuredToken = config('app.api_token');
+        
+        if (!$configuredToken) {
+            return response()->json(['error' => 'API token not configured'], 500);
+        }
+
         $token = $request->header('X-API-Token');
         
-        if ($token !== config('app.api_token')) {
+        if ($token !== $configuredToken) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
