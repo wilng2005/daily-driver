@@ -117,7 +117,7 @@
             <div class="col-12 container">
                 <div class="section-header-con">
                     <h1>
-                        The first rule in facing any challenge is: don't do it alone.
+                        Life's tough - don't do it alone.
                     </h1>
                     <div class="mt-5 text-end">
                         <!-- <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
@@ -219,7 +219,7 @@
                 <div class="d-flex align-items-end row">
                     <div class="col-12 col-md-8 col-lg-9">
                         <h1>
-                            Aim for the moon, but don't go alone!
+                            Navigate your challenges with ease and flow.
                         </h1>
                         <img src="{{asset('images/asset-3.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
