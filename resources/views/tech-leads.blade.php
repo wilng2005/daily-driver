@@ -313,7 +313,7 @@
         <section class="background--black">
             <div class="container text-center px-4">
                 <h2>
-                    “Success is the sum of small efforts, repeated day-in and day out.”
+                    “Success is the sum of small efforts, repeated day-in and day-out.”
                 </h2>
                 <h2 class="mt-3"><i>- Robert Collier</i></h2>
             </div>
