@@ -274,7 +274,7 @@
             <div class="container">
                 <div class="d-flex align-items-center row">
                     <div class="col-12">
-                        <h2 class="mb-5">7 weeks of intensive training.</h2>
+                        <h2 class="mb-5">Let's get stronger together.</h2>
                     </div>
 
                     <div class="row">
