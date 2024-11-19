@@ -8,18 +8,18 @@
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Leadership Coaching - Wil Ng</title>
+    <title>Tech Coaching - Wil Ng</title>
     <meta name="description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
 
     <!-- Open Graph Meta Tags for social media sharing -->
-    <meta property="og:title" content="Tech Leadership Coaching - Wil Ng">
+    <meta property="og:title" content="Tech Coaching - Wil Ng">
     <meta property="og:description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://greater.than.today">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tech Leadership Coaching - Wil Ng">
+    <meta name="twitter:title" content="Tech Coaching - Wil Ng">
     <meta name="twitter:description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
     
     <!-- Keywords -->
@@ -70,7 +70,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white pb-3">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="{{asset('images/logo.png')}}" class="image" alt="">
+               &nbsp; <!-- <img src="{{asset('images/logo.png')}}" class="image" alt=""> -->
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,12 +97,12 @@
                             <span></span>
                         </a>
                     </li> -->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active" href="/tech-leads">
                             For Tech Leads
                             <span></span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-button" href="https://cal.com/wilng/tech-lead-coaching" target=”_blank”>Get
                             Started</a>
@@ -117,7 +117,7 @@
             <div class="col-12 container">
                 <div class="section-header-con">
                     <h1>
-                        We help software engineers become exceptional leaders.
+                        Life's tough - don't do it alone.
                     </h1>
                     <div class="mt-5 text-end">
                         <!-- <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
@@ -131,10 +131,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="mb-4">Being an engineering leader is hard…
+                        <h2 class="mb-4">Building a career in tech is hard…
                             </h1>
                     </div>
                     <div class="section-slider">
+                        <div class="details-each">
+                            <h4 class="mb-3">Rampant Layoffs</h4>
+                            <p>
+                                Many companies are reshaping their workforce due to economic pressures and technological shifts, leaving many feeling uncertain about the future. 
+                            </p>
+                        </div>
                         <div class="details-each">
                             <h4 class="mb-3">Balancing Technical and Managerial Tasks</h4>
                             <p>
@@ -213,7 +219,7 @@
                 <div class="d-flex align-items-end row">
                     <div class="col-12 col-md-8 col-lg-9">
                         <h1>
-                            From tech leads to CTOs, we empower you to achieve happiness and impact.
+                            Navigate your challenges with ease and flow.
                         </h1>
                         <img src="{{asset('images/asset-3.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
@@ -268,7 +274,7 @@
             <div class="container">
                 <div class="d-flex align-items-center row">
                     <div class="col-12">
-                        <h2 class="mb-5">7 weeks of intensive training.</h2>
+                        <h2 class="mb-5">Let's get stronger together.</h2>
                     </div>
 
                     <div class="row">
@@ -307,7 +313,7 @@
         <section class="background--black">
             <div class="container text-center px-4">
                 <h2>
-                    “Success is the sum of small efforts, repeated day-in and day out.”
+                    “Success is the sum of small efforts, repeated day-in and day-out.”
                 </h2>
                 <h2 class="mt-3"><i>- Robert Collier</i></h2>
             </div>

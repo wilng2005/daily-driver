@@ -31,3 +31,13 @@ environments:
         deploy:
             - 'php artisan migrate'
             - 'php artisan telegram:setwebhook'
+        cloudfront:
+            # ... other cloudfront config ...
+            cache_behavior:
+                # Don't cache API routes
+                '/api/*':
+                    origin: api
+                    headers: ['*']
+                    ttl: 0
+                    forward-cookies: none
+                    forward-query-strings: false
