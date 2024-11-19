@@ -38,9 +38,19 @@ Route::get('open-ai/schema', function () {
         "paths" => [
             "/api/todos" => [
                 "get" => [
-                    "description" => "Get a list of all todo items",
-                    "operationId" => "listTodos",
-                    "parameters" => [],
+                    "description" => "Get a list of todo items based on a search query",
+                    "operationId" => "searchTodos",
+                    "parameters" => [
+                        [
+                            "name" => "search",
+                            "in" => "query",
+                            "description" => "Search term to filter todo items by name or content",
+                            "required" => false,
+                            "schema" => [
+                                "type" => "string"
+                            ]
+                        ]
+                    ],
                     "responses" => [
                         "200" => [
                             "description" => "List of todo items",
@@ -106,18 +116,15 @@ Route::get('open-ai/schema', function () {
 });
 
 Route::middleware('api.token')->group(function () {
-    Route::get('todos', function () {
-        return Capture::select(
-            'id',
-            'name',
-            \DB::raw('SUBSTRING(content, 1, 500) as content'),
-            'inbox',
-            'next_action',
-            'priority_no'
-        )
-        ->orderBy('created_at', 'desc')
-        ->limit(10)
-        ->get();
+    Route::get('todos', function (Request $request) {
+        $searchTerm = $request->input('search', '');
+
+        // Perform the search using Scout
+        $todos = Capture::search($searchTerm)
+            ->take(25) // Limit to top 25 matches
+            ->get();
+
+        return response()->json($todos);
     });
 });
 
