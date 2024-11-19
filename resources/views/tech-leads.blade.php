@@ -117,7 +117,7 @@
             <div class="col-12 container">
                 <div class="section-header-con">
                     <h1>
-                        Life's tough - don't do it alone.
+                        Is building a successful career in tech a solo journey?
                     </h1>
                     <div class="mt-5 text-end">
                         <!-- <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
@@ -131,7 +131,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="mb-4">Building a career in tech is hard…
+                        <h2 class="mb-4">Building a career is hard…
                             </h1>
                     </div>
                     <div class="section-slider">
@@ -219,7 +219,7 @@
                 <div class="d-flex align-items-end row">
                     <div class="col-12 col-md-8 col-lg-9">
                         <h1>
-                            Navigate your challenges with ease and flow.
+                            But you shouldn't have to do it alone.
                         </h1>
                         <img src="{{asset('images/asset-3.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
