@@ -16,11 +16,11 @@ class StartCommand extends Command
     public function handle(): void
     {
         $this->replyWithMessage([
-            'text' => 'This chat bot is designed to help you to challenge and break free from limiting beliefs in your life. Just type /new to get started, and answer the prompts just like a natural conversation.
-
-When you are ready to wrap up, simply type /done.
-
-Let us challenge those limits together and uncover new paths forward!',
+            'text' => 'Hi! This is a chat bot that asks helpful questions to help you reflect on difficult problems and emotions. Simply get started by typing /new and respond to the question prompts like you would with any normal conversation.
+            
+Try to be as reflective and specific as possible, as this would help you to establish mental clarity about your own thoughts and feelings.
+            
+Once you are done, you can type /done to end the conversation.',
         ]);
     }
 }
