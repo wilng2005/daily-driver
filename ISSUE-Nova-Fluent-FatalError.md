@@ -25,7 +25,15 @@ A fatal server error occurs when running the "Add to Next Action" action in Lara
 A method signature incompatibility between `Laravel\Nova\Support\Fluent::fill` and `Illuminate\Support\Fluent::fill`. This may be due to a version mismatch between Laravel Nova and the core Laravel framework.
 
 ## Next Steps
-- Check `composer.json` and `composer.lock` for Laravel and Nova versions.
-- Compare method signatures in the relevant classes.
-- Investigate for known issues or incompatibilities.
-- Propose a solution based on findings.
+- Confirmed: Project uses Laravel 11 and Nova 4.x (not compatible).
+- Latest compatible Nova version for Laravel 11 is Nova 5.x.
+- Upgrade Nova to 5.x for compatibility with Laravel 11.
+- Update `composer.json` requirement for `laravel/nova` to `^5.0`.
+- Run `./vendor/bin/sail composer update laravel/nova` to upgrade Nova.
+- Test the Nova admin panel and "Add to Next Action" feature.
+
+## Solution
+Upgrade Laravel Nova to version 5.x, which officially supports Laravel 11. This resolves the method signature incompatibility and ensures continued compatibility with the latest Laravel framework.
+
+**References:**
+- [Nova 5 Upgrade Guide](https://nova.laravel.com/docs/v5/upgrade)
