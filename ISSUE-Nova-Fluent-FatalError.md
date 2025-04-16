@@ -35,5 +35,15 @@ A method signature incompatibility between `Laravel\Nova\Support\Fluent::fill` a
 ## Solution
 Upgrade Laravel Nova to version 5.x, which officially supports Laravel 11. This resolves the method signature incompatibility and ensures continued compatibility with the latest Laravel framework.
 
+## Test-Driven Bug Fixing Plan
+To prevent this issue from reoccurring and to catch similar regressions in the future, we will:
+1. Implement a Laravel Dusk browser test to simulate the "Add to Next Action" workflow in Nova.
+2. Confirm the test fails due to the current bug (fatal error).
+3. Apply the fix (upgrade Nova to 5.x).
+4. Re-run the browser test to confirm the issue is resolved.
+5. Keep the test in the suite to detect future regressions before they reach production.
+
+This approach ensures confidence in the fix and maintains long-term stability for this Nova action.
+
 **References:**
 - [Nova 5 Upgrade Guide](https://nova.laravel.com/docs/v5/upgrade)
