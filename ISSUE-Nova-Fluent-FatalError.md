@@ -64,27 +64,30 @@ A fatal server error occurs when running the "Add to Next Action" action in Lara
 
 - All Dusk/browser tests now pass after resolving timing and assertion issues.
 - Nova 5 upgrade is complete and stable.
-- The current focus is testing the ARM runtime (`php-8.3:al2-arm`) on staging for cost/performance evaluation.
+- Staging is now running on ARM (`php-8.3:al2-arm`) with PHP 8.3, and the CI/CD pipeline has been updated to match (uses PHP 8.3 and Sail php83-composer). All tests and deployments are green.
 
-**ARM Runtime Test on Staging:**
-- See next steps checklist below for what to do when resuming work.
+**Summary of Changes Made:**
+- Updated `vapor.yml` for staging to use `php-8.3:al2-arm` runtime.
+- Updated `.github/workflows/staging-deploy.yml` to use PHP 8.3 and Sail php83-composer in all jobs.
+- Confirmed all dependencies (including openspout/openspout) are compatible and install cleanly on PHP 8.3.
+- Verified CI/CD pipeline and application health on staging.
 
-**Next Steps Checklist:**
-1. **Push the commit with the ARM runtime change to the staging branch.**
-2. **Wait for the CI/CD pipeline to deploy to staging.**
-3. **Monitor the build and deployment logs for errors, especially related to ARM compatibility.**
-4. **Test the staging environment thoroughly:**
-   - Log in to Nova and verify all actions (including "Add to Next Action") work.
-   - Check workflows involving PHP extensions or binaries (file uploads, image processing, etc.).
-   - Review application and Vapor logs for any runtime errors.
-5. **If everything works:**
-   - Consider updating production to ARM (`php-8.3:al2-arm`) for cost/performance benefits.
-6. **If you encounter issues:**
-   - Revert staging to `php-8.2:al2` or `php-8.3:al2` (x86) and investigate errors.
+**Next Steps: Production Rollout Plan**
+1. **Replicate the CI/CD changes for production:**
+   - Update `.github/workflows/deploy.yml` (or equivalent) to use PHP 8.3 and Sail php83-composer, just like staging.
+2. **Update `vapor.yml` for production:**
+   - Change the production environment `runtime` to `php-8.3:al2-arm` (or `php-8.3:al2` if you want to start with x86 for safety).
+3. **Commit and push these changes to the production branch.**
+4. **Monitor the CI/CD pipeline and deployment logs for errors.**
+5. **Verify production health:**
+   - Test all critical workflows and Nova actions.
+   - Watch for any PHP extension or performance issues.
+6. **If any issues arise:**
+   - Roll back to the previous runtime or investigate errors as needed.
 
 **Important Notes:**
-- CI/CD is the deployment method for staging—do not use manual `vapor deploy staging`.
-- This documentation is up to date as of 2025-04-17. Review these steps before making further changes.
+- Continue to use CI/CD for production deployments (manual `vapor deploy` is not recommended for your workflow).
+- Document any issues or lessons learned from production rollout here for future reference.
 
 ---
 
