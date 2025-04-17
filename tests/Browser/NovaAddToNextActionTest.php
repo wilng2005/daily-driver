@@ -45,8 +45,11 @@ class NovaAddToNextActionTest extends DuskTestCase
                 ->select('@action-select', 'add-to-next-action')
                 ->waitForText('Run Action', 5)
                 ->press('Run Action')
-                // End browser interaction
-                ;
+                // Wait for Nova success notification (adjust text if your Nova uses different wording)
+                ->waitForText('Action executed successfully', 5)
+                // Wait for the green checkmark to appear in the UI
+                ->waitFor('.text-green-500', 5)
+                ->assertPresent('.text-green-500');
 
         // Refresh the capture and assert the action succeeded
         $capture->refresh();
