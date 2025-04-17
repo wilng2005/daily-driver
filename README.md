@@ -13,7 +13,6 @@
 - Wish you the best!
 
 
-
 ## Useful Commands
 
 - `./vendor/bin/sail test --coverage-html=./coverage-report` - Generate a coverage report
