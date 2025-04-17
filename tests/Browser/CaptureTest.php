@@ -45,6 +45,7 @@ final class CaptureTest extends DuskTestCase
             $browser->loginAs($user)
                 ->visit('/nova/resources/captures')
                 ->waitForText('Captures')
+                ->waitForText('Projects/Project A1')
                 ->assertSee('Projects/Project A1')
                 ->screenshot('test_capture_column_is_working');
         });
