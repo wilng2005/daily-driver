@@ -12,11 +12,11 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.2
+          php-version: 8.3
           tools: composer:v2
           coverage: xdebug
       - name: Setup Laravel Sail
-        uses: docker://laravelsail/php81-composer:latest
+        uses: docker://laravelsail/php83-composer:latest
       - name: Setup nova credentials
         run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_LICENSE_KEY }}
       - name: Install Project Dependencies
@@ -47,7 +47,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.2
+          php-version: 8.3
           tools: composer:v2
           coverage: none
       - name: Require Vapor CLI
