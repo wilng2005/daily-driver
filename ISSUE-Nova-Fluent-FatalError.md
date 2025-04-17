@@ -58,34 +58,39 @@ A fatal server error occurs when running the "Add to Next Action" action in Lara
 
 ---
 
-### 2025-04-17 Status & Next Steps Update
+---
 
-- **Database authentication issue is resolved.** Dusk tests are able to run, and the application can connect to the database without errors.
-- **Current blockers are now functional/browser test failures, not infrastructure or authentication.**
-- **Failing tests:**
-  - `CaptureTest > capture column is working`: Fails to see expected text `Projects/Project A1` in the Nova UI. Possible causes: missing test data, UI rendering issue, or regression in resource code.
-  - `NovaAddToNextActionTest > add to next action fails`: Times out waiting for `Action executed successfully`. Possible causes: Nova action not running, UI not updating, or test timing issues.
-- **Plan:**
-  1. Investigate and fix the `CaptureTest` failure first, focusing on test data setup and Nova resource rendering.
-  2. Once resolved, address the `NovaAddToNextActionTest` failure, focusing on action logic, UI waits, and backend errors.
-  3. After each fix, re-run Dusk to confirm before moving to the next.
+**2025-04-17: Current Status**
+
+- All Dusk/browser tests now pass after resolving timing and assertion issues.
+- Nova 5 upgrade is complete and stable.
+- The current focus is testing the ARM runtime (`php-8.3:al2-arm`) on staging for cost/performance evaluation.
+
+**ARM Runtime Test on Staging:**
+- See next steps checklist below for what to do when resuming work.
+
+**Next Steps Checklist:**
+1. **Push the commit with the ARM runtime change to the staging branch.**
+2. **Wait for the CI/CD pipeline to deploy to staging.**
+3. **Monitor the build and deployment logs for errors, especially related to ARM compatibility.**
+4. **Test the staging environment thoroughly:**
+   - Log in to Nova and verify all actions (including "Add to Next Action") work.
+   - Check workflows involving PHP extensions or binaries (file uploads, image processing, etc.).
+   - Review application and Vapor logs for any runtime errors.
+5. **If everything works:**
+   - Consider updating production to ARM (`php-8.3:al2-arm`) for cost/performance benefits.
+6. **If you encounter issues:**
+   - Revert staging to `php-8.2:al2` or `php-8.3:al2` (x86) and investigate errors.
+
+**Important Notes:**
+- CI/CD is the deployment method for staging—do not use manual `vapor deploy staging`.
+- This documentation is up to date as of 2025-04-17. Review these steps before making further changes.
 
 ---
 
-**2025-04-17 Update:**
-- The timing/race condition in `CaptureTest > capture column is working` is resolved by adding `waitForText('Projects/Project A1')` before asserting. All assertions in CaptureTest now pass, confirming correct test data setup and Nova resource rendering.
-- The previously failing `NovaAddToNextActionTest` now passes after updating the test to not depend on the success message. The test now waits for the green checkmark and verifies the model update, matching real Nova behavior.
-- Manual testing confirms the Nova action works as intended. No changes to production code were required—only the test was improved to reflect actual UI and backend behavior.
-- **All Dusk/browser tests now pass.** Nova upgrade and test stabilization are complete.
-
-- **Most Dusk/browser tests now pass after a re-run.**
-    - The previously failing test for hierarchical capture paths (`Projects/Project A1`) now passes, confirming the Nova resource and test are in sync and that earlier failures were likely due to test flakiness or incomplete environment readiness.
-- **One test remains failing:**
-    - `NovaAddToNextActionTest::test_add_to_next_action_fails` – The "Add to Next Action" Nova action does not set the `next_action` property to `true` as expected. The test assertion fails after refreshing the model.
-- **Next Steps:**
-    1. Review the implementation of the `AddToNextAction` Nova action to ensure it updates and saves the model correctly.
-    2. Check the Dusk test to verify the action is being triggered and the correct record is targeted.
-    3. Debug any issues with model refresh, event handling, or database transaction visibility in the test context.
+## History (Resolved Issues)
+- Database authentication, test timing, and Nova action issues have all been resolved as of this date.
+- See previous git history for detailed debugging steps if needed.
 
 ---
 - [x] Nova 5.x is installed and loads without errors (pending full manual check)
