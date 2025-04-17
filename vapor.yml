@@ -5,7 +5,7 @@ environments:
         storage: daily-driver-production-storage
         memory: 1024
         cli-memory: 512
-        runtime: 'php-8.2:al2'
+        runtime: 'php-8.3:al2-arm'
         timeout: 600
         domain: greater.than.today
         database: daily-driver-production-b
