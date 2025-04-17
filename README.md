@@ -6,6 +6,8 @@
 
 A modern Laravel 11 application with Nova 5 admin panel, automated browser testing, and fully automated CI/CD deployments on AWS Lambda (Vapor) using PHP 8.3 and ARM for cost and performance efficiency.
 
+> **This application powers the public-facing coaching website [greater.than.today](https://greater.than.today), serving as the main platform for coaching services, resources, and client engagement.**
+
 ---
 
 ## 🚀 Features
@@ -18,6 +20,9 @@ A modern Laravel 11 application with Nova 5 admin panel, automated browser testi
 
 ### 📖 Features & Usage
 For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FEATURES.md](docs/NOVA-FEATURES.md).
+
+### 📰 AI-Generated Articles
+See the [AI-Generated Articles Feature Plan](docs/FEATURE-AI-ARTICLES.md) for the roadmap and technical details of the automated articles section, which provides regularly updated coaching content powered by AI and reviewed via the Nova admin panel.
 
 ---
 
