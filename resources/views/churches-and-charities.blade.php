@@ -108,7 +108,7 @@
                             <p>
                                 This can be especially challenging if they have families to support
                             </p>
-                            <img src="{{asset('images/asset-2.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                            <img src="{{asset('images/asset-2v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                         </div>
                         <div class="details-each">
                             <h4 class="mb-3">Conflict Management</h4>
@@ -139,7 +139,7 @@
                             <p>
                                 This can strain family relationships and lead to feelings of isolation.
                             </p>
-                            <img src="{{asset('images/asset-7.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                            <img src="{{asset('images/asset-7v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                         </div>
                         <div class="details-each">
                             <h4 class="mb-3">Personal Faith Struggles</h4>
@@ -164,7 +164,7 @@
                                 Essential for balancing multiple responsibilities, but can be improved with
                                 experience and tools.
                             </p>
-                            <img src="{{asset('images/asset.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                            <img src="{{asset('images/assetv2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                         </div>
                         <div class="details-each">
                             <h4 class="mb-3">Communicating Vision</h4>
@@ -186,7 +186,7 @@
                         <h1>
                             Shouldn’t serving others be easier than this?
                         </h1>
-                        <img src="{{asset('images/asset-6.png')}}" class="icon-image small ms-auto" alt="">
+                        <img src="{{asset('images/asset-6v2.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
                     <div class="col-12 col-md-4 col-lg-3 py-md-5">
                         <a href="https://cal.com/wilng/kingdom-coaching" target=”_blank” class="button px-5">Get
@@ -228,7 +228,7 @@
                         <p> — Tony Tong, CTO of The Mind Reader</p>
                     </div>
                     <div class="px-4 col-12 col-md-5">
-                        <img src="{{asset('images/asset-4.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/asset-4v2.png')}}" class="icon-image full" alt="">
                     </div>
                 </div>
             </div>
@@ -263,7 +263,7 @@
                             </p>
                         </div>
                         <div class="col-md-3">
-                            <img src="{{asset('images/asset-5.png')}}" class="icon-image full" alt="">
+                            <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
                             <div class="text-center">
                                 <a href="https://cal.com/wilng/kingdom-coaching" target=”_blank” class="button">Get
                                     Started</a>

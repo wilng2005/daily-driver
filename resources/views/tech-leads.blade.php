@@ -154,7 +154,7 @@
                                 Essential for long-term success, developing skills like communication, conflict
                                 resolution, and motivation is critical.
                             </p>
-                            <img src="{{asset('images/asset-2.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                            <img src="{{asset('images/asset-2v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                         </div>
                         <div class="details-each">
                             <h4 class="mb-3">Managing Team Dynamics</h4>
@@ -177,7 +177,7 @@
                                 team
                                 growth and productivity.
                             </p>
-                            <img src="{{asset('images/asset-1.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                            <img src="{{asset('images/asset-1v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                         </div>
                         <div class="details-each">
                             <h4 class="mb-3">Building Trust and Respect</h4>
@@ -199,7 +199,7 @@
                                 Essential for balancing multiple responsibilities, but can be improved with
                                 experience and tools.
                             </p>
-                            <img src="{{asset('images/asset.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                            <img src="{{asset('images/assetv2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                         </div>
                         <div class="details-each">
                             <h4 class="mb-3">Communicating Vision</h4>
@@ -221,7 +221,7 @@
                         <h1>
                             But you shouldn't have to do it alone.
                         </h1>
-                        <img src="{{asset('images/asset-3.png')}}" class="icon-image small ms-auto" alt="">
+                        <img src="{{asset('images/asset-3v2.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
                     <div class="col-12 col-md-4 col-lg-3 py-md-5">
                         <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button px-4">Get
@@ -265,7 +265,7 @@
                         <p> — Tony Tong, CTO of The Mind Reader</p>
                     </div>
                     <div class="px-4 col-12 col-md-5">
-                        <img src="{{asset('images/asset-4.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/asset-4v2.png')}}" class="icon-image full" alt="">
                     </div>
                 </div>
             </div>
@@ -300,7 +300,7 @@
                             </p>
                         </div>
                         <div class="col-md-3">
-                            <img src="{{asset('images/asset-5.png')}}" class="icon-image full" alt="">
+                            <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
                             <div class="text-center">
                                 <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
                                     Started</a>

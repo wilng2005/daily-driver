@@ -103,6 +103,7 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 ## 🤝 Contributing & Documentation
 - See [docs/API.md](docs/API.md) for the full API reference (endpoints, authentication, schemas, and examples)
 - See [docs/ARCHIVED-ISSUE-Nova-Fluent-FatalError.md](docs/ARCHIVED-ISSUE-Nova-Fluent-FatalError.md) for the full history of the Nova Fluent FatalError issue (archived, completed, and closed)
+- See [ISSUE-UI-UPDATES.md](ISSUE-UI-UPDATES.md) for the latest UI asset update issue documentation
 - All major changes and lessons learned are documented in the repo
 - Please open issues or PRs for bugs, improvements, or questions
 
