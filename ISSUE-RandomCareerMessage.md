@@ -22,6 +22,8 @@ Currently, the section displays a static message. To make the user experience mo
     - “I’m scared I’ll mess this up if I keep going like this.”
 - The implementation should be server-side (in Blade/PHP), so the message changes per page load.
 - The messages should be easily editable for future updates.
+- The random message fully replaces the original H1 heading ("Why is building a successful career so difficult?").
+- The displayed message is wrapped in double quotes and italics, and uses a slightly smaller font size for visual hierarchy.
 
 ---
 
@@ -54,45 +56,14 @@ Currently, the section displays a static message. To make the user experience mo
 ## 🧪 Testing & Validation
 
 **Automated Feature Test (Recommended):**
-- Create or update a feature test (e.g., `tests/Feature/TechLeadsPageTest.php`).
-- The test should:
-  - Define the allowed set of messages.
-  - Request the page multiple times (e.g., 20–100) to cover randomness.
-  - Assert that each response contains exactly one of the allowed messages.
-  - (Optional) Assert that all messages appear at least once over many runs.
-
-**Sample PHPUnit Test Skeleton:**
-
-```php
-public function test_random_career_message_is_displayed()
-{
-    $messages = [
-        "I feel like I’m constantly putting out fires, but not really growing.",
-        "I’m stuck. I know something needs to change, but I don’t know what.",
-        // ... (other messages)
-    ];
-
-    $seen = [];
-    for ($i = 0; $i < 50; $i++) {
-        $response = $this->get('/tech-leads');
-        $found = false;
-        foreach ($messages as $msg) {
-            if (str_contains($response->getContent(), $msg)) {
-                $seen[$msg] = true;
-                $found = true;
-                break;
-            }
-        }
-        $this->assertTrue($found, 'Response did not contain any allowed message.');
-    }
-    // Optionally, assert all messages were seen at least once
-    $this->assertCount(count($messages), $seen, 'Not all messages appeared after multiple loads.');
-}
-```
+- A feature test in `tests/Feature/TechLeadsPageTest.php` verifies:
+  - Only allowed messages are ever displayed.
+  - Over multiple loads, all messages are possible.
+  - The message fully replaces the H1 heading.
+- All feature and Dusk/browser tests pass after these changes, confirming both server-side and browser rendering are correct.
 
 **Other Testing Approaches:**
-- Use Laravel Dusk/browser tests for end-to-end validation if desired.
-- Manual spot-checking: reload the page several times and visually confirm only allowed messages appear.
+- Manual spot-checking: reload the page several times and visually confirm only allowed messages appear, with correct styling.
 
 **Rationale:**
 Automated tests ensure reliability, prevent regressions, and support CI/CD best practices.
