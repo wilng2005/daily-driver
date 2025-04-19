@@ -122,9 +122,23 @@
         <section class="background--white">
             <div class="col-12 container">
                 <div class="section-header-con">
-                    <h1>
-                        Is building a successful career in tech a solo journey?
-                    </h1>
+                    @php
+    use Illuminate\Support\Arr;
+    $careerMessages = [
+        "I feel like I’m constantly putting out fires, but not really growing.",
+        "I’m stuck. I know something needs to change, but I don’t know what.",
+        "I’ve hit a ceiling in my business and can’t see how to move forward.",
+        "I’m burning out, but I don’t want to slow down and lose momentum.",
+        "I don’t have anyone I can really talk to about this stuff.",
+        "Things look fine on the outside, but inside I’m stressed all the time.",
+        "I want to lead better, but I keep repeating the same patterns.",
+        "I’m scared I’ll mess this up if I keep going like this."
+    ];
+    $randomCareerMessage = Arr::random($careerMessages);
+@endphp
+<h1 style="font-size:2rem;">
+    <em>"{{ $randomCareerMessage }}"</em>
+</h1>
                     <div class="mt-5 text-end">
                         <!-- <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
                             Started</a> -->
@@ -137,7 +151,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="mb-4">Building a career is hard…
+                        <h2 class="mb-4">Making progress can be hard…
                             </h1>
                     </div>
                     <div class="section-slider">
@@ -148,7 +162,7 @@
                             </p>
                         </div>
                         <div class="details-each">
-                            <h4 class="mb-3">Balancing Technical and Managerial Tasks</h4>
+                            <h4 class="mb-3">Balancing Work and Parenting</h4>
                             <p>
                                 This is often the most immediate and pressing challenge as it affects daily
                                 operations and the leader's ability to fulfill both roles effectively.
@@ -160,7 +174,7 @@
                                 Essential for long-term success, developing skills like communication, conflict
                                 resolution, and motivation is critical.
                             </p>
-                            <img src="{{asset('images/asset-2.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                            <img src="{{asset('images/asset-2v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                         </div>
                         <div class="details-each">
                             <h4 class="mb-3">Managing Team Dynamics</h4>
@@ -183,7 +197,7 @@
                                 team
                                 growth and productivity.
                             </p>
-                            <img src="{{asset('images/asset-1.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                            <img src="{{asset('images/asset-1v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                         </div>
                         <div class="details-each">
                             <h4 class="mb-3">Building Trust and Respect</h4>
@@ -205,7 +219,7 @@
                                 Essential for balancing multiple responsibilities, but can be improved with
                                 experience and tools.
                             </p>
-                            <img src="{{asset('images/asset.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                            <img src="{{asset('images/assetv2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                         </div>
                         <div class="details-each">
                             <h4 class="mb-3">Communicating Vision</h4>
@@ -225,9 +239,9 @@
                 <div class="d-flex align-items-end row">
                     <div class="col-12 col-md-8 col-lg-9">
                         <h1>
-                            But you shouldn't have to do it alone.
+                        You can’t shortcut the work, but you can enjoy the process.
                         </h1>
-                        <img src="{{asset('images/asset-3.png')}}" class="icon-image small ms-auto" alt="">
+                        <img src="{{asset('images/asset-3v2.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
                     <div class="col-12 col-md-4 col-lg-3 py-md-5">
                         <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button px-4">Get
@@ -271,7 +285,7 @@
                         <p> — Tony Tong, CTO of The Mind Reader</p>
                     </div>
                     <div class="px-4 col-12 col-md-5">
-                        <img src="{{asset('images/asset-4.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/asset-4v2.png')}}" class="icon-image full" alt="">
                     </div>
                 </div>
             </div>
@@ -306,7 +320,7 @@
                             </p>
                         </div>
                         <div class="col-md-3">
-                            <img src="{{asset('images/asset-5.png')}}" class="icon-image full" alt="">
+                            <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
                             <div class="text-center">
                                 <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
                                     Started</a>
@@ -328,29 +342,17 @@
             <div class="container">
                 <div class="legal-disclaimer py-5">
                     <div class="footer-header">Legal Notice & Disclaimers</div>
-                    <p>&copy; 2024 Positive Intelligence, LLC</p>
-                    <p>The coach identified herein is an independent member of the PQ Coach program and not an
-                        employee,
-                        agent,
-                        or representative of Positive Intelligence, LLC. The coaching program offered herein is
-                        independently
-                        owned and operated by the coach and is not affiliated with, endorsed, or sponsored by
-                        Positive
-                        Intelligence, LLC.</p>
+                    <p>&copy; 2025 PSALM12SEVEN PRIVATE LIMITED (202443598Z)</p>
+                    
                     <p>PROGRAM CONTENT AND MATERIAL DO NOT CONSTITUTE MEDICAL OR MENTAL HEALTH ADVICE AND ARE NOT A
                         SUBSTITUTE
                         FOR PROFESSIONAL CARE, DIAGNOSIS, OR TREATMENT OF ANY MEDICAL OR MENTAL HEALTH CONDITION.
                     </p>
                     <div class="footer-header">DISCLAIMERS:</div>
-                    <p>&copy; 2024 Positive Intelligence, LLC. All rights reserved. POSITIVE INTELLIGENCE&reg;,
-                        PQ&reg;,
-                        CERTIFIED PQ COACH&trade;, PQ COACH&trade; and P+ logo&trade; are trademarks of Positive
-                        Intelligence,
-                        LLC.</p>
                     <p>No reproduction, alteration, translation, publication, or distribution, in any form, printed
                         or
-                        electronic, is permitted without the express prior written consent of Positive Intelligence,
-                        LLC.
+                        electronic, is permitted without the express prior wr   itten consent of PSALM12SEVEN PRIVATE
+                        LIMITED.
                     </p>
                 </div>
             </div>
