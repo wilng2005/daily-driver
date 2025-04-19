@@ -145,7 +145,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="mb-4">Building a career is hard…
+                        <h2 class="mb-4">Making progress can be hard…
                             </h1>
                     </div>
                     <div class="section-slider">
