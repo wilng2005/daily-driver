@@ -117,7 +117,7 @@
             <div class="col-12 container">
                 <div class="section-header-con">
                     <h1>
-                        Is building a successful career in tech a solo journey?
+                        Why is building a successful career so difficult?
                     </h1>
                     <div class="mt-5 text-end">
                         <!-- <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
@@ -142,7 +142,7 @@
                             </p>
                         </div>
                         <div class="details-each">
-                            <h4 class="mb-3">Balancing Technical and Managerial Tasks</h4>
+                            <h4 class="mb-3">Balancing Work and Parenting</h4>
                             <p>
                                 This is often the most immediate and pressing challenge as it affects daily
                                 operations and the leader's ability to fulfill both roles effectively.
@@ -219,7 +219,7 @@
                 <div class="d-flex align-items-end row">
                     <div class="col-12 col-md-8 col-lg-9">
                         <h1>
-                            But you shouldn't have to do it alone.
+                        You can’t shortcut the work, but you can enjoy the process.
                         </h1>
                         <img src="{{asset('images/asset-3v2.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
@@ -322,29 +322,17 @@
             <div class="container">
                 <div class="legal-disclaimer py-5">
                     <div class="footer-header">Legal Notice & Disclaimers</div>
-                    <p>&copy; 2024 Positive Intelligence, LLC</p>
-                    <p>The coach identified herein is an independent member of the PQ Coach program and not an
-                        employee,
-                        agent,
-                        or representative of Positive Intelligence, LLC. The coaching program offered herein is
-                        independently
-                        owned and operated by the coach and is not affiliated with, endorsed, or sponsored by
-                        Positive
-                        Intelligence, LLC.</p>
+                    <p>&copy; 2025 PSALM12SEVEN PRIVATE LIMITED (202443598Z)</p>
+                    
                     <p>PROGRAM CONTENT AND MATERIAL DO NOT CONSTITUTE MEDICAL OR MENTAL HEALTH ADVICE AND ARE NOT A
                         SUBSTITUTE
                         FOR PROFESSIONAL CARE, DIAGNOSIS, OR TREATMENT OF ANY MEDICAL OR MENTAL HEALTH CONDITION.
                     </p>
                     <div class="footer-header">DISCLAIMERS:</div>
-                    <p>&copy; 2024 Positive Intelligence, LLC. All rights reserved. POSITIVE INTELLIGENCE&reg;,
-                        PQ&reg;,
-                        CERTIFIED PQ COACH&trade;, PQ COACH&trade; and P+ logo&trade; are trademarks of Positive
-                        Intelligence,
-                        LLC.</p>
                     <p>No reproduction, alteration, translation, publication, or distribution, in any form, printed
                         or
-                        electronic, is permitted without the express prior written consent of Positive Intelligence,
-                        LLC.
+                        electronic, is permitted without the express prior wr   itten consent of PSALM12SEVEN PRIVATE
+                        LIMITED.
                     </p>
                 </div>
             </div>

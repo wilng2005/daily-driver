@@ -8,6 +8,7 @@ This issue documents all UI-related changes made to image asset references in Bl
 - `resources/views/churches-and-charities.blade.php`
 
 ## Changes Made
+
 ### Image Asset Reference Updates
 All references to the following image assets were updated to their new versioned filenames to ensure the latest images are served:
 
@@ -23,6 +24,17 @@ All references to the following image assets were updated to their new versioned
 | asset.png                    | assetv2.png                  |
 
 All changes were made within Blade template files using the `{{ asset('images/...') }}` helper.
+
+### UI and Content Updates in `tech-leads.blade.php`
+- Changed the main header wording from "Is building a successful career in tech a solo journey?" to "Why is building a successful career so difficult?"
+- Updated section title from "Balancing Technical and Managerial Tasks" to "Balancing Work and Parenting" for improved relevance.
+- Changed a key motivational heading from "But you shouldn't have to do it alone." to "You can’t shortcut the work, but you can enjoy the process."
+- Replaced the legal disclaimer and copyright footer:
+  - Removed all references to Positive Intelligence, LLC and PQ Coach program.
+  - Added new copyright: "© 2025 PSALM12SEVEN PRIVATE LIMITED (202443598Z)".
+  - Updated legal language to reference PSALM12SEVEN PRIVATE LIMITED instead of Positive Intelligence, LLC.
+
+These changes improve clarity, relevance, and legal compliance for the coaching program and site.
 
 ## Rationale
 - Ensures the UI uses the latest image assets for improved visuals and branding.
