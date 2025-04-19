@@ -8,41 +8,62 @@ This feature introduces an Articles section to the greater.than.today website, f
 ## Articles Index UI Modernization (2025-04-18)
 
 ### What Has Been Done
-- **Palette:** Updated `/articles` to use the exact color palette from the tech-leads page. Main yellow is now `#FFC524`, with white for cards and content, and blue/orange/green available for accents.
-- **Layout:** Modernized the articles index page with a hero, grid layout, and sidebar. All layout and styling is now inspired solely by the tech-leads page.
-- **Custom CSS:** Extracted shared and articles-specific CSS into `public/css/articles-custom.css`.
-- **Seeder/Test:** Added a new article to the seeder and created a test for it (TDD).
-- **TDD:** All changes are covered by feature tests.
-- **CI/CD:** All changes are compatible with automated deployment.
+- Articles index UI modernized and palette-matched to tech-leads.
+- Custom CSS extracted for articles.
+- Seeder and feature tests added for new article (TDD-first).
+- Navigation: “Articles” link added to tech-leads page for discoverability.
+- TDD and CI/CD practices in place and verified.
+- Model, migration, Nova resource fields, and filters implemented.
+- Database seeding ready for local development.
 
-### What Needs To Be Fixed Next
-- **Hyperlink Color:** Blue hyperlinks do not fit the palette; update to a palette-appropriate color (likely black or orange).
-- **Rounded Corners:** Card and sidebar rounding need to match tech-leads (may need less/more rounding or shadow tweaks).
-- **Remove 'Feeling stuck' Section:** The sidebar's "Feeling stuck?" section is now considered unnecessary; remove it for a cleaner design.
-- **Polish:** General visual polish—spacing, font sizes, button styles, and hover effects to better match tech-leads.
-- **Accessibility:** Review for color contrast and keyboard navigation.
+---
 
-### Design Notes
-- **Reference Only Tech-Leads:** All design decisions must use the tech-leads page as the sole reference. Legacy/post page styles are deprecated.
-- **TDD Required:** Tests must be written/updated before UI or logic changes.
-- **Palette Reference:**
-  - Yellow: `#FFC524`
-  - Blue: `#82E6E6`
-  - Orange: `#FF8E4F`
-  - Green: `#63D9A0`
-  - Black: `#000`
-  - White: `#fff`
+### What Needs To Be Done Next
 
-### Blockers
-- None. All tests pass and the environment is stable.
+#### UI/UX Improvements
+- [ ] Fix hyperlink color on articles index page to match the palette.
+- [ ] Adjust card and sidebar rounding to match tech-leads.
+- [ ] Remove the “Feeling stuck?” sidebar section from articles index.
+- [ ] Polish spacing, typography, and button styles for consistency.
+- [ ] Verify all changes visually and via browser tests.
 
-### How To Resume Next Session
-1. Fix hyperlink color on the articles index page.
-2. Adjust card/sidebar rounding to match tech-leads.
-3. Remove the "Feeling stuck?" sidebar section.
-4. Polish spacing, typography, and button styles.
-5. Re-run all tests to confirm.
-6. Update this doc and seeder/tests as needed.
+#### Editorial Workflow & Backend
+- [ ] Write/extend model tests for status, source, and ai_prompt logic (TDD-first).
+- [ ] Update the Post model and migration for any new fields/workflows.
+- [ ] Implement Nova actions for approving/rejecting articles.
+- [ ] Complete/polish `/articles` controller and navigation logic.
+- [ ] Add further AI metadata fields if needed.
+
+#### Testing & Validation
+- [ ] Run all automated tests (unit, feature, Dusk) to ensure coverage.
+- [ ] Manually verify navigation (including new Articles link on tech-leads page).
+- [ ] Use seeding setup to demo/test with real data.
+
+#### Documentation
+- [ ] Update this document and any related docs (API, Nova, etc.) as changes are made.
+- [ ] Document any new endpoints, fields, or workflows.
+
+---
+
+### Current Status
+- Navigation to articles index is now available from the tech-leads page.
+- Editorial and publishing workflows are partially implemented.
+- UI/UX improvements and backend TDD remain the main priorities.
+
+---
+
+### Next Immediate Step
+**Write or update automated tests for the next UI or model change you plan to make, before implementing the change itself.**
+
+---
+
+#### How To Resume Next Session
+1. Review this checklist and pick the next actionable item.
+2. Start with a test (TDD) for the next UI or backend change.
+3. Implement the change and verify all tests pass.
+4. Update this doc and related documentation as you go.
+
+_This document is the living plan for the AI-Generated Articles feature. Update as needed during development._
 
 ---
 
