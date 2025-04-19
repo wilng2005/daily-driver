@@ -1,4 +1,23 @@
-# Issue: UI Asset Reference Updates
+# Articles Index UI Modernization (2025-04-20)
+
+The following UI/UX improvements were completed on the articles index page:
+- “Feeling stuck?” sidebar section removed
+- “Insights & Articles” heading now matches the H1 style from the tech-leads page (Montserrat, 2rem, #222, bold)
+- Article headers and “Read more” links are now black, not blue/green
+- All rounded corners removed from cards and sidebar
+
+Checklist items completed:
+- Remove sidebar
+- Match heading style
+- Make article headers and links black
+- Remove rounded corners
+
+---
+
+# Archived
+
+This issue has been closed and archived. Please see [ARCHIVED-ISSUE-UI-UPDATES.md](ARCHIVED-ISSUE-UI-UPDATES.md) for historical details.
+
 
 ## Summary
 This issue documents all UI-related changes made to image asset references in Blade view files since the last commit, as part of the `issue/ui-updates` branch work.

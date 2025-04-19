@@ -21,11 +21,16 @@ This feature introduces an Articles section to the greater.than.today website, f
 ### What Needs To Be Done Next
 
 #### UI/UX Improvements
-- [ ] Fix hyperlink color on articles index page to match the palette.
-- [ ] Adjust card and sidebar rounding to match tech-leads.
-- [ ] Remove the “Feeling stuck?” sidebar section from articles index.
+- [x] Remove the “Feeling stuck?” sidebar section from articles index.
+- [x] Change “Insight & Articles” heading to use the same color and styles as the H1 on the tech-leads page.
+- [x] Make the header of each article listing black (not blue), even though they are hyperlinks.
+- [x] Change the “Read more” links to black (currently a weird green).
+- [x] Remove all rounded corners from cards and sidebar elements.
+- [ ] Bring in the navigation bar from the tech-leads page for consistency.
 - [ ] Polish spacing, typography, and button styles for consistency.
 - [ ] Verify all changes visually and via browser tests.
+
+_Note: As of 2025-04-20, the above items have been implemented and visually verified except for navigation and spacing/button polish. See commit history for details._
 
 #### Editorial Workflow & Backend
 - [ ] Write/extend model tests for status, source, and ai_prompt logic (TDD-first).

@@ -108,8 +108,9 @@ See the [AI-Generated Articles Feature Plan](docs/FEATURE-AI-ARTICLES.md) for th
 ## 🤝 Contributing & Documentation
 - See [docs/API.md](docs/API.md) for the full API reference (endpoints, authentication, schemas, and examples)
 - See [docs/ARCHIVED-ISSUE-Nova-Fluent-FatalError.md](docs/ARCHIVED-ISSUE-Nova-Fluent-FatalError.md) for the full history of the Nova Fluent FatalError issue (archived, completed, and closed)
-- See [ISSUE-UI-UPDATES.md](ISSUE-UI-UPDATES.md) for the latest UI asset update issue documentation
-- See [ISSUE-RandomCareerMessage.md](ISSUE-RandomCareerMessage.md) for the randomized career message feature request, implementation, and testing documentation (Tech Leads page heading)
+- See [ARCHIVED-ISSUE-UI-UPDATES.md](ARCHIVED-ISSUE-UI-UPDATES.md) for the archived UI asset update issue (closed)
+- See [ARCHIVED-ISSUE-RandomCareerMessage.md](ARCHIVED-ISSUE-RandomCareerMessage.md) for the archived randomized career message feature (closed)
+- The only open feature/issue is the AI-Generated Articles section, see [docs/FEATURE-AI-ARTICLES.md](docs/FEATURE-AI-ARTICLES.md) for its living plan and status.
 - All major changes and lessons learned are documented in the repo
 - Please open issues or PRs for bugs, improvements, or questions
 
