@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\TelegramChat;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class SendReacquisitionMessages extends Command
 {
@@ -41,12 +42,16 @@ class SendReacquisitionMessages extends Command
      */
     public function handle(): int
     {
-        //@codeCoverageIgnoreStart
-        foreach (TelegramChat::all() as $telegramChat) {
-            $telegramChat->performReacquistion();
+        Log::info('[reacquisition:send] Job started');
+        try {
+            foreach (TelegramChat::all() as $telegramChat) {
+                $telegramChat->performReacquistion();
+            }
+            Log::info('[reacquisition:send] Job completed successfully');
+            return Command::SUCCESS;
+        } catch (\Exception $e) {
+            Log::error('[reacquisition:send] Job failed: ' . $e->getMessage(), ['exception' => $e]);
+            throw $e;
         }
-
-        return Command::SUCCESS;
-        //@codeCoverageIgnoreEnd
     }
 }
