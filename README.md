@@ -6,6 +6,8 @@
 
 A modern Laravel 11 application with Nova 5 admin panel, automated browser testing, and fully automated CI/CD deployments on AWS Lambda (Vapor) using PHP 8.3 and ARM for cost and performance efficiency.
 
+- The Tech Leads page now displays a random, user-relatable career challenge message as the main heading, in double quotes and italics, on each page load. This feature is fully covered by automated and browser tests. See documentation below.
+
 ---
 
 ## 🚀 Features
@@ -104,6 +106,7 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 - See [docs/API.md](docs/API.md) for the full API reference (endpoints, authentication, schemas, and examples)
 - See [docs/ARCHIVED-ISSUE-Nova-Fluent-FatalError.md](docs/ARCHIVED-ISSUE-Nova-Fluent-FatalError.md) for the full history of the Nova Fluent FatalError issue (archived, completed, and closed)
 - See [ISSUE-UI-UPDATES.md](ISSUE-UI-UPDATES.md) for the latest UI asset update issue documentation
+- See [ISSUE-RandomCareerMessage.md](ISSUE-RandomCareerMessage.md) for the randomized career message feature request, implementation, and testing documentation (Tech Leads page heading)
 - All major changes and lessons learned are documented in the repo
 - Please open issues or PRs for bugs, improvements, or questions
 
@@ -118,6 +121,7 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 ---
 
 ## 🚀 Deployment Log
+- **2025-04-19:** Deploying current changes to the `production` environment via CI/CD (GitHub Actions + Vapor).
 - **2025-04-19:** Deploying current changes to the `staging` environment via CI/CD (GitHub Actions + Vapor).
 
 _This README was last updated for the PHP 8.3/ARM, Nova 5, and CI/CD improvements (2025-04-17)._

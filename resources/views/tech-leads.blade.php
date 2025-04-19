@@ -116,9 +116,23 @@
         <section class="background--white">
             <div class="col-12 container">
                 <div class="section-header-con">
-                    <h1>
-                        Why is building a successful career so difficult?
-                    </h1>
+                    @php
+    use Illuminate\Support\Arr;
+    $careerMessages = [
+        "I feel like I’m constantly putting out fires, but not really growing.",
+        "I’m stuck. I know something needs to change, but I don’t know what.",
+        "I’ve hit a ceiling in my business and can’t see how to move forward.",
+        "I’m burning out, but I don’t want to slow down and lose momentum.",
+        "I don’t have anyone I can really talk to about this stuff.",
+        "Things look fine on the outside, but inside I’m stressed all the time.",
+        "I want to lead better, but I keep repeating the same patterns.",
+        "I’m scared I’ll mess this up if I keep going like this."
+    ];
+    $randomCareerMessage = Arr::random($careerMessages);
+@endphp
+<h1 style="font-size:2rem;">
+    <em>"{{ $randomCareerMessage }}"</em>
+</h1>
                     <div class="mt-5 text-end">
                         <!-- <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
                             Started</a> -->
@@ -131,7 +145,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="mb-4">Building a career is hard…
+                        <h2 class="mb-4">Making progress can be hard…
                             </h1>
                     </div>
                     <div class="section-slider">
