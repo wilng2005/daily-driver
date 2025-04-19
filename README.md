@@ -117,5 +117,8 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 
 ---
 
+## 🚀 Deployment Log
+- **2025-04-19:** Deploying current changes to the `staging` environment via CI/CD (GitHub Actions + Vapor).
+
 _This README was last updated for the PHP 8.3/ARM, Nova 5, and CI/CD improvements (2025-04-17)._
 
