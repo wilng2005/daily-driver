@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\TelegramChat;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class SendJournalEntry extends Command
 {
@@ -26,14 +27,18 @@ class SendJournalEntry extends Command
      */
     public function handle(): int
     {
-        //@codeCoverageIgnoreStart
-        foreach (TelegramChat::all() as $telegramChat) {
-            if ($telegramChat->hasReceivedMessageFromUserOverPeriod(2) && $telegramChat->isActiveJournal()) {
-                $telegramChat->sendJournalEntry();
+        Log::info('[journal_entry:send] Job started');
+        try {
+            foreach (TelegramChat::all() as $telegramChat) {
+                if ($telegramChat->hasReceivedMessageFromUserOverPeriod(2) && $telegramChat->isActiveJournal()) {
+                    $telegramChat->sendJournalEntry();
+                }
             }
+            Log::info('[journal_entry:send] Job completed successfully');
+            return Command::SUCCESS;
+        } catch (\Exception $e) {
+            Log::error('[journal_entry:send] Job failed: ' . $e->getMessage(), ['exception' => $e]);
+            throw $e;
         }
-
-        return Command::SUCCESS;
-        //@codeCoverageIgnoreEnd
     }
 }
