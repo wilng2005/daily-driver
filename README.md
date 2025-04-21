@@ -121,6 +121,7 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 ---
 
 ## 🚀 Deployment Log
+- **2025-04-21:** Deploying scheduled job logging investigation to the `staging` environment via CI/CD (GitHub Actions + Vapor). Includes explicit logging for all scheduled jobs to improve CloudWatch/Vapor visibility.
 - **2025-04-19:** Deploying current changes to the `production` environment via CI/CD (GitHub Actions + Vapor).
 - **2025-04-19:** Deploying current changes to the `staging` environment via CI/CD (GitHub Actions + Vapor).
 

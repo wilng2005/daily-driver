@@ -22,18 +22,22 @@ Currently, there is no clear evidence in production logs (Laravel Vapor/AWS Clou
 - `PruneStaleAttachments` (callable in Kernel)
 
 ## Next Steps
-1. **Deploy to Staging/Production**
-    - Merge and deploy the branch to ensure new logs appear in AWS CloudWatch via Vapor.
-2. **Verify Logging**
-    - Monitor the Vapor dashboard and CloudWatch for log entries:
+1. **Monitor Staging Logs**
+    - The branch has been merged and deployed to staging via CI/CD.
+    - Monitor the Vapor dashboard and AWS CloudWatch for log entries related to scheduled jobs:
       - `[job_name] Job started`
       - `[job_name] Job completed successfully`
       - `[job_name] Job failed: ...`
+2. **Verify Log Presence and Quality**
+    - Confirm that all updated jobs (`DoDailySchedule`, `SendJournalEntry`, `SendReacquisitionMessages`, `PruneStaleAttachments`) are producing the expected log entries.
+    - Ensure logs are clear, correctly prefixed, and provide sufficient information for auditing and troubleshooting.
 3. **Review and Iterate**
-    - Adjust log verbosity or add additional context as needed.
-    - Consider adding automated tests to verify logging if desired.
+    - If logs are missing or unclear, identify which job(s) need further adjustment.
+    - Update logging statements or add additional context as needed.
+    - (Optional) Add or update automated tests to verify logging, following TDD practices.
 4. **Document Learnings**
-    - Update project documentation to reflect the new logging approach for scheduled jobs.
+    - Once satisfied, update project documentation to describe the new logging approach for scheduled jobs.
+    - Summarize any key findings or improvements for future reference.
 
 ---
 
