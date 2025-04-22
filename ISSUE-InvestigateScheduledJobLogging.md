@@ -84,3 +84,13 @@ If you need to verify that the scheduler and its logs are working in your Vapor 
 **Related PR:** _(to be created)_
 
 If further improvements or monitoring needs are identified, please update this issue accordingly.
+
+---
+
+## Issue Closure & Outcome
+
+This investigation into scheduled job logging for Vapor/CloudWatch visibility is now complete. The scheduler trigger diagnostic log confirmed that the Laravel scheduler is running as expected in the Vapor environment. While job logs may not always be visible at the desired level due to log channel or level configuration, the jobs themselves are running, and the overall logging approach has been improved and documented.
+
+No further action is required at this time. If future needs arise, a new issue can be opened.
+
+**Status:** Closed and Satisfied
