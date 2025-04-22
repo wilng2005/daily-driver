@@ -12,7 +12,11 @@ Currently, there is no clear evidence in production logs (Laravel Vapor/AWS Clou
     - Added `Log::error()` in exception catch blocks to capture and log failures.
     - For callable jobs (e.g., `PruneStaleAttachments`), wrapped the call in a closure with logging.
     - All logs are clearly prefixed with the job name for easy filtering in AWS CloudWatch and the Vapor dashboard.
-2. **Branch Isolation**
+2. **Scheduler Trigger Diagnostic Log**
+    - Added `Log::info('[Scheduler] schedule() method triggered');` as the first line of the `schedule()` method in `app/Console/Kernel.php`.
+    - This log confirms whether the Laravel scheduler itself is being invoked by Vapor (via `php artisan schedule:run`).
+    - If this log appears in CloudWatch, it means the scheduler is being triggered as expected. If not, investigate Vapor schedule configuration and deployment.
+3. **Branch Isolation**
     - All changes are implemented in the `chore/investigate-scheduled-job-logging` branch for focused review and testing.
 
 ## Jobs Updated
@@ -23,17 +27,50 @@ Currently, there is no clear evidence in production logs (Laravel Vapor/AWS Clou
 
 ## Next Steps
 1. **Deploy to Staging/Production**
-    - Merge and deploy the branch to ensure new logs appear in AWS CloudWatch via Vapor.
-2. **Verify Logging**
+    - Merge and deploy the branch to ensure new logs (including the scheduler trigger log) appear in AWS CloudWatch via Vapor.
+2. **Verify Scheduler Invocation**
+    - In CloudWatch (`/aws/lambda/vapor-daily-driver-staging`), search for the log entry:
+      - `[Scheduler] schedule() method triggered`
+    - If present, this confirms the scheduler is running. If absent, further investigation of Vapor's schedule configuration is required.
+3. **Verify Job Logging**
     - Monitor the Vapor dashboard and CloudWatch for log entries:
       - `[job_name] Job started`
       - `[job_name] Job completed successfully`
       - `[job_name] Job failed: ...`
-3. **Review and Iterate**
+4. **Review and Iterate**
     - Adjust log verbosity or add additional context as needed.
     - Consider adding automated tests to verify logging if desired.
-4. **Document Learnings**
-    - Update project documentation to reflect the new logging approach for scheduled jobs.
+5. **Document Learnings**
+    - Update project documentation to reflect the new logging approach for scheduled jobs and scheduler diagnostics.
+
+---
+
+## Manually Triggering the Laravel Scheduler in Vapor
+
+If you need to verify that the scheduler and its logs are working in your Vapor environment, you can manually trigger the scheduler using either the Vapor CLI or the Vapor dashboard:
+
+### Using the Vapor CLI
+1. Ensure you have the Vapor CLI installed and are authenticated (`vapor login`).
+2. Run the following command to execute the scheduler in your staging environment:
+   ```
+   vapor ssh staging -- php artisan schedule:run
+   ```
+   - This will invoke the scheduler as if it were triggered by AWS EventBridge.
+3. Check AWS CloudWatch (`/aws/lambda/vapor-daily-driver-staging`) for the log entry:
+   - `[Scheduler] schedule() method triggered`
+
+### Using the Vapor Dashboard
+1. Go to your project in the [Vapor Dashboard](https://vapor.laravel.com/).
+2. Select your environment (e.g., staging).
+3. Use the "Run Command" feature to execute:
+   ```
+   php artisan schedule:run
+   ```
+4. Check AWS CloudWatch for the log entry as above.
+
+### Notes
+- If you see the log entry, the scheduler is functioning and your jobs should be processed as scheduled.
+- If you do not see the log, review your Vapor schedule configuration and deployment status.
 
 ---
 
