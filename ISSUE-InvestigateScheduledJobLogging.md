@@ -32,16 +32,20 @@ Currently, there is no clear evidence in production logs (Laravel Vapor/AWS Clou
     - In CloudWatch (`/aws/lambda/vapor-daily-driver-staging`), search for the log entry:
       - `[Scheduler] schedule() method triggered`
     - If present, this confirms the scheduler is running. If absent, further investigation of Vapor's schedule configuration is required.
-3. **Verify Job Logging**
-    - Monitor the Vapor dashboard and CloudWatch for log entries:
+3. **Monitor and Verify Job Logging**
+    - Monitor the Vapor dashboard and CloudWatch for log entries related to scheduled jobs:
       - `[job_name] Job started`
       - `[job_name] Job completed successfully`
       - `[job_name] Job failed: ...`
+    - Confirm that all updated jobs (`DoDailySchedule`, `SendJournalEntry`, `SendReacquisitionMessages`, `PruneStaleAttachments`) are producing the expected log entries.
+    - Ensure logs are clear, correctly prefixed, and provide sufficient information for auditing and troubleshooting.
 4. **Review and Iterate**
-    - Adjust log verbosity or add additional context as needed.
-    - Consider adding automated tests to verify logging if desired.
+    - If logs are missing or unclear, identify which job(s) need further adjustment.
+    - Update logging statements or add additional context as needed.
+    - (Optional) Add or update automated tests to verify logging, following TDD practices.
 5. **Document Learnings**
-    - Update project documentation to reflect the new logging approach for scheduled jobs and scheduler diagnostics.
+    - Once satisfied, update project documentation to describe the new logging approach for scheduled jobs.
+    - Summarize any key findings or improvements for future reference.
 
 ---
 
@@ -71,6 +75,7 @@ If you need to verify that the scheduler and its logs are working in your Vapor 
 ### Notes
 - If you see the log entry, the scheduler is functioning and your jobs should be processed as scheduled.
 - If you do not see the log, review your Vapor schedule configuration and deployment status.
+>>>>>>> chore/investigate-scheduled-job-logging
 
 ---
 
