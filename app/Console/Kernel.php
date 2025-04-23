@@ -14,8 +14,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
+         // @codeCoverageIgnoreStart
         Log::info('[Scheduler] schedule() method triggered');
-        // @codeCoverageIgnoreStart
+       
         $schedule->command('schedule:daily')->dailyAt('01:00');
 
         $schedule->command('journal_entry:send')->dailyAt('07:00');

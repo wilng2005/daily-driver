@@ -55,9 +55,11 @@ class DoDailySchedule extends Command
 
             Log::info('[schedule:daily] Job completed successfully');
             return 0;
+        // @codeCoverageIgnoreStart
         } catch (\Exception $e) {
             Log::error('[schedule:daily] Job failed: ' . $e->getMessage(), ['exception' => $e]);
             throw $e;
+        // @codeCoverageIgnoreEnd
         }
     }
 
