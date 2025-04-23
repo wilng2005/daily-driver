@@ -127,19 +127,19 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 ### Archived/Closed Issues
 
 #### 1. Refactor Job Commands for Testability and TDD
-- **File:** [job-command-di-tdd-refactor.md](docs/issues/job-command-di-tdd-refactor.md)
+- **File:** [job-command-di-tdd-refactor.md](docs/issues/archived/job-command-di-tdd-refactor.md)
 - **Summary:** Refactored scheduled job commands to use dependency injection, improving testability and enabling TDD. Feature tests and code coverage are now robust. **Status:** ✅ Closed & Completed (2025-04-23)
 
 #### 2. Scheduled Job Logging for Vapor/CloudWatch
-- **File:** [ISSUE-InvestigateScheduledJobLogging.md](docs/issues/ISSUE-InvestigateScheduledJobLogging.md)
+- **File:** [ISSUE-InvestigateScheduledJobLogging.md](docs/issues/archived/ISSUE-InvestigateScheduledJobLogging.md)
 - **Summary:** Implemented explicit logging for all scheduled jobs to improve AWS CloudWatch visibility on Vapor. Approach is documented and confirmed. **Status:** ✅ Closed & Completed (2025-04-23)
 
 #### 3. UI Asset Reference Updates
-- **File:** [ISSUE-UI-UPDATES.md](docs/issues/ISSUE-UI-UPDATES.md)
+- **File:** [ISSUE-UI-UPDATES.md](docs/issues/archived/ISSUE-UI-UPDATES.md)
 - **Summary:** Documented all UI asset reference changes and legal updates for the coaching program. **Status:** ✅ Closed & Completed (2025-04-23)
 
 #### 4. Randomized Career Message Feature
-- **File:** [ISSUE-RandomCareerMessage.md](docs/issues/ISSUE-RandomCareerMessage.md)
+- **File:** [ISSUE-RandomCareerMessage.md](docs/issues/archived/ISSUE-RandomCareerMessage.md)
 - **Summary:** Implemented a feature to display a random motivational message on the Tech Leads page, with server-side logic and automated tests. **Status:** ✅ Closed & Completed (2025-04-23)
 
 #### 5. Nova Fluent FatalError (Closed)
