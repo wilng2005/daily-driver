@@ -112,10 +112,11 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 ## 🤝 Contributing & Documentation
 - See [docs/API.md](docs/API.md) for the full API reference (endpoints, authentication, schemas, and examples)
 - See [docs/DB_SCHEMA.md](docs/DB_SCHEMA.md) for the full database schema (tables, columns, relationships, and migration notes)
-- See [docs/issues/ARCHIVED-ISSUE-Nova-Fluent-FatalError.md](docs/issues/ARCHIVED-ISSUE-Nova-Fluent-FatalError.md) for the full history of the Nova Fluent FatalError issue (archived, completed, and closed)
+- See [docs/issues/archived/ISSUE-Nova-Fluent-FatalError.md](docs/issues/archived/ISSUE-Nova-Fluent-FatalError.md) for the full history of the Nova Fluent FatalError issue (archived, completed, and closed)
 - See [docs/issues/ISSUE-UI-UPDATES.md](docs/issues/ISSUE-UI-UPDATES.md) for the latest UI asset update issue documentation
 - See [docs/issues/ISSUE-RandomCareerMessage.md](docs/issues/ISSUE-RandomCareerMessage.md) for the randomized career message feature request, implementation, and testing documentation (Tech Leads page heading)
 - See [docs/issues/ISSUE-InvestigateScheduledJobLogging.md](docs/issues/ISSUE-InvestigateScheduledJobLogging.md) for the scheduled job logging investigation and implementation notes
+- _Archived/closed issues are grouped in [docs/issues/archived/](docs/issues/archived/) to keep the documentation organized._
 - All major changes and lessons learned are documented in the repo
 - Please open issues or PRs for bugs, improvements, or questions
 
