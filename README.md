@@ -124,38 +124,33 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 
 ## 📋 Project Issues Overview
 
-### Open Issues
+### Archived/Closed Issues
 
 #### 1. Refactor Job Commands for Testability and TDD
 - **File:** [job-command-di-tdd-refactor.md](docs/issues/job-command-di-tdd-refactor.md)
-- **Summary:** Refactors scheduled job commands to use dependency injection, improving testability and enabling TDD. Feature tests are improved, and code coverage is enhanced. **Status:** In Progress
+- **Summary:** Refactored scheduled job commands to use dependency injection, improving testability and enabling TDD. Feature tests and code coverage are now robust. **Status:** ✅ Closed & Completed (2025-04-23)
 
 #### 2. Scheduled Job Logging for Vapor/CloudWatch
 - **File:** [ISSUE-InvestigateScheduledJobLogging.md](docs/issues/ISSUE-InvestigateScheduledJobLogging.md)
-- **Summary:** Implements explicit logging for all scheduled jobs to improve visibility in AWS CloudWatch when running on Laravel Vapor. Documents the approach for future troubleshooting. **Status:** Closed and Satisfied
+- **Summary:** Implemented explicit logging for all scheduled jobs to improve AWS CloudWatch visibility on Vapor. Approach is documented and confirmed. **Status:** ✅ Closed & Completed (2025-04-23)
 
 #### 3. UI Asset Reference Updates
 - **File:** [ISSUE-UI-UPDATES.md](docs/issues/ISSUE-UI-UPDATES.md)
-- **Summary:** Documents all UI asset reference changes in Blade views, updates legal and copyright information, and improves branding for the coaching program. **Status:** Open
+- **Summary:** Documented all UI asset reference changes and legal updates for the coaching program. **Status:** ✅ Closed & Completed (2025-04-23)
 
 #### 4. Randomized Career Message Feature
 - **File:** [ISSUE-RandomCareerMessage.md](docs/issues/ISSUE-RandomCareerMessage.md)
-- **Summary:** Implements a feature to display a random motivational message on the Tech Leads page, with server-side logic and automated tests. **Status:** Open
+- **Summary:** Implemented a feature to display a random motivational message on the Tech Leads page, with server-side logic and automated tests. **Status:** ✅ Closed & Completed (2025-04-23)
 
----
-
-### Archived/Closed Issues
-
-#### 1. Nova Fluent FatalError (Closed)
+#### 5. Nova Fluent FatalError (Closed)
 - **File:** [ARCHIVED-ISSUE-Nova-Fluent-FatalError.md](docs/issues/archived/ARCHIVED-ISSUE-Nova-Fluent-FatalError.md)
 - **Summary:** Historical record of debugging and resolving a fatal error after upgrading to Nova 5 and PHP 8.3. Includes all troubleshooting steps and lessons learned. **Status:** Completed & Archived
 
-#### 2. Nova Fluent FatalError (Full History, Large)
+#### 6. Nova Fluent FatalError (Full History, Large)
 - **File:** [ISSUE-Nova-Fluent-FatalError.md](docs/issues/archived/ISSUE-Nova-Fluent-FatalError.md)
 - **Summary:** Full, detailed debugging log and technical notes for the Nova Fluent FatalError, including Dusk/browser testing, CI/CD, and deployment notes. **Status:** Archived
 
 ---
-
 
 ## 📚 References
 - [Laravel](https://laravel.com/)

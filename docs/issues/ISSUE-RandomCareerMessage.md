@@ -1,5 +1,8 @@
 # Feature Request: Randomized “Why is building a successful career so difficult?” Message
 
+**Status:** ✅ Closed & Completed (as of 2025-04-23)
+
+
 ## Summary
 Update the section under the heading “Why is building a successful career so difficult?” in `resources/views/tech-leads.blade.php` to display a randomly selected message from a predefined set each time the page loads.
 

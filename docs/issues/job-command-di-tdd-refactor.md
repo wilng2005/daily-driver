@@ -1,5 +1,8 @@
 # Issue: Refactor Job Commands for Testability and TDD
 
+**Status:** ✅ Closed & Completed (as of 2025-04-23)
+
+
 ## Context
 
 Previously, the scheduled job commands (`SendJournalEntry`, `SendReacquisitionMessages`) in this Laravel project directly used Eloquent model static methods (e.g., `TelegramChat::all()`). This made it difficult to test these commands using TDD, as mocking static methods in Laravel feature tests is brittle and often requires process isolation or alias mocking, which can cause conflicts and break the application container.
