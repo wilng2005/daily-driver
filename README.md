@@ -152,6 +152,34 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 
 ---
 
+## 📝 Issue Documentation Policy
+
+To ensure clarity, maintainability, and ease of onboarding, follow these policies for documenting and maintaining project issues:
+
+1. **New Issues:**
+   - All new issues must be documented as individual Markdown files in the `docs/issues/` folder.
+   - Each issue file should have a clear title, summary, context, implementation plan, and status.
+
+2. **Closed/Archived Issues:**
+   - When an issue is closed or completed, move its Markdown file to the `docs/issues/archived/` subfolder.
+   - Add a closure note and the date of completion at the top of the file.
+
+3. **README Updates:**
+   - Update the "Project Issues Overview" section in `README.md` whenever an issue is created, closed, or archived.
+   - Ensure each issue is listed with a summary, status, and a direct link to its documentation.
+
+4. **Summaries & Status:**
+   - Keep summaries and statuses up to date for all issues, so new contributors can quickly understand the project context.
+   - Use clear closure notes and completion dates for all archived issues.
+
+5. **Consistency:**
+   - Ensure all links in the README and documentation remain accurate after moving or archiving issues.
+   - Regularly review the documentation for accuracy and clarity.
+
+By following this policy, the project will remain well-documented, easy to navigate, and welcoming to all contributors.
+
+---
+
 ## 📚 References
 - [Laravel](https://laravel.com/)
 - [Laravel Nova](https://nova.laravel.com/)
