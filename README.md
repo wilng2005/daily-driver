@@ -75,6 +75,13 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 
 ---
 
+## ✅ Code Coverage Policy
+- This project enforces 100% code coverage as part of the CI/CD pipeline.
+- For generic error handling (e.g., logging and rethrowing in catch blocks), we use `@codeCoverageIgnoreStart`/`@codeCoverageIgnoreEnd` to pragmatically exclude these lines from coverage, as they do not contain business logic.
+- All other logic is fully covered by automated tests, following TDD principles.
+
+---
+
 ## 🚢 Deployment
 - **Staging:** Push to `staging` branch triggers CI/CD and deploys to Vapor (uses PHP 8.3 ARM runtime)
 - **Production:** Push to `main` branch triggers CI/CD and deploys to Vapor (uses PHP 8.3 ARM runtime)

@@ -2,12 +2,19 @@
 
 namespace App\Console\Commands;
 
-use App\Models\TelegramChat;
+use App\Services\TelegramChatProvider;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 
 class SendJournalEntry extends Command
 {
+    protected TelegramChatProvider $provider;
+
+    public function __construct(TelegramChatProvider $provider)
+    {
+        parent::__construct();
+        $this->provider = $provider;
+    }
     /**
      * The name and signature of the console command.
      *
@@ -29,7 +36,7 @@ class SendJournalEntry extends Command
     {
         Log::info('[journal_entry:send] Job started');
         try {
-            foreach (TelegramChat::all() as $telegramChat) {
+            foreach ($this->provider->all() as $telegramChat) {
                 if ($telegramChat->hasReceivedMessageFromUserOverPeriod(2) && $telegramChat->isActiveJournal()) {
                     $telegramChat->sendJournalEntry();
                 }
