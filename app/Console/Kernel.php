@@ -5,6 +5,7 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Laravel\Nova\Trix\PruneStaleAttachments;
+use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -13,14 +14,25 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // @codeCoverageIgnoreStart
+         // @codeCoverageIgnoreStart
+        Log::info('[Scheduler] schedule() method triggered');
+       
         $schedule->command('schedule:daily')->dailyAt('01:00');
 
         $schedule->command('journal_entry:send')->dailyAt('07:00');
 
         $schedule->command('reacquisition:send')->cron('0 12 * * 2-6');
 
-        $schedule->call(new PruneStaleAttachments)->daily();
+        $schedule->call(function () {
+            Log::info('[PruneStaleAttachments] Job started');
+            try {
+                (new PruneStaleAttachments)();
+                Log::info('[PruneStaleAttachments] Job completed successfully');
+            } catch (\Exception $e) {
+                Log::error('[PruneStaleAttachments] Job failed: ' . $e->getMessage(), ['exception' => $e]);
+                throw $e;
+            }
+        })->daily();
         // @codeCoverageIgnoreEnd
     }
 
