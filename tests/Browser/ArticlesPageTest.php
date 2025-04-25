@@ -58,4 +58,30 @@ class ArticlesPageTest extends DuskTestCase
                 ->assertSee('Details page test.');
         });
     }
+
+    /** @test */
+    public function it_displays_articles_in_section_layout()
+    {
+        // Arrange: create a visible article
+        Post::factory()->create([
+            'title' => 'Section Layout Article',
+            'slug' => 'section-layout-article',
+            'content' => 'Section layout content.',
+            'status' => 'published',
+            'published_at' => now()->subDay(),
+        ]);
+
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/articles')
+                // Assert the white section exists and contains the header
+                ->assertPresent('section.background--white h1')
+                ->assertSeeIn('section.background--white', 'Insights & Articles')
+                // Assert the yellow section exists and contains at least one article card
+                ->assertPresent('section.background--yellow .article-card')
+                ->assertSeeIn('section.background--yellow', 'Section Layout Article')
+                // Optionally, assert section order (white above yellow)
+                ->screenshot('articles-section-layout');
+        });
+    }
 }
+
