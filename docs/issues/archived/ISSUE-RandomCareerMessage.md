@@ -1,4 +1,7 @@
-# Feature Request: Randomized “Why is building a successful career so difficult?” Message
+# Archived
+
+This issue has been closed and archived. Please see [ARCHIVED-ISSUE-RandomCareerMessage.md](ARCHIVED-ISSUE-RandomCareerMessage.md) for historical details.
+
 
 **Status:** ✅ Closed & Completed (as of 2025-04-23)
 

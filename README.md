@@ -6,7 +6,7 @@
 
 A modern Laravel 11 application with Nova 5 admin panel, automated browser testing, and fully automated CI/CD deployments on AWS Lambda (Vapor) using PHP 8.3 and ARM for cost and performance efficiency.
 
-- The Tech Leads page now displays a random, user-relatable career challenge message as the main heading, in double quotes and italics, on each page load. This feature is fully covered by automated and browser tests. See documentation below.
+> **This application powers the public-facing coaching website [greater.than.today](https://greater.than.today), serving as the main platform for coaching services, resources, and client engagement.**
 
 ---
 
@@ -20,6 +20,9 @@ A modern Laravel 11 application with Nova 5 admin panel, automated browser testi
 
 ### 📖 Features & Usage
 For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FEATURES.md](docs/NOVA-FEATURES.md).
+
+### 📰 AI-Generated Articles
+See the [AI-Generated Articles Feature Plan](docs/issues/FEATURE-AI-ARTICLES.md) for the roadmap and technical details of the automated articles section, which provides regularly updated coaching content powered by AI and reviewed via the Nova admin panel.
 
 ---
 
@@ -112,10 +115,7 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 ## 🤝 Contributing & Documentation
 - See [docs/API.md](docs/API.md) for the full API reference (endpoints, authentication, schemas, and examples)
 - See [docs/DB_SCHEMA.md](docs/DB_SCHEMA.md) for the full database schema (tables, columns, relationships, and migration notes)
-- See [docs/issues/archived/ARCHIVED-ISSUE-Nova-Fluent-FatalError.md](docs/issues/archived/ARCHIVED-ISSUE-Nova-Fluent-FatalError.md) for the full history of the Nova Fluent FatalError issue (archived, completed, and closed)
-- See [docs/issues/ISSUE-UI-UPDATES.md](docs/issues/ISSUE-UI-UPDATES.md) for the latest UI asset update issue documentation
-- See [docs/issues/ISSUE-RandomCareerMessage.md](docs/issues/ISSUE-RandomCareerMessage.md) for the randomized career message feature request, implementation, and testing documentation (Tech Leads page heading)
-- See [docs/issues/ISSUE-InvestigateScheduledJobLogging.md](docs/issues/ISSUE-InvestigateScheduledJobLogging.md) for the scheduled job logging investigation and implementation notes
+- See [docs/issues/FEATURE-AI-ARTICLES.md](docs/issues/FEATURE-AI-ARTICLES.md) for the AI-Generated Articles feature plan and current status (the only open issue)
 - _Archived/closed issues are grouped in [docs/issues/archived/](docs/issues/archived/) to keep the documentation organized._
 - All major changes and lessons learned are documented in the repo
 - Please open issues or PRs for bugs, improvements, or questions
@@ -123,6 +123,12 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 ---
 
 ## 📋 Project Issues Overview
+
+### Outstanding/Open Issues
+
+#### 1. AI-Generated Articles Feature
+- **File:** [FEATURE-AI-ARTICLES.md](docs/issues/FEATURE-AI-ARTICLES.md)
+- **Summary:** Implements an Articles section for coaching topics (burnout, productivity, stress, etc.) with AI-generated and manually authored content. Includes Nova admin review, TDD-first development, and CI/CD integration. **Status:** 🚧 Open & In Progress (see feature plan for roadmap)
 
 ### Archived/Closed Issues
 
