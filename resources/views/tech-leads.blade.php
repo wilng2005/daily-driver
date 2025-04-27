@@ -136,7 +136,7 @@
     ];
     $randomCareerMessage = Arr::random($careerMessages);
 @endphp
-<h1 style="font-size:2rem;">
+<h1 >
     <em>"{{ $randomCareerMessage }}"</em>
 </h1>
                     <div class="mt-5 text-end">
@@ -151,7 +151,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="mb-4">Making progress can be hard…
+                        <h2 class="mb-4">Making progress at work can be hard…
                             </h1>
                     </div>
                     <div class="section-slider">
@@ -234,22 +234,25 @@
                 </div>
             </div>
         </section>
+      
         <section class="background--white">
-            <div class="container">
-                <div class="d-flex align-items-end row">
-                    <div class="col-12 col-md-8 col-lg-9">
-                        <h1>
-                        You can’t shortcut the work, but you can enjoy the process.
-                        </h1>
-                        <img src="{{asset('images/asset-3v2.png')}}" class="icon-image small ms-auto" alt="">
+        <div class="container">
+                <div class="d-flex align-items-center row">
+                    <div class="px-4 col-12 col-md-5">
+                        <img src="{{asset('images/asset-3v2.png')}}" class="icon-image full" alt="">
                     </div>
-                    <div class="col-12 col-md-4 col-lg-3 py-md-5">
-                        <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button px-4">Get
+                    <div class="px-4 col-12 col-md-7">
+                        <h2 class="mb-4 mb-lg-5"><b>
+                                You can’t shortcut the work, but you can enjoy the process.
+                            </b></h2>
+                            <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button px-4">Get
                             Started</a>
                     </div>
+                    
                 </div>
             </div>
         </section>
+      
         <section id="meetyourcoach" class="background--half">
             <div class="container">
                 <div class="d-flex align-items-center row">
