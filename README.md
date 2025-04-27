@@ -75,6 +75,7 @@ See the [AI-Generated Articles Feature Plan](docs/issues/FEATURE-AI-ARTICLES.md)
 - **Run browser tests (Dusk):** `./vendor/bin/sail dusk`
 - **Generate coverage report:** `./vendor/bin/sail test --coverage-html=./coverage-report`
 - **Access Nova:** `/nova` (local dev, after running migrations)
+- **Before deploying or opening a PR:** Always run the code coverage report locally and ensure 100% coverage before pushing. Do **not** wait for CI/CD to catch coverage failures. Use `./vendor/bin/sail test --coverage-html=./coverage-report` and open `coverage-report/index.html` to verify.
 
 ---
 
