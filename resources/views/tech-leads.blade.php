@@ -8,22 +8,22 @@
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Coaching - Wil Ng</title>
-    <meta name="description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
+    <title>Purposeful Work. Joyful Life. Authentic Connection.</title>
+    <meta name="description" content="Lead your life with purpose. Coaching to support your growth, wellness, and relationships.">
 
     <!-- Open Graph Meta Tags for social media sharing -->
-    <meta property="og:title" content="Tech Coaching - Wil Ng">
-    <meta property="og:description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
+    <meta property="og:title" content="Purposeful Work. Joyful Life. Authentic Connection.">
+    <meta property="og:description" content="Lead your life with purpose. Coaching to support your growth, wellness, and relationships.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://greater.than.today">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tech Coaching - Wil Ng">
-    <meta name="twitter:description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
+    <meta name="twitter:title" content="Purposeful Work. Joyful Life. Authentic Connection.">
+    <meta name="twitter:description" content="Lead your life with purpose. Coaching to support your growth, wellness, and relationships.">
     
     <!-- Keywords -->
-    <meta name="keywords" content="tech leadership, software engineering coaching, tech leads, CTO coaching, engineering leadership, mental fitness, Agile SCRUM, conflict management, productivity, emotional intelligence, personal wellness">
+    <meta name="keywords" content="tech leadership, software engineering coaching, tech leads, CTO coaching, engineering leadership, mental fitness, Agile SCRUM, life coaching, personal growth, emotional wellness, leadership development, overcome burnout, build better habits, stress management, relational coaching, coaching Singapore, break patterns, self-awareness, work life balance, mindset coaching, high performance habits">
 
     <!-- Author -->
     <meta name="author" content="Wil Ng">
@@ -37,8 +37,8 @@
      <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staging - Tech Leadership Coaching</title>
-    <meta name="description" content="Staging environment for Tech Leadership Coaching. This site is for testing purposes only.">
+    <title>Non-Production - Purposeful Work. Joyful Life. Authentic Connection.</title>
+    <meta name="description" content="Non-production - Lead your life with purpose. Coaching to support your growth, wellness, and relationships.">
 
     <!-- Robots Meta Tag to prevent indexing -->
     <meta name="robots" content="noindex, nofollow">
