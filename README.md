@@ -70,6 +70,23 @@ See the [AI-Generated Articles Feature Plan](docs/issues/FEATURE-AI-ARTICLES.md)
 
 ## 🧑‍💻 Development Workflow
 
+
+### Database Reset & Seeding
+
+To reset your database and seed it with sample data for local development/testing:
+
+```sh
+./vendor/bin/sail artisan migrate:fresh --seed
+```
+
+This will:
+- Drop all tables and re-run all migrations
+- Truncate the posts table and insert example data (manual & AI, published & draft)
+
+Use this workflow to demo, test, or develop with real data.
+
+---
+
 ### Updating main.css (Custom Styles)
 
 All custom styles for the application are managed in `public/sass/main.css`.
