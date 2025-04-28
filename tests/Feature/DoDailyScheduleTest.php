@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Capture;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Carbon\Carbon;
 
 final class DoDailyScheduleTest extends TestCase
 {
@@ -15,6 +16,8 @@ final class DoDailyScheduleTest extends TestCase
      */
     public function test_example(): void
     {
+        // Ensure the test runs on a weekday (Monday)
+        Carbon::setTestNow(Carbon::parse('next monday'));
         $capture_a = new Capture;
 
         $capture_a->name = 'Daily: Check work email';
@@ -37,5 +40,8 @@ final class DoDailyScheduleTest extends TestCase
         $this->assertTrue((bool) $capture_a->inbox);
 
         $this->assertTrue((bool) $capture_b->inbox);
+
+        // Reset Carbon after test
+        Carbon::setTestNow();
     }
 }

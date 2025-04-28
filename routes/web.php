@@ -52,6 +52,17 @@ Route::get('/tag/{slug}', function (string $slug) {
     ]);
 });
 
+Route::get('/articles', function () {
+    $posts = Post::where('status', 'published')
+        ->where('published_at', '<=', now())
+        ->orderBy('published_at', 'desc')
+        ->get();
+
+    return view('articles', [
+        'posts' => $posts,
+    ]);
+});
+
 Route::get('/post/{slug}', function (string $slug) {
     $post = Post::where('slug', $slug)
         ->where('published_at', '<=', now())

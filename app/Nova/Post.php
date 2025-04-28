@@ -58,6 +58,18 @@ class Post extends Resource
             VaporImage::make('Image File'),
             Trix::make('Image Credit'),
             Text::make('Sequence Code'),
+            // New fields for AI articles/editorial workflow
+            \Laravel\Nova\Fields\Select::make('Status')->options([
+                'proposed' => 'Proposed',
+                'draft' => 'Draft',
+                'published' => 'Published',
+                'rejected' => 'Rejected',
+            ])->displayUsingLabels()->sortable(),
+            \Laravel\Nova\Fields\Select::make('Source')->options([
+                'manual' => 'Manual',
+                'ai' => 'AI',
+            ])->displayUsingLabels()->sortable(),
+            Trix::make('AI Prompt')->nullable(),
             DateTime::make('Published At'),
             Stack::make('Create/Updated', [
                 DateTime::make('Created At')->readonly()->sortable()->exceptOnForms(),
@@ -80,7 +92,11 @@ class Post extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            new \App\Nova\Filters\PostStatus,
+            new \App\Nova\Filters\PostSource,
+            // Add more workflow filters/lenses as needed
+        ];
     }
 
     /**
