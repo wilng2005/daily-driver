@@ -2,28 +2,29 @@
 <html lang="en">
 
 <head>
+    
 
 @if (App::environment('production'))
     <!-- HTML for production environment -->
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purposeful Work. Joyful Life. Authentic Connection.</title>
-    <meta name="description" content="Lead your life with purpose. Coaching to support your growth, wellness, and relationships.">
+    <title>Tech Coaching - Wil Ng</title>
+    <meta name="description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
 
     <!-- Open Graph Meta Tags for social media sharing -->
-    <meta property="og:title" content="Purposeful Work. Joyful Life. Authentic Connection.">
-    <meta property="og:description" content="Lead your life with purpose. Coaching to support your growth, wellness, and relationships.">
+    <meta property="og:title" content="Tech Coaching - Wil Ng">
+    <meta property="og:description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://greater.than.today">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Purposeful Work. Joyful Life. Authentic Connection.">
-    <meta name="twitter:description" content="Lead your life with purpose. Coaching to support your growth, wellness, and relationships.">
+    <meta name="twitter:title" content="Tech Coaching - Wil Ng">
+    <meta name="twitter:description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
     
     <!-- Keywords -->
-    <meta name="keywords" content="tech leadership, software engineering coaching, tech leads, CTO coaching, engineering leadership, mental fitness, Agile SCRUM, life coaching, personal growth, emotional wellness, leadership development, overcome burnout, build better habits, stress management, relational coaching, coaching Singapore, break patterns, self-awareness, work life balance, mindset coaching, high performance habits">
+    <meta name="keywords" content="tech leadership, software engineering coaching, tech leads, CTO coaching, engineering leadership, mental fitness, Agile SCRUM, conflict management, productivity, emotional intelligence, personal wellness">
 
     <!-- Author -->
     <meta name="author" content="Wil Ng">
@@ -37,8 +38,8 @@
      <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Non-Production - Purposeful Work. Joyful Life. Authentic Connection.</title>
-    <meta name="description" content="Non-production - Lead your life with purpose. Coaching to support your growth, wellness, and relationships.">
+    <title>Staging - Tech Leadership Coaching</title>
+    <meta name="description" content="Staging environment for Tech Leadership Coaching. This site is for testing purposes only.">
 
     <!-- Robots Meta Tag to prevent indexing -->
     <meta name="robots" content="noindex, nofollow">
@@ -79,12 +80,6 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/articles">
-                            Articles
-                            <span></span>
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#7weeks">
                             Program
@@ -136,7 +131,7 @@
     ];
     $randomCareerMessage = Arr::random($careerMessages);
 @endphp
-<h1 >
+<h1 style="font-size:2rem;">
     <em>"{{ $randomCareerMessage }}"</em>
 </h1>
                     <div class="mt-5 text-end">
@@ -151,7 +146,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="mb-4">Making progress at work can be hard…
+                        <h2 class="mb-4">Making progress can be hard…
                             </h1>
                     </div>
                     <div class="section-slider">
@@ -234,25 +229,22 @@
                 </div>
             </div>
         </section>
-      
         <section class="background--white">
-        <div class="container">
-                <div class="d-flex align-items-center row">
-                    <div class="px-4 col-12 col-md-5">
-                        <img src="{{asset('images/asset-3v2.png')}}" class="icon-image full" alt="">
+            <div class="container">
+                <div class="d-flex align-items-end row">
+                    <div class="col-12 col-md-8 col-lg-9">
+                        <h1>
+                        You can’t shortcut the work, but you can enjoy the process.
+                        </h1>
+                        <img src="{{asset('images/asset-3v2.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
-                    <div class="px-4 col-12 col-md-7">
-                        <h2 class="mb-4 mb-lg-5"><b>
-                                You can’t shortcut the work, but you can enjoy the process.
-                            </b></h2>
-                            <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button px-4">Get
+                    <div class="col-12 col-md-4 col-lg-3 py-md-5">
+                        <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button px-4">Get
                             Started</a>
                     </div>
-                    
                 </div>
             </div>
         </section>
-      
         <section id="meetyourcoach" class="background--half">
             <div class="container">
                 <div class="d-flex align-items-center row">
@@ -329,6 +321,95 @@
                                     Started</a>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="background--yellow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-4">Insights and Stories
+                            </h1>
+                    </div>
+                    <div class="section-slider">
+                        <div class="details-each">
+                            <h4 class="mb-3">Understand Burnout and Overcome it</h4>
+                            <p>
+                                Burnout is a real and growing issue in the tech industry, affecting the well-being of
+                                employees and impacting team morale and productivity...
+                            </p>
+                            <a href="#" class="read-more">Read More &rarr;</a>
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Balancing Work and Parenting</h4>
+                            <p>
+                                This is often the most immediate and pressing challenge as it affects daily
+                                operations and the leader's ability to fulfill both roles effectively.
+                            </p>
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Leadership skills</h4>
+                            <p>
+                                Essential for long-term success, developing skills like communication, conflict
+                                resolution, and motivation is critical.
+                            </p>
+                            <img src="{{asset('images/asset-2v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Managing Team Dynamics</h4>
+                            <p>
+                                Effectively managing team relationships and dynamics is vital for maintaining a
+                                productive and harmonious work environment.
+                            </p>
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Handling Pressure and Accountability</h4>
+                            <p>
+                                The increased responsibility and pressure can be significant, impacting
+                                decision-making and overall team performance.
+                            </p>
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Performance Management</h4>
+                            <p>
+                                Providing constructive feedback and managing performance can directly impact
+                                team
+                                growth and productivity.
+                            </p>
+                            <img src="{{asset('images/asset-1v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Building Trust and Respect</h4>
+                            <p>
+                                Critical for team cohesion but typically develops over time with consistent
+                                leadership behavior.
+                            </p>
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Maintaining Technical Skills</h4>
+                            <p>
+                                While important for personal growth and credibility, it is often deprioritized
+                                compared to immediate leadership responsibilities.
+                            </p>
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Time Management</h4>
+                            <p>
+                                Essential for balancing multiple responsibilities, but can be improved with
+                                experience and tools.
+                            </p>
+                            <img src="{{asset('images/assetv2.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                        </div>
+                        <div class="details-each">
+                            <h4 class="mb-3">Communicating Vision</h4>
+                            <p>
+                                Establishing a clear direction and ensuring the team understands and aligns with
+                                it
+                                is fundamental for achieving strategic goals.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
             </div>
