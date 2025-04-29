@@ -117,20 +117,7 @@
         <section class="background--white">
             <div class="col-12 container">
                 <div class="section-header-con">
-                    @php
-    use Illuminate\Support\Arr;
-    $careerMessages = [
-        "I feel like I’m constantly putting out fires, but not really growing.",
-        "I’m stuck. I know something needs to change, but I don’t know what.",
-        "I’ve hit a ceiling in my business and can’t see how to move forward.",
-        "I’m burning out, but I don’t want to slow down and lose momentum.",
-        "I don’t have anyone I can really talk to about this stuff.",
-        "Things look fine on the outside, but inside I’m stressed all the time.",
-        "I want to lead better, but I keep repeating the same patterns.",
-        "I’m scared I’ll mess this up if I keep going like this."
-    ];
-    $randomCareerMessage = Arr::random($careerMessages);
-@endphp
+                   
 <h1 style="font-size:2rem;">
     <em>"{{ $randomCareerMessage }}"</em>
 </h1>
@@ -333,83 +320,26 @@
                             </h1>
                     </div>
                     <div class="section-slider">
-                        <div class="details-each">
-                            <h4 class="mb-3">Understand Burnout and Overcome it</h4>
-                            <p>
-                                Burnout is a real and growing issue in the tech industry, affecting the well-being of
-                                employees and impacting team morale and productivity...
-                            </p>
-                            <a href="#" class="read-more">Read More &rarr;</a>
-                        </div>
-                        <div class="details-each">
-                            <h4 class="mb-3">Balancing Work and Parenting</h4>
-                            <p>
-                                This is often the most immediate and pressing challenge as it affects daily
-                                operations and the leader's ability to fulfill both roles effectively.
-                            </p>
-                        </div>
-                        <div class="details-each">
-                            <h4 class="mb-3">Leadership skills</h4>
-                            <p>
-                                Essential for long-term success, developing skills like communication, conflict
-                                resolution, and motivation is critical.
-                            </p>
-                            <img src="{{asset('images/asset-2v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
-                        </div>
-                        <div class="details-each">
-                            <h4 class="mb-3">Managing Team Dynamics</h4>
-                            <p>
-                                Effectively managing team relationships and dynamics is vital for maintaining a
-                                productive and harmonious work environment.
-                            </p>
-                        </div>
-                        <div class="details-each">
-                            <h4 class="mb-3">Handling Pressure and Accountability</h4>
-                            <p>
-                                The increased responsibility and pressure can be significant, impacting
-                                decision-making and overall team performance.
-                            </p>
-                        </div>
-                        <div class="details-each">
-                            <h4 class="mb-3">Performance Management</h4>
-                            <p>
-                                Providing constructive feedback and managing performance can directly impact
-                                team
-                                growth and productivity.
-                            </p>
-                            <img src="{{asset('images/asset-1v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
-                        </div>
-                        <div class="details-each">
-                            <h4 class="mb-3">Building Trust and Respect</h4>
-                            <p>
-                                Critical for team cohesion but typically develops over time with consistent
-                                leadership behavior.
-                            </p>
-                        </div>
-                        <div class="details-each">
-                            <h4 class="mb-3">Maintaining Technical Skills</h4>
-                            <p>
-                                While important for personal growth and credibility, it is often deprioritized
-                                compared to immediate leadership responsibilities.
-                            </p>
-                        </div>
-                        <div class="details-each">
-                            <h4 class="mb-3">Time Management</h4>
-                            <p>
-                                Essential for balancing multiple responsibilities, but can be improved with
-                                experience and tools.
-                            </p>
-                            <img src="{{asset('images/assetv2.png')}}" class="icon-image mb-3 ms-auto" alt="">
-                        </div>
-                        <div class="details-each">
-                            <h4 class="mb-3">Communicating Vision</h4>
-                            <p>
-                                Establishing a clear direction and ensuring the team understands and aligns with
-                                it
-                                is fundamental for achieving strategic goals.
-                            </p>
-                        </div>
+                        @php
+    $successAssets = [
+        asset('images/success-asset-1.png'),
+        asset('images/success-asset-2.png'),
+        asset('images/success-asset-3.png'),
+    ];
+@endphp
 
+@foreach($posts as $post)
+    <div class="details-each">
+        <h4 class="mb-3">{{ $post->title }}</h4>
+        <p>
+            {{ Str::limit(strip_tags(Str::markdown($post->content)), 120) }}
+        </p>
+        <a href="{{ route('post', $post->slug) }}" class="read-more">Read More &rarr;</a>
+        @if(($loop->index + 1) % 3 === 0)
+            <img src="{{ $successAssets[(int)(($loop->index + 1) / 3 - 1) % 3] }}" class="icon-image mb-3 ms-auto" alt="">
+        @endif
+    </div>
+@endforeach
                     </div>
                 </div>
             </div>

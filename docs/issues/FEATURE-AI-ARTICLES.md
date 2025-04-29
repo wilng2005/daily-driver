@@ -103,6 +103,10 @@ This feature introduces an Articles section to the greater.than.today website, f
 - [ ] Polish article card spacing, typography, and button styles for consistency with the rest of the site.
 - [ ] Verify all changes visually and via browser tests.
 
+#### Database & Testing
+- [ ] **Update database seeders to generate a larger set of articles for robust testing of the tech-leads/Insights section.**
+- [ ] **Update and expand feature/browser tests for the tech-leads page to verify correct article display, image rotation logic, and navigation.**
+
 #### Testing & Validation
 - [ ] Run all automated tests (unit, feature, Dusk) to ensure coverage.
 - [ ] Manually verify navigation and article display.
