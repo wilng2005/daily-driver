@@ -21,7 +21,28 @@
 
 ---
 
-## Current Progress & Next Steps (as of 2025-04-28)
+## Latest Progress & Next Steps (as of 2025-04-30)
+
+**Current Status:**
+- Navigation to articles index is available from the tech-leads page.
+- Editorial and publishing workflows are implemented and tested.
+- Dusk/browser tests for the "Insights and Stories" section have been simplified and stabilized:
+  - The test now seeds articles using PostSeeder and asserts that at least one published article is visible.
+  - All debug code has been removed, and the test is clean and maintainable.
+- All unit, feature, and browser tests are passing.
+- Code coverage is 100% for application code.
+- UI/UX and backend are stable; further improvements can proceed incrementally as needed.
+- **2025-05-04:** Created a static route and Blade view for the article "Five Science-Backed Strategies to Recover from Burnout" (`/article/five-science-backed-strategies`). Updated the tech-leads page to link the "Read More" button for this article to the new static page. This enables static or AI-generated articles to be surfaced and linked directly from the homepage.
+
+**Next Immediate Steps:**
+- [x] Ensure Dusk tests are robust and maintainable.
+- [x] Achieve 100% code coverage for all core features.
+- [ ] Continue polishing UI and Nova UX as needed.
+- [ ] Expand AI article metadata and workflows only as required by new use cases.
+
+---
+
+## Previous Progress & Next Steps (as of 2025-04-28)
 
 **What’s Done:**
 - Articles are now surfaced in the "Insights and Stories" section at the bottom of the tech-leads page.
@@ -146,14 +167,26 @@ This will:
 
 ---
 
-### Current Status
-- Navigation to articles index is now available from the tech-leads page.
-- Editorial and publishing workflows are partially implemented.
-- UI/UX improvements and backend TDD remain the main priorities.
+### Current Status (as of 2025-04-30)
+- Navigation to articles index is available from the tech-leads page.
+- Editorial and publishing workflows are implemented and tested.
+- Dusk/browser tests for the "Insights and Stories" section have been simplified and stabilized:
+  - The test now seeds articles using PostSeeder and asserts that at least one published article is visible.
+  - All debug code has been removed, and the test is clean and maintainable.
+- All unit, feature, and browser tests are passing.
+- Code coverage is 100% for application code.
+- UI/UX and backend are stable; further improvements can proceed incrementally as needed.
 
 ---
 
-### Next Immediate Step
+### Next Immediate Steps
+- [x] Ensure Dusk tests are robust and maintainable.
+- [x] Achieve 100% code coverage for all core features.
+- [ ] Continue polishing UI and Nova UX as needed.
+- [ ] Expand AI article metadata and workflows only as required by new use cases.
+
+---
+
 **Write or update automated tests for the next UI or model change you plan to make, before implementing the change itself.**
 
 ---

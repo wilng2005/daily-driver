@@ -117,4 +117,8 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/article/five-science-backed-strategies', function () {
+    return view('articles.five-science-backed-strategies');
+});
+
 //Route::redirect('/', '/nova');

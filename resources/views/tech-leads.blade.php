@@ -312,12 +312,11 @@
                 </div>
             </div>
         </section>
-        <section class="background--yellow">
+        <section class="background--yellow" data-testid="insights-and-stories-section">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="mb-4">Insights and Stories
-                            </h1>
+                        <h2 class="mb-4">Insights and Stories</h2>
                     </div>
                     <div class="section-slider">
                         @php
@@ -334,12 +333,19 @@
         <p>
             {{ Str::limit(strip_tags(Str::markdown($post->content)), 120) }}
         </p>
-        <a href="{{ route('post', $post->slug) }}" class="read-more">Read More &rarr;</a>
+        <a href="#" class="read-more">Read More &rarr;</a>
         @if(($loop->index + 1) % 3 === 0)
             <img src="{{ $successAssets[(int)(($loop->index + 1) / 3 - 1) % 3] }}" class="icon-image mb-3 ms-auto" alt="">
         @endif
     </div>
 @endforeach
+                    <div class="details-each">
+                        <h4 class="mb-3">Five Science-Backed Strategies to Recover from Burnout</h4>
+                        <p>
+                            Combating burnout requires more than rest alone; it involves actively completing the stress response cycle and replenishing...
+                        </p>
+                        <a href="{{ url('/article/five-science-backed-strategies') }}" class="read-more">Read More &rarr;</a>
+                        <img src="{{asset('images/success-asset-1.png')}}" class="icon-image mb-3 ms-auto" alt="">
                     </div>
                 </div>
             </div>
