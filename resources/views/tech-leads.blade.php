@@ -319,15 +319,15 @@
                         <h2 class="mb-4">Insights and Stories</h2>
                     </div>
                     <div class="section-slider">
-                        @php
+                        <!-- @php
     $successAssets = [
         asset('images/success-asset-1.png'),
         asset('images/success-asset-2.png'),
         asset('images/success-asset-3.png'),
     ];
-@endphp
+@endphp -->
 
-@foreach($posts as $post)
+<!-- @foreach($posts as $post)
     <div class="details-each">
         <h4 class="mb-3">{{ $post->title }}</h4>
         <p>
@@ -338,7 +338,7 @@
             <img src="{{ $successAssets[(int)(($loop->index + 1) / 3 - 1) % 3] }}" class="icon-image mb-3 ms-auto" alt="">
         @endif
     </div>
-@endforeach
+@endforeach -->
                     <div class="details-each">
                         <h4 class="mb-3">Five Science-Backed Strategies to Recover from Burnout</h4>
                         <p>
