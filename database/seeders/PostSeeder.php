@@ -12,6 +12,33 @@ class PostSeeder extends Seeder
     {
         Post::truncate(); // Clear all posts
 
+        // Seed 10 published posts with varied content
+        for ($i = 1; $i <= 10; $i++) {
+            Post::create([
+                'title' => "Sample Article #$i",
+                'slug' => "sample-article-$i",
+                'content' => str_repeat("This is the content for article #$i. ", $i % 3 === 0 ? 10 : 3),
+                'status' => 'published',
+                'source' => $i % 2 === 0 ? 'ai' : 'manual',
+                'ai_prompt' => $i % 2 === 0 ? "AI prompt for article #$i" : null,
+                'published_at' => now()->subDays($i),
+            ]);
+        }
+
+        // Optionally, add 2 drafts for filtering test
+        for ($i = 1; $i <= 2; $i++) {
+            Post::create([
+                'title' => "Draft Article #$i",
+                'slug' => "draft-article-$i",
+                'content' => "This is a draft article and should not appear in Insights and Stories.",
+                'status' => 'draft',
+                'source' => 'manual',
+                'ai_prompt' => null,
+                'published_at' => null,
+            ]);
+        }
+
+        // Retain any legacy/manual posts needed for specific checks
         Post::create([
             'title' => 'What is Burnout? Understanding and Overcoming It',
             'slug' => 'what-is-burnout',

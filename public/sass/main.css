@@ -179,6 +179,18 @@ section {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Bottom shadow */
 }
 
+.read-more {
+  margin-top: 1.25rem;
+  color: #222 !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.12s;
+}
+.read-more:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
 .button {
   background: #000;
   border-radius: 20px;
