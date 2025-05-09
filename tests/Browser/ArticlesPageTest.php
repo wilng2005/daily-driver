@@ -17,7 +17,7 @@ class ArticlesPageTest extends DuskTestCase
     {
         // Placeholder test to ensure at least one passing test exists for this class.
         // Remove this when re-enabling actual browser tests for /articles.
-        $this->assertTrue(true, 'No active browser tests for /articles. Placeholder to prevent CI failure.');
+        $this->assertTrue(true);
     }
 
     use DatabaseMigrations;
