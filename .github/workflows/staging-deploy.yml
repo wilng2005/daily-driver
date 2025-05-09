@@ -38,7 +38,7 @@ jobs:
       - name: Run browser tests
         run: vendor/bin/sail dusk
       - name: Stop Sail       
-        run: vendor/bin/sail down
+        run: vendor/bin/sail down; echo "Dusk exited with code $?"
   deploy:
     runs-on: ubuntu-latest
     steps:
