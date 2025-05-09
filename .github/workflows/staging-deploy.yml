@@ -37,10 +37,17 @@ jobs:
         run: vendor/bin/sail artisan test --coverage --min=100.0
       - name: Run browser tests
         run: |
-          vendor/bin/sail dusk || EXIT_CODE=$?
-          if grep -q "FAIL" storage/logs/dusk.log; then
+          vendor/bin/sail dusk | tee dusk-output.log
+          DUSK_EXIT=${PIPESTATUS[0]}
+          if [ $DUSK_EXIT -ne 0 ]; then
+            echo "Dusk exited with code $DUSK_EXIT"
+            exit $DUSK_EXIT
+          fi
+          if grep -q "FAIL" dusk-output.log; then
+            echo "Detected test failures in Dusk output."
             exit 1
           fi
+          echo "All Dusk tests passed."
           exit 0
       - name: Stop Sail       
         run: vendor/bin/sail down
