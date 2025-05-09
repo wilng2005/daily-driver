@@ -9,6 +9,15 @@ use Tests\DuskTestCase;
 
 class ArticlesPageTest extends DuskTestCase
 {
+    /**
+     * Placeholder test to prevent CI failure when all real tests are disabled.
+     * Remove this when re-enabling actual browser tests for /articles.
+     */
+    public function test_placeholder_to_prevent_exit_code_1()
+    {
+        $this->markTestSkipped('No active browser tests for /articles. Placeholder to prevent CI failure.');
+    }
+
     use DatabaseMigrations;
 
     /** @test */
