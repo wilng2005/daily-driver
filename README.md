@@ -69,6 +69,41 @@ See the [AI-Generated Articles Feature Plan](docs/issues/FEATURE-AI-ARTICLES.md)
 ---
 
 ## 🧑‍💻 Development Workflow
+
+
+### Database Reset & Seeding
+
+To reset your database and seed it with sample data for local development/testing:
+
+```sh
+./vendor/bin/sail artisan migrate:fresh --seed
+```
+
+This will:
+- Drop all tables and re-run all migrations
+- Truncate the posts table and insert example data (manual & AI, published & draft)
+
+Use this workflow to demo, test, or develop with real data.
+
+---
+
+### Updating main.css (Custom Styles)
+
+All custom styles for the application are managed in `public/sass/main.css`.
+
+To update or add styles:
+1. Edit `public/sass/main.css` and save your changes.
+2. Rebuild frontend assets using Sail and Vite:
+   ```sh
+   ./vendor/bin/sail npm run build
+   ```
+3. Refresh your browser to see the changes. (You may need to clear your browser cache for CSS changes to appear.)
+
+**Note:**
+- Always commit both your updated CSS and any relevant Blade/template changes.
+- If you encounter build errors, try removing `node_modules` and `package-lock.json`, then run `./vendor/bin/sail npm install` before rebuilding.
+
+### Commands
 - **Start the app:** `./vendor/bin/sail up -d`
 - **Stop the app:** `./vendor/bin/sail down`
 - **Run tests:** `./vendor/bin/sail test`

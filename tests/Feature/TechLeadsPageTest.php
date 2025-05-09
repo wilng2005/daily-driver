@@ -25,7 +25,7 @@ class TechLeadsPageTest extends TestCase
 
         $seen = [];
         for ($i = 0; $i < 50; $i++) {
-            $response = $this->get('/tech-leads');
+            $response = $this->get('/');
             $found = false;
             foreach ($messages as $msg) {
                 if (str_contains($response->getContent(), $msg)) {
