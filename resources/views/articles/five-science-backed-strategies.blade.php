@@ -140,7 +140,7 @@
             <div class="container">
                 <div class="d-flex align-items-center row">
                 <div class="col-md-5">
-                        <img src="{{asset('images/asset-6v2.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/exercise-1.png')}}" class="icon-image full" alt="">
                     </div> 
                     <div class="col-md-7 pe-5">
                         <div>

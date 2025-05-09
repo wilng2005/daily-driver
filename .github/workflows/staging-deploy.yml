@@ -36,7 +36,12 @@ jobs:
       - name: Check test coverage
         run: vendor/bin/sail artisan test --coverage --min=100.0
       - name: Run browser tests
-        run: vendor/bin/sail dusk; echo "Dusk exited with code $?"
+        run: |
+          vendor/bin/sail dusk || EXIT_CODE=$?
+          if grep -q "FAIL" storage/logs/dusk.log; then
+            exit 1
+          fi
+          exit 0
       - name: Stop Sail       
         run: vendor/bin/sail down
   deploy:
