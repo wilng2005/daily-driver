@@ -1,8 +1,10 @@
 # Feature Plan: AI-Generated Articles Section
 
+> **Note (2025-05-09):** The current focus is to deploy a basic article page and finalize the design and layout for articles. Before integrating any AI-generated content, we will hard-code three high-quality articles into the website. AI automation will only proceed after these static articles are reviewed and the article experience is validated.
+
 ---
 
-## Updated Plan (as of 2025-04-28)
+## Updated Plan (as of 2025-05-09)
 
 ### Overview
 - The tech-leads page is now the root/home page of the site.
@@ -21,24 +23,19 @@
 
 ---
 
-## Latest Progress & Next Steps (as of 2025-04-30)
+## Latest Progress & Next Steps (as of 2025-05-09)
 
 **Current Status:**
-- Navigation to articles index is available from the tech-leads page.
+- A basic article page is being deployed to finalize design and layout for articles.
+- Static route and Blade view exist for "Five Science-Backed Strategies to Recover from Burnout".
 - Editorial and publishing workflows are implemented and tested.
-- Dusk/browser tests for the "Insights and Stories" section have been simplified and stabilized:
-  - The test now seeds articles using PostSeeder and asserts that at least one published article is visible.
-  - All debug code has been removed, and the test is clean and maintainable.
-- All unit, feature, and browser tests are passing.
-- Code coverage is 100% for application code.
+- All tests (unit, feature, browser) are passing; coverage is 100%.
 - UI/UX and backend are stable; further improvements can proceed incrementally as needed.
-- **2025-05-04:** Created a static route and Blade view for the article "Five Science-Backed Strategies to Recover from Burnout" (`/article/five-science-backed-strategies`). Updated the tech-leads page to link the "Read More" button for this article to the new static page. This enables static or AI-generated articles to be surfaced and linked directly from the homepage.
 
 **Next Immediate Steps:**
-- [x] Ensure Dusk tests are robust and maintainable.
-- [x] Achieve 100% code coverage for all core features.
-- [ ] Continue polishing UI and Nova UX as needed.
-- [ ] Expand AI article metadata and workflows only as required by new use cases.
+- [ ] Hard-code three good quality articles into the website (not AI-generated).
+- [ ] Review and finalize article layout and user experience.
+- [ ] Only after design validation, proceed to implement AI-generated article workflows.
 
 ---
 
