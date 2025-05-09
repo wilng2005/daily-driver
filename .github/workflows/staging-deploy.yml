@@ -36,9 +36,9 @@ jobs:
       - name: Check test coverage
         run: vendor/bin/sail artisan test --coverage --min=100.0
       - name: Run browser tests
-        run: vendor/bin/sail dusk
+        run: vendor/bin/sail dusk; echo "Dusk exited with code $?"
       - name: Stop Sail       
-        run: vendor/bin/sail down; echo "Dusk exited with code $?"
+        run: vendor/bin/sail down
   deploy:
     runs-on: ubuntu-latest
     steps:
