@@ -277,7 +277,7 @@
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <img src="{{asset('images/asset-6v2.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/hug-1.png')}}" class="icon-image full" alt="">
                     </div> 
                 </div>
             </div>
@@ -286,7 +286,7 @@
             <div class="container">
                 <div class="d-flex align-items-center row">
                 <div class="col-md-5">
-                        <img src="{{asset('images/asset-6v2.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/drawing-1.png')}}" class="icon-image full" alt="">
                     </div> 
                     <div class="col-md-7 pe-5">
                         <div>
@@ -379,7 +379,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="mb-4">Insights and Stories</h2>
+                        <h2 class="mb-4">Insights and Strategies</h2>
                     </div>
                     <div class="section-slider">
       

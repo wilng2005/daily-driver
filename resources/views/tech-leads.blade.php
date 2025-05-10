@@ -316,7 +316,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="mb-4">Insights and Stories</h2>
+                        <h2 class="mb-4">Insights and Strategies</h2>
                     </div>
                     <div class="section-slider">
                         <!-- @php
