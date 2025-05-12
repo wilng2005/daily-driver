@@ -38,7 +38,7 @@
         </div>
     </div>
 </section>
-<section class="background--yellow" data-testid="insights-and-stories-section">
+<section id="insights-and-strategies" class="background--yellow" data-testid="insights-and-stories-section">
     <div class="container">
         <div class="row">
             <div class="col-12">
