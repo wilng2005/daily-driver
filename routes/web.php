@@ -118,11 +118,14 @@ Route::get('/', function () {
 // });
 
 Route::get('/article/{article}', function (string $article) {
+    // Only allow slugs with letters, numbers, and dashes
+    if (!preg_match('/^[a-zA-Z0-9\-]+$/', $article)) {
+        abort(404, 'Page not found');
+    }
     $view = "articles.{$article}";
     if (view()->exists($view)) {
         return view($view);
     }
-
     abort(404, 'Page not found');
 });
 
