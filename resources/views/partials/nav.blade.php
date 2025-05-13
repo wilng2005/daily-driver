@@ -23,6 +23,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/#testimonials">
+                            Testimonials
+                            <span></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/#meetyourcoach">
                             Meet your Coach
                             <span></span>
