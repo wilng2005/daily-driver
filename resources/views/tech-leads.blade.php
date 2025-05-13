@@ -211,7 +211,7 @@
             </div>
         </section>
 
-        <section class="background--blue">
+        <section id="testimonials" class="background--blue">
             <div class="container">
                 <div class="testimony-slider">
                     <div class="d-flex align-items-center row">

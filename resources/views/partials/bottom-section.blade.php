@@ -57,9 +57,12 @@
 <section class="background--black">
     <div class="container text-center px-4">
         <h2>
-            “Success is the sum of small efforts, repeated day-in and day-out.”
+            “The goal is not to be perfect by the end. 
         </h2>
-        <h2 class="mt-3"><i>- Robert Collier</i></h2>
+        <h2>
+            The goal is to be better today.”
+        </h2>
+        <h2 class="mt-3"><i>- Simon Sinek</i></h2>
     </div>
 </section>
 <footer>
