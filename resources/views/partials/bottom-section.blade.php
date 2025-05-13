@@ -66,7 +66,7 @@
     <div class="container">
         <div class="legal-disclaimer py-5">
             <div class="footer-header">Legal Notice & Disclaimers</div>
-            <p>&copy; 2025 PSALM12SEVEN PRIVATE LIMITED (202443598Z)</p>
+            <p>&copy; 2025 PSALM12SEVEN PRIVATE LIMITED (UEN: 202443598Z)</p>
             <p>PROGRAM CONTENT AND MATERIAL DO NOT CONSTITUTE MEDICAL OR MENTAL HEALTH ADVICE AND ARE NOT A
                 SUBSTITUTE
                 FOR PROFESSIONAL CARE, DIAGNOSIS, OR TREATMENT OF ANY MEDICAL OR MENTAL HEALTH CONDITION.
