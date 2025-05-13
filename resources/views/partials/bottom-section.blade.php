@@ -42,6 +42,14 @@
                 <h2 class="mb-4">Insights and Strategies</h2>
             </div>
             <div class="section-slider">
+            <div class="details-each">
+                    <h4 class="mb-3">Resilient Leadership: Recovering from Mistakes and Setbacks</h4>
+                    <p>
+                        Mistakes are inevitable, but how you respond defines your resilience. Learn how to navigate setbacks, adapt, and emerge stronger.
+                    </p>
+                    <a href="{{ url('/article/resilient-leadership-recovering-from-mistakes-and-setbacks') }}" class="read-more">Read More &rarr;</a>
+                   
+                </div>
                 <div class="details-each">
                     <h4 class="mb-3">Five Science-Backed Strategies to Recover from Burnout</h4>
                     <p>

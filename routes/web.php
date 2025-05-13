@@ -117,8 +117,13 @@ Route::get('/', function () {
 //     return view('about');
 // });
 
-Route::get('/article/five-science-backed-strategies', function () {
-    return view('articles.five-science-backed-strategies');
+Route::get('/article/{article}', function (string $article) {
+    $view = "articles.{$article}";
+    if (view()->exists($view)) {
+        return view($view);
+    }
+
+    abort(404, 'Page not found');
 });
 
 //Route::redirect('/', '/nova');
