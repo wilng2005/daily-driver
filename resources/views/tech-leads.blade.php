@@ -9,25 +9,25 @@
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Coaching - Wil Ng</title>
-    <meta name="description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
+    <title>Make Tomorrow Greater</title>
+    <meta name="description" content="Helping founders, leaders, and software engineers to grow with clarity, courage, and purpose. Conquer burnout, build resilience, lead confidently, and make tomorrow greater than today.">
 
     <!-- Open Graph Meta Tags for social media sharing -->
-    <meta property="og:title" content="Tech Coaching - Wil Ng">
-    <meta property="og:description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
+    <meta property="og:title" content="Make Tomorrow Greater">
+    <meta property="og:description" content="Helping founders, leaders, and software engineers to grow with clarity, courage, and purpose. Conquer burnout, build resilience, lead confidently, and make tomorrow greater than today.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://greater.than.today">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tech Coaching - Wil Ng">
-    <meta name="twitter:description" content="We help software engineers become exceptional leaders. From tech leads to CTOs, our coaching program empowers you to achieve happiness and impact.">
+    <meta name="twitter:title" content="Make Tomorrow Greater">
+    <meta name="twitter:description" content="Helping founders, leaders, and software engineers to grow with clarity, courage, and purpose. Conquer burnout, build resilience, lead confidently, and make tomorrow greater than today.">
     
     <!-- Keywords -->
-    <meta name="keywords" content="tech leadership, software engineering coaching, tech leads, CTO coaching, engineering leadership, mental fitness, Agile SCRUM, conflict management, productivity, emotional intelligence, personal wellness">
+    <meta name="keywords" content="technology, leadership, software engineering, tech leads, CTO coaching, engineering, mental fitness, Agile SCRUM, conflict management, productivity, emotional intelligence, personal wellness">
 
     <!-- Author -->
-    <meta name="author" content="Wil Ng">
+    <meta name="author" content="Psalm12Seven">
 
     <!-- Additional Meta Tags -->
     <meta name="robots" content="index, follow">

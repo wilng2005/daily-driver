@@ -20,7 +20,7 @@
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tech Coaching - Wil Ng">
+    <meta name="twitter:title" content="Five Science-Backed Strategies to Recover from Burnout">
     <meta name="twitter:description" content="Combating burnout requires more than rest alone; it involves actively completing the stress response cycle and replenishing our emotional reserves.">
     
     <!-- Keywords -->

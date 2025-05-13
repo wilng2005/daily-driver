@@ -7,24 +7,21 @@
 
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <h4 class="mb-3">Mental Fitness Program</h4>
+                    <h4 class="mb-3">Training Program</h4>
                     <p>
-                        Establishes an operating system for mental fitness.
+                        Establishes your base operating framework in mental fitness.
                     </p>
                     <p>
-                        This is critical for stress management, enhancing performance, emotional regulation, and
-                        improving relationships.
+                        Get better at managing stress, enhancing performance, regulating emotions, and building stronger relationships.
                     </p>
                 </div>
                 <div class="col-md-5">
-                    <h4 class="mb-3">1-on-1 Coaching Sessions</h4>
+                    <h4 class="mb-3">Coaching Sessions</h4>
                     <p>
-                        Weekly 1-hour coaching sessions focus on tailored goal setting to address your specific
-                        needs and challenges.
+                        Each 1-hour coaching session focuses on tailored goal-setting to address your specific needs and challenges.
                     </p>
                     <p>
-                        Topics covered can include Agile SCRUM, conflict management, persuasion, productivity,
-                        emotional intelligence, personal wellness, and coaching others.
+                        Gain clarity, lead better, influence with confidence, manage conflict, and grow in purpose, productivity, and emotional intelligence.
                     </p>
                 </div>
                 <div class="col-md-3">
@@ -69,7 +66,7 @@
     <div class="container">
         <div class="legal-disclaimer py-5">
             <div class="footer-header">Legal Notice & Disclaimers</div>
-            <p>&copy; 2025 PSALM12SEVEN PRIVATE LIMITED (202443598Z)</p>
+            <p>&copy; 2025 PSALM12SEVEN PRIVATE LIMITED (UEN: 202443598Z)</p>
             <p>PROGRAM CONTENT AND MATERIAL DO NOT CONSTITUTE MEDICAL OR MENTAL HEALTH ADVICE AND ARE NOT A
                 SUBSTITUTE
                 FOR PROFESSIONAL CARE, DIAGNOSIS, OR TREATMENT OF ANY MEDICAL OR MENTAL HEALTH CONDITION.
