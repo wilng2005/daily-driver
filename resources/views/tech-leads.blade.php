@@ -213,21 +213,115 @@
 
         <section class="background--blue">
             <div class="container">
-                <div class="d-flex align-items-center row">
-                    <div class="px-4 col-12 col-md-7">
-                        <h2 class="mb-4 mb-lg-5"><b>
-                                <div class="quote">“</div>
-                                Thanks to Wil's guidance, I've felt more prepared to handle the
-                                uncertainties that lie
+                <div class="testimony-slider">
+                    <div class="d-flex align-items-center row">
+                        <div class="px-4 col-12 col-md-7">
+                            <h2 class="mb-4 mb-lg-5"><b>
+                                    <div class="quote">“</div>
+                                    Wil's guidance and insight have broadened my horizon and equipped me with tools to navigate around my challenges." 
+                                </b></h2>
+                            <p> — Ronny Muliawan, System Architect</p>
+                        </div>
+                        <div class="px-4 col-12 col-md-5">
+                            <img src="{{asset('images/testimony-1.png')}}" class="icon-image full" alt="">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center row">
+                        <div class="px-4 col-12 col-md-7">
+                            <h2 class="mb-4 mb-lg-5"><b>
+                                    <div class="quote">“</div>
+                                    Initially, I was skeptical, but as we dove deeper into the concepts, my perspective shifted. It has made a real impact not only in my work but also in my personal life."
+                                </b></h2>
+                            <p> — Adeline Pang, Product Owner</p>
+                        </div>
+                        <div class="px-4 col-12 col-md-5">
+                            <img src="{{asset('images/testimony-2.png')}}" class="icon-image full" alt="">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center row">
+                        <div class="px-4 col-12 col-md-7">
+                            <h2 class="mb-4 mb-lg-5"><b>
+                                    <div class="quote">“</div>
+                                    Thanks to Wil's guidance, I've felt more prepared to handle the
+                                    uncertainties that lie
                                 ahead.”
                             </b></h2>
-                        <p> — Tony Tong, CTO of The Mind Reader</p>
+                            <p> — Tony Tong, Chief Technology Officer</p>
+                        </div>
+                        <div class="px-4 col-12 col-md-5">
+                            <img src="{{asset('images/asset-4v2.png')}}" class="icon-image full" alt="">
+                        </div>
                     </div>
-                    <div class="px-4 col-12 col-md-5">
-                        <img src="{{asset('images/asset-4v2.png')}}" class="icon-image full" alt="">
+                    
+                    
+                    <div class="d-flex align-items-center row">
+                        <div class="px-4 col-12 col-md-7">
+                            <h2 class="mb-4 mb-lg-5"><b>
+                                    <div class="quote">“</div>
+                                    Wil’s coaching has been incredibly valuable. He guides me in breaking down complex issues, which makes challenges feel less daunting."
+                                </b></h2>
+                            <p> — Ain Kamis, Scrum Master</p>
+                        </div>
+                        <div class="px-4 col-12 col-md-5">
+                            <img src="{{asset('images/testimony-3.png')}}" class="icon-image full" alt="">
+                        </div>
                     </div>
+                    <div class="d-flex align-items-center row">
+                        <div class="px-4 col-12 col-md-7">
+                            <h2 class="mb-4 mb-lg-5"><b>
+                                    <div class="quote">“</div>
+                                    I would highly recommend anyone that is seeking to understand themselves better, be it in their mental aptitude or emotional quotient, to give this course a shot. "
+                                </b></h2>
+                            <p> — Nobie Tan, Real Estate</p>
+                        </div>
+                        <div class="px-4 col-12 col-md-5">
+                            <img src="{{asset('images/testimony-5.png')}}" class="icon-image full" alt="">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center row">
+                        <div class="px-4 col-12 col-md-7">
+                            <h2 class="mb-4 mb-lg-5"><b>
+                                    <div class="quote">“</div>
+                                    I have gained more self-awareness and clarity in my goals. Wil is also a sincere and committed coach who is very willing to share his experiences."
+                                </b></h2>
+                            <p> — Michelle Lai, Assistant Vice President</p>
+                        </div>
+                        <div class="px-4 col-12 col-md-5">
+                            <img src="{{asset('images/testimony-4.png')}}" class="icon-image full" alt="">
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </section>
+       
         @include('partials.bottom-section')
+
+        <script type="text/javascript">
+
+
+            $('.testimony-slider').slick({
+                arrows: false,
+                dots: true,
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                adaptiveHeight: true,
+                responsive: [{
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    }
+                }, {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                }, ]
+                
+            });
+
+        </script>
 </html>

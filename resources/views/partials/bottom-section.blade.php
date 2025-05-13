@@ -89,27 +89,27 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="{{asset('slick/slick.min.js')}}"></script>
 <script type="text/javascript">
-$('.section-slider').slick({
-    arrows: false,
-    dots: true,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    adaptiveHeight: true,
-    responsive: [{
-        breakpoint: 992,
-        settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-        }
-    }, {
-        breakpoint: 768,
-        settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-        }
-    }, ]
-});
+            $('.section-slider').slick({
+                arrows: false,
+                dots: true,
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                adaptiveHeight: true,
+                responsive: [{
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    }
+                }, {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                }, ]
+            });
 
 $(document).ready(function() {
     $('.navbar-nav .nav-link').click(function(event) {
