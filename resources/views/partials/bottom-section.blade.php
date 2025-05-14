@@ -42,6 +42,14 @@
             </div>
             <div class="section-slider">
             <div class="details-each">
+                    <h4 class="mb-3">Exhausted and Empty? Maybe It’s Burnout</h4>
+                    <p>
+                    Feeling utterly drained at the end of each day? If you’re a busy entrepreneur, engineer, or manager running on fumes, you’re not alone – and it’s not a personal failing.
+                    </p>
+                    <a href="{{ url('/article/exhausted-and-empty-maybe-its-burnout') }}" class="read-more">Read More &rarr;</a>
+                   
+                </div>
+                <div class="details-each">
                     <h4 class="mb-3">Resilient Leadership: Recovering from Mistakes and Setbacks</h4>
                     <p>
                         Mistakes are inevitable, but how you respond defines your resilience. Learn how to navigate setbacks, adapt, and emerge stronger.

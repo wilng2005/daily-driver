@@ -9,19 +9,19 @@
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resilient Leadership: Recovering from Mistakes and Setbacks</title>
-    <meta name="description" content="Resilience in leadership refers to the capacity to bounce back from adversity, maintaining focus and confidence after failures.">
+    <title>Exhausted and Empty? Maybe It’s Burnout</title>
+    <meta name="description" content="Feeling utterly drained at the end of each day? If you’re a busy entrepreneur, engineer, or manager running on fumes, you’re not alone – and it’s not a personal failing.">
 
     <!-- Open Graph Meta Tags for social media sharing -->
-    <meta property="og:title" content="Resilient Leadership: Recovering from Mistakes and Setbacks">
-    <meta property="og:description" content="Resilience in leadership refers to the capacity to bounce back from adversity, maintaining focus and confidence after failures.">
+    <meta property="og:title" content="Exhausted and Empty? Maybe It’s Burnout">
+    <meta property="og:description" content="Feeling utterly drained at the end of each day? If you’re a busy entrepreneur, engineer, or manager running on fumes, you’re not alone – and it’s not a personal failing.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://greater.than.today">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Resilient Leadership: Recovering from Mistakes and Setbacks">
-    <meta name="twitter:description" content="Resilience in leadership refers to the capacity to bounce back from adversity, maintaining focus and confidence after failures.">
+    <meta name="twitter:title" content="Ex4hausted and Empty? Maybe It’s Burnout">
+    <meta name="twitter:description" content="Feeling utterly drained at the end of each day? If you’re a busy entrepreneur, engineer, or manager running on fumes, you’re not alone – and it’s not a personal failing.">
     
     <!-- Keywords -->
     <meta name="keywords" content="resilience,burnout, stress response cycle, emotional intelligence, personal wellness">
@@ -92,7 +92,7 @@
                         </div>
                     </div>
                 <div class="col-md-5">
-                        <img src="{{asset('images/fallen-1.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/exhausted-1.png')}}" class="icon-image full" alt="">
                     </div> 
                 </div>
             </div>
@@ -101,29 +101,30 @@
             <div class="container">
                 <div class="d-flex align-items-center row">
                 <div class="col-md-5">
-                        <img src="{{asset('images/assetv2.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/asset-6v2.png')}}" class="icon-image full" alt="">
                     </div> 
                     <div class="col-md-7 pe-5">
                         <div>
-                        <h2>Studies on Leader Resilience and Learning from Failure</h2>
-  
-  <p>Research in leadership and psychology confirms that resilient leaders drive better outcomes. A 2021 review in the <em>Leadership & Organization Development Journal</em> found that resilience significantly improves team performance and engagement. Meta-analyses link leader resilience with lower employee burnout, higher job satisfaction, and workplace well-being.</p>
-
-  <p>Mindset and attribution matter. Leaders who frame failures as learning opportunities—rather than personal inadequacies—recover better. Carol Dweck’s research shows that those who “relished” failure for its learning value perform better long-term. Leaders who ask “What can I do better?” tend to stay motivated and improve future results. Entrepreneurs high in grit (passion + perseverance) often bounce back from failure, especially when they view setbacks as temporary and specific rather than personal and permanent.</p>
-
-  <p>Neuroscience supports this: failure triggers areas of the brain associated with pain and threat, like the amygdala. Without coping skills, leaders can react defensively. Techniques like mindfulness and cognitive reappraisal help leaders regulate shame and stress, fostering healthier recovery. Studies show that psychological flexibility lowers burnout and improves resilience under pressure.</p>
-
-  <p>Amy Edmondson’s hospital research found that teams with high psychological safety reported more errors—not because they failed more, but because they felt safe surfacing mistakes. This led to better outcomes, proving that how leaders respond to errors shapes learning behavior across organizations.</p>
-
-  <p>Qualitative studies of executive comebacks identify common traits: honest self-reflection, future orientation, feedback-seeking, and “adaptive humility.” These leaders accept responsibility without collapsing into shame. The ability to separate identity from outcome (“I made a mistake” vs. “I am a failure”) accelerates recovery. Self-compassion improves future performance more than rumination does.</p>
-
-  <p>Sports psychology echoes this. Athletes who mentally reset after errors (like a golfer recovering from a bad hole) tend to rebound faster. The same principle applies in business and leadership.</p>
-
-  <p>Learning from failure must be systematic. Edmondson’s <em>“Strategies for Learning from Failure”</em> recommends analyzing errors via after-action reviews. Organizations that conduct regular post-mortems innovate more and repeat fewer mistakes.</p>
-
-  <p>Leaders who faced smaller setbacks early are better prepared for big ones later. Rather than protecting young leaders from failure, exposing them to manageable risks may build their “resilience muscle.”</p>
-
-  <p>In short, leaders who reflect, reframe failure, seek feedback, and regulate emotions tend to recover more effectively—and improve in the process. Without these capacities, failure can become a permanent setback. The science confirms: resilience is not just about bouncing back—it's about bouncing forward.</p>
+                        <h2>What Is Burnout?</h2>
+  <p>Burnout isn’t just being tired or having a bad week – it’s a distinct state of physical, mental, and emotional exhaustion. The WHO’s International Classification of Diseases (ICD-11) defines burnout as a syndrome from “chronic workplace stress that has not been successfully managed,” characterized by three things:</p>
+  <ul>
+    <li><strong>Energy depletion or exhaustion:</strong> You feel completely worn out – fatigued even when you rest.</li>
+    <li><strong>Mental distance or cynicism about one’s job:</strong> You become negative or detached – cynical, irritable, or numb about work.</li>
+    <li><strong>Reduced professional efficacy:</strong> You experience declining performance or accomplishment – feeling ineffective or questioning the value of your work.</li>
+  </ul>
+  <p>The American Psychological Association (APA) similarly defines burnout as “physical, emotional, or mental exhaustion accompanied by decreased motivation, lowered performance, and negative attitudes toward oneself and others.”</p>
+  <p>In other words, burnout leaves you exhausted, ineffective, and often bitter or detached from your job. It’s specifically about work – it “refers specifically to phenomena in the occupational context.” It’s not a medical disease or a personal flaw; think of it as an occupational hazard of unmanaged stress.</p>
+<br/>
+  <h3>Burnout vs. Stress</h3>
+  <p>Burnout may result from chronic stress, but it isn’t just “too much stress.” Stress often involves over-engagement – you’re frantic, reactive, with overactive emotions. Burnout, by contrast, feels like disengagement: emotional numbness, lack of motivation, and hopelessness.</p>
+<br/>
+  <h3>Burnout vs. Depression</h3>
+  <p>Burnout can resemble depression (low mood, hopelessness, withdrawal), but burnout is usually tied to work and may improve when work stress is removed. Depression typically affects all areas of life and may not improve just by changing jobs.</p>
+<br/>
+  <h3>Burnout vs. Anxiety</h3>
+  <p>Anxiety involves persistent worry and physiological arousal. Burnout is more characterized by apathy and exhaustion. Chronic burnout may lead to anxiety disorders, but it often feels more like emotional shutdown than nervous overdrive.</p>
+<br/>
+  <p>Finally, burnout isn’t a sign of weakness – it often hits the most committed, idealistic workers. As psychologist Christina Maslach notes, burnout tends to affect those who care the most. If you’re exhausted and empty, take heart: burnout is real, and it’s not your fault.</p>
 
 
 
@@ -138,79 +139,35 @@
                 <div class="d-flex align-items-center row">
                     <div class="col-md-7 pe-5">
                         <div>
-                        <h2>Patterns Among High Performers Who Recover Well</h2>
+                        <h2>What Causes Burnout?</h2>
+  <p>Burnout doesn’t happen overnight – it’s the result of prolonged stress building up until your mind and body hit a breaking point. Multiple factors contribute to burnout:</p>
 
-<p>High-performing individuals—CEOs, athletes, founders—tend to recover from failure using consistent habits, mindsets, and systems. These traits make their resilience intentional and repeatable.</p>
+  <h3>Brain and Body on Overdrive</h3>
+  <p>Chronic stress overstimulates your body’s stress-response system (the HPA axis), flooding you with cortisol and adrenaline. Over time, this system can become dysregulated, leaving you constantly tense or utterly drained. Burnout has been linked to inflammation, poor sleep, and changes in brain regions responsible for emotional regulation and focus.</p>
 
-<h3>Key Patterns:</h3>
+  <h3>Psychological Strain and Emotional Exhaustion</h3>
+  <p>Burnout often stems from mismatches between you and your job in six areas (according to Maslach & Leiter):</p>
+  <ul>
+    <li><strong>Workload</strong>: Too much to do with too few resources.</li>
+    <li><strong>Control</strong>: Little autonomy or say in decisions.</li>
+    <li><strong>Reward</strong>: Lack of recognition or compensation.</li>
+    <li><strong>Community</strong>: Isolation or conflict with coworkers.</li>
+    <li><strong>Fairness</strong>: Perceived injustice or favoritism.</li>
+    <li><strong>Values</strong>: A misalignment between personal and organizational values.</li>
+  </ul>
+  <p>Burnout is often your mind’s way of shutting down to preserve energy, leading to cynicism and detachment as a maladaptive coping strategy.</p>
 
-<ul>
-  <li><strong>Active Self-Reflection:</strong> Resilient leaders analyze setbacks through journaling, post-mortems, or deliberate thought. They treat mistakes as “free training” and ask pointed questions like “What went wrong?” and “What can I learn?”</li>
+  <h3>Environmental and Cultural Causes</h3>
+  <p>Society and workplaces often glorify hustle culture – working non-stop, being constantly available, and sacrificing rest. Toxic work environments, unrealistic expectations, and poor boundaries worsen burnout. Many workplaces ignore root causes and instead offer superficial wellness perks. If you’re working under constant pressure with little support, burnout becomes almost inevitable.</p>
 
-  <li><strong>Growth Mindset and Optimism:</strong> They see failure as a temporary challenge, not a personal verdict. Satya Nadella’s “learn-it-all” culture at Microsoft encouraged openness to error as a path to growth. Optimism here is realistic—rooted in belief that effort leads to improvement.</li>
-
-  <li><strong>Humility and Accountability:</strong> Leaders like Indra Nooyi admit mistakes without excuses. They take ownership quickly, which builds trust and allows them to pivot faster. This humility is paired with a drive to learn.</li>
-
-  <li><strong>Seeking Feedback and Coaching:</strong> High performers ask for input from peers, mentors, or executive coaches. They create feedback loops and encourage their teams to challenge them. Nadella often emails his team asking, “What could I do better?”</li>
-
-  <li><strong>Emotional Regulation and Composure:</strong> Resilient leaders don’t let shame or anger hijack decision-making. Techniques like mindfulness, pausing before responding, or reframing help them reset. Tiger Woods, for example, developed rituals to mentally reset after bad shots—helping him stay in the game.</li>
-
-  <li><strong>Rituals and Recovery Practices:</strong> Some keep failure logs or engage in reflective routines. Others celebrate “good failures” to destigmatize them. These habits build resilience. Sara Blakely, for instance, was praised by her father for trying and failing, which reduced her fear of failure.</li>
-
-  <li><strong>Support Networks and Mentoring:</strong> Resilient leaders lean on others. Whether it’s a mentor, spouse, or peer group, they talk about failures and gain perspective. Leaders who isolate themselves after setbacks often spiral, while those who seek connection recover faster.</li>
-</ul>
-<br/>
-<h3>Case Illustrations:</h3>
-<p>Satya Nadella reflects publicly on missteps, Indra Nooyi promotes accountability, and Howard Schultz held open forums with Starbucks staff to address failure. These leaders demonstrate that vulnerability and learning are not signs of weakness, but of strength.</p>
-<br/>
-<h3>Contrasting Behaviors:</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Resilient High Performers</th>
-      <th>Struggling Leaders</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Own mistakes; view them as opportunities</td>
-      <td>Deny or deflect responsibility</td>
-    </tr>
-    <tr>
-      <td>Reflect to extract lessons</td>
-      <td>Avoid reflection or ruminate without change</td>
-    </tr>
-    <tr>
-      <td>Hold a growth mindset</td>
-      <td>Exhibit a fixed mindset</td>
-    </tr>
-    <tr>
-      <td>Seek feedback and coaching</td>
-      <td>Isolate and discourage input</td>
-    </tr>
-    <tr>
-      <td>Foster team psychological safety</td>
-      <td>Create fear-based cultures</td>
-    </tr>
-    <tr>
-      <td>Stay emotionally composed</td>
-      <td>React impulsively or shut down</td>
-    </tr>
-    <tr>
-      <td>Adapt based on feedback</td>
-      <td>Persist with failing approaches or quit prematurely</td>
-    </tr>
-  </tbody>
-</table>
-<br/>
-<p>These patterns show that resilience is not just personal—it’s also cultural and behavioral. By adopting these habits, any leader can strengthen their ability to bounce back.</p>
+  <p>Burnout is not a personal failure. It’s a signal that something in your environment or workload needs to change. Understanding the causes helps you reclaim control and start healing.</p>
 
 
 
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <img src="{{asset('images/asset-4v2.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/asset-2v2.png')}}" class="icon-image full" alt="">
                     </div> 
                 </div>
             </div>
@@ -220,52 +177,57 @@
             <div class="container">
                 <div class="d-flex align-items-center row">
                 <div class="col-md-5">
-                        <img src="{{asset('images/testimony-1.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/fallen-1.png')}}" class="icon-image full" alt="">
                     </div> 
                     <div class="col-md-7 pe-5">
                         <div>
                        
-                        <h2>Case Studies & Real-Life Scenarios</h2>
-<br/>
-<h3>Case Study 1: Steve Jobs (Technology)</h3>
-<p><strong>Failure:</strong> In 1985, Jobs was fired from Apple after internal conflict and product failures like the Apple Lisa. At 30, he faced a public career low.</p>
-<p><strong>Recovery:</strong> Jobs founded NeXT and acquired Pixar. These experiences refined his leadership. In 1997, he returned to Apple and led its historic revival with products like the iMac and iPhone.</p>
-<p><strong>Outcome:</strong> Jobs called his firing “the best thing that could have happened.” It freed him to grow. His comeback redefined both his career and Apple’s future.</p>
-<br/>
-<h3>Case Study 2: Howard Schultz (Starbucks)</h3>
-<p><strong>Failure:</strong> By 2007, Starbucks had over-expanded, diluted its experience, and lost public favor. Schultz, no longer CEO, watched as the company declined.</p>
-<p><strong>Recovery:</strong> Returning as CEO in 2008, Schultz acknowledged the failures. He paused operations to retrain baristas, improved product quality, and invited feedback. Innovations like MyStarbucksIdea.com marked a cultural reset.</p>
-<p><strong>Outcome:</strong> Starbucks returned to growth and innovation. Schultz’s humility and clear accountability fueled one of retail’s most effective turnarounds.</p>
-<br/>
-<h3>Case Study 3: Tiger Woods (Sports)</h3>
-<p><strong>Failure:</strong> A 2009 scandal and multiple injuries ruined Woods’ image and career momentum. He dropped in rankings and suffered public disgrace.</p>
-<p><strong>Recovery:</strong> Woods rehabbed physically and emotionally. He accepted responsibility, adjusted strategies, and showed public vulnerability. Through patience and perseverance, he rebuilt both body and brand.</p>
-<p><strong>Outcome:</strong> In 2019, Woods won the Masters—11 years after his last major title. His resilience story became an inspiration worldwide.</p>
-<br/>
-<h3>Case Study 4: Satya Nadella (Technology)</h3>
-<p><strong>Failure:</strong> Microsoft had stagnated under prior leadership, missing major tech trends.</p>
-<p><strong>Recovery:</strong> Nadella didn’t face a singular failure, but inherited cultural stagnation. He infused a growth mindset, killed underperforming products, embraced open-source, and prioritized cloud innovation.</p>
-<p><strong>Outcome:</strong> Microsoft rebounded in relevance and market cap. Nadella’s leadership shows how owning inherited failures and shifting culture can drive transformation.</p>
-<br/>
+                        <h2>How to Recognize Burnout</h2>
+  <p>Burnout often creeps in gradually. You may normalize the stress until you’re overwhelmed. Recognizing the signs early can help prevent a deeper collapse. Watch for these key symptoms:</p>
 
-<h3>Counterexamples:</h3>
-<br/>
-<h4>Travis Kalanick (Uber)</h4>
-<p><strong>Failure:</strong> Uber’s culture turned toxic under Kalanick. Scandals and lawsuits followed. His defensive stance and slow response cost him his role.</p>
-<p><strong>Outcome:</strong> Kalanick resigned and hasn’t returned to prominence. He failed to model accountability or change.</p>
-<br/>
-<h4>Elizabeth Holmes (Theranos)</h4>
-<p><strong>Failure:</strong> Holmes was convicted after deceiving stakeholders about Theranos’s technology. She refused to acknowledge failure and doubled down on denial.</p>
-<p><strong>Outcome:</strong> Legal consequences followed. Unlike resilient leaders, she lacked transparency and growth.</p>
-<br/>
-<h4>Kodak vs. Fujifilm</h4>
-<p><strong>Failure:</strong> Kodak invented digital photography but suppressed it to protect film sales. Leadership denied the market shift.</p>
-<p><strong>Outcome:</strong> Kodak went bankrupt. In contrast, Fujifilm pivoted into new markets and thrived. Adaptability won.</p>
-<br/>
-<h3>Political Parallels:</h3>
-<p>Leaders like Abraham Lincoln and Winston Churchill faced early defeats but rebounded through perseverance and learning. Churchill famously said: “Success is not final, failure is not fatal: it is the courage to continue that counts.”</p>
-<br/>
-<p><strong>Conclusion:</strong> Whether leaders recover from failure depends on mindset, honesty, humility, and willingness to adapt. Those who own the narrative and evolve tend to come back stronger. Those who deny or deflect, don’t.</p>
+  <h3>Emotional Signs</h3>
+  <ul>
+    <li>Chronic exhaustion, even after rest</li>
+    <li>Irritability, cynicism, or emotional numbness</li>
+    <li>Loss of motivation or passion for work</li>
+    <li>Feelings of failure, helplessness, or hopelessness</li>
+    <li>Detachment from people and responsibilities (depersonalization)</li>
+  </ul>
+
+  <h3>Cognitive Signs</h3>
+  <ul>
+    <li>Brain fog, poor concentration, and forgetfulness</li>
+    <li>Difficulty making decisions</li>
+    <li>Pessimistic thinking and self-doubt</li>
+    <li>Loss of creativity and problem-solving ability</li>
+  </ul>
+
+  <h3>Physical Signs</h3>
+  <ul>
+    <li>Chronic fatigue and frequent illness</li>
+    <li>Sleep issues (insomnia or unrefreshing sleep)</li>
+    <li>Headaches, muscle tension, or stomach problems</li>
+    <li>Changes in appetite or weight</li>
+  </ul>
+
+  <h3>Behavioral Signs</h3>
+  <ul>
+    <li>Withdrawal from responsibilities or social activities</li>
+    <li>Increased use of alcohol, drugs, or comfort food</li>
+    <li>Neglecting self-care or becoming short-tempered</li>
+    <li>Procrastination and disengagement at work</li>
+  </ul>
+
+  <p>To assess your burnout, ask yourself:</p>
+  <ul>
+    <li>Do I dread going to work or feel unable to start tasks?</li>
+    <li>Am I more cynical or critical than I used to be?</li>
+    <li>Do I feel ineffective or question the value of what I do?</li>
+    <li>Have I changed my eating, sleeping, or coping habits due to work stress?</li>
+  </ul>
+
+  <p>If you answered “yes” to several, burnout may be affecting you. Acknowledge these signs as valid – they’re not weakness. They’re signals that change is needed.</p>
+
 
 
                         </div>
@@ -279,63 +241,47 @@
                 <div class="d-flex align-items-center row">
                     <div class="col-md-7 pe-5">
                         <div>
-                        <h2>Actionable Principles for Recovery and Reflection</h2>
+                        <h2>Consequences of Untreated Burnout</h2>
+  <p>Burnout won’t go away on its own. If ignored, it can escalate into serious personal, professional, and health problems. Here’s what’s at stake:</p>
 
-<p>Drawing from theory, research, and real-life stories, here are practical steps leaders can use to recover from failure:</p>
+  <h3>Impact on Physical Health</h3>
+  <ul>
+    <li>Higher risk of heart disease, high blood pressure, and diabetes</li>
+    <li>Weakened immune system leading to frequent illness</li>
+    <li>Chronic fatigue, sleep disorders, and even physical collapse</li>
+    <li>Increased inflammation and brain fog</li>
+  </ul>
 
-<ol>
-  <li>
-    <strong>Pause and process emotions:</strong> Don’t react impulsively. Regulate your stress response using techniques like mindfulness or brief time-outs. Model calmness before moving into problem-solving.
-  </li>
-  <li>
-    <strong>Acknowledge the failure and own it:</strong> Be transparent. Taking responsibility builds trust and frees others to focus on solutions. Say, “I own this, and here’s how I plan to address it.”
-  </li>
-  <li>
-    <strong>Reframe and extract lessons:</strong> View the failure as a case study. Ask: What were the assumptions? What factors contributed? What can we learn? Turn pain into actionable insight.
-  </li>
-  <li>
-    <strong>Involve others and seek feedback:</strong> Debrief openly with your team. Create psychological safety for honest reflection. Invite mentor and stakeholder perspectives to avoid blind spots.
-  </li>
-  <li>
-    <strong>Adjust the game plan:</strong> Formulate a concrete recovery strategy. Implement small but targeted changes. Communicate your plan and use it as a turning point.
-  </li>
-  <li>
-    <strong>Foster a learning culture:</strong> Share your lessons with your team. Normalize discussion of mistakes. Encourage everyone to reflect and adapt collectively.
-  </li>
-  <li>
-    <strong>Rebuild morale:</strong> Practice self-compassion. Offer hope and a renewed sense of purpose to your team. Celebrate small wins during the recovery process to regain confidence.
-  </li>
-  <li>
-    <strong>Embrace vulnerability, then shift forward:</strong> Be honest about the impact of the failure—but don’t dwell. Set a “no more autopsy” deadline and refocus attention on the future.
-  </li>
-  <li>
-    <strong>Create a personal resilience playbook:</strong> Develop your go-to process for handling setbacks. Capture key lessons. Over time, recovery becomes a practiced skill, not a guesswork response.
-  </li>
-</ol>
-<br/>
-<h3>Reflection Questions</h3>
-<ul>
-  <li><strong>Cognitive Reframing:</strong> “How might I have been wrong in my assumptions?”</li>
-  <li><strong>Perspective:</strong> “What other stories could explain this failure?”</li>
-  <li><strong>Key Lesson:</strong> “What’s the single biggest takeaway?”</li>
-  <li><strong>Past Experience:</strong> “Have I faced a similar situation before—what did I do?”</li>
-  <li><strong>Future Action:</strong> “What will I do differently next time?”</li>
-  <li><strong>Support:</strong> “Who can give me honest feedback moving forward?”</li>
-  <li><strong>Positivity:</strong> “Despite this, what progress or strengths are we proud of?”</li>
-</ul>
-<br/>
-<h3>Final Insight</h3>
-<p>Ryan Holiday’s <em>The Obstacle Is the Way</em> and the Japanese proverb “Fall seven times, stand up eight” both reflect the heart of resilient leadership. Mistakes aren’t the end—they’re the path forward. As long as you learn, adapt, and persist, failure becomes the raw material of future success.</p>
+  <h3>Impact on Mental Health</h3>
+  <ul>
+    <li>Burnout can evolve into depression or anxiety disorders</li>
+    <li>Loss of joy and motivation, even outside of work</li>
+    <li>Risk of substance abuse and, in severe cases, suicidal thoughts</li>
+    <li>Overwhelming dread about work or daily responsibilities</li>
+  </ul>
 
-<p>As Harvard Business Review puts it: companies that learn from failure outperform those that fear it. And as Sheryl Sandberg’s <em>Option B</em> reminds us, meaning can be found even after loss.</p>
+  <h3>Impact on Work Performance</h3>
+  <ul>
+    <li>Decline in productivity and creativity</li>
+    <li>Increased errors and missed deadlines</li>
+    <li>Career stagnation, quitting, or being forced out</li>
+    <li>Business risks for entrepreneurs and disengagement in teams</li>
+  </ul>
 
-<p><strong>In short:</strong> Feel it ➡️ Own it ➡️ Learn from it ➡️ Adapt ➡️ Move forward. This is the resilient leader’s cycle.</p>
+  <h3>Impact on Relationships</h3>
+  <ul>
+    <li>Increased conflict and reduced patience with loved ones</li>
+    <li>Withdrawal from social activities and emotional disconnection</li>
+    <li>Loss of intimacy or communication in close relationships</li>
+    <li>Unhealthy coping behaviors affecting home life</li>
+  </ul>
 
+  <p>In short, untreated burnout affects everything – your health, your career, and your relationships. But it can be reversed. The next section shows how healing is possible with the right steps.</p>
 
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <img src="{{asset('images/success-asset-1.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/asset-7v2.png')}}" class="icon-image full" alt="">
                     </div> 
                 </div>
             </div>
@@ -344,42 +290,198 @@
             <div class="container">
                 <div class="d-flex align-items-center row">
                 <div class="col-md-5">
-                        <img src="{{asset('images/success-asset-2.png')}}" class="icon-image full" alt="">
+                        <img src="{{asset('images/success-asset-1.png')}}" class="icon-image full" alt="">
                     </div> 
                     <div class="col-md-7 pe-5">
                         <div>
-                        <h2>References & Citations</h2>
-  <ul>
-    <li><a href="https://schools.au.reachout.com/student-wellbeing/what-is-resilience" target="_blank">ReachOut Schools – What is Resilience?</a></li>
-    <li><a href="https://fr.scribd.com/document/773732073/How-to-bounce-back-from-adversity" target="_blank">Scribd – How to Bounce Back from Adversity (PDF)</a></li>
-    <li><a href="https://www.mckinsey.com/people-and-organizational-performance/our-insights/practicing-resilience-in-the-face-of-failure" target="_blank">McKinsey – Practicing Resilience in the Face of Failure</a></li>
-    <li><a href="https://psyche.co/guides/how-to-be-a-better-leader-by-developing-psychological-flexibility" target="_blank">Psyche – How to Be a Better Leader</a></li>
-    <li><a href="https://www.sciencedirect.com/science/article/pii/S2212144724000796" target="_blank">ScienceDirect – Psychological Flexibility & Burnout</a></li>
-    <li><a href="https://www.atlassian.com/blog/leadership/adaptive-leadership" target="_blank">Atlassian – Adaptive Leadership Guide</a></li>
-    <li><a href="https://hbr.org/2014/11/how-companies-can-profit-from-a-growth-mindset" target="_blank">Harvard Business Review – Growth Mindset and Companies</a></li>
-    <li><a href="https://toistudent.timesofindia.indiatimes.com/news/top-news/how-excellent-are-you-after-failing/26416.html" target="_blank">Times of India – How Excellent Are You After Failing?</a></li>
-    <li><a href="https://www.businessinsider.com/microsoft-ceo-satya-nadella-on-growth-mindset-2016-8" target="_blank">Business Insider – Satya Nadella on Growth Mindset</a></li>
-    <li><a href="https://behavioralscientist.org/the-intelligent-failure-that-led-to-the-discovery-of-psychological-safety/" target="_blank">Behavioral Scientist – Psychological Safety by Amy Edmondson</a></li>
-    <li><a href="https://www.emerald.com/insight/content/doi/10.1108/lodj-09-2021-0437/full/html" target="_blank">Emerald – Leadership & Resilience Review</a></li>
-    <li><a href="https://journals.aom.org/doi/abs/10.5465/AMBPP.2020.127" target="_blank">Academy of Management – Resilience Meta-Analysis</a></li>
-    <li><a href="https://cptsdfoundation.org/2019/04/11/the-neuroscience-of-shame/" target="_blank">CPTSD Foundation – Neuroscience of Shame</a></li>
-    <li><a href="https://hbr.org/2011/04/strategies-for-learning-from-failure" target="_blank">Harvard Business Review – Strategies for Learning from Failure</a></li>
-    <li><a href="https://www.pathwaysrtc.pdx.edu/pdf/fpS0504.pdf" target="_blank">Kauai Longitudinal Study – Pathways RTC</a></li>
-    <li><a href="https://journals.sagepub.com/doi/abs/10.1177/2397002217709400" target="_blank">SAGE Journals – What Makes Leaders Resilient?</a></li>
-    <li><a href="https://fisher.osu.edu/blogs/leadreadtoday/blog/a-formula-for-resilience" target="_blank">OSU Lead Read Today – A Formula for Resilience</a></li>
-    <li><a href="https://www.instagram.com/veratkach_usa/reel/DFXuM5QuXej/" target="_blank">Instagram – Indra Nooyi Quote on Failure</a></li>
-    <li><a href="https://www.teminandcompany.com/the-hbr-interview-we-had-to-own-the-mistakes/" target="_blank">Temin & Co – Howard Schultz Interview</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/Steve_Jobs" target="_blank">Wikipedia – Steve Jobs</a></li>
-    <li><a href="https://entrepreneurshipgroupaluum.wordpress.com/failure-is-an-option-howard-d-schultz/" target="_blank">WordPress – Schultz: Failure is an Option</a></li>
-    <li><a href="https://www.npr.org/2019/04/15/713443562/tiger-woods-rises-again-and-sponsors-are-celebrating-his-resilience" target="_blank">NPR – Tiger Woods Resilience</a></li>
-    <li><a href="https://www.esquireme.com/news/tiger-woods-2019-masters-win-best-comeback-stories" target="_blank">Esquire Middle East – Tiger Woods Comeback</a></li>
-    <li><a href="https://www.sunrisegeek.com/post/the-downfall-of-ubers-co-founder-and-ceo-travis-kalanick" target="_blank">Sunrise Geek – Travis Kalanick Downfall</a></li>
-    <li><a href="https://www.washingtonpost.com/business/economy/why-travis-kalanick-didnt-survive-uber/2017/06/21/8ecb98d6-51d3-11e7-be25-3a519335381c_story.html" target="_blank">Washington Post – Why Kalanick Didn't Survive at Uber</a></li>
-  </ul>
+                        <h2>The Science of Healing</h2>
+  <p>Burnout is reversible. Healing requires a mix of personal strategies and, when possible, changes in your environment. Here are research-backed ways to recover:</p>
+  <br/>
+  <h3>Cognitive-Behavioral Therapy (CBT)</h3>
+  <p>CBT helps reframe unhelpful thoughts, challenge perfectionism, and build healthier boundaries. It has been shown to reduce emotional exhaustion and improve coping. Working with a trained therapist can be transformative.</p>
+
+  <br/>
+  <h3>Mindfulness and Relaxation Practices</h3>
+  <p>Practices like meditation, breathing exercises, and yoga lower stress and restore emotional balance. Even 5–10 minutes a day can make a difference. Regular practice improves your brain’s ability to manage stress.</p>
+
+  <br/>
+  <h3>Exercise and Physical Activity</h3>
+  <p>Movement burns off stress hormones and boosts mood. You don’t need intense workouts – a daily walk, light yoga, or dancing can help. Exercise restores your energy and improves sleep and cognitive function.</p>
+
+  <br/>
+  <h3>Sleep and Rest</h3>
+  <p>Burnout often disrupts sleep, and poor sleep worsens burnout. Prioritize a consistent bedtime routine, aim for 7–8 hours of rest, and take breaks during the day. Recovery requires real downtime.</p>
+
+  <br/>
+  <h3>Nutrition and Hydration</h3>
+  <p>A balanced diet supports brain function and stable energy. Focus on whole foods, reduce processed sugar, and stay hydrated. Even small changes (like regular meals and water intake) can reduce fatigue and mood swings.</p>
+
+  <br/>
+  <h3>Social Support and Connection</h3>
+  <p>Talk to trusted people about how you’re feeling. Connection reduces isolation and provides emotional resilience. If available, join a support group or seek a therapist or coach. You’re not alone in this.</p>
+
+  <br/>
+  <h3>Meaning and Reassessment</h3>
+  <p>Burnout can signal a need to realign your life. Reflect on what brings meaning and joy, and make space for those things. Small wins, hobbies, and values-based decisions help restore a sense of purpose and identity.</p>
+
+  <br/>
+  <h3>Organizational or Systemic Changes</h3>
+  <p>Where possible, address the root causes at work. Set boundaries, speak to your manager, or seek role adjustments. Advocate for healthier norms (e.g., no after-hours emails). Sometimes, change may involve leaving a toxic job – and that’s okay too.</p>
+
+  <p>Healing from burnout often requires consistent, layered changes. There’s no quick fix, but with patience, support, and strategy, full recovery is possible.</p>
+
 
                         </div>
                     </div>
  
+                </div>
+            </div>
+        </section>        
+        <section id="content-section-7" class="background--white">
+            <div class="container">
+                <div class="d-flex align-items-center row">
+                    <div class="col-md-7 pe-5">
+                        <div>
+                        <h2>What You Can Do Now</h2>
+  <p>If you’re realizing, “This is me,” take heart – recovery starts with small, doable steps. Here’s how to begin your healing journey:</p>
+<br/>
+  <h3>1. Acknowledge and Assess</h3>
+  <p>Start by naming what you’re feeling: “I am burned out.” Journaling your top stressors and reflecting on your symptoms can bring clarity. Talk to someone you trust and be honest with yourself – awareness is the first step toward change.</p>
+<br/>
+  <h3>2. Prioritize Basic Self-Care</h3>
+  <p>Focus on sleep, nutrition, and gentle movement. Eat regular meals, go to bed earlier, and go for short walks. These simple acts recharge your physical and emotional energy – like charging your internal battery.</p>
+<br/>
+  <h3>3. Take Small Breaks During Work</h3>
+  <p>Incorporate micro-breaks throughout your day. Try a breathing exercise (e.g., inhale 4 sec, hold 7, exhale 8), stretch, or step outside. Small resets can reduce overwhelm and improve focus.</p>
+<br/>
+  <h3>4. Set One Boundary This Week</h3>
+  <p>Choose a simple boundary that protects your time or energy (e.g., “No emails after 8pm”). Communicate it clearly and honor it for at least a week. Boundaries reduce overload and restore a sense of control.</p>
+<br/>
+  <h3>5. Re-engage with a Joyful Activity</h3>
+  <p>Pick one thing you enjoy – even something small like music, drawing, a walk in nature, or a fun show. Schedule it like an appointment. Pleasure is not a luxury; it’s a form of medicine when you’re burned out.</p>
+<br/>
+  <h3>6. Communicate and Seek Support</h3>
+  <p>Don’t go through this alone. Talk to a friend, mentor, or therapist. Opening up reduces shame and brings perspective. If symptoms are severe, reach out to a professional – there is no shame in getting help.</p>
+<br/>
+  <h3>7. Consider Temporary Relief Measures</h3>
+  <p>If burnout is extreme, consider taking leave, using vacation days, or consulting a doctor about stress-related health issues. A short break may offer enough space to begin healing and make long-term changes.</p>
+<br/>
+  <p>You don’t have to do everything at once. Pick one small action today, and build from there. Burnout recovery is a series of small wins – one step at a time.</p>
+
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="{{asset('images/testimony-3.png')}}" class="icon-image full" alt="">
+                    </div> 
+                </div>
+            </div>
+        </section>
+        <section id="content-section-8" class="background--yellow">
+            <div class="container">
+                <div class="d-flex align-items-center row">
+                <div class="col-md-5">
+                        <img src="{{asset('images/asset-3v2.png')}}" class="icon-image full" alt="">
+                    </div> 
+                    <div class="col-md-7 pe-5">
+                        <div>
+                    
+                        <h2>Burnout Is a Signal, Not a Failure</h2>
+  <p>Burnout isn’t a sign that you’re weak – it’s a sign that your environment, workload, or expectations have become unsustainable. Feeling exhausted and empty doesn’t mean you’ve failed. It means you’ve been strong for too long without enough support or rest.</p>
+
+  <p>Think of burnout like the canary in the coal mine – it signals danger in the system, not a flaw in the canary. Burnout is your body and mind saying, “This can’t go on.” Listening to it is not defeat; it’s self-preservation.</p>
+
+  <p>The good news? Burnout is reversible. With care, boundaries, rest, and support, your energy, focus, and hope can return. Many people come back from burnout stronger and wiser, with a clearer sense of what truly matters. Burnout often becomes the catalyst for needed life changes – better jobs, healthier habits, stronger relationships, and deeper purpose.</p>
+
+  <p>You are not alone. Countless others have walked this road and come out the other side. You can too. Recovery doesn’t require perfection – just intention and support. Be kind to yourself. Take it day by day. The fact that you’re reading this shows your desire to heal. That’s powerful.</p>
+
+  <p>This isn’t the end of your story – it’s the beginning of a healthier, more sustainable chapter. Keep going. You’ve got this.</p>
+
+
+                        </div>
+                    </div>
+ 
+                </div>
+            </div>
+        </section>
+        <section id="content-section-9" class="background--blue">
+            <div class="container">
+                <div class="d-flex align-items-center row">
+                    <div class="col-md-7 pe-5">
+                        <div>
+                        <h2>Citations & Further Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.who.int/mental-health/evidence/burn-out/en/" target="_blank" rel="noopener">
+        World Health Organization: Burn-out an "occupational phenomenon"
+      </a>
+    </li>
+    <li>
+      <a href="https://www.apa.org/news/press/releases/stress/2021/one-year-pandemic-stress" target="_blank" rel="noopener">
+        APA Stress in America Report (2021)
+      </a>
+    </li>
+    <li>
+      <a href="https://www.psychologytoday.com/intl/basics/burnout" target="_blank" rel="noopener">
+        Psychology Today – Burnout Overview
+      </a>
+    </li>
+    <li>
+      <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2017.00751/full" target="_blank" rel="noopener">
+        Burnout and Depression: Frontiers in Psychology (2017)
+      </a>
+    </li>
+    <li>
+      <a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/addressing-employee-burnout" target="_blank" rel="noopener">
+        McKinsey: Addressing Employee Burnout
+      </a>
+    </li>
+    <li>
+      <a href="https://pubmed.ncbi.nlm.nih.gov/11499801/" target="_blank" rel="noopener">
+        Maslach & Leiter: The Truth About Burnout (PubMed)
+      </a>
+    </li>
+    <li>
+      <a href="https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/burnout/art-20046642" target="_blank" rel="noopener">
+        Mayo Clinic: Job Burnout – How to Spot It and Take Action
+      </a>
+    </li>
+    <li>
+      <a href="https://embrace-autism.com/copenhagen-burnout-inventory/" target="_blank" rel="noopener">
+        Copenhagen Burnout Inventory (Free Self-Assessment)
+      </a>
+    </li>
+    <li>
+      <a href="https://mentalhealthmatch.com/articles/burnout/burnout-vs-stress" target="_blank" rel="noopener">
+        Mental Health Match: Burnout vs. Stress
+      </a>
+    </li>
+    <li>
+      <a href="https://news.berkeley.edu/2020/01/31/maslach-burnout-interview/" target="_blank" rel="noopener">
+        UC Berkeley: Christina Maslach on Burnout and Toxic Workplaces
+      </a>
+    </li>
+    <li>
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC/" target="_blank" rel="noopener">
+        NCBI: Burnout Studies on Stress Physiology and Interventions
+      </a>
+    </li>
+    <li>
+      <a href="https://gabekwakyi.com/how-to-complete-the-stress-cycle/" target="_blank" rel="noopener">
+        How to Complete the Stress Cycle – Gabe Kwakyi
+      </a>
+    </li>
+    <li>
+      <a href="https://positivepsychology.com/self-care-burnout-prevention/" target="_blank" rel="noopener">
+        Positive Psychology: Self-Care Practices for Burnout Prevention
+      </a>
+    </li>
+  </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="{{asset('images/success-asset-2.png')}}" class="icon-image full" alt="">
+                    </div> 
                 </div>
             </div>
         </section>
