@@ -9,22 +9,22 @@
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Five Science-Backed Strategies to Recover from Burnout</title>
-    <meta name="description" content="Combating burnout requires more than rest alone; it involves actively completing the stress response cycle and replenishing our emotional reserves.">
+    <title>Resilient Leadership: Recovering from Mistakes and Setbacks</title>
+    <meta name="description" content="Resilience in leadership refers to the capacity to bounce back from adversity, maintaining focus and confidence after failures.">
 
     <!-- Open Graph Meta Tags for social media sharing -->
-    <meta property="og:title" content="Five Science-Backed Strategies to Recover from Burnout">
-    <meta property="og:description" content="Combating burnout requires more than rest alone; it involves actively completing the stress response cycle and replenishing our emotional reserves.">
+    <meta property="og:title" content="Resilient Leadership: Recovering from Mistakes and Setbacks">
+    <meta property="og:description" content="Resilience in leadership refers to the capacity to bounce back from adversity, maintaining focus and confidence after failures.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://greater.than.today">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Five Science-Backed Strategies to Recover from Burnout">
-    <meta name="twitter:description" content="Combating burnout requires more than rest alone; it involves actively completing the stress response cycle and replenishing our emotional reserves.">
+    <meta name="twitter:title" content="Resilient Leadership: Recovering from Mistakes and Setbacks">
+    <meta name="twitter:description" content="Resilience in leadership refers to the capacity to bounce back from adversity, maintaining focus and confidence after failures.">
     
     <!-- Keywords -->
-    <meta name="keywords" content="burnout, stress response cycle, emotional intelligence, personal wellness">
+    <meta name="keywords" content="resilience,burnout, stress response cycle, emotional intelligence, personal wellness">
 
     <!-- Author -->
     <meta name="author" content="Wil Ng">

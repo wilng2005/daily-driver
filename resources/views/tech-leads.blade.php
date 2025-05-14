@@ -183,8 +183,7 @@
                         <img src="{{asset('images/asset-3v2.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
                     <div class="col-12 col-md-4 col-lg-3 py-md-5">
-                        <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button px-4">Get
-                            Started</a>
+                        <a href="https://cal.com/wilng/free-coaching-session" target=”_blank” class="button px-4">Book a Free Discovery Session</a>
                     </div>
                 </div>
             </div>
@@ -310,8 +309,8 @@
                 responsive: [{
                     breakpoint: 992,
                     settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
                     }
                 }, {
                     breakpoint: 768,

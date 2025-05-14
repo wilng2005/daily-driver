@@ -47,8 +47,7 @@
                         </a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-button" href="https://cal.com/wilng/tech-lead-coaching" target=”_blank”>Get
-                            Started</a>
+                        <a class="nav-button" href="https://cal.com/wilng/free-coaching-session" target=”_blank”>Free Discovery Session</a>
                     </li>
                 </ul>
             </div>

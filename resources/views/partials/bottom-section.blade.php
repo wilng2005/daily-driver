@@ -27,8 +27,7 @@
                 <div class="col-md-3">
                     <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
                     <div class="text-center">
-                        <a href="https://cal.com/wilng/tech-lead-coaching" target="_blank" class="button">Get
-                            Started</a>
+                        <a href="https://cal.com/wilng/free-coaching-session" target="_blank" class="button">Free Discovery Session</a>
                     </div>
                 </div>
             </div>
@@ -43,6 +42,14 @@
             </div>
             <div class="section-slider">
             <div class="details-each">
+                    <h4 class="mb-3">Exhausted and Empty? Maybe It’s Burnout</h4>
+                    <p>
+                    Feeling utterly drained at the end of each day? If you’re a busy entrepreneur, engineer, or manager running on fumes, you’re not alone – and it’s not a personal failing.
+                    </p>
+                    <a href="{{ url('/article/exhausted-and-empty-maybe-its-burnout') }}" class="read-more">Read More &rarr;</a>
+                   
+                </div>
+                <div class="details-each">
                     <h4 class="mb-3">Resilient Leadership: Recovering from Mistakes and Setbacks</h4>
                     <p>
                         Mistakes are inevitable, but how you respond defines your resilience. Learn how to navigate setbacks, adapt, and emerge stronger.
