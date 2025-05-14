@@ -27,8 +27,7 @@
                 <div class="col-md-3">
                     <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
                     <div class="text-center">
-                        <a href="https://cal.com/wilng/tech-lead-coaching" target="_blank" class="button">Get
-                            Started</a>
+                        <a href="https://cal.com/wilng/free-coaching-session" target="_blank" class="button">Free Discovery Session</a>
                     </div>
                 </div>
             </div>
