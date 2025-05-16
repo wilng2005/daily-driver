@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
+@include('partials.ga-tag')
     
 
 @if (App::environment('production'))
     <!-- HTML for production environment -->
+
     <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
