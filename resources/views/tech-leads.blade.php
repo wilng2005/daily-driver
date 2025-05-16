@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+@include('partials.ga-tag')
 
 @if (App::environment('production'))
     <!-- HTML for production environment -->
