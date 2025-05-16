@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-@include('partials.ga-tag')
+@include('partials.gtm-head')
 
 @if (App::environment('production'))
     <!-- HTML for production environment -->
@@ -68,6 +68,7 @@
 </head>
 
 <body>
+    @include('partials.gtm-body')
    @include('partials.nav')
 
     <main>
