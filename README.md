@@ -14,12 +14,17 @@ A modern Laravel 11 application with Nova 5 admin panel, automated browser testi
 - **Laravel 11** with first-class Sail (Docker) support
 - **Nova 5** for powerful admin/resource management
 - **Automated Dusk browser tests** for critical workflows
+- **Next Actions API endpoint** for retrieving prioritized next-action items (see API section)
 - **CI/CD via GitHub Actions** for both staging and production (no manual deploys)
 - **Serverless deployment** on AWS Lambda using Laravel Vapor (PHP 8.3, ARM)
 - **Composer-managed dependencies** (including PHP 8.3-only packages)
 
 ### 📖 Features & Usage
 For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FEATURES.md](docs/NOVA-FEATURES.md).
+
+#### API Endpoints
+- **GET /api/todos** — Search todos by query string (requires API token)
+- **GET /api/next-actions** — Returns all captures where `next_action=true`, sorted with captures having `priority_no=null` first, then ascending by `priority_no`. Secured by the same API token middleware as `/api/todos`. See OpenAPI schema at `/api/open-ai/schema` for details.
 
 ### 📰 AI-Generated Articles
 See the [AI-Generated Articles Feature Plan](docs/issues/FEATURE-AI-ARTICLES.md) for the roadmap and technical details of the automated articles section, which provides regularly updated coaching content powered by AI and reviewed via the Nova admin panel.
@@ -116,6 +121,8 @@ To update or add styles:
 
 ## ✅ Code Coverage Policy
 - This project enforces 100% code coverage as part of the CI/CD pipeline.
+- All new endpoints (including `/api/next-actions`) must be fully covered by automated feature tests before merging.
+- Test for `/api/next-actions` ensures correct filtering and sorting logic for next-action captures, as described in the issue documentation.
 - For generic error handling (e.g., logging and rethrowing in catch blocks), we use `@codeCoverageIgnoreStart`/`@codeCoverageIgnoreEnd` to pragmatically exclude these lines from coverage, as they do not contain business logic.
 - All other logic is fully covered by automated tests, following TDD principles.
 
@@ -235,5 +242,8 @@ By following this policy, the project will remain well-documented, easy to navig
 - **2025-04-19:** Deploying current changes to the `production` environment via CI/CD (GitHub Actions + Vapor).
 - **2025-04-19:** Deploying current changes to the `staging` environment via CI/CD (GitHub Actions + Vapor).
 
-_This README was last updated for the PHP 8.3/ARM, Nova 5, and CI/CD improvements (2025-04-17)._
+- **2025-05-17:** Added `/api/next-actions` endpoint for prioritized next actions, updated OpenAPI schema, and added full test coverage for filtering and sorting. See [ISSUE-NEXT-ACTIONS-ENDPOINT.md](docs/ISSUE-NEXT-ACTIONS-ENDPOINT.md).
+
+_This README was last updated for the Next Actions endpoint, OpenAPI schema, and test coverage improvements (2025-05-17)._
+
 

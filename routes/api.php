@@ -67,6 +67,27 @@ Route::get('open-ai/schema', function () {
                         ]
                     ]
                 ]
+            ],
+            "/api/next-actions" => [
+                "get" => [
+                    "description" => "Get all captures marked as Next Actions, sorted by priority (no priority first, then ascending)",
+                    "operationId" => "getNextActions",
+                    "responses" => [
+                        "200" => [
+                            "description" => "List of next action captures",
+                            "content" => [
+                                "application/json" => [
+                                    "schema" => [
+                                        "type" => "array",
+                                        "items" => [
+                                            '$ref' => '#/components/schemas/Todo'
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ],
         "components" => [
@@ -125,6 +146,15 @@ Route::middleware('api.token')->group(function () {
             ->get();
 
         return response()->json($todos);
+    });
+
+    Route::get('next-actions', function () {
+        // Return all captures where next_action=true, sorted: priority_no=null first, then ascending
+        $captures = Capture::where('next_action', true)
+            ->orderByRaw('priority_no IS NOT NULL') // nulls first
+            ->orderBy('priority_no', 'asc')
+            ->get();
+        return response()->json($captures);
     });
 });
 
