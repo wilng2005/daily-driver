@@ -47,7 +47,7 @@
                         </a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-button" href="https://cal.com/wilng/free-coaching-session" target=”_blank”>Free Discovery Session</a>
+                        <a id="free-discovery-session-nav" class="nav-button" href="https://cal.com/wilng/free-coaching-session" target=”_blank”>Free Discovery Session</a>
                     </li>
                 </ul>
             </div>
