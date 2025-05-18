@@ -12,6 +12,10 @@ use Laravel\Scout\Searchable;
 
 class Capture extends Model
 {
+    protected $fillable = [
+        'name', 'content', 'priority_no', 'inbox', 'next_action'
+    ];
+
     use HasFactory;
     use SoftDeletes;
     use Actionable;

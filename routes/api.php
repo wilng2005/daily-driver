@@ -148,6 +148,8 @@ Route::middleware('api.token')->group(function () {
         return response()->json($todos);
     });
 
+    Route::put('captures/{id}', [\App\Http\Controllers\CaptureController::class, 'update']);
+
     Route::get('next-actions', function () {
         // Return all captures where next_action=true, sorted: priority_no=null first, then ascending
         $captures = Capture::where('next_action', true)
