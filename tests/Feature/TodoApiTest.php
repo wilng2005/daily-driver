@@ -198,4 +198,85 @@ class TodoApiTest extends TestCase
             'Priority 3',
         ], $returnedNames);
     }
-} 
+
+    public function test_update_capture_endpoint_updates_allowed_fields()
+    {
+        $capture = \App\Models\Capture::factory()->create([
+            'name' => 'Original Name',
+            'content' => 'Original content',
+            'priority_no' => 1,
+            'inbox' => true,
+            'next_action' => false,
+        ]);
+
+        $payload = [
+            'name' => 'Updated Name',
+            'content' => 'Updated content',
+            'priority_no' => 5,
+            'inbox' => false,
+            'next_action' => true,
+        ];
+
+        $response = $this->withHeader('X-API-Token', 'test-token')
+            ->putJson("/api/captures/{$capture->id}", $payload);
+
+        $response->assertStatus(200)
+            ->assertJsonFragment($payload)
+            ->assertJsonFragment(['id' => $capture->id]);
+
+        $this->assertDatabaseHas('captures', array_merge(['id' => $capture->id], $payload));
+    }
+
+    public function test_update_capture_endpoint_requires_token()
+    {
+        $capture = \App\Models\Capture::factory()->create();
+        $payload = ['name' => 'Should Fail', 'content' => '...', 'priority_no' => 1, 'inbox' => false, 'next_action' => false];
+        $response = $this->putJson("/api/captures/{$capture->id}", $payload);
+        $response->assertStatus(401);
+    }
+
+    public function test_update_capture_endpoint_validates_fields()
+    {
+        $capture = \App\Models\Capture::factory()->create();
+        $invalidPayloads = [
+            // name is required
+            ['name' => '', 'content' => '...', 'priority_no' => 1, 'inbox' => false, 'next_action' => false],
+            // name too long
+            ['name' => str_repeat('a', 256), 'content' => '...', 'priority_no' => 1, 'inbox' => false, 'next_action' => false],
+            // priority_no negative
+            ['name' => 'Valid', 'content' => '...', 'priority_no' => -1, 'inbox' => false, 'next_action' => false],
+            // inbox not boolean
+            ['name' => 'Valid', 'content' => '...', 'priority_no' => 1, 'inbox' => 'notabool', 'next_action' => false],
+            // next_action not boolean
+            ['name' => 'Valid', 'content' => '...', 'priority_no' => 1, 'inbox' => false, 'next_action' => 'notabool'],
+        ];
+        foreach ($invalidPayloads as $payload) {
+            $response = $this->withHeader('X-API-Token', 'test-token')
+                ->putJson("/api/captures/{$capture->id}", $payload);
+            $response->assertStatus(422);
+        }
+    }
+
+    public function test_update_capture_endpoint_cannot_update_capture_id_or_user_id()
+    {
+        $capture = \App\Models\Capture::factory()->create([
+            'name' => 'Original',
+            'user_id' => 123,
+        ]);
+        $payload = [
+            'name' => 'Updated',
+            'capture_id' => 999,
+            'user_id' => 999,
+            'content' => 'Updated',
+            'priority_no' => 1,
+            'inbox' => false,
+            'next_action' => false,
+        ];
+        $response = $this->withHeader('X-API-Token', 'test-token')
+            ->putJson("/api/captures/{$capture->id}", $payload);
+        $response->assertStatus(200)
+            ->assertJsonMissing(['capture_id' => 999, 'user_id' => 999]);
+        $this->assertDatabaseMissing('captures', ['id' => $capture->id, 'capture_id' => 999]);
+        $this->assertDatabaseHas('captures', ['id' => $capture->id, 'name' => 'Updated']);
+    }
+}
