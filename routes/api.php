@@ -68,6 +68,54 @@ Route::get('open-ai/schema', function () {
                     ]
                 ]
             ],
+            "/api/captures/{id}" => [
+                "put" => [
+                    "description" => "Update a capture by ID. Only 'name', 'content', 'priority_no', 'inbox', and 'next_action' are updatable.",
+                    "operationId" => "updateCapture",
+                    "parameters" => [
+                        [
+                            "name" => "id",
+                            "in" => "path",
+                            "required" => true,
+                            "description" => "ID of the capture to update",
+                            "schema" => ["type" => "integer"]
+                        ]
+                    ],
+                    "requestBody" => [
+                        "required" => true,
+                        "content" => [
+                            "application/json" => [
+                                "schema" => [
+                                    "type" => "object",
+                                    "properties" => [
+                                        "name" => ["type" => "string", "maxLength" => 255, "description" => "Title or label for the capture (required)"],
+                                        "content" => ["type" => "string", "nullable" => true, "description" => "Body or description (markdown supported)"],
+                                        "priority_no" => ["type" => "integer", "nullable" => true, "minimum" => 0, "description" => "Priority number (nullable)"],
+                                        "inbox" => ["type" => "boolean", "description" => "Is in inbox"],
+                                        "next_action" => ["type" => "boolean", "description" => "Is a next action"]
+                                    ],
+                                    "required" => ["name", "inbox", "next_action"]
+                                ]
+                            ]
+                        ]
+                    ],
+                    "responses" => [
+                        "200" => [
+                            "description" => "The updated capture",
+                            "content" => [
+                                "application/json" => [
+                                    "schema" => [
+                                        '$ref' => '#/components/schemas/Todo'
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "401" => ["description" => "Unauthorized"],
+                        "422" => ["description" => "Validation error"]
+                    ],
+                    "security" => [["ApiTokenAuth" => []]]
+                ]
+            ],
             "/api/next-actions" => [
                 "get" => [
                     "description" => "Get all captures marked as Next Actions, sorted by priority (no priority first, then ascending)",
