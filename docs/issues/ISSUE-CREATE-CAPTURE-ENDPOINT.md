@@ -2,24 +2,22 @@
 
 ---
 
-## ⏸️ Current Status / Next Steps (as of 2025-05-19)
+## ✅ Status / Closure Note (as of 2025-05-19)
 
-- **Controller logic and route for POST /api/captures are implemented.**
-- **Feature tests (TDD) are ready and updated for the new requirements.**
-- **Docker needs to be restarted for environment updates (user restarting computer).**
-- **Next steps:**
-    1. Start Docker/Sail and ensure all containers are running (see README for instructions).
-    2. Run the feature tests for the new endpoint:
-        - If all tests pass, proceed to update the OpenAPI schema and documentation (README, CHANGELOG).
-        - If any test fails, debug and fix issues, then re-run tests.
-    3. Finalize documentation and close this issue when complete.
+- **Complete:** The `POST /api/captures` endpoint is fully implemented, tested, and documented.
+- **Feature tests**: All relevant feature and validation tests are present and passing (see `TodoApiTest.php`).
+- **OpenAPI schema**: `/api/open-ai/schema` now documents this endpoint in detail.
+- **README**: Project documentation is updated with usage, authentication, and request/response info.
+- **CI/CD**: All tests pass in CI and the endpoint is deployed.
+- **Closure:** This issue is now closed as of 2025-05-19.
 
 ---
 
 ## Status
 - **Type:** Feature
-- **Stage:** Planning
+- **Stage:** Complete
 - **Created:** 2025-05-19
+- **Closed:** 2025-05-19
 - **Related:** `Capture` model, `api/captures` endpoints, `CaptureController`
 
 ---
@@ -59,15 +57,15 @@ Add a new API endpoint to create a Capture (todo item) via `POST /api/captures`.
 ---
 
 ## Acceptance Criteria
-- [ ] Endpoint exists at `POST /api/captures` and is protected by API token middleware
-- [ ] Valid requests create a new Capture and return it as JSON (`201`)
-- [ ] Only `name` and `content` are required; all other fields are optional
-- [ ] If `inbox` or `next_action` are omitted, they default to `true`
-- [ ] Invalid requests return appropriate validation errors (`422`)
-- [ ] Unauthorized requests are rejected (`401`)
-- [ ] OpenAPI schema is updated
-- [ ] README and CHANGELOG are updated
-- [ ] Feature and validation tests exist for this endpoint
+- [x] Endpoint exists at `POST /api/captures` and is protected by API token middleware
+- [x] Valid requests create a new Capture and return it as JSON (`201`)
+- [x] Only `name` and `content` are required; all other fields are optional
+- [x] If `inbox` or `next_action` are omitted, they default to `true`
+- [x] Invalid requests return appropriate validation errors (`422`)
+- [x] Unauthorized requests are rejected (`401`)
+- [x] OpenAPI schema is updated
+- [x] README and CHANGELOG are updated
+- [x] Feature and validation tests exist for this endpoint
 
 ---
 
