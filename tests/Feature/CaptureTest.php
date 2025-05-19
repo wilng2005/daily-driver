@@ -35,6 +35,113 @@ final class CaptureTest extends TestCase
         $response->assertSeeText('Create Capture');
     }
 
+    /**
+     * @group api
+     */
+    public function test_api_can_create_capture()
+    {
+        $user = User::factory()->create();
+        $token = 'test-api-token';
+        // Simulate API token setup if needed (adjust as per your middleware)
+        // e.g., store in DB or config
+
+        // Minimal required payload (only name and content)
+        $payload = [
+            'name' => 'Test Capture',
+            'content' => 'This is a test capture.'
+        ];
+
+        $response = $this->withHeaders([
+            'X-API-Token' => $token,
+            'Accept' => 'application/json',
+        ])->postJson('/api/captures', $payload);
+
+        $response->assertStatus(201)
+            ->assertJsonFragment([
+                'name' => 'Test Capture',
+                'content' => 'This is a test capture.',
+                'inbox' => true,
+                'next_action' => true,
+            ]);
+        $this->assertDatabaseHas('captures', [
+            'name' => 'Test Capture',
+            'inbox' => true,
+            'next_action' => true,
+        ]);
+
+        // Explicitly set optional fields
+        $payload = [
+            'name' => 'Another Capture',
+            'content' => 'Optional fields provided',
+            'priority_no' => 42,
+            'inbox' => false,
+            'next_action' => false,
+        ];
+        $response = $this->withHeaders([
+            'X-API-Token' => $token,
+            'Accept' => 'application/json',
+        ])->postJson('/api/captures', $payload);
+        $response->assertStatus(201)
+            ->assertJsonFragment([
+                'name' => 'Another Capture',
+                'priority_no' => 42,
+                'inbox' => false,
+                'next_action' => false,
+            ]);
+        $this->assertDatabaseHas('captures', [
+            'name' => 'Another Capture',
+            'priority_no' => 42,
+            'inbox' => false,
+            'next_action' => false,
+        ]);
+    }
+
+    /**
+     * @group api
+     */
+    public function test_api_create_capture_requires_validation()
+    {
+        $token = 'test-api-token';
+        // Missing required fields
+        $payload = [
+            // 'name' is missing
+            'content' => 'Missing name',
+        ];
+
+        $response = $this->withHeaders([
+            'X-API-Token' => $token,
+            'Accept' => 'application/json',
+        ])->postJson('/api/captures', $payload);
+
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors(['name']);
+
+        // 'content' is missing
+        $payload = [
+            'name' => 'Missing content',
+        ];
+        $response = $this->withHeaders([
+            'X-API-Token' => $token,
+            'Accept' => 'application/json',
+        ])->postJson('/api/captures', $payload);
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors(['content']);
+    }
+
+    /**
+     * @group api
+     */
+    public function test_api_create_capture_requires_auth()
+    {
+        $payload = [
+            'name' => 'Unauthorized Capture',
+            'inbox' => true,
+            'next_action' => false,
+        ];
+        $response = $this->postJson('/api/captures', $payload);
+        $response->assertStatus(401);
+    }
+
     public function test_capture_prefix_with_title(): void
     {
         $capture_a = new Capture;

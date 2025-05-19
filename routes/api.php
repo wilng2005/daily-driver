@@ -197,6 +197,7 @@ Route::middleware('api.token')->group(function () {
     });
 
     Route::put('captures/{id}', [\App\Http\Controllers\CaptureController::class, 'update']);
+    Route::post('captures', [\App\Http\Controllers\CaptureController::class, 'store']);
 
     Route::get('next-actions', function () {
         // Return all captures where next_action=true, sorted: priority_no=null first, then ascending
