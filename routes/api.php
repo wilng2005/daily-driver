@@ -68,6 +68,45 @@ Route::get('open-ai/schema', function () {
                     ]
                 ]
             ],
+            "/api/captures" => [
+                "post" => [
+                    "description" => "Create a new capture (todo) item.",
+                    "operationId" => "createCapture",
+                    "requestBody" => [
+                        "required" => true,
+                        "content" => [
+                            "application/json" => [
+                                "schema" => [
+                                    "type" => "object",
+                                    "properties" => [
+                                        "name" => ["type" => "string", "maxLength" => 255, "description" => "Title or label for the capture (required)"],
+                                        "content" => ["type" => "string", "nullable" => true, "description" => "Body or description (markdown supported)"],
+                                        "priority_no" => ["type" => "integer", "nullable" => true, "minimum" => 0, "description" => "Priority number (nullable)"],
+                                        "inbox" => ["type" => "boolean", "description" => "Is in inbox (optional, defaults to true)"],
+                                        "next_action" => ["type" => "boolean", "description" => "Is a next action (optional, defaults to true)"]
+                                    ],
+                                    "required" => ["name", "content"]
+                                ]
+                            ]
+                        ]
+                    ],
+                    "responses" => [
+                        "201" => [
+                            "description" => "The created capture",
+                            "content" => [
+                                "application/json" => [
+                                    "schema" => [
+                                        '$ref' => '#/components/schemas/Todo'
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "401" => ["description" => "Unauthorized"],
+                        "422" => ["description" => "Validation error"]
+                    ],
+                    "security" => [["ApiTokenAuth" => []]]
+                ]
+            ],
             "/api/captures/{id}" => [
                 "put" => [
                     "description" => "Update a capture by ID. Only 'name', 'content', 'priority_no', 'inbox', and 'next_action' are updatable.",
@@ -197,6 +236,7 @@ Route::middleware('api.token')->group(function () {
     });
 
     Route::put('captures/{id}', [\App\Http\Controllers\CaptureController::class, 'update']);
+    Route::post('captures', [\App\Http\Controllers\CaptureController::class, 'store']);
 
     Route::get('next-actions', function () {
         // Return all captures where next_action=true, sorted: priority_no=null first, then ascending

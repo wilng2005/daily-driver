@@ -199,6 +199,107 @@ class TodoApiTest extends TestCase
         ], $returnedNames);
     }
 
+    /**
+     * @group api
+     */
+    public function test_api_can_create_capture()
+    {
+        // Minimal required payload (only name and content)
+        $payload = [
+            'name' => 'Test Capture',
+            'content' => 'This is a test capture.'
+        ];
+
+        $response = $this->withHeaders([
+            'X-API-Token' => config('app.api_token'),
+            'Accept' => 'application/json',
+        ])->postJson('/api/captures', $payload);
+
+        $response->assertStatus(201)
+            ->assertJsonFragment([
+                'name' => 'Test Capture',
+                'content' => 'This is a test capture.',
+                'inbox' => true,
+                'next_action' => true,
+            ]);
+        $this->assertDatabaseHas('captures', [
+            'name' => 'Test Capture',
+            'inbox' => true,
+            'next_action' => true,
+        ]);
+
+        // Explicitly set optional fields
+        $payload = [
+            'name' => 'Another Capture',
+            'content' => 'Optional fields provided',
+            'priority_no' => 42,
+            'inbox' => false,
+            'next_action' => false,
+        ];
+        $response = $this->withHeaders([
+            'X-API-Token' => config('app.api_token'),
+            'Accept' => 'application/json',
+        ])->postJson('/api/captures', $payload);
+        $response->assertStatus(201)
+            ->assertJsonFragment([
+                'name' => 'Another Capture',
+                'priority_no' => 42,
+                'inbox' => false,
+                'next_action' => false,
+            ]);
+        $this->assertDatabaseHas('captures', [
+            'name' => 'Another Capture',
+            'priority_no' => 42,
+            'inbox' => false,
+            'next_action' => false,
+        ]);
+    }
+
+    /**
+     * @group api
+     */
+    public function test_api_create_capture_requires_validation()
+    {
+        // Missing required fields
+        $payload = [
+            // 'name' is missing
+            'content' => 'Missing name',
+        ];
+
+        $response = $this->withHeaders([
+            'X-API-Token' => config('app.api_token'),
+            'Accept' => 'application/json',
+        ])->postJson('/api/captures', $payload);
+
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors(['name']);
+
+        // 'content' is missing
+        $payload = [
+            'name' => 'Missing content',
+        ];
+        $response = $this->withHeaders([
+            'X-API-Token' => config('app.api_token'),
+            'Accept' => 'application/json',
+        ])->postJson('/api/captures', $payload);
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors(['content']);
+    }
+
+    /**
+     * @group api
+     */
+    public function test_api_create_capture_requires_auth()
+    {
+        $payload = [
+            'name' => 'Unauthorized Capture',
+            'inbox' => true,
+            'next_action' => false,
+        ];
+        $response = $this->postJson('/api/captures', $payload);
+        $response->assertStatus(401);
+    }
+
     public function test_update_capture_endpoint_updates_allowed_fields()
     {
         $capture = \App\Models\Capture::factory()->create([

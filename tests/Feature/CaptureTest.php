@@ -35,6 +35,8 @@ final class CaptureTest extends TestCase
         $response->assertSeeText('Create Capture');
     }
 
+
+
     public function test_capture_prefix_with_title(): void
     {
         $capture_a = new Capture;
