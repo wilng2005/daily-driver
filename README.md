@@ -235,6 +235,11 @@ By following this policy, the project will remain well-documented, easy to navig
 
 ---
 
+## ⚠️ Technical Debt / Multi-User Limitation
+
+> **Single-user Limitation:**
+> The current API hardcodes `user_id = 1` for all newly created captures (see CaptureController@store). This is a temporary workaround because only one user exists in production. The system is **not** ready for multi-user environments. A future redesign will be required to support multiple users, including proper authentication, user context, and per-user data isolation.
+
 ## 📚 References
 - [Laravel](https://laravel.com/)
 - [Laravel Nova](https://nova.laravel.com/)

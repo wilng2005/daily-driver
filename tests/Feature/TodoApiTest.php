@@ -227,6 +227,11 @@ class TodoApiTest extends TestCase
             'inbox' => true,
             'next_action' => true,
         ]);
+        // Assert user_id is always 1 (technical debt workaround)
+        $this->assertDatabaseHas('captures', [
+            'name' => 'Test Capture',
+            'user_id' => 1,
+        ]);
 
         // Explicitly set optional fields
         $payload = [
@@ -252,6 +257,11 @@ class TodoApiTest extends TestCase
             'priority_no' => 42,
             'inbox' => false,
             'next_action' => false,
+        ]);
+        // Assert user_id is always 1 (technical debt workaround)
+        $this->assertDatabaseHas('captures', [
+            'name' => 'Another Capture',
+            'user_id' => 1,
         ]);
     }
 

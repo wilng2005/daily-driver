@@ -79,6 +79,11 @@ Add a new API endpoint to create a Capture (todo item) via `POST /api/captures`.
 
 ---
 
+## Technical Debt / Single-User Limitation
+- The `POST /api/captures` endpoint currently hardcodes `user_id = 1` for all new captures. This is a temporary workaround as only one user exists in production. The API and data model are **not** ready for multi-user environments; a future redesign will be needed to support multiple users.
+
+---
+
 ## Notes
 - Follow conventions from the update endpoint for validation and response structure.
 - Ensure automated tests and CI pass before merging.
