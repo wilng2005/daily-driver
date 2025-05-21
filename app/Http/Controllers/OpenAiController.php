@@ -37,6 +37,7 @@ class OpenAiController extends Controller
      */
     public function randomNumberSchema(): JsonResponse
     {
+        //@codeCoverageIgnoreStart
         return response()->json([
             'openapi' => '3.1.0',
             'info' => [
@@ -105,5 +106,6 @@ class OpenAiController extends Controller
                 ],
             ],
         ]);
+        //@codeCoverageIgnoreEnd
     }
 }
