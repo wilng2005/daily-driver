@@ -368,6 +368,39 @@ class TodoApiTest extends TestCase
         }
     }
 
+    /**
+     * @group api
+     */
+    public function test_soft_delete_capture(): void
+    {
+        $capture = Capture::factory()->create();
+        $headers = ['X-API-Token' => config('app.api_token')];
+
+        $response = $this->withHeaders($headers)->deleteJson("/api/captures/{$capture->id}");
+        $response->assertNoContent();
+        $this->assertSoftDeleted('captures', ['id' => $capture->id]);
+    }
+
+    /**
+     * @group api
+     */
+    public function test_soft_delete_capture_not_found(): void
+    {
+        $headers = ['X-API-Token' => config('app.api_token')];
+        $response = $this->withHeaders($headers)->deleteJson('/api/captures/999999');
+        $response->assertNotFound();
+    }
+
+    /**
+     * @group api
+     */
+    public function test_soft_delete_capture_unauthorized(): void
+    {
+        $capture = Capture::factory()->create();
+        $response = $this->deleteJson("/api/captures/{$capture->id}");
+        $response->assertStatus(401);
+    }
+
     public function test_update_capture_endpoint_cannot_update_capture_id_or_user_id()
     {
         $capture = \App\Models\Capture::factory()->create([

@@ -59,4 +59,17 @@ class CaptureController extends Controller
 
         return response()->json($capture);
     }
+
+    /**
+     * Soft delete the specified capture.
+     */
+    public function destroy($id)
+    {
+        $capture = Capture::find($id);
+        if (! $capture) {
+            return response()->json(['message' => 'Capture not found'], 404);
+        }
+        $capture->delete();
+        return response()->noContent();
+    }
 }
