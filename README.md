@@ -27,6 +27,10 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 - **GET /api/next-actions** — Returns all captures where `next_action=true`, sorted with captures having `priority_no=null` first, then ascending by `priority_no`. Secured by the same API token middleware as `/api/todos`. See OpenAPI schema at `/api/open-ai/schema` for details.
 - **POST /api/captures** — Create a new capture (todo) item. Requires `name` and `content` in the JSON body. Optional fields: `priority_no`, `inbox`, `next_action`. Requires API token in the `X-API-Token` header. See OpenAPI schema at `/api/open-ai/schema` for full request/response details and validation rules.
 - **PUT /api/captures/{id}** — Update a capture by ID. Only `name`, `content`, `priority_no`, `inbox`, and `next_action` are updatable. Requires API token. See OpenAPI schema for request/response structure, validation, and security details.
+- **GET /api/open-ai/random-number** — Generate a random integer in a given range (public endpoint). By default, returns a number between 1 and 12 (simulates a 12-sided die). Accepts optional `min` and `max` query parameters. See OpenAPI schema at `/api/open-ai/random-number/schema` for full details.
+
+For instructions on using this endpoint inside ChatGPT or as a plugin/tool, see:
+[docs/USING-RANDOM-NUMBER-API-IN-CHATGPT.md](docs/USING-RANDOM-NUMBER-API-IN-CHATGPT.md)
 
 ### 📰 AI-Generated Articles
 See the [AI-Generated Articles Feature Plan](docs/issues/FEATURE-AI-ARTICLES.md) for the roadmap and technical details of the automated articles section, which provides regularly updated coaching content powered by AI and reviewed via the Nova admin panel.
@@ -255,9 +259,10 @@ By following this policy, the project will remain well-documented, easy to navig
 
 - **2025-05-17:** Added `/api/next-actions` endpoint for prioritized next actions, updated OpenAPI schema, and added full test coverage for filtering and sorting. See [ISSUE-NEXT-ACTIONS-ENDPOINT.md](docs/ISSUE-NEXT-ACTIONS-ENDPOINT.md).
 
+- **2025-05-21:** Added `GET /api/open-ai/random-number` endpoint (public) for generating random numbers in a customizable range, with OpenAPI schema and full feature test coverage. See [ISSUE-OPENAI-RANDOM-NUMBER-ENDPOINT.md](docs/issues/ISSUE-OPENAI-RANDOM-NUMBER-ENDPOINT.md).
 - **2025-05-19:** Added `POST /api/captures` endpoint for creating captures. Updated OpenAPI schema, feature tests, and documentation for endpoint, validation, and authentication. See [ISSUE-CREATE-CAPTURE-ENDPOINT.md](docs/issues/ISSUE-CREATE-CAPTURE-ENDPOINT.md).
 - **2025-05-18:** Added `PUT /api/captures/{id}` endpoint for updating captures. Updated OpenAPI schema, added feature tests and validation, and ensured 100% code coverage. See [ISSUE-UPDATE-CAPTURE-ENDPOINT.md](docs/issues/ISSUE-UPDATE-CAPTURE-ENDPOINT.md).
 
-_This README was last updated for the Create Capture endpoint, OpenAPI schema, and test coverage improvements (2025-05-19)._
+_This README was last updated for the OpenAI random number endpoint, OpenAPI schema, and test coverage improvements (2025-05-21)._
 
 
