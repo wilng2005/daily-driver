@@ -27,6 +27,7 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 - **GET /api/next-actions** — Returns all captures where `next_action=true`, sorted with captures having `priority_no=null` first, then ascending by `priority_no`. Secured by the same API token middleware as `/api/todos`. See OpenAPI schema at `/api/open-ai/schema` for details.
 - **POST /api/captures** — Create a new capture (todo) item. Requires `name` and `content` in the JSON body. Optional fields: `priority_no`, `inbox`, `next_action`. Requires API token in the `X-API-Token` header. See OpenAPI schema at `/api/open-ai/schema` for full request/response details and validation rules.
 - **PUT /api/captures/{id}** — Update a capture by ID. Only `name`, `content`, `priority_no`, `inbox`, and `next_action` are updatable. Requires API token. See OpenAPI schema for request/response structure, validation, and security details.
+- **DELETE /api/captures/{id}** — Soft delete a capture by ID. Marks the capture as deleted (using Laravel SoftDeletes) without removing it from the database. Requires API token. Returns 204 No Content on success. See OpenAPI schema at `/api/open-ai/schema` for details.
 - **GET /api/open-ai/random-number** — Generate a random integer in a given range (public endpoint). By default, returns a number between 1 and 12 (simulates a 12-sided die). Accepts optional `min` and `max` query parameters. See OpenAPI schema at `/api/open-ai/random-number/schema` for full details.
 
 For instructions on using this endpoint inside ChatGPT or as a plugin/tool, see:
