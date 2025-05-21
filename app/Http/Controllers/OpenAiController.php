@@ -45,6 +45,11 @@ class OpenAiController extends Controller
                 'description' => 'Generate a random integer within a given range. Defaults to a 12-sided die.',
                 'version' => 'v1.0.0',
             ],
+            'servers' => [
+                [
+                    'url' => config('app.url') // This will use your Laravel app URL
+                ]
+            ],
             'paths' => [
                 '/api/open-ai/random-number' => [
                     'get' => [
