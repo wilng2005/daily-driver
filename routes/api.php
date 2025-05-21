@@ -6,6 +6,7 @@ use App\Models\Capture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Telegram\Bot\Laravel\Facades\Telegram;
+use App\Http\Controllers\OpenAiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,14 @@ use Telegram\Bot\Laravel\Facades\Telegram;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+// OpenAI Random Number Endpoints (public)
+Route::get('open-ai/random-number', [OpenAiController::class, 'randomNumber']);
+Route::get('open-ai/random-number/schema', [OpenAiController::class, 'randomNumberSchema']);
 
 Route::get('open-ai/schema', function () {
+
+
+
     return response()->json([
         "openapi" => "3.1.0",
         "info" => [
@@ -66,6 +73,45 @@ Route::get('open-ai/schema', function () {
                             ]
                         ]
                     ]
+                ]
+            ],
+            "/api/captures" => [
+                "post" => [
+                    "description" => "Create a new capture (todo) item.",
+                    "operationId" => "createCapture",
+                    "requestBody" => [
+                        "required" => true,
+                        "content" => [
+                            "application/json" => [
+                                "schema" => [
+                                    "type" => "object",
+                                    "properties" => [
+                                        "name" => ["type" => "string", "maxLength" => 255, "description" => "Title or label for the capture (required)"],
+                                        "content" => ["type" => "string", "nullable" => true, "description" => "Body or description (markdown supported)"],
+                                        "priority_no" => ["type" => "integer", "nullable" => true, "minimum" => 0, "description" => "Priority number (nullable)"],
+                                        "inbox" => ["type" => "boolean", "description" => "Is in inbox (optional, defaults to true)"],
+                                        "next_action" => ["type" => "boolean", "description" => "Is a next action (optional, defaults to true)"]
+                                    ],
+                                    "required" => ["name", "content"]
+                                ]
+                            ]
+                        ]
+                    ],
+                    "responses" => [
+                        "201" => [
+                            "description" => "The created capture",
+                            "content" => [
+                                "application/json" => [
+                                    "schema" => [
+                                        '$ref' => '#/components/schemas/Todo'
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "401" => ["description" => "Unauthorized"],
+                        "422" => ["description" => "Validation error"]
+                    ],
+                    "security" => [["ApiTokenAuth" => []]]
                 ]
             ],
             "/api/captures/{id}" => [
@@ -197,6 +243,7 @@ Route::middleware('api.token')->group(function () {
     });
 
     Route::put('captures/{id}', [\App\Http\Controllers\CaptureController::class, 'update']);
+    Route::post('captures', [\App\Http\Controllers\CaptureController::class, 'store']);
 
     Route::get('next-actions', function () {
         // Return all captures where next_action=true, sorted: priority_no=null first, then ascending
