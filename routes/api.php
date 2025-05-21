@@ -6,6 +6,7 @@ use App\Models\Capture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Telegram\Bot\Laravel\Facades\Telegram;
+use App\Http\Controllers\OpenAiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,14 @@ use Telegram\Bot\Laravel\Facades\Telegram;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+// OpenAI Random Number Endpoints (public)
+Route::get('open-ai/random-number', [OpenAiController::class, 'randomNumber']);
+Route::get('open-ai/random-number/schema', [OpenAiController::class, 'randomNumberSchema']);
 
 Route::get('open-ai/schema', function () {
+
+
+
     return response()->json([
         "openapi" => "3.1.0",
         "info" => [
