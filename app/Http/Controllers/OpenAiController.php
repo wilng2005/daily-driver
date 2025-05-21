@@ -53,6 +53,7 @@ class OpenAiController extends Controller
             'paths' => [
                 '/api/open-ai/random-number' => [
                     'get' => [
+                        'operationId' => 'getRandomNumber',
                         'summary' => 'Generate random integer',
                         'parameters' => [
                             [
