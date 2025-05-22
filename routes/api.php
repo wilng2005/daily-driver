@@ -160,6 +160,26 @@ Route::get('open-ai/schema', function () {
                         "422" => ["description" => "Validation error"]
                     ],
                     "security" => [["ApiTokenAuth" => []]]
+                ],
+                "delete" => [
+                    "description" => "Soft delete a capture by ID. Marks the capture as deleted (using Laravel SoftDeletes) without removing it from the database.",
+                    "operationId" => "softDeleteCapture",
+                    "parameters" => [
+                        [
+                            "name" => "id",
+                            "in" => "path",
+                            "required" => true,
+                            "description" => "ID of the capture to soft delete",
+                            "schema" => ["type" => "integer"]
+                        ]
+                    ],
+                    "responses" => [
+                        "204" => ["description" => "Capture soft deleted successfully (No Content)"] ,
+                        "401" => ["description" => "Unauthorized"],
+                        "403" => ["description" => "Forbidden (invalid or missing API token)"],
+                        "404" => ["description" => "Capture not found"]
+                    ],
+                    "security" => [["ApiTokenAuth" => []]]
                 ]
             ],
             "/api/next-actions" => [
@@ -244,6 +264,7 @@ Route::middleware('api.token')->group(function () {
 
     Route::put('captures/{id}', [\App\Http\Controllers\CaptureController::class, 'update']);
     Route::post('captures', [\App\Http\Controllers\CaptureController::class, 'store']);
+    Route::delete('captures/{id}', [\App\Http\Controllers\CaptureController::class, 'destroy']);
 
     Route::get('next-actions', function () {
         // Return all captures where next_action=true, sorted: priority_no=null first, then ascending
