@@ -187,10 +187,10 @@
   <p>Feeling part of a community also protects your mental health. It boosts confidence and reduces stress. The more connected you feel, the more you’ll grow.</p>
   <h3>References</h3>
   <ul>
-     <li><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/hrm.22041" target="_blank">[15] Human Resource Management – Remote Work and Integration</a></li>
-    <li><a href="https://psycnet.apa.org/doiLanding?doi=10.1037%2Fapl0000412" target="_blank">[19] Journal of Applied Psychology – Belonging and Adjustment</a></li>
+     <li><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/hrm.22041" target="_blank">Human Resource Management – Remote Work and Integration</a></li>
+    <li><a href="https://psycnet.apa.org/doiLanding?doi=10.1037%2Fapl0000412" target="_blank">Journal of Applied Psychology – Belonging and Adjustment</a></li>
   
-    <li><a href="https://journals.sagepub.com/doi/abs/10.1177/0149206305279602" target="_blank">[30] Journal of Management – Cultural Fit and Socialization</a></li>
+    <li><a href="https://journals.sagepub.com/doi/abs/10.1177/0149206305279602" target="_blank">Journal of Management – Cultural Fit and Socialization</a></li>
 
   </ul>
 
