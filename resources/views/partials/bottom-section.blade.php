@@ -41,7 +41,15 @@
                 <h2 class="mb-4">Insights and Strategies</h2>
             </div>
             <div class="section-slider">
-            <div class="details-each">
+                <div class="details-each">
+                    <h4 class="mb-3">New Job No Friends? You’re Not Alone</h4>
+                    <p>
+                    Starting your first tech job can feel isolating—but it doesn’t have to be. This guide shows you simple, proven ways to build real connections and feel like you belong.
+                    </p>
+                    <a href="{{ url('/article/exhausted-and-empty-maybe-its-burnout') }}" class="read-more">Read More &rarr;</a>
+                    <img src="{{asset('images/asset-3v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                </div>
+                <div class="details-each">
                     <h4 class="mb-3">Exhausted and Empty? Maybe It’s Burnout</h4>
                     <p>
                     Feeling utterly drained at the end of each day? If you’re a busy entrepreneur, engineer, or manager running on fumes, you’re not alone – and it’s not a personal failing.
