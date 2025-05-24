@@ -46,7 +46,7 @@
                     <p>
                     Starting your first tech job can feel isolating—but it doesn’t have to be. This guide shows you simple, proven ways to build real connections and feel like you belong.
                     </p>
-                    <a href="{{ url('/article/exhausted-and-empty-maybe-its-burnout') }}" class="read-more">Read More &rarr;</a>
+                    <a href="{{ url('/article/new-job-no-friends-youre-not-alone') }}" class="read-more">Read More &rarr;</a>
                     <img src="{{asset('images/asset-3v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                 </div>
                 <div class="details-each">
