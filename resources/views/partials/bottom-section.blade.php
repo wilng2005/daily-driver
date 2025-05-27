@@ -118,12 +118,8 @@
 <section class="background--black">
     <div class="container text-center px-4">
         <h2>
-            “The goal is not to be perfect by the end. 
+            Let's make tomorrow greater than today.
         </h2>
-        <h2>
-            The goal is to be better today.”
-        </h2>
-        <h2 class="mt-3"><i>- Simon Sinek</i></h2>
     </div>
 </section>
 <footer>
