@@ -1,40 +1,42 @@
-<section id="7weeks" class="background--white">
-    <div class="container">
-        <div class="d-flex align-items-center row">
+<section class="background--white">
+            <div class="container">
+            <div class="d-flex align-items-center row">
             <div class="col-12">
-                <h2 class="mb-5">Let's get stronger together.</h2>
+@php
+    $bottomSectionMessages = [
+        'Shift from firefighting to focused execution.',
+        'Move from chaos to clarity and control.',
+        'Shift from procrastination to action.',
+        'Build momentum for your most important goals.',
+        'Stop putting out fires—start making real progress.'
+    ];
+    $selectedBottomSectionMessage = $bottomSectionMessages[array_rand($bottomSectionMessages)];
+@endphp
+<h2 class="mb-5">{{ $selectedBottomSectionMessage }}</h2>
             </div>
 
             <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h4 class="mb-3">Training Program</h4>
+
+                <div class="col-md-6">
+                    <h4 class="mb-6">Free Discovery Session</h4>
                     <p>
-                        Establishes your base operating framework in mental fitness.
+                        Spend an hour focused on understanding your specific challenges, discovering your strengths, and establishing a path forward.
                     </p>
                     <p>
-                        Get better at managing stress, enhancing performance, regulating emotions, and building stronger relationships.
+                        Take steps that shape the future, not just survive the day.
                     </p>
+                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Get Started &rarr;</a>
                 </div>
-                <div class="col-md-5">
-                    <h4 class="mb-3">Coaching Sessions</h4>
-                    <p>
-                        Each 1-hour coaching session focuses on tailored goal-setting to address your specific needs and challenges.
-                    </p>
-                    <p>
-                        Gain clarity, lead better, influence with confidence, manage conflict, and grow in purpose, productivity, and emotional intelligence.
-                    </p>
-                </div>
-                <div class="col-md-3">
-                    <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
-                    <div class="text-center">
-                        <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="button">Free Discovery Session</a>
-                    </div>
+                <div class="col-md-4">
+                    <img src="{{asset('images/success-asset-2.png')}}" class="icon-image full" alt="">
+                 
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section id="insights-and-strategies" class="background--yellow" data-testid="insights-and-stories-section">
+
+<section id="insights-and-strategies" class="background--blue" data-testid="insights-and-stories-section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -72,6 +74,42 @@
                     </p>
                     <a href="{{ url('/article/five-science-backed-strategies') }}" class="read-more">Read More &rarr;</a>
                     <img src="{{asset('images/success-asset-1.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="7weeks" class="background--yellow">
+    <div class="container">
+        <div class="d-flex align-items-center row">
+            <div class="col-12">
+                <h2 class="mb-5">Let's get stronger together.</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4 class="mb-3">Training Program</h4>
+                    <p>
+                        Establishes your base operating framework in mental fitness.
+                    </p>
+                    <p>
+                        Get better at managing stress, enhancing performance, regulating emotions, and building stronger relationships.
+                    </p>
+                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Get Started &rarr;</a>
+                </div>
+                <div class="col-md-5">
+                    <h4 class="mb-3">Coaching Sessions</h4>
+                    <p>
+                        Each 1-hour coaching session focuses on tailored goal-setting to address your specific needs and challenges.
+                    </p>
+                    <p>
+                        Gain clarity, lead better, influence with confidence, manage conflict, and grow in purpose, productivity, and emotional intelligence.
+                    </p>
+                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Get Started &rarr;</a>
+                </div>
+                <div class="col-md-3">
+                    <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
+      
                 </div>
             </div>
         </div>
