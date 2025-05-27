@@ -174,21 +174,7 @@
                 </div>
             </div>
         </section>
-        <section class="background--white">
-            <div class="container">
-                <div class="d-flex align-items-end row">
-                    <div class="col-12 col-md-8 col-lg-9">
-                        <h1>
-                        You can’t shortcut the work, but you can enjoy the process.
-                        </h1>
-                        <img src="{{asset('images/asset-3v2.png')}}" class="icon-image small ms-auto" alt="">
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-3 py-md-5">
-                        <a id="free-discovery-session-shortcut" href="https://cal.com/wilng/free-coaching-session" target=”_blank” class="button px-4">Book a Free Discovery Session</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <section id="meetyourcoach" class="background--half">
             <div class="container">
                 <div class="d-flex align-items-center row">
@@ -202,7 +188,9 @@
                                 He excels at building empowered high-performing teams.</p>
                             <p>His background includes Information Systems and Business Management from the Singapore
                                 Management University.</p>
+                                <a id="free-discovery-session-bottom" href="https://cal.com/wilng/casual-conversation" target="_blank" class="read-more">Get in touch &rarr;</a>
                         </div>
+                        
                     </div>
                     <div class="col-md-5">
                         <img src="{{asset('images/asset.jpg')}}" class="icon-image full" alt="">
