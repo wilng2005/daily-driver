@@ -184,6 +184,10 @@ To update or add styles:
 - **File:** [FEATURE-AI-ARTICLES.md](docs/issues/FEATURE-AI-ARTICLES.md)
 - **Summary:** Implements an Articles section for coaching topics (burnout, productivity, stress, etc.) with AI-generated and manually authored content. Includes Nova admin review, TDD-first development, and CI/CD integration. **Status:** 🚧 Open & In Progress (see feature plan for roadmap)
 
+#### 2. Articles Module (Manual + Sectioned)
+- **File:** [FEATURE-ARTICLES-MODULE.md](docs/issues/FEATURE-ARTICLES-MODULE.md)
+- **Summary:** Adds a flexible, multi-section Articles Module supporting manual article creation with structured sections, markdown content, image selection, and layout customization. Designed for editorial control and rich content presentation. **Status:** 🚧 Open & In Progress (see feature doc for requirements and implementation plan)
+
 ### Archived/Closed Issues
 
 #### 1. Refactor Job Commands for Testability and TDD
