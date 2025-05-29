@@ -8,13 +8,13 @@ Introduce a flexible Insights Module to the platform, allowing for the creation,
 - Need for structured, easily managed, and visually engaging insights with reusable layouts and image assets.
 
 ## Requirements
-- **Article**
+- **Insight**
   - Title
   - Description
   - Keywords (list)
   - 5–10 sections per insight
 
-- **Article Section**
+- **Insight Section**
   - Header
   - Markdown content
   - Illustration image (selectable from images folder)
@@ -52,8 +52,8 @@ Nova resources will be created for both models, supporting full CRUD, section or
 - [x] Decide on storage (database, flat files, Nova resource, etc.)
 - [x] Design initial schema and publication logic
 - [ ] Create and run migrations for `insights` and `insight_sections` tables
-- [ ] Define Eloquent models and relationships (Article hasMany ArticleSection)
-- [ ] Create Nova resources for Article and ArticleSection, including:
+- [ ] Define Eloquent models and relationships (Insight hasMany InsightSection)
+- [ ] Create Nova resources for Insight and InsightSection, including:
     - Section ordering (drag-and-drop or order field)
     - Markdown editor for section content
     - Image picker for illustration (from images folder)
@@ -73,18 +73,18 @@ Nova resources will be created for both models, supporting full CRUD, section or
    - Add foreign key constraint from `insight_sections.insight_id` to `insights.id`
 
 2. **Define Eloquent models:**
-   - `Article` (hasMany `ArticleSection`)
-   - `ArticleSection` (belongsTo `Article`)
+   - `Insight` (hasMany `InsightSection`)
+   - `InsightSection` (belongsTo `Insight`)
    - Add casts for keywords (json) and published_at (datetime)
 
 3. **Create Nova resources:**
-   - `Article` resource: fields for title, description, keywords, published_at, sections (hasMany)
-   - `ArticleSection` resource: fields for header, content_markdown (markdown editor), image_path (file/image picker), background_color (select), order
+   - `Insight` resource: fields for title, description, keywords, published_at, sections (hasMany)
+   - `InsightSection` resource: fields for header, content_markdown (markdown editor), image_path (file/image picker), background_color (select), order
    - Section ordering UI (sortable/order field)
    - Publication status control (published_at field)
 
 4. **Implement TDD:**
-   - Write model factories for Article and ArticleSection
+   - Write model factories for Insight and InsightSection
    - Write tests for CRUD, section ordering, publication visibility (published_at logic), and markdown rendering
 
 5. **Frontend rendering:**
@@ -100,7 +100,7 @@ Nova resources will be created for both models, supporting full CRUD, section or
 ---
 
 **Design Decisions Recap:**
-- Articles are managed in the database, with full Nova CRUD
+- Insights are managed in the database, with full Nova CRUD
 - Each insight has a title, description, keywords, and publication timestamp (published_at)
 - Each insight has many sections, each with header, markdown content, image, background color, and order
 - Only insights with published_at set and <= now are visible on the site
