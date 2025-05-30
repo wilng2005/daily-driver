@@ -13,14 +13,22 @@ A modern Laravel 11 application with Nova 5 admin panel, automated browser testi
 ## 🚀 Features
 - **Laravel 11** with first-class Sail (Docker) support
 - **Nova 5** for powerful admin/resource management
+- **Insights Module**: Create, edit, and publish rich multi-section insights via Nova admin, with support for markdown, images, and layout customization
 - **Automated Dusk browser tests** for critical workflows
 - **Next Actions API endpoint** for retrieving prioritized next-action items (see API section)
 - **CI/CD via GitHub Actions** for both staging and production (no manual deploys)
 - **Serverless deployment** on AWS Lambda using Laravel Vapor (PHP 8.3, ARM)
 - **Composer-managed dependencies** (including PHP 8.3-only packages)
 
-### 📖 Features & Usage
+### 📚 Features & Usage
 For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FEATURES.md](docs/NOVA-FEATURES.md).
+
+#### Insights Module (Nova)
+- Manage insights and their sections from the Nova admin panel
+- Fields: title, description, keywords (JSON), published_at, sections (hasMany)
+- Section fields: header, markdown, image path, background color, order
+- Full CRUD, ordering, markdown editing, and publication control
+- 100% test coverage and TDD enforced for all CRUD and publication logic
 
 #### API Endpoints
 - **GET /api/todos** — Search todos by query string (requires API token)
@@ -51,6 +59,14 @@ See the [AI-Generated Articles Feature Plan](docs/issues/FEATURE-AI-ARTICLES.md)
 ---
 
 ## ⚡ Getting Started
+
+---
+
+## 🧑‍💻 Development Workflow
+
+- Insights and their sections are managed via Nova admin resources
+- All CRUD and publication logic for insights is covered by automated feature tests (see `InsightTest`)
+- TDD and 100% code coverage are enforced for this feature
 
 ### Prerequisites
 - Docker & Docker Compose
