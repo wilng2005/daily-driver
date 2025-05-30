@@ -40,6 +40,28 @@ Route::get('/', function () {
 
 });
 
+use Illuminate\Support\Str;
+
+Route::get('/insights/{slug}', function (string $slug) {
+    $insight = \App\Models\Insight::where('slug', $slug)
+        ->with('sections')
+        ->first();
+    if (!$insight) {
+        abort(404, 'Insight not found');
+    }
+
+    // Convert each section description from markdown to HTML
+    foreach ($insight->sections as $section) {
+        $section->description_html = $section->content_markdown
+            ? Str::markdown($section->content_markdown)
+            : '';
+    }
+    return view('insight', [
+        'insight' => $insight,
+        'sections' => $insight->sections,
+    ]);
+});
+
 Route::get('/article/{article}', function (string $article) {
     // Only allow slugs with letters, numbers, and dashes
     if (!preg_match('/^[a-zA-Z0-9\-]+$/', $article)) {
