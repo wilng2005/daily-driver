@@ -152,6 +152,7 @@ To update or add styles:
 ## ✅ Code Coverage Policy
 - The project enforces 100% code coverage for all API endpoints and business logic. Any new or updated endpoint (such as `PUT /api/captures/{id}`) must be accompanied by comprehensive feature tests.
 - For time-dependent logic, use Carbon freezing (see `DoDailyScheduleTest.php`) to ensure deterministic coverage.
+- As of 2025-05-30, all model relationships, query scopes, and event-driven logic (e.g., slug auto-generation in `Insight`) are fully covered by unit tests. See `InsightTest` and `InsightSectionTest` for examples.
 - Test-driven development (TDD) is the preferred workflow for all bug fixes and features.
 
 - This project enforces 100% code coverage as part of the CI/CD pipeline.

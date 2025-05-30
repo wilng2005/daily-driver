@@ -190,4 +190,33 @@ Nova resources will be created for both models, supporting full CRUD, section or
   use Illuminate\Support\Facades\DB;
   ```
 - For static analysis (PHPStan), install and configure [Larastan](https://github.com/nunomaduro/larastan) for full Laravel facade support.
+
+---
+
+## Developer Quickstart
+
+- Seeder: `database/seeders/InsightSeeder.php`
+- Factories: `database/factories/InsightSectionFactory.php`
+- Blade template: `resources/views/insight.blade.php`
+- Nova Resources: `app/Nova/Insight.php`, `app/Nova/InsightSection.php`
+- Tests: `tests/Feature/InsightTest.php`, `tests/Unit/InsightTest.php`, `tests/Unit/InsightSectionTest.php`
+
+As of 2025-05-30, all model relationships, query scopes, and event-driven logic (like slug auto-generation in `Insight`) are fully covered by unit tests for 100% code coverage.
+## Example: Seeding Insights
+
+```sh
+./vendor/bin/sail artisan db:seed --class=InsightSeeder
+```
+
+## Known Limitations & Next Steps
+
+- Frontend Blade components are functional but may need further UX/design polish.
+- Section reordering in Nova is supported via order field, but drag-and-drop UI could be improved.
+- Images must be pre-uploaded to `public/images`; no upload from Nova yet.
+- Consider adding API endpoints for public consumption of insights in the future.
+
+## Related
+
+- See also: [README.md](../README.md) for coverage policy and workflow.
+- Link to GitHub Issue/PR if available.
 - Next: Finalize storage and data model decisions
