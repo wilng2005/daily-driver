@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+use Illuminate\Support\Str;
+
 class Insight extends Model
 {
     /**
@@ -18,8 +20,20 @@ class Insight extends Model
     }
     use HasFactory;
 
+    protected static function boot()
+    {
+        parent::boot();
+        static::saving(function ($insight) {
+            if (empty($insight->slug) && !empty($insight->title)) {
+                $insight->slug = Str::slug($insight->title);
+            }
+        });
+    }
+
     protected $fillable = [
         'title',
+        'slug',
+        'image_path',
         'description',
         'keywords',
         'published_at',

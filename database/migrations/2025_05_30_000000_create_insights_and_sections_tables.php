@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('insights', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->json('keywords');
+            $table->string('title')->nullable();
+            $table->string('slug')->unique()->nullable();
+            $table->string('image_path')->nullable();
+            $table->text('description')->nullable();
+            $table->json('keywords')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
@@ -23,11 +25,11 @@ return new class extends Migration
         Schema::create('insight_sections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('insight_id')->constrained('insights')->onDelete('cascade');
-            $table->string('header');
-            $table->text('content_markdown');
-            $table->string('image_path');
+            $table->string('header')->nullable();
+            $table->text('content_markdown')->nullable();
+            $table->string('image_path')->nullable();
             $table->enum('background_color', ['white', 'yellow', 'blue']);
-            $table->integer('order');
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

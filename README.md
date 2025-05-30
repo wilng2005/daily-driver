@@ -178,19 +178,6 @@ To update or add styles:
 - `./vendor/bin/sail dusk` — Run browser (Dusk) tests
 - `./vendor/bin/sail test --coverage-html=./coverage-report` — Generate coverage report
 - `./vendor/bin/sail artisan migrate` — Run migrations
-- `./vendor/bin/sail artisan db:seed` — Seed database
-
----
-
-## 🤝 Contributing & Documentation
-- See [docs/API.md](docs/API.md) for the full API reference (endpoints, authentication, schemas, and examples)
-- See [docs/DB_SCHEMA.md](docs/DB_SCHEMA.md) for the full database schema (tables, columns, relationships, and migration notes)
-- See [docs/issues/FEATURE-AI-ARTICLES.md](docs/issues/FEATURE-AI-ARTICLES.md) for the AI-Generated Articles feature plan and current status (the only open issue)
-- _Archived/closed issues are grouped in [docs/issues/archived/](docs/issues/archived/) to keep the documentation organized._
-- All major changes and lessons learned are documented in the repo
-- Please open issues or PRs for bugs, improvements, or questions
-
----
 
 ## 📋 Project Issues Overview
 

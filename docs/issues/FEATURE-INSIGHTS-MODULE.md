@@ -39,11 +39,38 @@ Introduce a flexible Insights Module to the platform, allowing for the creation,
 **Decision:**
 We will implement the Insights Module using Eloquent models and database-backed storage, fully integrated with Laravel Nova resources for admin CRUD. This approach provides robust editorial control, supports future multi-user features, and aligns with project conventions (TDD, Nova, CI/CD).
 
+### Update (2025-05-30)
+- All Insight and InsightSection fields are now optional except `background_color` (InsightSection) and `sections` (Insight).
+- This enables saving drafts and incomplete articles/sections in Nova.
+
+#### Added: image_path Field for Insight
+- `image_path` is an optional field for Insight, chosen from images in `public/images`.
+- In Nova, select the image from the dropdown (not an upload).
+- In the UI, only 1 out of every 3 insights will display an image (see Blade logic).
+
+#### Test Data
+- Use the factory to generate many insights and sections:
+  ```php
+  App\Models\Insight::factory()->count(20)->hasSections(5)->create();
+  ```
+- This gives a robust dataset for UI and feature testing.
+
+#### Migration Instructions
+If upgrading from an older version, run:
+
+```
+./vendor/bin/sail artisan migrate:rollback
+./vendor/bin/sail artisan migrate
+```
+
+This will update the schema to make the fields optional.
+
 ### Initial Schema
 - **insights**
   - id (PK)
-  - title (string)
-  - description (text)
+  - title (string, nullable)
+  - description (text, nullable)
+  - keywords (json or string/tags, nullable)
   - keywords (json or string/tags)
   - published_at (timestamp, nullable) — controls insight publication/visibility; null = draft/unpublished, set = published/scheduled
   - timestamps
