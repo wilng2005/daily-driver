@@ -39,7 +39,7 @@ class InsightSection extends Resource
     public static $title = 'header';
 
     public static $search = [
-        'id', 'header', 'content_markdown', 'image_path'
+        'id', 'header', 'content_markdown', 'image_filename'
     ];
 
     public function fields(Request $request)
@@ -49,7 +49,9 @@ class InsightSection extends Resource
             BelongsTo::make('Insight', 'insight', Insight::class),
             Text::make('Header')->sortable(),
             Textarea::make('Content Markdown'),
-            Select::make('Image Path')->options($this->getImageFiles()),
+            Text::make('Image Filename', 'image_filename')
+                ->help('Enter the image filename (e.g., section-image.jpg) located in public/images')
+                ->nullable(),
             Select::make('Background Color')->options([
                 'white' => 'White',
                 'yellow' => 'Yellow',

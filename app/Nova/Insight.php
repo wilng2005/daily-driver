@@ -29,15 +29,8 @@ class Insight extends Resource
             Text::make('Slug')
                 ->sortable()
                 ->hideFromIndex(),
-            Select::make('Image Path')
-                ->options(function () {
-                    $images = glob(public_path('images/*.{jpg,jpeg,png,gif,webp}'), GLOB_BRACE);
-                    return collect($images)->mapWithKeys(function ($path) {
-                        $filename = 'images/' . basename($path);
-                        return [$filename => $filename];
-                    });
-                })
-                ->displayUsingLabels()
+            Text::make('Image Filename', 'image_filename')
+                ->help('Enter the image filename (e.g., my-image.jpg) located in public/images')
                 ->nullable()
                 ->hideFromIndex(),
             Textarea::make('Description'),

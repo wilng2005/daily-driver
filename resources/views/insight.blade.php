@@ -81,7 +81,7 @@
                 <div class="d-flex align-items-center row">
                     @if ($loop->iteration % 2 == 0)
                         <div class="col-md-5">
-                            <img src="{{ asset($section->image_path) }}" class="icon-image full" alt="">
+                            <img src="{{ asset('images/' . $section->image_filename) }}" class="icon-image full" alt="">
                         </div>
                     @endif
                     <div class="col-md-7 pe-5">
@@ -97,7 +97,7 @@
                     </div>
                     @if ($loop->iteration % 2 == 1)
                         <div class="col-md-5">
-                            <img src="{{ asset($section->image_path) }}" class="icon-image full" alt="">
+                            <img src="{{ asset('images/' . $section->image_filename) }}" class="icon-image full" alt="">
                         </div>
                     @endif
                 </div>

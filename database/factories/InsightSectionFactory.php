@@ -18,7 +18,7 @@ class InsightSectionFactory extends Factory
             'insight_id' => Insight::factory(),
             'header' => $this->faker->sentence(),
             'content_markdown' => $this->faker->paragraphs(2, true),
-            'image_path' => $images ? 'images/' . basename($this->faker->randomElement($images)) : null,
+            'image_filename' => $images ? basename($this->faker->randomElement($images)) : null,
             'background_color' => $this->faker->randomElement($backgroundColors),
             'order' => $this->faker->numberBetween(1, 10),
         ];

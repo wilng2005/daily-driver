@@ -14,7 +14,7 @@ class InsightSection extends Model
         'insight_id',
         'header',
         'content_markdown',
-        'image_path',
+        'image_filename',
         'background_color',
         'order',
     ];

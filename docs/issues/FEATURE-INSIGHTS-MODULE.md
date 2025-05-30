@@ -201,6 +201,12 @@ Nova resources will be created for both models, supporting full CRUD, section or
 - Nova Resources: `app/Nova/Insight.php`, `app/Nova/InsightSection.php`
 - Tests: `tests/Feature/InsightTest.php`, `tests/Unit/InsightTest.php`, `tests/Unit/InsightSectionTest.php`
 
+**Image Handling Update (2025-05-30):**
+- The image field for both Insight and InsightSection is now `image_filename` (was `image_path`).
+- This is a free-text field, filled by the user in Nova (not a dropdown).
+- In Blade, images are referenced as `asset('images/' . $section->image_filename)`.
+- Factories and seeders updated to use filenames only.
+
 As of 2025-05-30, all model relationships, query scopes, and event-driven logic (like slug auto-generation in `Insight`) are fully covered by unit tests for 100% code coverage.
 ## Example: Seeding Insights
 

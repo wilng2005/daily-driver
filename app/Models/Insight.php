@@ -10,6 +10,9 @@ use Illuminate\Support\Str;
 
 class Insight extends Model
 {
+
+    use HasFactory;
+    
     /**
      * Scope a query to only include published insights.
      */
@@ -18,7 +21,7 @@ class Insight extends Model
         return $query->whereNotNull('published_at')
             ->where('published_at', '<=', now());
     }
-    use HasFactory;
+
 
     protected static function boot()
     {
@@ -33,7 +36,7 @@ class Insight extends Model
     protected $fillable = [
         'title',
         'slug',
-        'image_path',
+        'image_filename',
         'description',
         'keywords',
         'published_at',
