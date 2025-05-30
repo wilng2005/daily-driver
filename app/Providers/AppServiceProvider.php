@@ -21,6 +21,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Make all published insights available to the partials.bottom-section view
+        \Illuminate\Support\Facades\View::composer('partials.bottom-section', function ($view) {
+            $insights = \App\Models\Insight::whereNotNull('published_at')
+                ->where('published_at', '<=', now())
+                ->orderBy('published_at', 'desc')
+                ->get();
+            $view->with('insights', $insights);
+        });
         RateLimiter::for('ExecutingAIResponses', function (object $job) {
             return Limit::perMinute(3)->by($job->telegramChat->tg_chat_id);
         });

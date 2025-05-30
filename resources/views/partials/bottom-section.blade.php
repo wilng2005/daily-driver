@@ -43,6 +43,19 @@
                 <h2 class="mb-4">Insights and Strategies</h2>
             </div>
             <div class="section-slider">
+
+                @foreach ($insights as $insight)
+                <div class="details-each">
+                    <h4 class="mb-3">{{ $insight->title }}</h4>
+                    <p>
+                    {{ $insight->description }}
+                    </p>
+                    <a href="{{ url('/insights/'.$insight->slug) }}" class="read-more">Read More &rarr;</a>
+                    @if ($loop->index % 3 === 0 && $insight->image_path)
+                        <img src="{{ asset($insight->image_path) }}" class="icon-image mb-3 ms-auto" alt="">
+                    @endif
+                </div>
+                @endforeach
                 <div class="details-each">
                     <h4 class="mb-3">New Job No Friends? You’re Not Alone</h4>
                     <p>

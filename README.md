@@ -13,14 +13,23 @@ A modern Laravel 11 application with Nova 5 admin panel, automated browser testi
 ## 🚀 Features
 - **Laravel 11** with first-class Sail (Docker) support
 - **Nova 5** for powerful admin/resource management
+- **Insights Module**: Create, edit, and publish rich multi-section insights via Nova admin, with support for markdown, images, and layout customization
 - **Automated Dusk browser tests** for critical workflows
 - **Next Actions API endpoint** for retrieving prioritized next-action items (see API section)
 - **CI/CD via GitHub Actions** for both staging and production (no manual deploys)
 - **Serverless deployment** on AWS Lambda using Laravel Vapor (PHP 8.3, ARM)
 - **Composer-managed dependencies** (including PHP 8.3-only packages)
 
-### 📖 Features & Usage
+### 📚 Features & Usage
 For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FEATURES.md](docs/NOVA-FEATURES.md).
+
+#### Insights Module (Nova)
+- Manage insights and their sections from the Nova admin panel
+- Fields: title, description, keywords (JSON), published_at, sections (hasMany)
+- Section fields: header, markdown, image path (now referenced as `image_path`), background color, order
+- Full CRUD, ordering, markdown editing, and publication control
+- 100% test coverage and TDD enforced for all CRUD and publication logic
+- **Seeder improvements:** The `InsightSeeder` disables foreign key checks, truncates both `insights` and `insight_sections`, and can be safely rerun to reset insight data. Use the seeder to clear and repopulate insights during development or testing.
 
 #### API Endpoints
 - **GET /api/todos** — Search todos by query string (requires API token)
@@ -51,6 +60,14 @@ See the [AI-Generated Articles Feature Plan](docs/issues/FEATURE-AI-ARTICLES.md)
 ---
 
 ## ⚡ Getting Started
+
+---
+
+## 🧑‍💻 Development Workflow
+
+- Insights and their sections are managed via Nova admin resources
+- All CRUD and publication logic for insights is covered by automated feature tests (see `InsightTest`)
+- TDD and 100% code coverage are enforced for this feature
 
 ### Prerequisites
 - Docker & Docker Compose
@@ -93,9 +110,15 @@ To reset your database and seed it with sample data for local development/testin
 
 This will:
 - Drop all tables and re-run all migrations
-- Truncate the posts table and insert example data (manual & AI, published & draft)
+- Truncate all tables (including insights and sections) and insert example data (manual & AI, published & draft)
 
-Use this workflow to demo, test, or develop with real data.
+You can also reseed just the insights module at any time with:
+```sh
+./vendor/bin/sail artisan db:seed --class=InsightSeeder
+```
+This will clear and repopulate only the insights and insight_sections tables, using the improved seeder logic.
+
+Use these workflows to demo, test, or develop with real data.
 
 ---
 
@@ -139,6 +162,15 @@ To update or add styles:
 
 ---
 
+## 🛠️ Common Issues
+
+### Undefined type 'DB'
+If you see a static analysis or IDE error like `Undefined type 'DB'`, ensure you have the correct import at the top of your file:
+```php
+use Illuminate\Support\Facades\DB;
+```
+If you use PHPStan, install and configure [Larastan](https://github.com/nunomaduro/larastan) for full Laravel facade support in static analysis.
+
 ## 🚢 Deployment
 - **Staging:** Push to `staging` branch triggers CI/CD and deploys to Vapor (uses PHP 8.3 ARM runtime)
 - **Production:** Push to `main` branch triggers CI/CD and deploys to Vapor (uses PHP 8.3 ARM runtime)
@@ -162,19 +194,6 @@ To update or add styles:
 - `./vendor/bin/sail dusk` — Run browser (Dusk) tests
 - `./vendor/bin/sail test --coverage-html=./coverage-report` — Generate coverage report
 - `./vendor/bin/sail artisan migrate` — Run migrations
-- `./vendor/bin/sail artisan db:seed` — Seed database
-
----
-
-## 🤝 Contributing & Documentation
-- See [docs/API.md](docs/API.md) for the full API reference (endpoints, authentication, schemas, and examples)
-- See [docs/DB_SCHEMA.md](docs/DB_SCHEMA.md) for the full database schema (tables, columns, relationships, and migration notes)
-- See [docs/issues/FEATURE-AI-ARTICLES.md](docs/issues/FEATURE-AI-ARTICLES.md) for the AI-Generated Articles feature plan and current status (the only open issue)
-- _Archived/closed issues are grouped in [docs/issues/archived/](docs/issues/archived/) to keep the documentation organized._
-- All major changes and lessons learned are documented in the repo
-- Please open issues or PRs for bugs, improvements, or questions
-
----
 
 ## 📋 Project Issues Overview
 
@@ -183,6 +202,10 @@ To update or add styles:
 #### 1. AI-Generated Articles Feature
 - **File:** [FEATURE-AI-ARTICLES.md](docs/issues/FEATURE-AI-ARTICLES.md)
 - **Summary:** Implements an Articles section for coaching topics (burnout, productivity, stress, etc.) with AI-generated and manually authored content. Includes Nova admin review, TDD-first development, and CI/CD integration. **Status:** 🚧 Open & In Progress (see feature plan for roadmap)
+
+#### 2. Insights Module (Manual + Sectioned)
+- **File:** [FEATURE-INSIGHTS-MODULE.md](docs/issues/FEATURE-INSIGHTS-MODULE.md)
+- **Summary:** Adds a flexible, multi-section Insights module supporting manual insight creation with structured sections, markdown content, image selection, and layout customization. Images are now automatically aligned left/right by section order (no image position field). Designed for editorial control and rich content presentation. **Status:** 🚧 Open & In Progress (see feature doc for requirements and implementation plan)
 
 ### Archived/Closed Issues
 
