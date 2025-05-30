@@ -26,9 +26,10 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 #### Insights Module (Nova)
 - Manage insights and their sections from the Nova admin panel
 - Fields: title, description, keywords (JSON), published_at, sections (hasMany)
-- Section fields: header, markdown, image path, background color, order
+- Section fields: header, markdown, image path (now referenced as `image_path`), background color, order
 - Full CRUD, ordering, markdown editing, and publication control
 - 100% test coverage and TDD enforced for all CRUD and publication logic
+- **Seeder improvements:** The `InsightSeeder` disables foreign key checks, truncates both `insights` and `insight_sections`, and can be safely rerun to reset insight data. Use the seeder to clear and repopulate insights during development or testing.
 
 #### API Endpoints
 - **GET /api/todos** — Search todos by query string (requires API token)
@@ -109,9 +110,15 @@ To reset your database and seed it with sample data for local development/testin
 
 This will:
 - Drop all tables and re-run all migrations
-- Truncate the posts table and insert example data (manual & AI, published & draft)
+- Truncate all tables (including insights and sections) and insert example data (manual & AI, published & draft)
 
-Use this workflow to demo, test, or develop with real data.
+You can also reseed just the insights module at any time with:
+```sh
+./vendor/bin/sail artisan db:seed --class=InsightSeeder
+```
+This will clear and repopulate only the insights and insight_sections tables, using the improved seeder logic.
+
+Use these workflows to demo, test, or develop with real data.
 
 ---
 
@@ -154,6 +161,15 @@ To update or add styles:
 - All other logic is fully covered by automated tests, following TDD principles.
 
 ---
+
+## 🛠️ Common Issues
+
+### Undefined type 'DB'
+If you see a static analysis or IDE error like `Undefined type 'DB'`, ensure you have the correct import at the top of your file:
+```php
+use Illuminate\Support\Facades\DB;
+```
+If you use PHPStan, install and configure [Larastan](https://github.com/nunomaduro/larastan) for full Laravel facade support in static analysis.
 
 ## 🚢 Deployment
 - **Staging:** Push to `staging` branch triggers CI/CD and deploys to Vapor (uses PHP 8.3 ARM runtime)

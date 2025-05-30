@@ -86,6 +86,10 @@ This will update the schema to make the fields optional.
 
 ---
 
+### 2025-05-30: Seeder & Blade Improvements
+- **Seeder improvements:** The `InsightSeeder` now disables foreign key checks, truncates both `insights` and `insight_sections`, and is safe to rerun for a clean slate. Use `./vendor/bin/sail artisan db:seed --class=InsightSeeder` to quickly reset insight data during development or testing.
+- **Blade update:** The Blade view for insights now references section images via `$section->image_path` (not `$section->image`). Ensure your data and Nova resource are updated accordingly.
+
 ### Implementation Plan (Updated)
 - [x] Decide on storage (database, flat files, Nova resource, etc.)
 - [x] Design initial schema and publication logic
@@ -175,4 +179,15 @@ Nova resources will be created for both models, supporting full CRUD, section or
 
 ## Status
 - **In Progress** (as of 2025-05-28)
+
+---
+
+## Troubleshooting
+
+### Undefined type 'DB' (static analysis or IDE error)
+- Ensure you have the correct import at the top of your file:
+  ```php
+  use Illuminate\Support\Facades\DB;
+  ```
+- For static analysis (PHPStan), install and configure [Larastan](https://github.com/nunomaduro/larastan) for full Laravel facade support.
 - Next: Finalize storage and data model decisions
