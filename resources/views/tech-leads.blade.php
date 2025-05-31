@@ -182,13 +182,9 @@
                         <div class="font-p mb-5"><strong>Meet Your Coach</strong></div>
                         <h2 class="mb-3">Wil Ng</h2>
                         <div>
-                            <p>Head of Engineering at a FinTech start-up and Co-founder of a software development firm.
-                            </p>
-                            <p>Wil has been working with software engineers and engineering leaders for over a decade.
-                                He excels at building empowered high-performing teams.</p>
-                            <p>His background includes Information Systems and Business Management from the Singapore
-                                Management University.</p>
-                                <a id="free-discovery-session-bottom" href="https://cal.com/wilng/casual-conversation" target="_blank" class="read-more">Get in touch &rarr;</a>
+                        <p>Wil is a Business Coach who partners with leaders and teams to clarify strategy and drive focused execution.</p> 
+                        <p>Previously, he served as Head of Engineering at a financial services firm and co-founded a software development company, bringing over a decade of experience working with both engineers and business leaders.</p> 
+                            <a id="free-discovery-session-bottom" href="https://cal.com/wilng/casual-conversation" target="_blank" class="read-more">Get in touch &rarr;</a>
                         </div>
                         
                     </div>
