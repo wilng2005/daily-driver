@@ -12,18 +12,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{$insight->title}}</title>
-    <meta name="description" content="<p>{!! $insight->description_html !!}</p>">
+    <meta name="description" content="{{ $insight->description }}">
 
     <!-- Open Graph Meta Tags for social media sharing -->
     <meta property="og:title" content="{{$insight->title}}">
-    <meta property="og:description" content="<p>{!! $insight->description_html !!}</p>">
+    <meta property="og:description" content="{{ $insight->description }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://greater.than.today">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{$insight->title}}">
-    <meta name="twitter:description" content="<p>{!! $insight->description_html !!}</p>">
+    <meta name="twitter:description" content="{{ $insight->description }}">
     
     <!-- Keywords -->
     <meta name="keywords" content="{{$insight->keywords}}">
