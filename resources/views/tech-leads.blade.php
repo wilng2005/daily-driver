@@ -4,7 +4,7 @@
 @php
 $title="Make Tomorrow Greater";
 $description="Helping founders, leaders, and software engineers to grow with clarity, courage, and purpose. Conquer burnout, build resilience, lead confidently, and make tomorrow greater than today.";
-$image_path="asset('images/assetv2.png')";
+$image_path=asset('images/assetv2.png');
 $keywords="technology, leadership, software engineering, tech leads, CTO coaching, engineering, mental fitness, Agile SCRUM, conflict management, productivity, emotional intelligence, personal wellness";
 @endphp
 
