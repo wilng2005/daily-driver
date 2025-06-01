@@ -115,16 +115,13 @@
             <div class="container">
                 <div class="d-flex align-items-center row">
                     <div class="col-md-7 pe-5">
-                        <div class="font-p mb-5"><strong>Meet Your Coach</strong></div>
+                        <div class="font-p mb-5"><strong>Meet Your Coach</strong>
+                        </div>
                         <h2 class="mb-3">Wil Ng</h2>
                         <div>
-                            <p>Head of Engineering at a FinTech start-up and Co-founder of a software development firm.
-                            </p>
-                            <p>Wil has been working with software engineers and engineering leaders for over a decade.
-                                He excels at building empowered high-performing teams.</p>
-                            <p>His background includes Information Systems and Business Management from the Singapore
-                                Management University.</p>
-                                <a id="free-discovery-session-bottom" href="https://cal.com/wilng/casual-conversation" target="_blank" class="read-more">Get in touch &rarr;</a>
+                            <p>Wil is a Business Coach who partners with leaders and teams to clarify strategy and drive focused execution.</p> 
+                            <p>With over a decade of experience, he has worked closely with engineers and business leaders as the Head of Engineering at a financial services firm and as a co-founder of a software development company.</p> 
+                            <a id="free-discovery-session-bottom" href="https://cal.com/wilng/casual-conversation" target="_blank" class="read-more">Get in touch &rarr;</a>
                         </div>
                         
                     </div>
