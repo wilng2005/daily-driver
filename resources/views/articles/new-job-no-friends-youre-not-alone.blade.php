@@ -4,7 +4,7 @@
 @php
 $title="New Job No Friends? You're Not Alone";
 $description="If you’ve just landed your first job, you might be excited but also overwhelmed. There’s a lot to learn fast—new systems, new jargon, new people. It’s totally normal to feel uncertain, anxious, or even isolated. ";
-$image_path=asset('images/bored-01.png');
+$image_filename="bored-01.png";
 $keywords="new job, imposter syndrome, role clarity, confidence, belonging, uncertainty, anxiety, isolation";
 @endphp
 @include('partials.meta-head')

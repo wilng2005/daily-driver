@@ -4,14 +4,27 @@
 @if (App::environment('production'))
     <!-- HTML for production environment -->
 
-    <!-- Basic Meta Tags -->
-    <!--
-        Coming into this page, the following values must be set.
-        $title
-        $description
-        $image_path
-        $keywords
-    -->
+
+@php
+//Coming into this page, the following values must be set.
+//        $title
+//        $description
+//        $keywords
+//        $image_filename
+
+    $width = $height = null;
+    if (!empty($image_filename)) {
+        // Look up dimensions in config; fail gracefully if not found
+        $dimensions = config('image_dimensions')[$image_filename] ?? null;
+        
+        if (is_array($dimensions) && isset($dimensions['width'], $dimensions['height'])) {
+            $width = $dimensions['width'];
+            $height = $dimensions['height'];
+        } else {
+            $width = $height = null; // Explicitly set to null if not found
+        }
+    }
+@endphp
 
     <!-- Open Graph Meta Tags for social media sharing -->
     <meta name="description" content="{{ $description }}">
@@ -19,17 +32,8 @@
     <meta property="og:description" content="{{ $description }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ $image_path}}">
-<?php
-$width = $height = null;
-if (!empty($image_path) && file_exists(public_path($image_path))) {
-    $dimensions = @getimagesize(public_path($image_path));
-    if ($dimensions) {
-        $width = $dimensions[0];
-        $height = $dimensions[1];
-    }
-}
-?>
+    <meta property="og:image" content="{{ asset('images/'.$image_filename)}}">
+
 @if($width && $height)
     <meta property="og:image:width" content="{{ $width }}">
     <meta property="og:image:height" content="{{ $height }}">
@@ -38,7 +42,7 @@ if (!empty($image_path) && file_exists(public_path($image_path))) {
     <!-- Twitter Card Meta Tags -->
      <meta name="twitter:title" content="{{$title}}">
     <meta name="twitter:description" content="{{ $description }}">
-    <meta name="twitter:image" content="{{ $image_path }}">
+    <meta name="twitter:image" content="{{ asset('images/'.$image_filename) }}">
     <meta name="twitter:card" content="summary_large_image">
   
     

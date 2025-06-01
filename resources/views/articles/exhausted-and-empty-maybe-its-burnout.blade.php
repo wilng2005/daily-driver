@@ -4,7 +4,7 @@
 @php
 $title="Exhausted and Empty? Maybe It’s Burnout";
 $description="Feeling utterly drained at the end of each day? If you’re a busy entrepreneur, engineer, or manager running on fumes, you’re not alone – and it’s not a personal failing.";
-$image_path=asset('images/exhausted-1.png');
+$image_filename="exhausted-1.png";
 $keywords="resilience,burnout, stress response cycle, emotional intelligence, personal wellness";
 @endphp
 @include('partials.meta-head')
