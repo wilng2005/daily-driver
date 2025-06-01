@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="{{ asset('images/favicon/favicon.ico') }}">
     <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
 
-@if (App::environment('production')||true)
+@if (App::environment('production'))
     <!-- HTML for production environment -->
 
 
