@@ -31,6 +31,7 @@ return [
     'logo-v2.png' => ['width' => 1024, 'height' => 1024],
     'logo-v3.png' => ['width' => 1024, 'height' => 1024],
     'logo-v4.png' => ['width' => 80, 'height' => 50],
+    'logo-v5.png' => ['width' => 200, 'height' => 200],
     'logo.png' => ['width' => 80, 'height' => 50],
     'mentor-01.png' => ['width' => 1024, 'height' => 1024],
     'success-asset-1.png' => ['width' => 1024, 'height' => 1024],
