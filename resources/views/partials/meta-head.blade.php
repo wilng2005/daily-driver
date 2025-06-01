@@ -14,18 +14,33 @@
     -->
 
     <!-- Open Graph Meta Tags for social media sharing -->
+    <meta name="description" content="{{ $description }}">
     <meta property="og:title" content="{{$title}}">
     <meta property="og:description" content="{{ $description }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="{{ $image_path}}">
+<?php
+$width = $height = null;
+if (!empty($image_path) && file_exists(public_path($image_path))) {
+    $dimensions = @getimagesize(public_path($image_path));
+    if ($dimensions) {
+        $width = $dimensions[0];
+        $height = $dimensions[1];
+    }
+}
+?>
+@if($width && $height)
+    <meta property="og:image:width" content="{{ $width }}">
+    <meta property="og:image:height" content="{{ $height }}">
+@endif
 
     <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{$title}}">
+     <meta name="twitter:title" content="{{$title}}">
     <meta name="twitter:description" content="{{ $description }}">
-
-<meta name="twitter:image" content="{{ $image_path }}">
+    <meta name="twitter:image" content="{{ $image_path }}">
+    <meta name="twitter:card" content="summary_large_image">
+  
     
     <!-- Keywords -->
     <meta name="keywords" content="{{$keywords}}">
