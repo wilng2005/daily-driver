@@ -13,12 +13,8 @@
 //        $image_filename
 
     $width = $height = null;
-    if (!empty($image_filename) && file_exists(public_path('images/'.$image_filename))) {
-        $dimensions = @getimagesize(public_path('images/'.$image_filename));
-        if ($dimensions) {
-            $width = $dimensions[0];
-            $height = $dimensions[1];
-        }
+    if (!empty($image_filename)) {
+        [$width, $height] = \App\Services\ImageHelper::getS3ImageDimensionsCached('images/' . $image_filename);
     }
 @endphp
     <!-- Open Graph Meta Tags for social media sharing -->
