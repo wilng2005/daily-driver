@@ -4,16 +4,13 @@
 @if (App::environment('production')||true)
     <!-- HTML for production environment -->
 
-    <!-- Basic Meta Tags -->
-    <!--
-        Coming into this page, the following values must be set.
-        $title
-        $description
-        $keywords
-        $image_filename
-    -->
 
 @php
+//Coming into this page, the following values must be set.
+//        $title
+//        $description
+//        $keywords
+//        $image_filename
 
     $width = $height = null;
     if (!empty($image_filename) && file_exists(public_path('images/'.$image_filename))) {
