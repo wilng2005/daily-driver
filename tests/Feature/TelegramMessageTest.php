@@ -11,6 +11,15 @@ final class TelegramMessageTest extends TestCase
 {
     use RefreshDatabase;
 
+    /**
+     * A basic feature test example.
+     */
+    public function test_example(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
 
     public function test_incoming_daily_message_count($date = null): void
     {
