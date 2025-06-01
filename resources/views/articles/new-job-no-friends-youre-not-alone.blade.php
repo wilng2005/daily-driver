@@ -1,72 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-@include('partials.gtm-head')
-
-@if (App::environment('production'))
-    <!-- HTML for production environment -->
-    @include('partials.ga-tag')
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Job No Friends? You’re Not Alone</title>
-    <meta name="description" content="Starting your first tech job can feel isolating—but it doesn’t have to be. This guide shows you simple, proven ways to build real connections and feel like you belong.">
-
-    <!-- Open Graph Meta Tags for social media sharing -->
-    <meta property="og:title" content="New Job No Friends? You’re Not Alone">
-    <meta property="og:description" content="Starting your first tech job can feel isolating—but it doesn’t have to be. This guide shows you simple, proven ways to build real connections and feel like you belong.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://greater.than.today">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="New Job No Friends? You’re Not Alone">
-    <meta name="twitter:description" content="Starting your first tech job can feel isolating—but it doesn’t have to be. This guide shows you simple, proven ways to build real connections and feel like you belong.">
-    
-    <!-- Keywords -->
-    <meta name="keywords" content="new job, first tech job, isolation, connections, belonging, remote, imposter syndrome">
-
-    <!-- Author -->
-    <meta name="author" content="Wil Ng">
-
-    <!-- Additional Meta Tags -->
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    
-@else
-    <!-- HTML for non-production environments -->
-     <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staging - Tech Leadership Coaching</title>
-    <meta name="description" content="Staging environment for Tech Leadership Coaching. This site is for testing purposes only.">
-
-    <!-- Robots Meta Tag to prevent indexing -->
-    <meta name="robots" content="noindex, nofollow">
-
-@endif
-    
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Job, No Friends? You're Not Alone.</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@300;400;600;700&display=swap" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{asset('slick/slick.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('slick/slick-theme.css')}}" />
-
-    <link rel="stylesheet" href="{{asset('sass/main.css')}}">
-</head>
+@php
+$title="New Job No Friends? You're Not Alone";
+$description="If you’ve just landed your first job, you might be excited but also overwhelmed. There’s a lot to learn fast—new systems, new jargon, new people. It’s totally normal to feel uncertain, anxious, or even isolated. ";
+$image_path=asset('images/bored-01.png');
+$keywords="new job, imposter syndrome, role clarity, confidence, belonging, uncertainty, anxiety, isolation";
+@endphp
+@include('partials.meta-head')
 
 <body>
     @include('partials.gtm-body')
@@ -84,7 +25,7 @@
                         <div>
                         <h1>New Job No Friends? You're Not Alone</h1>
                         <br/>
-  <p>If you’ve just landed your first job in tech, you might be excited but also overwhelmed. There’s a lot to learn fast—new systems, new jargon, new people. It’s totally normal to feel uncertain, anxious, or even isolated. You might find yourself wondering if it’s okay to ask a question or if people will judge your ideas. That feeling? It’s often called <em>imposter syndrome</em>.</p>
+  <p>If you’ve just landed your first job, you might be excited but also overwhelmed. There’s a lot to learn fast—new systems, new jargon, new people. It’s totally normal to feel uncertain, anxious, or even isolated. You might find yourself wondering if it’s okay to ask a question or if people will judge your ideas. That feeling? It’s often called <em>imposter syndrome</em>.</p>
   <p>Studies show that <strong>role clarity</strong>, <strong>confidence in your skills</strong> (self-efficacy), and especially a <strong>sense of belonging</strong> are what help newcomers adjust best.</p>
   <p>If you don’t feel socially connected at work, you’re not likely to speak up in meetings or reach out when you’re stuck. And you’re not alone. Many new hires start optimistic but quickly feel less confident and more hesitant to contribute.</p>
 

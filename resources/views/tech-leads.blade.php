@@ -1,74 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-@include('partials.gtm-head')
+@php
+$title="Make Tomorrow Greater";
+$description="Helping founders, leaders, and software engineers to grow with clarity, courage, and purpose. Conquer burnout, build resilience, lead confidently, and make tomorrow greater than today.";
+$image_path=asset('images/testimony-1.png');
+$keywords="technology, leadership, software engineering, tech leads, CTO coaching, engineering, mental fitness, Agile SCRUM, conflict management, productivity, emotional intelligence, personal wellness";
+@endphp
 
-@if (App::environment('production'))
-    <!-- HTML for production environment -->
-    <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Make Tomorrow Greater</title>
-    <meta name="description" content="Helping founders, leaders, and software engineers to grow with clarity, courage, and purpose. Conquer burnout, build resilience, lead confidently, and make tomorrow greater than today.">
-
-    <!-- Open Graph Meta Tags for social media sharing -->
-    <meta property="og:title" content="Make Tomorrow Greater">
-    <meta property="og:description" content="Helping founders, leaders, and software engineers to grow with clarity, courage, and purpose. Conquer burnout, build resilience, lead confidently, and make tomorrow greater than today.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://greater.than.today">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Make Tomorrow Greater">
-    <meta name="twitter:description" content="Helping founders, leaders, and software engineers to grow with clarity, courage, and purpose. Conquer burnout, build resilience, lead confidently, and make tomorrow greater than today.">
-    
-    <!-- Keywords -->
-    <meta name="keywords" content="technology, leadership, software engineering, tech leads, CTO coaching, engineering, mental fitness, Agile SCRUM, conflict management, productivity, emotional intelligence, personal wellness">
-
-    <!-- Author -->
-    <meta name="author" content="Psalm12Seven">
-
-    <!-- Additional Meta Tags -->
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    
-@else
-    <!-- HTML for non-production environments -->
-     <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staging - Tech Leadership Coaching</title>
-    <meta name="description" content="Staging environment for Tech Leadership Coaching. This site is for testing purposes only.">
-
-    <!-- Robots Meta Tag to prevent indexing -->
-    <meta name="robots" content="noindex, nofollow">
-
-@endif
-    
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greater than Today</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@300;400;600;700&display=swap" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{asset('slick/slick.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('slick/slick-theme.css')}}" />
-
-    <link rel="stylesheet" href="{{asset('sass/main.css')}}">
-</head>
+@include('partials.meta-head')
 
 <body>
     @include('partials.gtm-body')
+
    @include('partials.nav')
 
     <main>
@@ -179,16 +123,13 @@
             <div class="container">
                 <div class="d-flex align-items-center row">
                     <div class="col-md-7 pe-5">
-                        <div class="font-p mb-5"><strong>Meet Your Coach</strong></div>
+                        <div class="font-p mb-5"><strong>Meet Your Coach</strong>
+                        </div>
                         <h2 class="mb-3">Wil Ng</h2>
                         <div>
-                            <p>Head of Engineering at a FinTech start-up and Co-founder of a software development firm.
-                            </p>
-                            <p>Wil has been working with software engineers and engineering leaders for over a decade.
-                                He excels at building empowered high-performing teams.</p>
-                            <p>His background includes Information Systems and Business Management from the Singapore
-                                Management University.</p>
-                                <a id="free-discovery-session-bottom" href="https://cal.com/wilng/casual-conversation" target="_blank" class="read-more">Get in touch &rarr;</a>
+                            <p>Wil is a Business Coach who partners with leaders and teams to clarify strategy and drive focused execution.</p> 
+                            <p>With over a decade of experience, he has worked closely with engineers and business leaders as the Head of Engineering at a financial services firm and as a co-founder of a software development company.</p> 
+                            <a id="free-discovery-session-bottom" href="https://cal.com/wilng/casual-conversation" target="_blank" class="read-more">Get in touch &rarr;</a>
                         </div>
                         
                     </div>
