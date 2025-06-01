@@ -22,7 +22,7 @@
     <meta name="twitter:title" content="{{$insight->title}}">
     <meta name="twitter:description" content="{{ $insight->description }}">
 
-<meta name="twitter:image" content="{{ asset('images/' . $section->image_filename) }">
+<meta name="twitter:image" content="{{ asset('images/' . $section->image_filename) }}">
     
     <!-- Keywords -->
     <meta name="keywords" content="{{$insight->keywords}}">
