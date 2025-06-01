@@ -15,7 +15,8 @@
     $width = $height = null;
     if (!empty($image_filename)) {
         // Look up dimensions in config; fail gracefully if not found
-        $dimensions = config('image_dimensions.' . $image_filename);
+        $dimensions = config('image_dimensions')[$image_filename] ?? null;
+        
         if (is_array($dimensions) && isset($dimensions['width'], $dimensions['height'])) {
             $width = $dimensions['width'];
             $height = $dimensions['height'];
@@ -24,6 +25,7 @@
         }
     }
 @endphp
+
     <!-- Open Graph Meta Tags for social media sharing -->
     <meta name="description" content="{{ $description }}">
     <meta property="og:title" content="{{$title}}">

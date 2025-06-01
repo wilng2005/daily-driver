@@ -10,17 +10,6 @@ $image_filename="testimony-1.png";
 
 $keywords="technology, leadership, software engineering, tech leads, CTO coaching, engineering, mental fitness, Agile SCRUM, conflict management, productivity, emotional intelligence, personal wellness";
 
-$image_path=asset('images/'.$image_filename);
-
-$width = $height = null;
-if (!empty($image_filename) && file_exists(public_path('images/'.$image_filename))) {
-    $dimensions = @getimagesize(public_path('images/'.$image_filename));
-    if ($dimensions) {
-        $width = $dimensions[0];
-        $height = $dimensions[1];
-    }
-}
-
 @endphp
 
 @include('partials.meta-head')
