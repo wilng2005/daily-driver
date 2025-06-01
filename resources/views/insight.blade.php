@@ -5,7 +5,7 @@
 @php
 $title=$insight->title;
 $description=$insight->description;
-$image_path=asset('images/' . $insight->image_filename);
+$image_filename=$insight->image_filename;
 $keywords=$insight->keywords;
 @endphp
 @include('partials.meta-head')

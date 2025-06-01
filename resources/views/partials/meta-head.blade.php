@@ -1,7 +1,7 @@
 <head>
 @include('partials.gtm-head')
 
-@if (App::environment('production'))
+@if (App::environment('production')||true)
     <!-- HTML for production environment -->
 
     <!-- Basic Meta Tags -->
@@ -9,27 +9,29 @@
         Coming into this page, the following values must be set.
         $title
         $description
-        $image_path
         $keywords
+        $image_filename
     -->
 
+@php
+
+    $width = $height = null;
+    if (!empty($image_filename) && file_exists(public_path('images/'.$image_filename))) {
+        $dimensions = @getimagesize(public_path('images/'.$image_filename));
+        if ($dimensions) {
+            $width = $dimensions[0];
+            $height = $dimensions[1];
+        }
+    }
+@endphp
     <!-- Open Graph Meta Tags for social media sharing -->
     <meta name="description" content="{{ $description }}">
     <meta property="og:title" content="{{$title}}">
     <meta property="og:description" content="{{ $description }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ $image_path}}">
-<?php
-$width = $height = null;
-if (!empty($image_path) && file_exists(public_path($image_path))) {
-    $dimensions = @getimagesize(public_path($image_path));
-    if ($dimensions) {
-        $width = $dimensions[0];
-        $height = $dimensions[1];
-    }
-}
-?>
+    <meta property="og:image" content="{{ asset('images/'.$image_filename)}}">
+
 @if($width && $height)
     <meta property="og:image:width" content="{{ $width }}">
     <meta property="og:image:height" content="{{ $height }}">
@@ -38,7 +40,7 @@ if (!empty($image_path) && file_exists(public_path($image_path))) {
     <!-- Twitter Card Meta Tags -->
      <meta name="twitter:title" content="{{$title}}">
     <meta name="twitter:description" content="{{ $description }}">
-    <meta name="twitter:image" content="{{ $image_path }}">
+    <meta name="twitter:image" content="{{ asset('images/'.$image_filename) }}">
     <meta name="twitter:card" content="summary_large_image">
   
     
