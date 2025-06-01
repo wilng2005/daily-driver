@@ -8,32 +8,30 @@ When deploying to Laravel Vapor (AWS Lambda), the Blade logic for determining Op
 - The current Blade code attempts to dynamically get image dimensions using PHP functions that require local file access.
 - In serverless environments (Vapor), the local public directory is not available, so meta tags for image width/height are missing.
 
-## Solution Plan
-1. **Hardcoded Dimensions Map:**
-   - Maintain a PHP array mapping each image filename to its width and height.
-   - Example:
-     ```php
-     $imageDimensions = [
-         'example.jpg' => ['width' => 1200, 'height' => 630],
-         'logo.png'    => ['width' => 512,  'height' => 512],
-         // ...
-     ];
-     ```
-2. **Lookup in Blade:**
-   - Before rendering meta tags, look up `$image_filename` in the array and use the stored dimensions.
-   - If not found, omit the width/height meta tags or use defaults.
-3. **Storage Location:**
-   - Store the array in a config file (`config/image_dimensions.php`), helper class, or inline in the Blade file if the list is small.
-4. **(Optional) Automation:**
-   - Write a script to auto-generate the array from `public/images/` to avoid manual updates.
+## Solution Implementation
+
+### Config-Based Dimensions Map
+- Implemented a PHP config file at `config/image_dimensions.php` mapping each image filename to its width and height.
+- The list is auto-generated from the contents of `public/images/` and can be updated as needed.
+
+### Blade Template Changes
+- `resources/views/partials/meta-head.blade.php` now looks up image dimensions from the config file.
+- If the image filename is not found in the config, the code fails gracefully: `$width` and `$height` are set to `null`, and the width/height meta tags are omitted. No error or exception is thrown.
+- This ensures robust behavior in all environments, including Vapor.
+
+### References
+- See the config file: [`config/image_dimensions.php`](../../config/image_dimensions.php)
+- See the Blade logic: [`resources/views/partials/meta-head.blade.php`](../../resources/views/partials/meta-head.blade.php)
 
 ## Benefits
 - Works reliably on Vapor and any environment.
 - No runtime filesystem dependency.
 - Easy to maintain as long as the array is updated with new images.
+- Graceful failure if dimensions are missing, no risk of server error.
 
 ## Status
-- **Open** (awaiting implementation)
+- **Closed** (implemented 2025-06-01)
+- Closure note: Config-based OpenGraph meta tag solution implemented and committed. Blade template fails gracefully if image dimensions are missing. Ready for production use.
 
 ## References
 - [README.md: OpenGraph Meta Tag Logic](../../README.md)
