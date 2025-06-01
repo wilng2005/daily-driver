@@ -1,7 +1,7 @@
 <head>
 @include('partials.gtm-head')
 
-@if (App::environment('production')||true)
+@if (App::environment('production'))
     <!-- HTML for production environment -->
 
 
