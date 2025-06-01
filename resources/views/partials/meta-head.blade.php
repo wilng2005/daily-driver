@@ -13,11 +13,14 @@
 //        $image_filename
 
     $width = $height = null;
-    if (!empty($image_filename) && file_exists(public_path('images/'.$image_filename))) {
-        $dimensions = @getimagesize(public_path('images/'.$image_filename));
-        if ($dimensions) {
-            $width = $dimensions[0];
-            $height = $dimensions[1];
+    if (!empty($image_filename)) {
+        // Look up dimensions in config; fail gracefully if not found
+        $dimensions = config('image_dimensions.' . $image_filename);
+        if (is_array($dimensions) && isset($dimensions['width'], $dimensions['height'])) {
+            $width = $dimensions['width'];
+            $height = $dimensions['height'];
+        } else {
+            $width = $height = null; // Explicitly set to null if not found
         }
     }
 @endphp
