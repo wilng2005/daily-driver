@@ -5,27 +5,30 @@
     <!-- HTML for production environment -->
 
     <!-- Basic Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{$insight->title}}</title>
-    <meta name="description" content="{{ $insight->description }}">
+    <!--
+        Coming into this page, the following values must be set.
+        $title
+        $description
+        $image_path
+        $keywords
+    -->
 
     <!-- Open Graph Meta Tags for social media sharing -->
-    <meta property="og:title" content="{{$insight->title}}">
-    <meta property="og:description" content="{{ $insight->description }}">
+    <meta property="og:title" content="{{$title}}">
+    <meta property="og:description" content="{{ $description }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ asset('images/' . $section->image_filename) }}">
+    <meta property="og:image" content="{{ $image_path}}">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{$insight->title}}">
-    <meta name="twitter:description" content="{{ $insight->description }}">
+    <meta name="twitter:title" content="{{$title}}">
+    <meta name="twitter:description" content="{{ $description }}">
 
-<meta name="twitter:image" content="{{ asset('images/' . $section->image_filename) }}">
+<meta name="twitter:image" content="{{ $image_path }}">
     
     <!-- Keywords -->
-    <meta name="keywords" content="{{$insight->keywords}}">
+    <meta name="keywords" content="{{$keywords}}">
 
     <!-- Author -->
     <meta name="author" content="Psalm12Seven Private Limited">

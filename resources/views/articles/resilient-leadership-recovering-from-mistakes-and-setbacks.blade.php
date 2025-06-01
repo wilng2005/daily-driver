@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
+@php
+$title="Resilient Leadership: Recovering from Mistakes and Setbacks";
+$description="Resilience in leadership refers to the capacity to bounce back from adversity, maintaining focus and confidence after failures.";
+$image_path=asset('images/fallen-1.png');
+$keywords="resilience,burnout, stress response cycle, emotional intelligence, personal wellness";
+@endphp
 @include('partials.meta-head')
 
 <body>

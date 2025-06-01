@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@php
+$title="Five Science-Backed Strategies to Recover from Burnout";
+$description="Combating burnout requires more than rest alone; it involves actively completing the stress response cycle and replenishing our emotional reserves.";
+$image_path=asset('images/asset-6v2.png');
+$keywords="resilience,burnout, stress response cycle, emotional intelligence, personal wellness";
+@endphp
 @include('partials.meta-head')
 
 <body>

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@php
+$title="New Job No Friends? You're Not Alone";
+$description="If you’ve just landed your first job, you might be excited but also overwhelmed. There’s a lot to learn fast—new systems, new jargon, new people. It’s totally normal to feel uncertain, anxious, or even isolated. ";
+$image_path=asset('images/bored-01.png');
+$keywords="new job, imposter syndrome, role clarity, confidence, belonging, uncertainty, anxiety, isolation";
+@endphp
 @include('partials.meta-head')
 
 <body>
@@ -19,7 +25,7 @@
                         <div>
                         <h1>New Job No Friends? You're Not Alone</h1>
                         <br/>
-  <p>If you’ve just landed your first job in tech, you might be excited but also overwhelmed. There’s a lot to learn fast—new systems, new jargon, new people. It’s totally normal to feel uncertain, anxious, or even isolated. You might find yourself wondering if it’s okay to ask a question or if people will judge your ideas. That feeling? It’s often called <em>imposter syndrome</em>.</p>
+  <p>If you’ve just landed your first job, you might be excited but also overwhelmed. There’s a lot to learn fast—new systems, new jargon, new people. It’s totally normal to feel uncertain, anxious, or even isolated. You might find yourself wondering if it’s okay to ask a question or if people will judge your ideas. That feeling? It’s often called <em>imposter syndrome</em>.</p>
   <p>Studies show that <strong>role clarity</strong>, <strong>confidence in your skills</strong> (self-efficacy), and especially a <strong>sense of belonging</strong> are what help newcomers adjust best.</p>
   <p>If you don’t feel socially connected at work, you’re not likely to speak up in meetings or reach out when you’re stuck. And you’re not alone. Many new hires start optimistic but quickly feel less confident and more hesitant to contribute.</p>
 
