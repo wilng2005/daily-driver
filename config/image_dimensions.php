@@ -34,7 +34,7 @@ return [
     'experiment-1.png' => ['width' => 1024, 'height' => 1024],
     'fallen-1.png' => ['width' => 1024, 'height' => 1024],
     'friends-01.png' => ['width' => 1536, 'height' => 1024],
-    'reserves-1.png' => ['width' => 1024, 'height' => 1024],
+    'reserves-2.png' => ['width' => 1024, 'height' => 1024],
     'hourglass-1.png' => ['width' => 1024, 'height' => 1024],
     'hug-1.png' => ['width' => 512, 'height' => 591],
     'idea-1.png' => ['width' => 1024, 'height' => 1536],
