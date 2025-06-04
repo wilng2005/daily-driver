@@ -2,6 +2,10 @@
 
 return [
     'warrior-1.png' => ['width' => 1024, 'height' => 1536],
+    'hourglass-1.png' => ['width' => 1024, 'height' => 1024],
+    'idea-1.png' => ['width' => 1024, 'height' => 1536],
+    'overreach-1.png' => ['width' => 1024, 'height' => 1536],
+    'strong-1.png' => ['width' => 1024, 'height' => 1024],
     'asset-1.png' => ['width' => 512, 'height' => 596],
     'asset-1v2.png' => ['width' => 512, 'height' => 596],
     'asset-2.png' => ['width' => 512, 'height' => 590],
@@ -27,6 +31,7 @@ return [
     'drawing-1.png' => ['width' => 1024, 'height' => 1024],
     'exercise-1.png' => ['width' => 1024, 'height' => 1024],
     'exhausted-1.png' => ['width' => 1024, 'height' => 1024],
+    'experiment-1.png' => ['width' => 1024, 'height' => 1024],
     'fallen-1.png' => ['width' => 1024, 'height' => 1024],
     'friends-01.png' => ['width' => 1536, 'height' => 1024],
     'hug-1.png' => ['width' => 512, 'height' => 591],
