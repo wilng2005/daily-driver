@@ -137,22 +137,39 @@
 </section>
 <footer>
     <div class="container">
+
+        <!-- Privacy Section -->
+        <div class="legal-disclaimer py-5">
+            <div class="footer-header">Privacy Statement</div>
+            <p>We respect your privacy and do not collect personal information directly through this website.</p>
+
+            <p>We use third-party tools such as <strong>Microsoft Clarity</strong> and <strong>Google Analytics</strong> to understand how visitors interact with our site. These tools may use cookies and session tracking to help us improve user experience. No personally identifiable information is collected or stored.</p>
+
+            <p>If you book an appointment via <strong>Cal.com</strong>, your information is managed according to Cal.com’s privacy practices.</p>
+
+            <p>By using this site, you consent to the use of these tools.</p>
+
+            <p>Learn more from their official privacy policies:</p>
+            <ul>
+                <li><a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener">Microsoft Clarity</a></li>
+                <li><a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener">Google Analytics</a></li>
+                <li><a href="https://cal.com/privacy" target="_blank" rel="noopener">Cal.com</a></li>
+            </ul>
+        </div>
+
+        <!-- Legal Section -->
         <div class="legal-disclaimer py-5">
             <div class="footer-header">Legal Notice & Disclaimers</div>
             <p>&copy; 2025 PSALM12SEVEN PRIVATE LIMITED (UEN: 202443598Z)</p>
-            <p>PROGRAM CONTENT AND MATERIAL DO NOT CONSTITUTE MEDICAL OR MENTAL HEALTH ADVICE AND ARE NOT A
-                SUBSTITUTE
-                FOR PROFESSIONAL CARE, DIAGNOSIS, OR TREATMENT OF ANY MEDICAL OR MENTAL HEALTH CONDITION.
-            </p>
-            <div class="footer-header">DISCLAIMERS:</div>
-            <p>No reproduction, alteration, translation, publication, or distribution, in any form, printed
-                or
-                electronic, is permitted without the express prior written consent of PSALM12SEVEN PRIVATE
-                LIMITED.
-            </p>
+
+            <p><strong>Disclaimer:</strong> The content and material on this site do not constitute medical or mental health advice and are not a substitute for professional care, diagnosis, or treatment.</p>
+
+            <p>No reproduction, alteration, translation, publication, or distribution—whether printed or electronic—is permitted without prior written consent from PSALM12SEVEN PRIVATE LIMITED.</p>
         </div>
+
     </div>
 </footer>
+
 </main>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
