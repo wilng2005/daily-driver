@@ -143,6 +143,31 @@ To update or add styles:
 - **Stop the app:** `./vendor/bin/sail down`
 - **Run tests:** `./vendor/bin/sail test`
 - **Run browser tests (Dusk):** `./vendor/bin/sail dusk`
+
+### 🖼️ Adding or Updating Images
+When you add, remove, or replace images in `public/images`, you must keep `config/image_dimensions.php` in sync with the actual files and their dimensions. This ensures the application always has accurate metadata for all image assets.
+
+**To update the image dimensions config:**
+
+1. Add or update your images in `public/images`.
+2. Run the provided script to list all image sizes:
+
+    ```sh
+    php scripts/dump_image_sizes.php
+    ```
+    (or, if using Sail:)
+    ```sh
+    ./vendor/bin/sail php scripts/dump_image_sizes.php
+    ```
+3. Update `config/image_dimensions.php` so that every image in `public/images` has an entry with the correct `width` and `height`.
+4. Remove any entries for images that no longer exist.
+
+**Tip:** You can copy the output from the script directly into the config file to speed up updates.
+
+**Why:**
+- This prevents runtime errors or layout bugs due to missing or incorrect image metadata.
+- The project enforces that all images must be accurately described in the config for reliability and test coverage.
+
 - **Generate coverage report:** `./vendor/bin/sail test --coverage-html=./coverage-report`
 - **Access Nova:** `/nova` (local dev, after running migrations)
 - **Before deploying or opening a PR:** Always run the code coverage report locally and ensure 100% coverage before pushing. Do **not** wait for CI/CD to catch coverage failures. Use `./vendor/bin/sail test --coverage-html=./coverage-report` and open `coverage-report/index.html` to verify.

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'warrior-1.png' => ['width' => 1024, 'height' => 1536],
     'asset-1.png' => ['width' => 512, 'height' => 596],
     'asset-1v2.png' => ['width' => 512, 'height' => 596],
     'asset-2.png' => ['width' => 512, 'height' => 590],
@@ -17,16 +18,19 @@ return [
     'asset-7v2.png' => ['width' => 512, 'height' => 591],
     'asset-8.png' => ['width' => 512, 'height' => 591],
     'asset-9.png' => ['width' => 512, 'height' => 591],
+    'asset.jpg' => ['width' => 1357, 'height' => 2048],
     'asset.png' => ['width' => 512, 'height' => 593],
     'assetv2.png' => ['width' => 512, 'height' => 593],
     'awkward-01.png' => ['width' => 1024, 'height' => 1024],
+    'blocks-1.png' => ['width' => 1024, 'height' => 1024],
     'bored-01.png' => ['width' => 1024, 'height' => 1024],
     'drawing-1.png' => ['width' => 1024, 'height' => 1024],
-    'exercise-1.png' => ['width' => 512, 'height' => 591],
+    'exercise-1.png' => ['width' => 1024, 'height' => 1024],
     'exhausted-1.png' => ['width' => 1024, 'height' => 1024],
     'fallen-1.png' => ['width' => 1024, 'height' => 1024],
     'friends-01.png' => ['width' => 1536, 'height' => 1024],
     'hug-1.png' => ['width' => 512, 'height' => 591],
+    'map-1.png' => ['width' => 1024, 'height' => 1024],
     'logo-v2-small.png' => ['width' => 80, 'height' => 50],
     'logo-v2.png' => ['width' => 1024, 'height' => 1024],
     'logo-v3.png' => ['width' => 1024, 'height' => 1024],
