@@ -29,10 +29,10 @@ class Insight extends Resource
             Text::make('Slug')
                 ->sortable()
                 ->hideFromIndex(),
-            Text::make('Image Filename', 'image_filename')
-                ->help('Enter the image filename (e.g., my-image.jpg) located in public/images')
-                ->nullable()
-                ->hideFromIndex(),
+            Select::make('Image Filename', 'image_filename')
+                ->options(array_combine(array_keys(config('image_dimensions')), array_keys(config('image_dimensions'))))
+                ->displayUsingLabels()
+                ->nullable(),
             Textarea::make('Description'),
             Text::make('Keywords'),
             DateTime::make('Published At')->nullable(),
