@@ -19,7 +19,11 @@ $keywords=$insight->keywords;
     <main>
 @foreach ($insight->sections as $section)
 
-  <section id="content-section-{{ $section->id }}" class="background--{{ $section->background_color}}">
+  @php
+    $bgSequence = ['white', 'yellow', 'white', 'blue'];
+    $bgColor = !empty($section->background_color) ? $section->background_color : $bgSequence[($loop->index) % 4];
+  @endphp
+  <section id="content-section-{{ $section->id }}" class="background--{{ $bgColor }}">
             <div class="container">
                 <div class="d-flex align-items-center row">
                     @if ($loop->iteration % 2 == 0)
