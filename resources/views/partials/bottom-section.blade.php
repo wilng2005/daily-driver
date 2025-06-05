@@ -43,7 +43,6 @@
                 <h2 class="mb-4">Insights and Strategies</h2>
             </div>
             <div class="section-slider">
-
                 @foreach ($insights as $insight)
                 <div class="details-each">
                     <h4 class="mb-3">{{ $insight->title }}</h4>
