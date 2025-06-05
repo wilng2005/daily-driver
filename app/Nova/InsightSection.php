@@ -49,8 +49,9 @@ class InsightSection extends Resource
             BelongsTo::make('Insight', 'insight', Insight::class),
             Text::make('Header')->sortable(),
             Textarea::make('Content Markdown'),
-            Text::make('Image Filename', 'image_filename')
-                ->help('Enter the image filename (e.g., section-image.jpg) located in public/images')
+            Select::make('Image Filename', 'image_filename')
+                ->options(array_combine(array_keys(config('image_dimensions')), array_keys(config('image_dimensions'))))
+                ->displayUsingLabels()
                 ->nullable(),
             Select::make('Background Color')->options([
                 'white' => 'White',
