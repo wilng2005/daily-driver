@@ -47,6 +47,7 @@ return [
     'map-1.png' => ['width' => 1024, 'height' => 1024],
     'mentor-01.png' => ['width' => 1024, 'height' => 1024],
     'devil.png' => ['width' => 1024, 'height' => 1024],
+    'ready-1.png' => ['width' => 1024, 'height' => 1024],
     'success-asset-1.png' => ['width' => 1024, 'height' => 1024],
     'success-asset-2.png' => ['width' => 1024, 'height' => 1024],
     'success-asset-3.png' => ['width' => 1024, 'height' => 1024],
