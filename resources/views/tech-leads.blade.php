@@ -131,7 +131,7 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
                         </div>
                         <h2 class="mb-3">Wil Ng</h2>
                         <div>
-                            <p>Wil is a Business Coach who partners with leaders and teams to clarify strategy and drive focused execution.</p> 
+                            <p>Wil is a Strategy Coach who partners with businesses and individuals to clarify their goals and drive focused execution.</p> 
                             <p>With over a decade of experience, he has worked closely with engineers and business leaders as the Head of Engineering at a financial services firm and as a co-founder of a software development company.</p> 
                             <a id="free-discovery-session-bottom" href="https://cal.com/wilng/casual-conversation" target="_blank" class="read-more">Get in touch &rarr;</a>
                         </div>
