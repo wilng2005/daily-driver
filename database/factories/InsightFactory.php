@@ -13,9 +13,8 @@ class InsightFactory extends Factory
     public function definition(): array
     {
         $title = $this->faker->sentence();
-        // Mimic how InsightSection chooses images from public/images
-        $images = glob(public_path('images/*.{jpg,jpeg,png,gif,webp}'), GLOB_BRACE);
-        $imageFilename = $images ? basename($this->faker->randomElement($images)) : null;
+        $imageKeys = array_keys(config('image_dimensions'));
+        $imageFilename = $imageKeys ? $this->faker->randomElement($imageKeys) : null;
         return [
             'title' => $title,
             'slug' => Str::slug($title),

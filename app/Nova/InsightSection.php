@@ -57,7 +57,7 @@ class InsightSection extends Resource
                 'white' => 'White',
                 'yellow' => 'Yellow',
                 'blue' => 'Blue',
-            ])->rules('required'),
+            ])->nullable(),
             Number::make('Order')->sortable()->rules('integer','min:1'),
         ];
     }
