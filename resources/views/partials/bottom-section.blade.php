@@ -1,3 +1,40 @@
+<section id="7weeks" class="background--yellow">
+    <div class="container">
+        <div class="d-flex align-items-center row">
+            <div class="col-12">
+                <h2 class="mb-5">Let's get stronger together.</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4 class="mb-3">Training Program</h4>
+                    <p>
+                        Establishes your base operating framework in mental fitness.
+                    </p>
+                    <p>
+                        Get better at managing stress, enhancing performance, regulating emotions, and building stronger relationships.
+                    </p>
+                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Get Started &rarr;</a>
+                </div>
+                <div class="col-md-5">
+                    <h4 class="mb-3">Coaching Sessions</h4>
+                    <p>
+                        Each 1-hour coaching session focuses on tailored goal-setting to address your specific needs and challenges.
+                    </p>
+                    <p>
+                        Gain clarity, lead better, influence with confidence, manage conflict, and grow in purpose, productivity, and emotional intelligence.
+                    </p>
+                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Get Started &rarr;</a>
+                </div>
+                <div class="col-md-3">
+                    <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
+      
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="background--white">
             <div class="container">
             <div class="d-flex align-items-center row">
@@ -91,42 +128,7 @@
         </div>
     </div>
 </section>
-<section id="7weeks" class="background--yellow">
-    <div class="container">
-        <div class="d-flex align-items-center row">
-            <div class="col-12">
-                <h2 class="mb-5">Let's get stronger together.</h2>
-            </div>
 
-            <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h4 class="mb-3">Training Program</h4>
-                    <p>
-                        Establishes your base operating framework in mental fitness.
-                    </p>
-                    <p>
-                        Get better at managing stress, enhancing performance, regulating emotions, and building stronger relationships.
-                    </p>
-                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Get Started &rarr;</a>
-                </div>
-                <div class="col-md-5">
-                    <h4 class="mb-3">Coaching Sessions</h4>
-                    <p>
-                        Each 1-hour coaching session focuses on tailored goal-setting to address your specific needs and challenges.
-                    </p>
-                    <p>
-                        Gain clarity, lead better, influence with confidence, manage conflict, and grow in purpose, productivity, and emotional intelligence.
-                    </p>
-                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Get Started &rarr;</a>
-                </div>
-                <div class="col-md-3">
-                    <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
-      
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="background--black">
     <div class="container text-center px-4">
         <h2>

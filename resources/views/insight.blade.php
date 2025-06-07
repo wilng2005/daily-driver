@@ -24,35 +24,72 @@ $keywords=$insight->keywords;
     $bgColor = !empty($section->background_color) ? $section->background_color : $bgSequence[($loop->index) % 4];
   @endphp
   <section id="content-section-{{ $section->id }}" class="background--{{ $bgColor }}">
-            <div class="container">
-                <div class="d-flex align-items-center row">
-                    @if ($loop->iteration % 2 == 0)
-                        <div class="col-md-5">
-                            <img src="{{ asset('images/' . $section->image_filename) }}" class="icon-image full" alt="">
-                        </div>
-                    @endif
-                    <div class="col-md-7 pe-5">
-                        <div>
-                            @if ($loop->first)
-                                <h1>{{ $section->header }}</h1>
-                            @else
-                                <h2>{{ $section->header }}</h2>
-                            @endif
-                            <br/>
-                            {!! $section->description_html !!}
-                        </div>
+        <div class="container">
+            <div class="d-flex align-items-center row">
+                @if ($loop->iteration % 2 == 0)
+                    <div class="col-md-5">
+                        <img src="{{ asset('images/' . $section->image_filename) }}" class="icon-image full" alt="">
                     </div>
-                    @if ($loop->iteration % 2 == 1)
-                        <div class="col-md-5">
-                            <img src="{{ asset('images/' . $section->image_filename) }}" class="icon-image full" alt="">
-                        </div>
-                    @endif
+                @endif
+                <div class="col-md-7 pe-5">
+                    <div>
+                        @if ($loop->first)
+                            <h1>{{ $section->header }}</h1>
+                        @else
+                            <h2>{{ $section->header }}</h2>
+                        @endif
+                        <br/>
+                        {!! $section->description_html !!}
+                    </div>
                 </div>
+                @if ($loop->iteration % 2 == 1)
+                    <div class="col-md-5">
+                        <img src="{{ asset('images/' . $section->image_filename) }}" class="icon-image full" alt="">
+                    </div>
+                @endif
             </div>
-        </section>
-        @endforeach
-       
-        @include('partials.bottom-section')
+        </div>
+    </section>
+    @if ($loop->index%4==2)
+    @php
+        $ctaColors = ['white', 'blue', 'yellow'];
+        $randomCtaColor = $ctaColors[array_rand($ctaColors)];
+    @endphp
+    <section class="background--{{ $randomCtaColor }}">
+        <div class="container">
+            <div class="d-flex align-items-center row">
+
+                <div class="col-md-7 pe-5">
+                    <div>
+                    @php
+                        $ctaMessages = [
+                            'Shift from firefighting to focused execution.',
+                            'Move from chaos to clarity and control.',
+                            'Shift from procrastination to action.',
+                            'Build momentum for your most important goals.',
+                            'Stop putting out fires—start making real progress.'
+                        ];
+                        $selectedCTAMessage = $ctaMessages[array_rand($ctaMessages)];
+                    @endphp
+                            <h2><em>{{ $selectedCTAMessage }}</em></h2>
+                        
+                        <br/>
+                        <p>By spending an hour focused on unpacking your specific challenges, discovering your strengths, and setting a clear path forward, you can take steps that shape the future, not just survive the day.</p>
+                        <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more"><em>Book a Free Discovery Session &rarr;</em></a>
+                    </div>
+                </div>
+     
+                <div class="col-md-5">
+                    <img src="{{ asset('images/success-asset-1.png') }}" class="icon-image full" alt="">
+                </div>
+            
+            </div>
+        </div>
+    </section>
+    @endif
+@endforeach
+   
+@include('partials.bottom-section')
                                 
 
 </html>
