@@ -87,8 +87,8 @@
                     {{ $insight->description }}
                     </p>
                     <a href="{{ url('/insights/'.$insight->slug) }}" class="read-more">Read More &rarr;</a>
-                    @if ($loop->index % 2 === 0 && $insight->image_path)
-                        <img src="{{ asset($insight->image_path) }}" class="icon-image mb-3 ms-auto" alt="">
+                    @if ($loop->index % 3 === 0 && $insight->image_filename)
+                        <img src="{{ asset('images/'.$insight->image_filename) }}" class="icon-image mb-3 ms-auto" alt="">
                     @endif
                 </div>
                 @endforeach
