@@ -35,7 +35,7 @@
     </div>
 </section>
 
-<section class="background--white">
+<section class="background--blue">
             <div class="container">
             <div class="d-flex align-items-center row">
             <div class="col-12">
@@ -73,7 +73,7 @@
     </div>
 </section>
 
-<section id="insights-and-strategies" class="background--blue" data-testid="insights-and-stories-section">
+<section id="insights-and-strategies" class="background--white" data-testid="insights-and-stories-section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -87,7 +87,7 @@
                     {{ $insight->description }}
                     </p>
                     <a href="{{ url('/insights/'.$insight->slug) }}" class="read-more">Read More &rarr;</a>
-                    @if ($loop->index % 3 === 0 && $insight->image_path)
+                    @if ($loop->index % 2 === 0 && $insight->image_path)
                         <img src="{{ asset($insight->image_path) }}" class="icon-image mb-3 ms-auto" alt="">
                     @endif
                 </div>
