@@ -75,7 +75,7 @@ $keywords=$insight->keywords;
                         <p>Whether you’re a founder, team lead, or ambitious professional, this isn’t a sales pitch. It’s a powerful 1-hour strategy session designed to give you clarity—fast.</p>
                         <blockquote>No fluff. No pressure. Just a chance to reset your momentum.</blockquote>
                         <a href="https://cal.com/wilng/free-coaching-session" target="_blank"
-                        class="read-more">Book a Free Coaching Call &rarr;
+                        class="read-more">Get Started with a Free Session &rarr;
                         </a>
                     </div>
                 </div>
