@@ -20,8 +20,8 @@ $keywords=$insight->keywords;
 @foreach ($insight->sections as $section)
 
   @php
-    $bgSequence = ['white', 'yellow', 'white', 'blue'];
-    $bgColor = !empty($section->background_color) ? $section->background_color : $bgSequence[($loop->index) % 4];
+    $bgSequence = ['white', 'yellow'];
+    $bgColor = !empty($section->background_color) ? $section->background_color : $bgSequence[($loop->index) % 2];
   @endphp
   <section id="content-section-{{ $section->id }}" class="background--{{ $bgColor }}">
         <div class="container">
@@ -55,27 +55,28 @@ $keywords=$insight->keywords;
         $ctaColors = ['white', 'blue', 'yellow'];
         $randomCtaColor = $ctaColors[array_rand($ctaColors)];
     @endphp
-    <section class="background--{{ $randomCtaColor }}">
+    <section class="background--blue">
         <div class="container">
             <div class="d-flex align-items-center row">
 
                 <div class="col-md-7 pe-5">
                     <div>
-                    @php
-                        $ctaMessages = [
-                            'Shift from firefighting to focused execution.',
-                            'Move from chaos to clarity and control.',
-                            'Shift from procrastination to action.',
-                            'Build momentum for your most important goals.',
-                            'Stop putting out fires—start making real progress.'
-                        ];
-                        $selectedCTAMessage = $ctaMessages[array_rand($ctaMessages)];
-                    @endphp
-                            <h2><em>{{ $selectedCTAMessage }}</em></h2>
-                        
+                            <h2>Ready to Level Up — But Not Sure Where to Start?</h2>         
                         <br/>
-                        <p>By spending an hour focused on unpacking your specific challenges, discovering your strengths, and setting a clear path forward, you can take steps that shape the future, not just survive the day.</p>
-                        <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more"><em>Book a Free Discovery Session &rarr;</em></a>
+
+                        <p>You’ve got big goals—but something’s not clicking. Stress is rising. Focus is scattered. Your leadership feels reactive, not strategic.</p>
+                        <p>That’s where I come in.</p>
+                        <p>In just one free session, you’ll:</p>
+                        <ul>
+                            <li>Unpack the real blockers behind your current challenges</li>
+                            <li>Discover your unique edge—what you <em>actually</em> do best</li>
+                            <li>Get a clear, steps to move forward with confidence</li>
+                        </ul>
+                        <p>Whether you’re a founder, team lead, or ambitious professional, this isn’t a sales pitch. It’s a powerful 1-hour strategy session designed to give you clarity—fast.</p>
+                        <blockquote>No fluff. No pressure. Just a chance to reset your momentum.</blockquote>
+                        <a href="https://cal.com/wilng/free-coaching-session" target="_blank"
+                        class="read-more">Book a Free Coaching Call &rarr;
+                        </a>
                     </div>
                 </div>
      
