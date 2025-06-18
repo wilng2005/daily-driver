@@ -35,7 +35,7 @@
     </div>
 </section>
 
-<section class="background--white">
+<section class="background--blue">
             <div class="container">
             <div class="d-flex align-items-center row">
             <div class="col-12">
@@ -57,12 +57,12 @@
                 <div class="col-md-6">
                     <h4 class="mb-6">Free Discovery Session</h4>
                     <p>
-                        Spend an hour focused on understanding your specific challenges, discovering your strengths, and establishing a path forward.
+                        In just one hour, uncover what’s holding you back, tap into your strengths, and chart a clear, actionable path forward.
                     </p>
                     <p>
                         Take steps that shape the future, not just survive the day.
                     </p>
-                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Get Started &rarr;</a>
+                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Book Now &rarr;</a>
                 </div>
                 <div class="col-md-4">
                     <img src="{{asset('images/success-asset-2.png')}}" class="icon-image full" alt="">
@@ -73,7 +73,7 @@
     </div>
 </section>
 
-<section id="insights-and-strategies" class="background--blue" data-testid="insights-and-stories-section">
+<section id="insights-and-strategies" class="background--white" data-testid="insights-and-stories-section">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -87,8 +87,8 @@
                     {{ $insight->description }}
                     </p>
                     <a href="{{ url('/insights/'.$insight->slug) }}" class="read-more">Read More &rarr;</a>
-                    @if ($loop->index % 3 === 0 && $insight->image_path)
-                        <img src="{{ asset($insight->image_path) }}" class="icon-image mb-3 ms-auto" alt="">
+                    @if ($loop->index % 3 === 2 && $insight->image_filename)
+                        <img src="{{ asset('images/'.$insight->image_filename) }}" class="icon-image mb-3 ms-auto" alt="">
                     @endif
                 </div>
                 @endforeach
