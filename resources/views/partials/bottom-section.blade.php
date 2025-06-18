@@ -45,7 +45,7 @@
         'Move from chaos to clarity and control.',
         'Shift from procrastination to action.',
         'Build momentum for your most important goals.',
-        'Stop putting out fires—start making real progress.'
+        'Stop putting out fires and start making real progress.'
     ];
     $selectedBottomSectionMessage = $bottomSectionMessages[array_rand($bottomSectionMessages)];
 @endphp
