@@ -61,15 +61,15 @@ $keywords=$insight->keywords;
 
                 <div class="col-md-7 pe-5">
                     <div>
-                            <h2>Ready to Level Up — But Not Sure Where to Start?</h2>         
+                            <h2>Ready to Level Up but Not Sure Where to Start?</h2>         
                         <br/>
 
-                        <p>You’ve got big goals—but something’s not clicking. Stress is rising. Focus is scattered. Your leadership feels reactive, not strategic.</p>
+                        <p>You’ve got big goals, but something’s not clicking. Stress is rising. Focus is scattered. Your leadership feels reactive, not strategic.</p>
                         <p>That’s where I come in.</p>
                         <p>In just one free session, you’ll:</p>
                         <ul>
                             <li>Unpack the real blockers behind your current challenges</li>
-                            <li>Discover your unique edge—what you <em>actually</em> do best</li>
+                            <li>Learn how to leverage your unique strengths and advantages</li>
                             <li>Get a clear, steps to move forward with confidence</li>
                         </ul>
                         <p>Whether you’re a founder, team lead, or ambitious professional, this isn’t a sales pitch. It’s a powerful 1-hour strategy session designed to give you clarity—fast.</p>
