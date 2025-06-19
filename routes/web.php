@@ -41,6 +41,14 @@ Route::get('/', function () {
 });
 
 use Illuminate\Support\Str;
+use App\Models\Insight;
+
+Route::get('/insights', function () {
+    $insights = Insight::published()->orderBy('published_at', 'desc')->get();
+    return view('insights-index', [
+        'insights' => $insights
+    ]);
+});
 
 Route::get('/insights/{slug}', function (string $slug) {
     $insight = \App\Models\Insight::where('slug', $slug)

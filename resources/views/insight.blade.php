@@ -51,42 +51,7 @@ $keywords=$insight->keywords;
         </div>
     </section>
     @if ($loop->index%4==2)
-    @php
-        $ctaColors = ['white', 'blue', 'yellow'];
-        $randomCtaColor = $ctaColors[array_rand($ctaColors)];
-    @endphp
-    <section class="background--blue">
-        <div class="container">
-            <div class="d-flex align-items-center row">
-
-                <div class="col-md-7 pe-5">
-                    <div>
-                            <h2>Ready to Level Up but Not Sure Where to Start?</h2>         
-                        <br/>
-
-                        <p>You’ve got big goals, but something’s not clicking. Stress is rising. Focus is scattered. Your leadership feels reactive, not strategic.</p>
-                        <p>That’s where I come in.</p>
-                        <p>In just one free session, you’ll:</p>
-                        <ul>
-                            <li>Unpack the real blockers behind your current challenges</li>
-                            <li>Learn how to leverage your unique strengths and advantages</li>
-                            <li>Get a clear, steps to move forward with confidence</li>
-                        </ul>
-                        <p>Whether you’re a founder, team lead, or ambitious professional, this isn’t a sales pitch. It’s a powerful 1-hour strategy session designed to give you clarity—fast.</p>
-                        <blockquote>No fluff. No pressure. Just a chance to reset your momentum.</blockquote>
-                        <a href="https://cal.com/wilng/free-coaching-session" target="_blank"
-                        class="read-more">Get Started with a Free Session &rarr;
-                        </a>
-                    </div>
-                </div>
-     
-                <div class="col-md-5">
-                    <img src="{{ asset('images/success-asset-1.png') }}" class="icon-image full" alt="">
-                </div>
-            
-            </div>
-        </div>
-    </section>
+        @include('partials.cta')
     @endif
 @endforeach
    
