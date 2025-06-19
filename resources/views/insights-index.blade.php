@@ -21,7 +21,7 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
 
     <main>
 
-        <section id="content-section-{{ $section->id }}" class="background--yellow">
+        <section class="background--white">
             <div class="container">
                 <div class="d-flex align-items-center row">
                    
