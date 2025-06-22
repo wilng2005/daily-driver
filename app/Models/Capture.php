@@ -149,25 +149,34 @@ class Capture extends Model
     }
 
 
-    public static function generate_delayed_name_prefix($name, $duration, $now = null)
+    public static function generate_delayed_name_prefix($name, $delay, $now = null)
     {
-        //check to see if name already has prefix
         if (! $now) {
             //@codeCoverageIgnoreStart
             $now = now();
             //@codeCoverageIgnoreEnd
         }
 
-        $now->add($duration);
-        $dateStr = $now->format('Y-m-d');
+        // Handle both DateTime objects and date strings
+        if ($delay instanceof \DateTime || $delay instanceof \Carbon\Carbon) {
+            $date = $delay;
+        } elseif (is_string($delay) && Carbon::canBeCreatedFromFormat($delay, 'Y-m-d')) {
+            $date = Carbon::createFromFormat('Y-m-d', $delay);
+        } else {
+            // Fallback to original duration behavior for backward compatibility
+            $date = (clone $now)->modify($delay);
+        }
+
+        $dateStr = $date->format('Y-m-d');
 
         if ($name) {
+            // Remove any existing date prefix
             $potential_date_str = Str::substr($name, 0, 10);
             if (Carbon::canBeCreatedFromFormat($potential_date_str, 'Y-m-d')) {
                 $name = Str::substr($name, 10);
             }
 
-            return $dateStr.' '.trim($name);
+            return $dateStr . ' ' . trim($name);
         }
 
         return $dateStr;

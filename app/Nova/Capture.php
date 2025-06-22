@@ -136,6 +136,7 @@ class Capture extends Resource
     {
         return [
             new Actions\DelayCapture,
+            new Actions\DelayUntilDate,
             new Actions\RemoveFromInbox,
             new Actions\RemoveFromNextAction,
             new Actions\AddToInbox,
