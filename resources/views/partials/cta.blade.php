@@ -4,7 +4,7 @@
 
                 <div class="col-md-7 pe-5">
                     <div>
-                        <h2>Unsure if coaching is right for you?</h2>         
+                        <h2>Not sure if coaching is right for you?</h2>         
                         <br/>
 
                         <p>You’ve got big goals, but something’s not clicking. Stress is rising. Focus is scattered. You feel reactive, not strategic.</p>

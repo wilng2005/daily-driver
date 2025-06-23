@@ -17,11 +17,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#7weeks">
-                            Program
+                        <a class="nav-link" href="/#meetyourcoach">
+                            Meet your Coach
                             <span></span>
                         </a>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="/#testimonials">
                             Testimonials
@@ -29,11 +30,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#meetyourcoach">
-                            Meet your Coach
+                        <a class="nav-link" href="#pricing">
+                            Pricing
                             <span></span>
                         </a>
                     </li>
+                    
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="/churches-and-charities">
                             For Charities and Churches
