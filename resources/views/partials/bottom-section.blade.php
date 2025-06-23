@@ -2,7 +2,7 @@
     <div class="container">
         <div class="d-flex align-items-center row">
             <div class="col-12">
-                <h2 class="mb-5">Pricing</h2>
+                <h2 class="mb-5">Programs &amp; Pricing</h2>
             </div>
 
             <div class="row">
@@ -38,10 +38,12 @@
                         What's included:
                     </p>
                     <ul>
-                        <li>Unlimited 1-to-1 virtual coaching sessions</li>
+                        <li>Unlimited 1-to-1 virtual coaching session*</li>
                         <li>App guided daily practices to support your goals</li>
                         <li>Weekly training videos with measurable progress</li>
                     </ul>
+                    <em>* Terms and conditions apply</em>
+                    <br/><br/>
                     <p>
                         Pricing
                     </p>

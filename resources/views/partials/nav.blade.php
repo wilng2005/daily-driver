@@ -31,7 +31,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#pricing">
-                            Pricing
+                            Programs &amp; Pricing
                             <span></span>
                         </a>
                     </li>
