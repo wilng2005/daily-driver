@@ -15,8 +15,8 @@
                         What's included:
                     </p>
                     <ul>
-                        <li>Free assessment of your limiting thoughts and behaviors</li>
-                        <li>Strategies to break free from negative patterns</li>
+                        <li>Review of work, self-care and relationships</li>
+                        <li>Strategies to navigate current challenges</li>
                         <li>Clear, actionable steps to move forward</li>
                     </ul>
                     <p>
@@ -38,7 +38,7 @@
                         What's included:
                     </p>
                     <ul>
-                        <li>Unlimited 1-to-1 virtual coaching session*</li>
+                        <li>Unlimited 1-to-1 virtual coaching sessions*</li>
                         <li>App guided daily practices to support your goals</li>
                         <li>Weekly training videos with measurable progress</li>
                     </ul>
