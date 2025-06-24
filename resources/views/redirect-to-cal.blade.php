@@ -8,6 +8,6 @@
     <script>
         setTimeout(function() {
             window.location.href = @json($target);
-        }, 1000);
+        }, 2000);
     </script>
 @endsection
