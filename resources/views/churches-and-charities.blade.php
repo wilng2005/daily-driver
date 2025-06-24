@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-button" href="https://cal.com/wilng/tech-lead-coaching" target=”_blank”>Get
+                        <a class="nav-button" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/tech-lead-coaching') }}" target=”_blank”>Get
                             Started</a>
                     </li>
                 </ul>
@@ -74,7 +74,7 @@
                         We help ministry workers who feel defeated be VICTORIOUS.
                     </h1>
                     <div class="mt-5 text-end">
-                        <a href="https://cal.com/wilng/kingdom-coaching" target=”_blank” class="button">Get
+                        <a href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/kingdom-coaching') }}" target=”_blank” class="button">Get
                             Started</a>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
                         <img src="{{asset('images/asset-6v2.png')}}" class="icon-image small ms-auto" alt="">
                     </div>
                     <div class="col-12 col-md-4 col-lg-3 py-md-5">
-                        <a href="https://cal.com/wilng/kingdom-coaching" target=”_blank” class="button px-5">Get
+                        <a href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/kingdom-coaching') }}" target=”_blank” class="button px-5">Get
                             Started</a>
                     </div>
                 </div>
@@ -265,7 +265,7 @@
                         <div class="col-md-3">
                             <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
                             <div class="text-center">
-                                <a href="https://cal.com/wilng/kingdom-coaching" target=”_blank” class="button">Get
+                                <a href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/kingdom-coaching') }}" target=”_blank” class="button">Get
                                     Started</a>
                             </div>
                         </div>

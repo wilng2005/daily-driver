@@ -17,11 +17,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#7weeks">
-                            Program
+                        <a class="nav-link" href="/#meetyourcoach">
+                            Meet your Coach
                             <span></span>
                         </a>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="/#testimonials">
                             Testimonials
@@ -29,11 +30,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#meetyourcoach">
-                            Meet your Coach
+                        <a class="nav-link" href="#pricing">
+                            Programs &amp; Pricing
                             <span></span>
                         </a>
                     </li>
+                    
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="/churches-and-charities">
                             For Charities and Churches
@@ -47,7 +49,7 @@
                         </a>
                     </li> -->
                     <li class="nav-item">
-                        <a id="free-discovery-session-nav" class="nav-button" href="https://cal.com/wilng/free-coaching-session" target=”_blank”>Free Discovery Session</a>
+                        <a id="free-discovery-session-nav" class="nav-button" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target=”_blank”>Free Discovery Session</a>
                     </li>
                 </ul>
             </div>

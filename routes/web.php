@@ -14,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Http\Request;
+
+Route::get('/redirect-to-cal', function (Request $request) {
+    $target = $request->query('target');
+    // Only allow cal.com links
+    if (!$target || !preg_match('/^https:\/\/cal\.com\/wilng\//', $target)) {
+        return redirect('/');
+    }
+    return view('redirect-to-cal', ['target' => $target]);
+});
+
 Route::get('/', function () {
     $posts = \App\Models\Post::where('status', 'published')
         ->where('published_at', '<=', now())

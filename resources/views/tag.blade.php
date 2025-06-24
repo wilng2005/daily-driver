@@ -316,7 +316,7 @@
 
 <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
  
-  <p>Ready for a breakthrough? <a href="https://cal.com/wilng/" target="_blank" style="color:#2979FF">Start your coaching conversation.</a></p>
+  <p>Ready for a breakthrough? <a href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/') }}" target="_blank" style="color:#2979FF">Start your coaching conversation.</a></p>
 
   <p>Make tomorrow greater than today!</p>
   <!-- <p class="mb-0">

@@ -133,7 +133,7 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
                         <div>
                             <p>Wil is a Strategy Coach who partners with businesses and individuals to clarify their goals and drive focused execution.</p> 
                             <p>With over a decade of experience, he has worked closely with engineers and business leaders as the Head of Engineering at a financial services firm and as a co-founder of a software development company.</p> 
-                            <a id="free-discovery-session-bottom" href="https://cal.com/wilng/casual-conversation" target="_blank" class="read-more">Get in touch &rarr;</a>
+                            <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/casual-conversation') }}" target="_blank" class="read-more">Get in touch &rarr;</a>
                         </div>
                         
                     </div>

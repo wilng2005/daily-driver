@@ -20,7 +20,7 @@
        <!-- <a class="nav-item nav-link link-body-emphasis" href="/services">Services</a> -->
       <!-- <a class="nav-item nav-link link-body-emphasis" href="https://t.me/GreaterThanTodayBot">Clarity Chatbot</a>  -->
       <a class="nav-item nav-link link-body-emphasis" href="https://t.me/wilng2005" target="_blank">Contact</a> 
-      <a class="nav-item nav-link link-body-emphasis" href="https://cal.com/wilng/" target="_blank">Book now</a> 
+      <a class="nav-item nav-link link-body-emphasis" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/') }}" target="_blank">Book now</a> 
       
     </nav>
 </div>

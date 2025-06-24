@@ -1,30 +1,57 @@
-<section id="7weeks" class="background--yellow">
+<section id="pricing" class="background--yellow">
     <div class="container">
         <div class="d-flex align-items-center row">
             <div class="col-12">
-                <h2 class="mb-5">Let's get stronger together.</h2>
+                <h2 class="mb-5">Programs &amp; Pricing</h2>
             </div>
 
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <h4 class="mb-3">Training Program</h4>
+                    <h4 class="mb-3">Free Trial</h4>
                     <p>
-                        Establishes your base operating framework in mental fitness.
+                        Discover if coaching is right for you.
                     </p>
                     <p>
-                        Get better at managing stress, enhancing performance, regulating emotions, and building stronger relationships.
+                        What's included:
                     </p>
-                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Get Started &rarr;</a>
+                    <ul>
+                        <li>Review of work, self-care and relationships</li>
+                        <li>Strategies to navigate current challenges</li>
+                        <li>Clear, actionable steps to move forward</li>
+                    </ul>
+                    <p>
+                        Pricing
+                    </p>
+                    <ul>
+                        <li>Free for two weeks!</li>
+                        
+                    </ul>
+                   
+                    <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Get Started &rarr;</a>
                 </div>
                 <div class="col-md-5">
-                    <h4 class="mb-3">Coaching Sessions</h4>
+                    <h4 class="mb-3">Unlimited Coaching Program</h4>
                     <p>
-                        Each 1-hour coaching session focuses on tailored goal-setting to address your specific needs and challenges.
+                        Gain clarity, lead better, influence with confidence.
                     </p>
                     <p>
-                        Gain clarity, lead better, influence with confidence, manage conflict, and grow in purpose, productivity, and emotional intelligence.
+                        What's included:
                     </p>
-                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Get Started &rarr;</a>
+                    <ul>
+                        <li>Unlimited 1-to-1 virtual coaching sessions*</li>
+                        <li>App guided daily practices to support your goals</li>
+                        <li>Weekly training videos with measurable progress</li>
+                    </ul>
+                    <em>* Terms and conditions apply</em>
+                    <br/><br/>
+                    <p>
+                        Pricing
+                    </p>
+                    <ul>
+                        <li>Monthly: SGD$240</li>
+                        <li>Annual: SGD$2400 <em>(that's two months free!)</em></li>
+                    </ul>
+                    <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Book Now &rarr;</a>
                 </div>
                 <div class="col-md-3">
                     <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
@@ -62,7 +89,7 @@
                     <p>
                         Take steps that shape the future, not just survive the day.
                     </p>
-                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Book Now &rarr;</a>
+                    <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Book Now &rarr;</a>
                 </div>
                 <div class="col-md-4">
                     <img src="{{asset('images/success-asset-2.png')}}" class="icon-image full" alt="">
