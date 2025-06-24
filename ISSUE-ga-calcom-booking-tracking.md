@@ -29,6 +29,32 @@ Implement an intermediate redirect tracking page to ensure all outbound cal.com 
 - [ ] The solution prevents open redirect exploits.
 - [ ] Documentation and README are updated to describe the new tracking flow and coverage policy.
 
+## Test Strategy
+
+To ensure robust, reliable tracking and safe redirect behavior, the following tests will be implemented:
+
+1. **Route Accessibility**
+   - Assert that a GET request to `/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session` returns a successful response (status 200).
+
+2. **Target Parameter Validation**
+   - Assert that only cal.com URLs are accepted as valid targets.
+   - Assert that requests with missing, empty, or invalid `target` parameters (e.g., non-cal.com URLs) are rejected or redirected to a safe fallback.
+
+3. **View Rendering**
+   - Assert that the Blade view includes the Google Analytics (or GTM) partial.
+   - Assert that the page contains the expected “Redirecting...” message.
+   - Assert that the target URL is present in the rendered JavaScript for client-side redirect.
+
+4. **Redirect Timing**
+   - (Optional, if using JavaScript testing) Assert that the redirect occurs after the specified delay (e.g., 1 second).
+
+5. **Code Coverage**
+   - Ensure all controller logic, validation, and view rendering paths are covered by tests.
+   - Add or update tests if the redirect logic or GA partial changes in the future.
+
+6. **Analytics Verification (Manual/QA)**
+   - Use Google Analytics Realtime and Tag Manager Preview to confirm that visiting the redirect route logs a pageview as expected.
+
 ## References
 - [Google Tag Manager Outbound Link Tracking](https://support.google.com/tagmanager/answer/6106960?hl=en)
 - [Cal.com Documentation](https://docs.cal.com/)

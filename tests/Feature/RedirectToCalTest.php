@@ -26,7 +26,15 @@ class RedirectToCalTest extends TestCase
     {
         $response = $this->get('/redirect-to-cal?target=https://evil.com/phish');
         $response->assertStatus(302); // Expect redirect or rejection
-        // Optionally assert redirect location or error message
+    }
+
+    /** @test */
+    public function it_rejects_non_wilng_calcom_urls()
+    {
+        $response = $this->get('/redirect-to-cal?target=https://cal.com/otheruser/session');
+        $response->assertStatus(302); // Should redirect
+        $response = $this->get('/redirect-to-cal?target=https://cal.com/');
+        $response->assertStatus(302); // Should redirect
     }
 
     /** @test */

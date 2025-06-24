@@ -49,7 +49,7 @@
                         </a>
                     </li> -->
                     <li class="nav-item">
-                        <a id="free-discovery-session-nav" class="nav-button" href="https://cal.com/wilng/free-coaching-session" target=”_blank”>Free Discovery Session</a>
+                        <a id="free-discovery-session-nav" class="nav-button" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target=”_blank”>Free Discovery Session</a>
                     </li>
                 </ul>
             </div>
