@@ -19,15 +19,17 @@ Implement an intermediate redirect tracking page to ensure all outbound cal.com 
 
 **Note:** Pageviews to `/redirect-to-cal` with the appropriate `target` parameter will be tracked in Google Analytics. This is sufficient for measuring outbound booking attempts, as long as the GA partial is present.
 3. **Update all booking links** to point to `/redirect-to-cal?target=...` instead of directly to cal.com.
-4. **Validate the `target` parameter** on the backend to prevent open redirect vulnerabilities (only allow cal.com URLs).
+4. **Validate the `target` parameter** on the backend to prevent open redirect vulnerabilities (only allow URLs starting with `https://cal.com/wilng/`).
 5. **Test event tracking** in Google Analytics Realtime and GTM Preview mode to confirm reliability.
 
 ## Acceptance Criteria
-- [ ] All booking link clicks to cal.com are tracked as events in Google Analytics.
-- [ ] The redirect page is visually minimal and user-friendly.
-- [ ] Users are redirected to their intended cal.com booking page within 1 second.
-- [ ] The solution prevents open redirect exploits.
-- [ ] Documentation and README are updated to describe the new tracking flow and coverage policy.
+- [x] All booking link clicks to cal.com are tracked as events in Google Analytics via the redirect page.
+- [x] The redirect page is visually minimal and user-friendly.
+- [x] Users are redirected to their intended cal.com booking page within 1 second.
+- [x] The solution prevents open redirect exploits by only allowing URLs starting with https://cal.com/wilng/ as valid targets.
+- [x] Documentation and README are updated to describe the new tracking flow and coverage policy.
+- [x] All booking links in Blade templates have been updated to use the new /redirect-to-cal route.
+- [x] Feature tests cover both valid and invalid target URLs, including stricter validation for wilng links only.
 
 ## Test Strategy
 
@@ -37,8 +39,8 @@ To ensure robust, reliable tracking and safe redirect behavior, the following te
    - Assert that a GET request to `/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session` returns a successful response (status 200).
 
 2. **Target Parameter Validation**
-   - Assert that only cal.com URLs are accepted as valid targets.
-   - Assert that requests with missing, empty, or invalid `target` parameters (e.g., non-cal.com URLs) are rejected or redirected to a safe fallback.
+   - Assert that only URLs starting with https://cal.com/wilng/ are accepted as valid targets.
+   - Assert that requests with missing, empty, or invalid `target` parameters (e.g., non-cal.com URLs, other cal.com users, or root cal.com) are rejected or redirected to a safe fallback.
 
 3. **View Rendering**
    - Assert that the Blade view includes the Google Analytics (or GTM) partial.
