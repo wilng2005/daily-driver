@@ -17,7 +17,7 @@
                         </ul>
                         <p>Whether you’re a founder, team lead, or ambitious professional, this isn’t a sales pitch. It’s a powerful 1-hour strategy session designed to give you clarity—fast.</p>
                         <blockquote>No fluff. No obligations. Just a chance to reset your momentum.</blockquote>
-                        <a href="https://cal.com/wilng/free-coaching-session" target="_blank"
+                        <a href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank"
                         class="read-more">Get Started with a Free Session &rarr;
                         </a>
                     </div>

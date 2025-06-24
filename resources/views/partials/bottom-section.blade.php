@@ -27,7 +27,7 @@
                         
                     </ul>
                    
-                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Get Started &rarr;</a>
+                    <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Get Started &rarr;</a>
                 </div>
                 <div class="col-md-5">
                     <h4 class="mb-3">Unlimited Coaching Program</h4>
@@ -51,7 +51,7 @@
                         <li>Monthly: SGD$240</li>
                         <li>Annual: SGD$2400 <em>(that's two months free!)</em></li>
                     </ul>
-                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Book Now &rarr;</a>
+                    <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Book Now &rarr;</a>
                 </div>
                 <div class="col-md-3">
                     <img src="{{asset('images/asset-5v2.png')}}" class="icon-image full" alt="">
@@ -89,7 +89,7 @@
                     <p>
                         Take steps that shape the future, not just survive the day.
                     </p>
-                    <a id="free-discovery-session-bottom" href="https://cal.com/wilng/free-coaching-session" target="_blank" class="read-more">Book Now &rarr;</a>
+                    <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Book Now &rarr;</a>
                 </div>
                 <div class="col-md-4">
                     <img src="{{asset('images/success-asset-2.png')}}" class="icon-image full" alt="">
