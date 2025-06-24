@@ -13,9 +13,11 @@ Implement an intermediate redirect tracking page to ensure all outbound cal.com 
 
 1. **Create a new Laravel route** (`/redirect-to-cal`) that accepts a `target` query parameter.
 2. **Build a minimal Blade view** (`redirect-to-cal.blade.php`) that:
-    - Fires a Google Analytics event via Google Tag Manager (`dataLayer.push({event: 'calcom_booking_click', ...})`).
+    - Includes the Google Analytics (or Google Tag Manager) partial to ensure a pageview is tracked.
     - Shows a brief “Redirecting...” message.
     - Redirects the user to the cal.com booking URL after a short delay (e.g., 1 second).
+
+**Note:** Pageviews to `/redirect-to-cal` with the appropriate `target` parameter will be tracked in Google Analytics. This is sufficient for measuring outbound booking attempts, as long as the GA partial is present.
 3. **Update all booking links** to point to `/redirect-to-cal?target=...` instead of directly to cal.com.
 4. **Validate the `target` parameter** on the backend to prevent open redirect vulnerabilities (only allow cal.com URLs).
 5. **Test event tracking** in Google Analytics Realtime and GTM Preview mode to confirm reliability.
