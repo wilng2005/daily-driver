@@ -63,7 +63,9 @@ Route::get('/insights', function () {
 
 Route::get('/insights/{slug}', function (string $slug) {
     $insight = \App\Models\Insight::where('slug', $slug)
-        ->with('sections')
+        ->with(['sections' => function ($query) {
+            $query->orderBy('order')->orderBy('id');
+        }])
         ->first();
     if (!$insight) {
         abort(404, 'Insight not found');
