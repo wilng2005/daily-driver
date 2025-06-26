@@ -71,6 +71,66 @@ class InsightTest extends TestCase
     }
 
     /** @test */
+    public function it_returns_sections_ordered_by_order_field()
+    {
+        $insight = Insight::factory()->create();
+        $sectionA = InsightSection::factory()->create([
+            'insight_id' => $insight->id,
+            'header' => 'Section A',
+            'order' => 2,
+        ]);
+        $sectionB = InsightSection::factory()->create([
+            'insight_id' => $insight->id,
+            'header' => 'Section B',
+            'order' => 1,
+        ]);
+        $sectionC = InsightSection::factory()->create([
+            'insight_id' => $insight->id,
+            'header' => 'Section C',
+            'order' => 3,
+        ]);
+
+        $response = $this->get("/insights/{$insight->slug}");
+        $response->assertStatus(200);
+        $response->assertViewHas('sections', function ($sections) {
+            $orders = collect($sections)->pluck('order')->all();
+            return $orders === [1, 2, 3];
+        });
+    }
+
+    /** @test */
+    public function it_orders_sections_by_id_when_order_is_the_same()
+    {
+        $insight = Insight::factory()->create();
+        $section1 = InsightSection::factory()->create([
+            'insight_id' => $insight->id,
+            'header' => 'Section 1',
+            'order' => 1,
+        ]);
+        $section2 = InsightSection::factory()->create([
+            'insight_id' => $insight->id,
+            'header' => 'Section 2',
+            'order' => 1,
+        ]);
+        $section3 = InsightSection::factory()->create([
+            'insight_id' => $insight->id,
+            'header' => 'Section 3',
+            'order' => 1,
+        ]);
+
+        // Shuffle creation order
+        $ids = [$section1->id, $section2->id, $section3->id];
+        sort($ids);
+
+        $response = $this->get("/insights/{$insight->slug}");
+        $response->assertStatus(200);
+        $response->assertViewHas('sections', function ($sections) use ($ids) {
+            $actualIds = collect($sections)->pluck('id')->all();
+            return $actualIds === $ids;
+        });
+    }
+
+    /** @test */
     public function it_only_returns_published_insights()
     {
         Carbon::setTestNow(Carbon::parse('2025-05-30 08:00:00'));
