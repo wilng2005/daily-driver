@@ -7,12 +7,9 @@
                         <h2>Ready to make a change?</h2>         
                         <br/>
 
-                        <p>You’re successful—or at least, others say you are.
-                        But something feels off.</p>
-
-                        <p>Your team is steady. Your career is predictable. Yet, the path you’re on doesn’t seem to lead where you want to be. Complacency is creeping in. The future looks “safe,” but not exciting. Or maybe you sense that one day, things could crumble suddenly.</p>
-
-                        <p>It’s easy to ignore the warning signs when everything seems fine. Real growth happens when you question the status quo and act before crisis hits.</p>
+                        <p>Your team is steady. Your job is predictable. Yet, the path you’re on doesn’t seem to lead where you want to be. Complacency and laziness might be getting the better of you. </p>
+                            
+                        <p>It’s easy to ignore the warning signs when everything seems fine. Real growth happens when you question the status quo and act before the crisis hits.</p>
 
                         <p>Discover if coaching is your catalyst for change—risk-free, with no obligation.</p>
                         <p>In just one free session, you’ll:</p>
