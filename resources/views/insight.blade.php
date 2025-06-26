@@ -51,7 +51,11 @@ $keywords=$insight->keywords;
         </div>
     </section>
     @if ($loop->index%4==2)
-        @include('partials.cta')
+        @php
+            $ctaSequence = ['cta', 'cta-b'];
+            $ctaFilename = $ctaSequence[mt_rand(0, 1)];
+        @endphp
+        @include('partials.' . $ctaFilename)
     @endif
 @endforeach
    
