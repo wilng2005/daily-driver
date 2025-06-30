@@ -33,6 +33,21 @@ Currently, the Delay Capture action in Nova only supports delaying a capture by 
 - [ ] Documentation and README updated to reflect the new feature.
 - [ ] 100% test coverage for the new action (including edge cases).
 
+## Current Status (as of 2025-06-30)
+
+- **Implementation**: The DelayUntilDate Nova action is implemented and registered on the Capture resource. The action uses a date picker, validates the date, and updates the capture as designed.
+- **Testing**:
+    - API-based feature tests were removed due to persistent 404 errors (Nova actions cannot be reliably tested via API; see previous session notes).
+    - Dusk browser tests are in place, using `DatabaseMigrations` and logging in as `User::find(1)`, with captures assigned to that user.
+    - Dusk tests currently fail because the test capture is not found/visible in the Nova UI. The failure is `NoSuchElementException` for the checkbox selector. This is likely due to Nova policies, user setup, or missing user properties required for visibility.
+- **Next Steps**:
+    - Add Dusk screenshot steps after visiting the captures index to debug what is rendered.
+    - Ensure the test user has all necessary properties set (e.g., `capture_resource_access = 'Self'` if required by policies).
+    - Review and adjust Nova policies/scopes as needed so the Dusk test user can see the test capture.
+    - Continue debugging with Dusk until the action is fully covered by passing browser tests.
+
+---
+
 ## Test Strategy
 
 ### 1. Unit and Feature Tests (PHP, Laravel Nova)
