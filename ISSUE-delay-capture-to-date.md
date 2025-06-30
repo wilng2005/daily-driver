@@ -34,18 +34,51 @@ Currently, the Delay Capture action in Nova only supports delaying a capture by 
 - [ ] 100% test coverage for the new action (including edge cases).
 
 ## Test Strategy
-- **Nova UI:**
-    - Date picker field is visible and required.
-    - Invalid dates (past dates, missing date) are rejected with clear errors.
-- **Model Logic:**
-    - Name prefixing follows the same convention as current duration-based delay, but uses the selected date.
-    - Inbox and next_action flags are set to false.
-- **Edge Cases:**
-    - Past dates
-    - Missing date
-    - Multiple captures delayed at once
-- **Feature Tests:**
-    - Test all logic branches and ensure 100% coverage.
+
+### 1. Unit and Feature Tests (PHP, Laravel Nova)
+
+#### a. Action UI and Validation
+- **Displays date picker:**
+  - Assert that the action modal shows a required date picker field.
+- **Date is required:**
+  - Submitting the action without a date should return a validation error.
+- **Date cannot be in the past:**
+  - Submitting a past date should return a validation error.
+
+#### b. Action Logic
+- **Correctly updates capture:**
+  - After running the action, the capture’s name is prefixed with the correct date-based string.
+  - The `inbox` and `next_action` fields are set to `false`.
+- **Handles multiple captures:**
+  - Running the action on multiple selected captures applies the logic to each one.
+
+#### c. Edge Cases
+- **Handles invalid input:**
+  - Submitting a non-date value or missing value is rejected.
+- **Handles timezone correctly:**
+  - The prefix uses the correct date (UTC or app timezone as appropriate).
+- **Does not alter unrelated fields:**
+  - Only the intended fields are changed.
+
+### 2. Dusk (Browser) Tests (Optional but recommended)
+- **Full user flow:**
+  - User selects one or more captures, runs the action, picks a date, and sees the expected changes in the UI.
+- **Error feedback:**
+  - User sees clear error messages for invalid/missing dates.
+
+### 3. Code Coverage
+- Ensure all code branches (success, each validation error, multiple models) are covered by tests.
+
+### Example Test Cases
+- `test_delay_until_date_action_requires_date`
+- `test_delay_until_date_action_rejects_past_date`
+- `test_delay_until_date_action_updates_capture_fields`
+- `test_delay_until_date_action_applies_to_multiple_captures`
+- `test_delay_until_date_action_handles_invalid_input`
+- `test_delay_until_date_action_prefixes_name_with_date`
+
+### Documentation
+- Document the test strategy and coverage in the README and the issue file, as per your project’s policies.
 
 ## References
 - [Current DelayCapture Action](app/Nova/Actions/DelayCapture.php)
