@@ -17,17 +17,20 @@ class DelayUntilDateActionTest extends DuskTestCase
     public function it_requires_a_date_to_delay_capture()
     {
         $user = User::find(1);
+        $user->capture_resource_access = 'Self';
+        $user->save();
         $capture = Capture::factory()->create(['user_id' => $user->id, 'name' => 'Test Capture', 'inbox' => true, 'next_action' => true]);
 
         $this->browse(function (Browser $browser) use ($user, $capture) {
             $browser->loginAs($user)
                 ->visit('/nova/resources/captures')
+                ->screenshot('delay_until_date_before_wait_for_text')
                 ->waitForText($capture->name)
-                ->check('input[type="checkbox"][value="'.$capture->id.'"]')
-                ->press('@actions-dropdown')
-                ->click('@action-delay-until-date')
+                ->click('@' . $capture->id . '-checkbox')
+                ->waitFor('@action-select')
+                ->select('@action-select', 'delay-until-date')
                 ->press('Run Action')
-                ->waitForText('The delay until field is required') // Adjust to match Nova's actual validation message
+                ->waitForText('The Delay Until field is required.') // Adjusted to match Nova's actual validation message
                 ;
         });
     }
@@ -36,6 +39,8 @@ class DelayUntilDateActionTest extends DuskTestCase
     public function it_delays_capture_until_valid_date()
     {
         $user = User::find(1);
+        $user->capture_resource_access = 'Self';
+        $user->save();
         $capture = Capture::factory()->create(['user_id' => $user->id, 'name' => 'Test Capture', 'inbox' => true, 'next_action' => true]);
         $futureDate = Carbon::now()->addDays(3)->toDateString();
 
@@ -43,10 +48,10 @@ class DelayUntilDateActionTest extends DuskTestCase
             $browser->loginAs($user)
                 ->visit('/nova/resources/captures')
                 ->waitForText($capture->name)
-                ->check('input[type="checkbox"][value="'.$capture->id.'"]')
-                ->press('@actions-dropdown')
-                ->click('@action-delay-until-date')
-                ->type('delay_until', $futureDate)
+                ->click('@' . $capture->id . '-checkbox')
+                ->waitFor('@action-select')
+                ->select('@action-select', 'delay-until-date')
+                ->type('@delay_until', $futureDate)
                 ->press('Run Action')
                 ->waitForText('Action executed successfully') // Adjust as needed
                 ;

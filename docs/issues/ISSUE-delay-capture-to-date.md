@@ -1,5 +1,28 @@
 # ISSUE: Add Nova Action to Delay Capture Until Specific Date
 
+---
+
+## ⏸️ Current Test/Debug Status (Paused at 2025-07-03 14:40 +08:00)
+
+- **Dusk tests for DelayUntilDate action are present but not passing.**
+- Checkbox and action dropdown selectors have been updated to match Nova 5 UI (using Dusk selectors).
+- The date field selector and validation message have also been updated, but:
+    - The test for missing date is "risky" (no assertion), likely because the expected validation message is not found or not shown as visible text.
+    - The test for a valid date times out waiting for 'Action executed successfully'—the success message may differ or not appear as plain text.
+- The backend Nova action may need improved validation and explicit success/error messaging.
+- The database and Sail/Selenium environment are confirmed working and up-to-date.
+
+### Next Steps for Future Work
+1. **Check the actual Nova UI after submitting the action (with and without a date):**
+    - Note the exact validation and success messages, and update the Dusk tests accordingly.
+    - Consider adding Dusk screenshot steps after submitting the action to capture the UI state.
+2. **Ensure the DelayUntilDate action backend returns proper validation and success responses/messages.**
+3. **Update Dusk tests to assert the correct messages or UI elements.**
+4. **Re-run Dusk tests and iterate until both tests pass.**
+
+---
+
+
 ## Background
 Currently, the Delay Capture action in Nova only supports delaying a capture by a fixed duration (e.g., 1 week, 1 month). However, there are cases where a user needs to delay a capture until a specific date, such as a known deadline or a future event. Supporting a date-based delay will improve flexibility and user experience for task management.
 
