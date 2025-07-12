@@ -96,5 +96,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('slick/slick.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('slick/slick-theme.css')}}" />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('sass/main.css')}}">
 </head>
