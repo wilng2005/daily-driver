@@ -313,6 +313,6 @@ By following this policy, the project will remain well-documented, easy to navig
 - **2025-05-19:** Added `POST /api/captures` endpoint for creating captures. Updated OpenAPI schema, feature tests, and documentation for endpoint, validation, and authentication. See [ISSUE-CREATE-CAPTURE-ENDPOINT.md](docs/issues/ISSUE-CREATE-CAPTURE-ENDPOINT.md).
 - **2025-05-18:** Added `PUT /api/captures/{id}` endpoint for updating captures. Updated OpenAPI schema, added feature tests and validation, and ensured 100% code coverage. See [ISSUE-UPDATE-CAPTURE-ENDPOINT.md](docs/issues/ISSUE-UPDATE-CAPTURE-ENDPOINT.md).
 
-_This README was last updated for the OpenAI random number endpoint, OpenAPI schema, and test coverage improvements (2025-05-21)._
+
 
 
