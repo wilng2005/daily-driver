@@ -2,23 +2,24 @@
 
 ---
 
-## ⏸️ Current Test/Debug Status (Paused at 2025-07-03 14:40 +08:00)
+## ✅ Completion Status (as of 2025-07-16 18:30 +08:00)
 
-- **Dusk tests for DelayUntilDate action are present but not passing.**
-- Checkbox and action dropdown selectors have been updated to match Nova 5 UI (using Dusk selectors).
-- The date field selector and validation message have also been updated, but:
-    - The test for missing date is "risky" (no assertion), likely because the expected validation message is not found or not shown as visible text.
-    - The test for a valid date times out waiting for 'Action executed successfully'—the success message may differ or not appear as plain text.
-- The backend Nova action may need improved validation and explicit success/error messaging.
-- The database and Sail/Selenium environment are confirmed working and up-to-date.
+- All Dusk tests for the DelayUntilDate action are passing.
+- The Nova action backend is fully implemented, including:
+  - Date-based name prefixing using `generate_delayed_name_prefix_for_date`.
+  - Setting `inbox` and `next_action` to false.
+  - Returning explicit success messages.
+- Dusk tests assert both validation and success messages, and include screenshot steps for debugging.
+- Unit tests cover the new static method for date-based prefixing, including edge cases.
+- Manual UI verification confirms correct behavior.
+- No further work is required unless new features or edge cases are identified.
 
-### Next Steps for Future Work
-1. **Check the actual Nova UI after submitting the action (with and without a date):**
-    - Note the exact validation and success messages, and update the Dusk tests accordingly.
-    - Consider adding Dusk screenshot steps after submitting the action to capture the UI state.
-2. **Ensure the DelayUntilDate action backend returns proper validation and success responses/messages.**
-3. **Update Dusk tests to assert the correct messages or UI elements.**
-4. **Re-run Dusk tests and iterate until both tests pass.**
+### Test Coverage
+- **Browser (Dusk) tests:**
+  - Require a date to delay capture (validation message)
+  - Delay capture until valid date (success message and backend update)
+- **Unit tests:**
+  - `generate_delayed_name_prefix_for_date` tested for prefixing, replacing existing prefix, empty names, and non-prefixed names
 
 ---
 

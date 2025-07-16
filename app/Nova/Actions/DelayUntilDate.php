@@ -21,7 +21,15 @@ class DelayUntilDate extends Action
      */
     public function handle(ActionFields $fields, Collection $models)
     {
-        // Implementation will be added after TDD cycle
+        foreach ($models as $model) {
+            if ($fields->delay_until) {
+                $model->name = $model::generate_delayed_name_prefix_for_date($model->name, $fields->delay_until);
+            }
+            $model->inbox = false;
+            $model->next_action = false;
+            $model->save();
+        }
+        return \Laravel\Nova\Actions\Action::message('The action was executed successfully.');
     }
 
     /**

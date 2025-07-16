@@ -53,6 +53,7 @@ class DelayUntilDateActionTest extends DuskTestCase
                 ->type('@delay_until', $futureDate)
                 ->press('Run Action')
                 ->screenshot('delay_until_date_after_run_action')
+                ->waitForText('The action was executed successfully.', 10)
                 ->assertSee('The action was executed successfully.')
                 ;
         });
