@@ -24,14 +24,13 @@ class DelayUntilDateActionTest extends DuskTestCase
         $this->browse(function (Browser $browser) use ($user, $capture) {
             $browser->loginAs($user)
                 ->visit('/nova/resources/captures')
-                ->screenshot('delay_until_date_before_wait_for_text')
                 ->waitForText($capture->name)
                 ->click('@' . $capture->id . '-checkbox')
                 ->waitFor('@action-select')
                 ->select('@action-select', 'delay-until-date')
                 ->press('Run Action')
-                ->waitForText('The Delay Until field is required.') // Adjusted to match Nova's actual validation message
-                ;
+                ->waitForText('The Delay Until field is required.')
+                ->assertSee('The Delay Until field is required.');
         });
     }
 
@@ -42,7 +41,7 @@ class DelayUntilDateActionTest extends DuskTestCase
         $user->capture_resource_access = 'Self';
         $user->save();
         $capture = Capture::factory()->create(['user_id' => $user->id, 'name' => 'Test Capture', 'inbox' => true, 'next_action' => true]);
-        $futureDate = Carbon::now()->addDays(3)->toDateString();
+        $futureDate = Carbon::now()->addDays(3)->format('d/m/Y');
 
         $this->browse(function (Browser $browser) use ($user, $capture, $futureDate) {
             $browser->loginAs($user)
@@ -53,7 +52,8 @@ class DelayUntilDateActionTest extends DuskTestCase
                 ->select('@action-select', 'delay-until-date')
                 ->type('@delay_until', $futureDate)
                 ->press('Run Action')
-                ->waitForText('Action executed successfully') // Adjust as needed
+                ->screenshot('delay_until_date_after_run_action')
+                ->assertSee('The action was executed successfully.')
                 ;
         });
     }
