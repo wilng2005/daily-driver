@@ -13,7 +13,7 @@
         "guzzlehttp/guzzle": "^7.4.5",
         "irazasyed/telegram-bot-sdk": "^3.11",
         "laravel/framework": "^11.0",
-        "laravel/nova": "^5.1.9",
+        "laravel/nova": "5.5.3",
         "laravel/sanctum": "^4.0",
         "laravel/scout": "^10.10",
         "laravel/tinker": "^2.8",

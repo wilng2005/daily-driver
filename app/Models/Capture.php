@@ -173,6 +173,23 @@ class Capture extends Model
         return $dateStr;
     }
 
+    /**
+     * Prefix the name with a specific date (Y-m-d), stripping any existing date prefix.
+     */
+    public static function generate_delayed_name_prefix_for_date($name, $date)
+    {
+        $dateStr = \Illuminate\Support\Carbon::parse($date)->format('Y-m-d');
+        if ($name) {
+            $potential_date_str = \Illuminate\Support\Str::substr($name, 0, 10);
+            if (\Illuminate\Support\Carbon::canBeCreatedFromFormat($potential_date_str, 'Y-m-d')) {
+                $name = \Illuminate\Support\Str::substr($name, 10);
+            }
+            return $dateStr . ' ' . trim($name);
+        }
+        return $dateStr;
+    }
+
+
     //@codeCoverageIgnoreStart
     public function toSearchableArray(): array
     {

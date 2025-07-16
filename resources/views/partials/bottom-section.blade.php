@@ -161,6 +161,21 @@
         <h2>
             Let's make tomorrow greater than today.
         </h2>
+        <div class="d-flex justify-content-center align-items-center gap-4 mt-3" aria-label="Social Media Links">
+            <a href="https://www.youtube.com/@greaterthantoday/" target="_blank" rel="noopener" aria-label="YouTube" class="text-white social-link fs-2">
+                <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://open.spotify.com/show/0BcUomCr0OurTp0zM6a8e5?si=O_V7Om9tRXuJ3Dyg87wqKA" target="_blank" rel="noopener" aria-label="Spotify" class="text-white social-link fs-2">
+                <i class="bi bi-spotify"></i>
+            </a>
+            <a href="https://www.tiktok.com/@wil.ng.2005" target="_blank" rel="noopener" aria-label="TikTok" class="text-white social-link fs-2">
+                <!-- TikTok is not in Bootstrap Icons; using SVG fallback -->
+                <svg width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M41.5 15.5c-3.6 0-6.5-2.9-6.5-6.5h-5v23c0 2.5-2 4.5-4.5 4.5s-4.5-2-4.5-4.5 2-4.5 4.5-4.5c.5 0 1 .1 1.5.2v-5.1c-.5-.1-1-.1-1.5-.1-5.2 0-9.5 4.3-9.5 9.5s4.3 9.5 9.5 9.5 9.5-4.3 9.5-9.5V20.6c1.9 1.2 4.1 1.9 6.5 1.9v-7z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/wilng2005/" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-white social-link fs-2">
+                <i class="bi bi-linkedin"></i>
+            </a>
+        </div>
     </div>
 </section>
 <footer>
