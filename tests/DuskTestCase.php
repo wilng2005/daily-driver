@@ -32,8 +32,15 @@ abstract class DuskTestCase extends BaseTestCase
      */
     protected function driver()
     {
+        $options = (new ChromeOptions)->addArguments([
+            '--lang=en-GB', // or your preferred locale
+            // ...other options
+        ]);
+
         return RemoteWebDriver::create(
-            $_ENV['DUSK_DRIVER_URL'] ?? 'http://localhost:9515', DesiredCapabilities::chrome()
+            $_ENV['DUSK_DRIVER_URL'] ?? 'http://localhost:9515', DesiredCapabilities::chrome()->setCapability(
+                ChromeOptions::CAPABILITY, $options
+            )
         );
     }
 
