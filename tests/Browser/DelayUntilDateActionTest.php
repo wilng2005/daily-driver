@@ -41,16 +41,15 @@ class DelayUntilDateActionTest extends DuskTestCase
         $user->capture_resource_access = 'Self';
         $user->save();
         $capture = Capture::factory()->create(['user_id' => $user->id, 'name' => 'Test Capture', 'inbox' => true, 'next_action' => true]);
-        $futureDate = Carbon::now()->addDays(3)->format('d/m/Y');
 
-        $this->browse(function (Browser $browser) use ($user, $capture, $futureDate) {
+        $this->browse(function (Browser $browser) use ($user, $capture) {
             $browser->loginAs($user)
                 ->visit('/nova/resources/captures')
                 ->waitForText($capture->name)
                 ->click('@' . $capture->id . '-checkbox')
                 ->waitFor('@action-select')
                 ->select('@action-select', 'delay-until-date')
-                ->type('@delay_until', $futureDate)
+                ->type('@delay_until', "12/12/2030")
                 ->press('Run Action')
                 ->screenshot('delay_until_date_after_run_action')
                 ->waitForText('The action was executed successfully.', 10)
