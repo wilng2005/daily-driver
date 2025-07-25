@@ -131,7 +131,7 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
                         </div>
                         <h2 class="mb-3">Wil Ng</h2>
                         <div>
-                            <p>Wil is a Resilience Coach who focuses in supporting men through tough seasons—burnout, failure, divorce, or job loss—offering clarity, encouragement, and strength through the storm.</p> 
+                            <p>Wil is a Resilience Coach who focuses in supporting men through tough seasons—burnout, personal failure, or job loss—offering clarity, encouragement, and strength through the storm.</p> 
                             <p>With over a decade of experience as a tech co-founder and Head of Engineering in financial services, Wil brings a unique blend of business insight, technical expertise, and relational depth. He has journeyed with leaders, engineers, and individuals through challenging times. </p><p>Outside of work, he’s a proud father of three and leads a Christ-centred household.</p> 
                             <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/casual-conversation') }}" target="_blank" class="read-more">Get in touch &rarr;</a>
                         </div>
