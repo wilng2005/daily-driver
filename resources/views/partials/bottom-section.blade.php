@@ -9,7 +9,7 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h4 class="mb-3">Free Trial</h4>
                     <p>
-                        Discover if coaching is right for you.
+                        Discover if this coaching relationship is right for you.
                     </p>
                     <p>
                         What's included:
@@ -23,7 +23,7 @@
                         Pricing
                     </p>
                     <ul>
-                        <li>Free for two weeks!</li>
+                        <li>Free for one month!</li>
                         
                     </ul>
                    
