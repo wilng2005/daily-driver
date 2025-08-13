@@ -26,8 +26,10 @@
                         <li>Free for one month!</li>
                         
                     </ul>
-                   
-                    <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Get Started &rarr;</a>
+                    <a href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}"target=”_blank” class="button">Get
+                                    Started - Free Session</a> 
+                        
+                    <!-- <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Get Started &rarr;</a> -->
                 </div>
                 <div class="col-md-5">
                     <h4 class="mb-3">Unlimited Coaching Program</h4>
@@ -89,7 +91,10 @@
                     <p>
                         Take steps that shape the future, not just survive the day.
                     </p>
-                    <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Book Now &rarr;</a>
+                    <br/>
+                    <a href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}"target=”_blank” class="button">Get
+                    Started - Free Session</a>
+                    <!-- <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Book Now &rarr;</a> -->
                 </div>
                 <div class="col-md-4">
                     <img src="{{asset('images/success-asset-2.png')}}" class="icon-image full" alt="">
@@ -109,47 +114,57 @@
             <div class="section-slider">
                 @foreach ($insights as $insight)
                 <div class="details-each">
-                    <h4 class="mb-3">{{ $insight->title }}</h4>
-                    <p>
-                    {{ $insight->description }}
-                    </p>
-                    <a href="{{ url('/insights/'.$insight->slug) }}" class="read-more">Read More &rarr;</a>
-                    @if ($loop->index % 3 === 2 && $insight->image_filename)
-                        <img src="{{ asset('images/'.$insight->image_filename) }}" class="icon-image mb-3 ms-auto" alt="">
-                    @endif
+                    <a href="{{ url('/insights/'.$insight->slug) }}" class="details-each-link">
+                        <h4 class="mb-3">{{ $insight->title }}</h4>
+                        <p>
+                        {{ $insight->description }}
+                        </p>
+                        <span class="read-more">Read More &rarr;</span>
+                        @if ($loop->index % 3 === 2 && $insight->image_filename)
+                            <img src="{{ asset('images/'.$insight->image_filename) }}" class="icon-image mb-3 ms-auto" alt="">
+                        @endif
+                    </a>
                 </div>
                 @endforeach
                 <div class="details-each">
-                    <h4 class="mb-3">New Job No Friends? You’re Not Alone</h4>
-                    <p>
-                    Starting your first tech job can feel isolating—but it doesn’t have to be. This guide shows you simple, proven ways to build real connections and feel like you belong.
-                    </p>
-                    <a href="{{ url('/article/new-job-no-friends-youre-not-alone') }}" class="read-more">Read More &rarr;</a>
-                    <img src="{{asset('images/asset-3v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                    <a href="{{ url('/article/new-job-no-friends-youre-not-alone') }}" class="details-each-link">
+                        
+                            <h4 class="mb-3">New Job No Friends? You’re Not Alone</h4>
+                            <p>
+                            Starting your first tech job can feel isolating—but it doesn’t have to be. This guide shows you simple, proven ways to build real connections and feel like you belong.
+                            </p>
+                            <span class="read-more">Read More &rarr;</span>
+                            <img src="{{asset('images/asset-3v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                    
+                    </a>
                 </div>
                 <div class="details-each">
-                    <h4 class="mb-3">Exhausted and Empty? Maybe It’s Burnout</h4>
-                    <p>
-                    Feeling utterly drained at the end of each day? If you’re a busy entrepreneur, engineer, or manager running on fumes, you’re not alone – and it’s not a personal failing.
-                    </p>
-                    <a href="{{ url('/article/exhausted-and-empty-maybe-its-burnout') }}" class="read-more">Read More &rarr;</a>
-                   
+                    <a href="{{ url('/article/exhausted-and-empty-maybe-its-burnout') }}" class="details-each-link">
+                        <h4 class="mb-3">Exhausted and Empty? Maybe It’s Burnout</h4>
+                        <p>
+                        Feeling utterly drained at the end of each day? If you’re a busy entrepreneur, engineer, or manager running on fumes, you’re not alone – and it’s not a personal failing.
+                        </p>
+                        <span class="read-more">Read More &rarr;</span>
+                    </a>
                 </div>
                 <div class="details-each">
-                    <h4 class="mb-3">Resilient Leadership: Recovering from Mistakes and Setbacks</h4>
-                    <p>
-                        Mistakes are inevitable, but how you respond defines your resilience. Learn how to navigate setbacks, adapt, and emerge stronger.
-                    </p>
-                    <a href="{{ url('/article/resilient-leadership-recovering-from-mistakes-and-setbacks') }}" class="read-more">Read More &rarr;</a>
-                   
+                    <a href="{{ url('/article/resilient-leadership-recovering-from-mistakes-and-setbacks') }}" class="details-each-link">
+                        <h4 class="mb-3">Resilient Leadership: Recovering from Mistakes and Setbacks</h4>
+                        <p>
+                            Mistakes are inevitable, but how you respond defines your resilience. Learn how to navigate setbacks, adapt, and emerge stronger.
+                        </p>
+                        <span class="read-more">Read More &rarr;</span>
+                    </a>
                 </div>
                 <div class="details-each">
-                    <h4 class="mb-3">Five Science-Backed Strategies to Recover from Burnout</h4>
-                    <p>
-                        Combating burnout requires more than rest alone; it involves actively completing the stress response cycle and replenishing...
-                    </p>
-                    <a href="{{ url('/article/five-science-backed-strategies') }}" class="read-more">Read More &rarr;</a>
-                    <img src="{{asset('images/success-asset-1.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                    <a href="{{ url('/article/five-science-backed-strategies') }}" class="details-each-link">
+                        <h4 class="mb-3">Five Science-Backed Strategies to Recover from Burnout</h4>
+                        <p>
+                            Combating burnout requires more than rest alone; it involves actively completing the stress response cycle and replenishing...
+                        </p>
+                        <span class="read-more">Read More &rarr;</span>
+                        <img src="{{asset('images/success-asset-1.png')}}" class="icon-image mb-3 ms-auto" alt="">
+                    </a>
                 </div>
             </div>
         </div>

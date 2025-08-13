@@ -21,15 +21,23 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
 
     <main>
         <section class="background--white">
-            <div class="col-12 container">
-                <div class="section-header-con">
-                   
-<h1 style="font-size:2rem;">
-    <em>"{{ $randomCareerMessage }}"</em>
-</h1>
-                    <div class="mt-5 text-end">
-                        <!-- <a href="https://cal.com/wilng/tech-lead-coaching" target=”_blank” class="button">Get
-                            Started</a> -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="section-header-con">
+                            
+                            <h1 style="font-size:2rem;">
+                                <em>"{{ $randomCareerMessage }}"</em>
+                            </h1>
+                            <br/>
+                                <a href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}"target=”_blank” class="button">Get
+                                    Started - Free Session</a> 
+                        
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                       
+                        <img src="{{ asset('images/exhausted-1.png') }}" class="icon-image full" alt="">
                     </div>
                 </div>
             </div>
