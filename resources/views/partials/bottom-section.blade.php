@@ -26,8 +26,10 @@
                         <li>Free for one month!</li>
                         
                     </ul>
-                   
-                    <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Get Started &rarr;</a>
+                    <a href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}"target=”_blank” class="button">Get
+                                    Started - Free Session</a> 
+                        
+                    <!-- <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Get Started &rarr;</a> -->
                 </div>
                 <div class="col-md-5">
                     <h4 class="mb-3">Unlimited Coaching Program</h4>
@@ -89,7 +91,10 @@
                     <p>
                         Take steps that shape the future, not just survive the day.
                     </p>
-                    <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Book Now &rarr;</a>
+                    <br/>
+                    <a href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}"target=”_blank” class="button">Get
+                    Started - Free Session</a>
+                    <!-- <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Book Now &rarr;</a> -->
                 </div>
                 <div class="col-md-4">
                     <img src="{{asset('images/success-asset-2.png')}}" class="icon-image full" alt="">
@@ -119,6 +124,7 @@
                     @endif
                 </div>
                 @endforeach
+  
                 <div class="details-each">
                     <h4 class="mb-3">New Job No Friends? You’re Not Alone</h4>
                     <p>
@@ -127,6 +133,8 @@
                     <a href="{{ url('/article/new-job-no-friends-youre-not-alone') }}" class="read-more">Read More &rarr;</a>
                     <img src="{{asset('images/asset-3v2.png')}}" class="icon-image mb-3 ms-auto" alt="">
                 </div>
+              
+                <a href="{{ url('/article/exhausted-and-empty-maybe-its-burnout') }}" class="details-link">
                 <div class="details-each">
                     <h4 class="mb-3">Exhausted and Empty? Maybe It’s Burnout</h4>
                     <p>
