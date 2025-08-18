@@ -34,9 +34,19 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
                                     Started - Free Session</a> 
                         
                         </div>
+                        <br/>
+                        <iframe 
+                            width="560" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/4MRvolSjhzI" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
                     <div class="col-md-5">
-                       
+                   
                         <img src="{{ asset('images/exhausted-1.png') }}" class="icon-image full" alt="">
                     </div>
                 </div>
