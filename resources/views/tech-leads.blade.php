@@ -178,6 +178,9 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
                         </div>
                     </div>
                     <div class="d-flex align-items-center row">
+                        <div class="px-4 col-12 col-md-5">
+                            <img src="{{asset('images/testimony-2.png')}}" class="icon-image full" alt="">
+                        </div>
                         <div class="px-4 col-12 col-md-7">
                             <h2 class="mb-4 mb-lg-5"><b>
                                     <div class="quote">“</div>
@@ -185,9 +188,7 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
                                 </b></h2>
                             <p> — Adeline Pang, Product Owner</p>
                         </div>
-                        <div class="px-4 col-12 col-md-5">
-                            <img src="{{asset('images/testimony-2.png')}}" class="icon-image full" alt="">
-                        </div>
+                       
                     </div>
                     <div class="d-flex align-items-center row">
                         <div class="px-4 col-12 col-md-7">
@@ -206,6 +207,9 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
                     
                     
                     <div class="d-flex align-items-center row">
+                    <div class="px-4 col-12 col-md-5">
+                            <img src="{{asset('images/testimony-3.png')}}" class="icon-image full" alt="">
+                        </div>
                         <div class="px-4 col-12 col-md-7">
                             <h2 class="mb-4 mb-lg-5"><b>
                                     <div class="quote">“</div>
@@ -213,9 +217,7 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
                                 </b></h2>
                             <p> — Ain Kamis, Scrum Master</p>
                         </div>
-                        <div class="px-4 col-12 col-md-5">
-                            <img src="{{asset('images/testimony-3.png')}}" class="icon-image full" alt="">
-                        </div>
+                        
                     </div>
                     <div class="d-flex align-items-center row">
                         <div class="px-4 col-12 col-md-7">
@@ -230,6 +232,9 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
                         </div>
                     </div>
                     <div class="d-flex align-items-center row">
+                        <div class="px-4 col-12 col-md-5">
+                            <img src="{{asset('images/testimony-4.png')}}" class="icon-image full" alt="">
+                        </div>
                         <div class="px-4 col-12 col-md-7">
                             <h2 class="mb-4 mb-lg-5"><b>
                                     <div class="quote">“</div>
@@ -237,9 +242,7 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
                                 </b></h2>
                             <p> — Michelle Lai, Assistant Vice President</p>
                         </div>
-                        <div class="px-4 col-12 col-md-5">
-                            <img src="{{asset('images/testimony-4.png')}}" class="icon-image full" alt="">
-                        </div>
+                        
                     </div>
                     
                 </div>
@@ -247,32 +250,4 @@ $keywords="technology, leadership, software engineering, tech leads, CTO coachin
         </section>
        
         @include('partials.bottom-section')
-
-        <script type="text/javascript">
-
-
-            $('.testimony-slider').slick({
-                arrows: false,
-                dots: true,
-                infinite: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                adaptiveHeight: true,
-                responsive: [{
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                }, {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                }, ]
-                
-            });
-
-        </script>
 </html>
