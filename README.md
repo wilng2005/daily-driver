@@ -39,8 +39,12 @@ For a detailed breakdown of Nova admin features and workflows, see [docs/NOVA-FE
 - **DELETE /api/captures/{id}** — Soft delete a capture by ID. Marks the capture as deleted (using Laravel SoftDeletes) without removing it from the database. Requires API token. Returns 204 No Content on success. See OpenAPI schema at `/api/open-ai/schema` for details.
 - **GET /api/open-ai/random-number** — Generate a random integer in a given range (public endpoint). By default, returns a number between 1 and 12 (simulates a 12-sided die). Accepts optional `min` and `max` query parameters. See OpenAPI schema at `/api/open-ai/random-number/schema` for full details.
 
-For instructions on using this endpoint inside ChatGPT or as a plugin/tool, see:
+- **GET /api/open-ai/timestamp** — Return the current date/time in a specified timezone (public endpoint). Defaults to `Asia/Singapore`; accepts optional `timezone` query parameter (IANA timezone). See OpenAPI schema at `/api/open-ai/timestamp/schema` for details.
+
+For instructions on using these endpoints inside ChatGPT or as a plugin/tool, see:
 [docs/USING-RANDOM-NUMBER-API-IN-CHATGPT.md](docs/USING-RANDOM-NUMBER-API-IN-CHATGPT.md)
+and
+[docs/USING-TIMESTAMP-API-IN-CHATGPT.md](docs/USING-TIMESTAMP-API-IN-CHATGPT.md)
 
 ### 📰 AI-Generated Articles
 See the [AI-Generated Articles Feature Plan](docs/issues/FEATURE-AI-ARTICLES.md) for the roadmap and technical details of the automated articles section, which provides regularly updated coaching content powered by AI and reviewed via the Nova admin panel.
@@ -310,6 +314,7 @@ By following this policy, the project will remain well-documented, easy to navig
 - **2025-05-17:** Added `/api/next-actions` endpoint for prioritized next actions, updated OpenAPI schema, and added full test coverage for filtering and sorting. See [ISSUE-NEXT-ACTIONS-ENDPOINT.md](docs/ISSUE-NEXT-ACTIONS-ENDPOINT.md).
 
 - **2025-05-21:** Added `GET /api/open-ai/random-number` endpoint (public) for generating random numbers in a customizable range, with OpenAPI schema and full feature test coverage. See [ISSUE-OPENAI-RANDOM-NUMBER-ENDPOINT.md](docs/issues/ISSUE-OPENAI-RANDOM-NUMBER-ENDPOINT.md).
+- **2025-06-01:** Added `GET /api/open-ai/timestamp` endpoint (public) for timezone-aware current timestamps with default `Asia/Singapore`, plus OpenAPI schema and tests. See [ISSUE-OPENAI-TIMESTAMP-ENDPOINT.md](docs/issues/ISSUE-OPENAI-TIMESTAMP-ENDPOINT.md).
 - **2025-05-19:** Added `POST /api/captures` endpoint for creating captures. Updated OpenAPI schema, feature tests, and documentation for endpoint, validation, and authentication. See [ISSUE-CREATE-CAPTURE-ENDPOINT.md](docs/issues/ISSUE-CREATE-CAPTURE-ENDPOINT.md).
 - **2025-05-18:** Added `PUT /api/captures/{id}` endpoint for updating captures. Updated OpenAPI schema, added feature tests and validation, and ensured 100% code coverage. See [ISSUE-UPDATE-CAPTURE-ENDPOINT.md](docs/issues/ISSUE-UPDATE-CAPTURE-ENDPOINT.md).
 
