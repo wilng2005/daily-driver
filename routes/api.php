@@ -26,6 +26,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('open-ai/random-number', [OpenAiController::class, 'randomNumber']);
 Route::get('open-ai/random-number/schema', [OpenAiController::class, 'randomNumberSchema']);
 
+// OpenAI Timestamp Endpoints (public)
+Route::get('open-ai/timestamp', [OpenAiController::class, 'timestamp']);
+Route::get('open-ai/timestamp/schema', [OpenAiController::class, 'timestampSchema']);
+
 Route::get('open-ai/schema', function () {
 
 
