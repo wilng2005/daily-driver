@@ -11,7 +11,7 @@
         "postcss": "^8.4.31",
         "sass": "^1.90.0",
         "terser": ">=5.14.2",
-        "vite": "^6.3.5"
+        "vite": "^6.3.6"
     },
     "dependencies": {
         "livereload": "^0.9.3"
