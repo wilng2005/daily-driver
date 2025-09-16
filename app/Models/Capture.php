@@ -13,7 +13,7 @@ use Laravel\Scout\Searchable;
 class Capture extends Model
 {
     protected $fillable = [
-        'name', 'content', 'priority_no', 'inbox', 'next_action'
+        'name', 'content', 'priority_no', 'inbox', 'next_action', 'ai_delay_suggestion'
     ];
 
     use HasFactory;
