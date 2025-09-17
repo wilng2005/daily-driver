@@ -146,6 +146,7 @@ class Capture extends Resource
             new Actions\CleanupMarkdownContent,
             new Actions\RefreshPriority,
             new Actions\ChangePriorityNo,
+            new Actions\GenerateAiDelaySuggestions,
         ];
     }
 
