@@ -12,7 +12,7 @@ environments:
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
             - 'php artisan event:cache'
-            - 'npm ci && npm run build && rm -rf node_modules'
+            - 'pnpm install --frozen-lockfile && pnpm run build && rm -rf node_modules'
         deploy:
             - 'php artisan migrate --force'
             - 'php artisan telegram:setwebhook'
@@ -27,7 +27,7 @@ environments:
         build:
             - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install'
             - 'php artisan event:cache'
-            - 'npm ci && npm run build && rm -rf node_modules'
+            - 'pnpm install --frozen-lockfile && pnpm run build && rm -rf node_modules'
         deploy:
             - 'php artisan migrate'
             - 'php artisan telegram:setwebhook'
