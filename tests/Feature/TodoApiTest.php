@@ -240,6 +240,7 @@ class TodoApiTest extends TestCase
             'priority_no' => 42,
             'inbox' => false,
             'next_action' => false,
+            'ai_delay_suggestion' => 'Delay 3 days',
         ];
         $response = $this->withHeaders([
             'X-API-Token' => config('app.api_token'),
@@ -251,6 +252,7 @@ class TodoApiTest extends TestCase
                 'priority_no' => 42,
                 'inbox' => false,
                 'next_action' => false,
+                'ai_delay_suggestion' => 'Delay 3 days',
             ]);
         $this->assertDatabaseHas('captures', [
             'name' => 'Another Capture',
@@ -294,6 +296,19 @@ class TodoApiTest extends TestCase
         ])->postJson('/api/captures', $payload);
         $response->assertStatus(422)
             ->assertJsonValidationErrors(['content']);
+
+        // ai_delay_suggestion too long
+        $payload = [
+            'name' => 'Valid name',
+            'content' => 'Valid content',
+            'ai_delay_suggestion' => str_repeat('a', 256),
+        ];
+        $response = $this->withHeaders([
+            'X-API-Token' => config('app.api_token'),
+            'Accept' => 'application/json',
+        ])->postJson('/api/captures', $payload);
+        $response->assertStatus(422)
+            ->assertJsonValidationErrors(['ai_delay_suggestion']);
     }
 
     /**
@@ -360,6 +375,8 @@ class TodoApiTest extends TestCase
             ['name' => 'Valid', 'content' => '...', 'priority_no' => 1, 'inbox' => 'notabool', 'next_action' => false],
             // next_action not boolean
             ['name' => 'Valid', 'content' => '...', 'priority_no' => 1, 'inbox' => false, 'next_action' => 'notabool'],
+            // ai_delay_suggestion too long
+            ['name' => 'Valid', 'content' => '...', 'priority_no' => 1, 'inbox' => false, 'next_action' => false, 'ai_delay_suggestion' => str_repeat('a', 256)],
         ];
         foreach ($invalidPayloads as $payload) {
             $response = $this->withHeader('X-API-Token', 'test-token')
