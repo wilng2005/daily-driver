@@ -78,6 +78,7 @@ class Capture extends Resource
                 }
             ),
             Markdown::make('Content')->alwaysShow(),
+            Text::make('AI Delay Suggestion', 'ai_delay_suggestion')->nullable()->help('AI-generated delay recommendation for this capture'),
             Boolean::make('Inbox')->showOnPreview()->sortable()->default(true),
             Boolean::make('Next Action')->showOnPreview()->sortable()->default(false),
             Stack::make('Create/Updated', [

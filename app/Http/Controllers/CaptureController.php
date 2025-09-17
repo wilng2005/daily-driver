@@ -19,6 +19,7 @@ class CaptureController extends Controller
             'priority_no' => 'nullable|integer|min:0',
             'inbox' => 'sometimes|boolean',
             'next_action' => 'sometimes|boolean',
+            'ai_delay_suggestion' => 'nullable|string|max:255',
         ]);
 
         // Set defaults for optional fields
@@ -28,6 +29,7 @@ class CaptureController extends Controller
         $capture->priority_no = $validated['priority_no'] ?? null;
         $capture->inbox = array_key_exists('inbox', $validated) ? $validated['inbox'] : true;
         $capture->next_action = array_key_exists('next_action', $validated) ? $validated['next_action'] : true;
+        $capture->ai_delay_suggestion = $validated['ai_delay_suggestion'] ?? null;
         // TECHNICAL DEBT: Hardcoded for single-user environment. See README and issue docs for details.
         $capture->user_id = 1;
         $capture->save();
@@ -49,11 +51,12 @@ class CaptureController extends Controller
             'priority_no' => 'nullable|integer|min:0',
             'inbox' => 'required|boolean',
             'next_action' => 'required|boolean',
+            'ai_delay_suggestion' => 'nullable|string|max:255',
         ]);
 
         // Only update allowed fields
         $capture->fill(array_intersect_key($validated, array_flip([
-            'name', 'content', 'priority_no', 'inbox', 'next_action'
+            'name', 'content', 'priority_no', 'inbox', 'next_action', 'ai_delay_suggestion'
         ])));
         $capture->save();
 

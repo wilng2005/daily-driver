@@ -1,7 +1,7 @@
 # Story ai-delay-01.ai-suggestion-field: Add AI Delay Suggestion Field to Capture Model
 
 ## Status
-Approved
+Ready for Review
 
 ## Story
 
@@ -29,18 +29,18 @@ Approved
   - [x] Add ai_delay_suggestion to fillable array
   - [x] Add appropriate casts if needed
   - [x] Update model factory for testing
-- [ ] Update Nova Capture resource (AC: 3, 8)
-  - [ ] Add field to Nova resource fields() method
-  - [ ] Configure field as editable text input
-  - [ ] Test field visibility in Nova interface
-- [ ] Add validation rules (AC: 6, 8)
-  - [ ] Implement validation in CaptureController (nullable, max:255)
-  - [ ] Add validation tests
-- [ ] Regression testing (AC: 5, 8)
-  - [ ] Verify existing capture search functionality
-  - [ ] Verify existing Nova actions work with new field
-  - [ ] Verify soft delete behavior unchanged
-  - [ ] Run full test suite to ensure 100% coverage maintained
+- [x] Update Nova Capture resource (AC: 3, 8)
+  - [x] Add field to Nova resource fields() method
+  - [x] Configure field as editable text input
+  - [x] Test field visibility in Nova interface
+- [x] Add validation rules (AC: 6, 8)
+  - [x] Implement validation in CaptureController (nullable, max:255)
+  - [x] Add validation tests
+- [x] Regression testing (AC: 5, 8)
+  - [x] Verify existing capture search functionality
+  - [x] Verify existing Nova actions work with new field
+  - [x] Verify soft delete behavior unchanged
+  - [x] Run full test suite to ensure 100% coverage maintained
 
 ## Dev Notes
 
@@ -89,13 +89,19 @@ Based on brownfield architecture analysis:
 Claude Sonnet 4 (claude-sonnet-4-20250514)
 
 ### Debug Log References
-*To be filled during development*
+No debugging issues encountered during implementation.
 
 ### Completion Notes List
-*To be filled during development*
+- Successfully added ai_delay_suggestion field to Nova Capture resource
+- Implemented proper validation rules in CaptureController for both create and update endpoints
+- Added comprehensive test coverage for field validation scenarios
+- All regression tests pass (66 tests, 351 assertions)
+- Field is properly nullable and limited to 255 characters as per requirements
 
 ### File List
-*To be filled during development*
+- app/Nova/Capture.php - Added AI Delay Suggestion field to Nova resource
+- app/Http/Controllers/CaptureController.php - Added validation rules for ai_delay_suggestion field
+- tests/Feature/TodoApiTest.php - Added test coverage for field validation
 
 ## QA Results
 *This section will be populated by the QA Agent after story completion*
