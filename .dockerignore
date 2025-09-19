@@ -1,0 +1,14 @@
+.git
+coverage/
+coverage-report/
+.phpunit.cache/
+tests/
+.env*
+!.env.example
+node_modules/
+.bmad-core/
+.claude/
+.cursor/
+.vscode/
+.windsurf/
+docker/
