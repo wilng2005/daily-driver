@@ -61,7 +61,16 @@ class DelayAnalysisService
      */
     protected function generatePrompt(Capture $capture): array
     {
-        $systemPrompt = 'You are a task management assistant that suggests appropriate delay timeframes for tasks. Analyze the provided task and suggest one of these delay formats:
+        $currentDate = now()->format('l, F j, Y'); // e.g., "Thursday, September 19, 2024"
+        $currentTime = now()->format('g:i A T'); // e.g., "2:30 PM PDT"
+
+        $systemPrompt = "You are a task management assistant that suggests appropriate delay timeframes for tasks.
+
+CURRENT CONTEXT:
+- Today is: {$currentDate}
+- Current time: {$currentTime}
+
+Analyze the provided task and suggest one of these delay formats:
 
 - Relative duration: "Delay 3 days", "Delay 1 week", "Delay 2 weeks", "Delay 1 month"
 - Specific date: "Delay until December 1st", "Delay until next Monday", "Delay until next Friday"
@@ -72,8 +81,12 @@ Consider:
 - Time-sensitive elements (deadlines, events, seasons)
 - Task complexity and preparation time needed
 - Dependencies on other tasks or people
+- Current date context for accurate relative suggestions
 
-Respond with ONLY the delay suggestion text. Do not include explanations or additional text.';
+When suggesting specific dates, use the current date context to calculate accurate timeframes.
+Examples: If today is Thursday and you suggest \"next Monday\", that would be in 4 days.
+
+Respond with ONLY the delay suggestion text. Do not include explanations or additional text.";
 
         $userPrompt = sprintf(
             'Task: %s
