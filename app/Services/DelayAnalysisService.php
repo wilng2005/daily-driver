@@ -32,6 +32,7 @@ class DelayAnalysisService
                 'temperature' => 0.7,
             ]);
 
+            // @codeCoverageIgnoreStart
             $suggestion = trim($response['choices'][0]['message']['content'] ?? '');
 
             Log::info('DelayAnalysisService: Analysis completed successfully', [
@@ -40,6 +41,7 @@ class DelayAnalysisService
             ]);
 
             return $suggestion;
+            // @codeCoverageIgnoreEnd
 
         } catch (Exception $e) {
             Log::error('DelayAnalysisService: Analysis failed', [

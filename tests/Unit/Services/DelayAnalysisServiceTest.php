@@ -6,6 +6,7 @@ use App\Models\Capture;
 use App\Services\DelayAnalysisService;
 use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use OpenAI\Laravel\Facades\OpenAI;
 use Tests\TestCase;
 
 class DelayAnalysisServiceTest extends TestCase
@@ -148,4 +149,5 @@ class DelayAnalysisServiceTest extends TestCase
         $this->assertTrue($reflection->hasMethod('generatePrompt'));
         $this->assertTrue($reflection->getMethod('generatePrompt')->isProtected());
     }
+
 }
