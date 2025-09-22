@@ -64,6 +64,19 @@ jobs:
         run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_LICENSE_KEY }}
       - name: Install Project Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      - name: Install frontend dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build assets
+        run: pnpm run build
       - name: Deploy Environment
         run: vapor deploy production
         env:
