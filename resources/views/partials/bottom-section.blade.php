@@ -50,8 +50,8 @@
                         Pricing
                     </p>
                     <ul>
-                        <li>Monthly: SGD$240</li>
-                        <li>Annual: SGD$2400 <em>(that's two months free!)</em></li>
+                        <li>Monthly: SGD$270</li>
+                        <li>Annual: SGD$2,700 <em>(that's two months free!)</em></li>
                     </ul>
                     <a id="free-discovery-session-bottom" href="{{ url('/redirect-to-cal?target=https://cal.com/wilng/free-coaching-session') }}" target="_blank" class="read-more">Book Now &rarr;</a>
                 </div>
