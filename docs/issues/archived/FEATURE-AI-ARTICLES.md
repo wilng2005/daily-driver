@@ -1,5 +1,7 @@
 # Feature Plan: AI-Generated Articles Section
 
+> **DEPRECATED (2026-01-05):** This feature has been superseded by the **Insights Module** (FEATURE-INSIGHTS-MODULE.md). The Insights module provides more sophisticated multi-section content with better editorial control and visual flexibility. All future content will use Insights. This document is archived for historical reference.
+
 > **Note (2025-05-09):** The current focus is to deploy a basic article page and finalize the design and layout for articles. Before integrating any AI-generated content, we will hard-code three high-quality articles into the website. AI automation will only proceed after these static articles are reviewed and the article experience is validated.
 
 ---
